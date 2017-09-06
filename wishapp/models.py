@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class User(models.Model):
     first_name = models.CharField(max_length=30)
@@ -15,3 +16,4 @@ class Wishmaker(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.user, self.publication_date)
 
+admin.site.register(Wishmaker)

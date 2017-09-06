@@ -7,14 +7,27 @@
     <title>Wishlist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap-social-gh-pages/bootstrap-social.css" %}">
     <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 </head>
 <body>
-
-
+<div class="container">
+     <div class="row">
+         <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4 well well-sm">
+             <legend><a href="http://bootstraptema.ru/stuff/0-0-0-0-1"><i class="glyphicon glyphicon-user"></i></a> creating desire</legend>
+             <form action="#" method="post" class="form" role="form">{% csrf_token %}
+                 <input class="form-control" name="name" placeholder="your name" type="text" />
+                 <textarea name="desire" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="your desire"></textarea>
+                 <button class="btn btn-lg btn-primary btn-block" type="submit">save</button>
+             </form>
+         </div>
+     </div>
+</div>
+{{ a }}
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
 </body>

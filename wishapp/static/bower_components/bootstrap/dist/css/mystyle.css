@@ -1,4 +1,6 @@
-legend {
-    font-size: large;
-    text-transform: uppercase;
+.social-bt{
+    margin: 12px;
+}
+.well{
+   margin-left: 0;
 }

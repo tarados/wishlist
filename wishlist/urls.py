@@ -20,5 +20,5 @@ from wishapp import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^$', views.test),
+    url(r'^$', views.desire),
 ]

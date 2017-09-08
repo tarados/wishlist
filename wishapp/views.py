@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from wishapp import models
-from wishapp.models import User, Wishmaker
 import datetime
 
 def desire (request):

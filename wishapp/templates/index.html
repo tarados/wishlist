@@ -29,15 +29,41 @@
 <!-- wish create zone -->
      <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4 well well-sm">
-             <legend><a href="http://bootstraptema.ru/stuff/0-0-0-0-1"><i class="glyphicon glyphicon-home"></i></a> BootstrapТема</legend>
+             <legend><i class="glyphicon glyphicon-user"></i> Create your wish here</legend>
              <form action="#" method="post" class="form" role="form">{% csrf_token %}
-                 <input class="form-control" name="name" placeholder="Ваше Имя" type="text" />
-                 <textarea name="desire" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Текст сообщения"></textarea>
-                 <button class="btn btn-lg btn-primary btn-block" type="submit">Отправить</button>
+                 <input class="form-control" name="name" placeholder="your name" type="text" />
+                 <textarea name="desire" id="message" class="form-control" rows="2" cols="25" required="required" placeholder="your desire"></textarea>
+                 <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
              </form>
+         </div>
+<!-- wish show zone -->
+         <div class="col-md-8">
+                      <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>name</th>
+                                        <th>image</th>
+                                        <th>desire</th>
+                                        <th>publication date</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>{{ publication_date }}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
          </div>
      </div>
  </div>
+
+
+
 {{ a }}
 
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>

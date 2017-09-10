@@ -21,10 +21,11 @@
 <!-- social button zone -->
 <div class="container">
     <div class="row">
-        <div class="col-md-3 social-bt">
-            <a class="btn btn-block btn-social btn-vk"><span class="fa fa-vk"></span> Sign in with VK</a>
-            <a class="btn btn-block btn-social btn-twitter"><span class="fa fa-twitter"></span> Sign in with Twitter</a>
-        </div>
+        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-vk"></span> Sign in with VK</a></div>
+        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-facebook"></span> Sign in with Facebook</a></div>
+        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-istagram"></span> Sign in with VK</a></div>
+        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-vk"></span> Sign in with VK</a></div>
+
     </div>
 <!-- wish create zone -->
      <div class="row">
@@ -43,19 +44,19 @@
                                       <tr>
                                         <th>#</th>
                                         <th>name</th>
-                                        <th>image</th>
                                         <th>desire</th>
                                         <th>publication date</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+                                    {% for a in a %}
                                       <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>{{ publication_date }}</td>
+                                        <th scope="row">{{ a.id }}</th>
+                                        <td>{{ a.user }}</td>
+                                        <td>{{ a.description }}</td>
+                                        <td>{{ a.publication_date }}</td>
                                       </tr>
+                                    {% endfor %}
                                     </tbody>
                                   </table>
          </div>
@@ -64,7 +65,7 @@
 
 
 
-{{ a }}
+
 
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>

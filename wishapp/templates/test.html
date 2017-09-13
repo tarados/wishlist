@@ -1,0 +1,84 @@
+{% load staticfiles %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="wrk">create your desire</a></li>
+                    <li><a href="#" class="wrk">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#myModal" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HTML-код модального окна -->
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Заголовок модального окна -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Login form</h4>
+          </div>
+          <!-- Основное содержимое модального окна -->
+          <div class="modal-body">
+            <!-- Форма входа -->
+    		<form role="form">
+    			<fieldset>
+    				<hr class="colorgraph">
+    				<div class="form-group">
+                        <input type="email" name="name" id="email" class="form-control input-lg" placeholder="enter your name">
+    				</div>
+    				<div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="password">
+    				</div>
+    					<a href="" class="btn btn-link pull-right">Забыли пароль?</a><br />
+    				<hr class="colorgraph">
+    				<div class="row">
+    					<div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Вход">
+    					</div>
+    					<div class="col-xs-6 col-sm-6 col-md-6">
+    						<a href="" class="btn btn-lg btn-primary btn-block">Регистрация</a>
+    					</div>
+    				</div>
+    			</fieldset>
+    		</form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid bg-3 text-center">
+        <div class="row">
+            <div class="col-sm-3">
+                <p>Some text..</p>
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
+            </div>
+        </div>
+    </div><br>
+
+
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}"></script>
+    <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+
+
+</body>
+</html>

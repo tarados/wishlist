@@ -3,6 +3,7 @@ from django.contrib import admin
 
 class Wishmaker(models.Model):
     user = models.CharField(max_length=40)
+    password = models.CharField(max_length=40)
     description = models.TextField()
     publication_date = models.DateField()
 

@@ -9,4 +9,4 @@ def desire (request):
         record = Wishmaker.objects.create(user=name, description=desires, publication_date=datetime.datetime.now())
         record.save()
     a = Wishmaker.objects.all()
-    return render(request, 'index.html', locals())
+    return render(request, 'test.html', locals())

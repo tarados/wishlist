@@ -5,3 +5,7 @@ $(document).ready(function(){
     $("#myModal").modal('show');
   });
 });
+function as() {
+  alert('aaaaaaaa');
+  };
+

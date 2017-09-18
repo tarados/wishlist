@@ -18,54 +18,17 @@
 
 </head>
 <body>
-<!-- social button zone -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-vk"></span> Sign in with VK</a></div>
-        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-facebook"></span> Sign in with Facebook</a></div>
-        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-istagram"></span> Sign in with VK</a></div>
-        <div class="col-md-2 social-bt"><a class="btn btn-block btn-social btn-vk"><span class="fa fa-vk"></span> Sign in with VK</a></div>
-
-    </div>
-<!-- wish create zone -->
-     <div class="row">
-         <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4 well well-sm">
-             <legend><i class="glyphicon glyphicon-user"></i> Create your wish here</legend>
-             <form action="#" method="post" class="form" role="form">{% csrf_token %}
-                 <input class="form-control" name="name" placeholder="your name" type="text" />
-                 <textarea name="desire" id="message" class="form-control" rows="2" cols="25" required="required" placeholder="your desire"></textarea>
-                 <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
-             </form>
-         </div>
-<!-- wish show zone -->
-         <div class="col-md-8">
-                      <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th>#</th>
-                                        <th>name</th>
-                                        <th>desire</th>
-                                        <th>publication date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for a in a %}
-                                      <tr>
-                                        <th scope="row">{{ a.id }}</th>
-                                        <td>{{ a.user }}</td>
-                                        <td>{{ a.description }}</td>
-                                        <td>{{ a.publication_date }}</td>
-                                      </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                  </table>
-         </div>
-     </div>
- </div>
-
-
-
-
+<!-- head page-->
+<div class = "page-header">
+   <h1>Пример заголовка страницы</h1>
+</div>
+{{ a }}
+{#<div class="container-fluid">#}
+{#    <div class="row">#}
+{##}
+{#    </div>#}
+{#    <div class="row"></div>#}
+{# </div>#}
 
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>

@@ -1,13 +1,18 @@
 from django.db import models
 from django.contrib import admin
 
-class Wishmakers(models.Model):
-    user = models.CharField(max_length=40)
-    password = models.CharField(max_length=40)
-    description = models.TextField()
-    publication_date = models.DateField()
+class Dreamer(models.Model):
+    class Meta():
+        db_table = 'dreamer'
 
-    def __str__(self):
-        return self.user
+    dreamer_name = models.CharField(max_length=40)
 
-admin.site.register(Wishmakers)
+class Desire(models.Model):
+    class Meta():
+        db_table = 'desire'
+
+    desire_text = models.TextField()
+    desire_date = models.DateTimeField()
+    desire_dreamer = models.ForeignKey(Dreamer)
+
+

@@ -3,10 +3,10 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from wishapp.models import Wishmakers
+
 
 def desire (request):
-    accounts = Wishmakers.objects.all()
+    #accounts = Wishmakers.objects.all()
     usermame = request.POST.get('username', '')
     password = request.POST.get('password', '')
     return render(request, 'test.html', locals())

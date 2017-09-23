@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dreamers</title>
-</head>
-<body>
+{% extends 'main.html' %}
+
+{% block dreamerslist %}
 {% for dreamer in dreamers %}
-    <h4><a href="/dreamers/{{ dreamer.id }}">{{ dreamer.dreamer_name }}</a></h4>
+    <div class="col-sm-2 drm text-center">
+        <h4><a href="/dreamers/{{ dreamer.id }}">{{ dreamer.dreamer_name }}</a></h4>
+        <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
+    </div>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

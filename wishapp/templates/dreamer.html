@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Desire</title>
-</head>
-<body>
-<h2>Desires {{ dreamer.dreamer_name }}:</h2>
-{% for desire in desires %}
-    <ul><li>
-        {{ desire.desire_text }}
-    </li></ul>
-{% endfor %}
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% block dreamerslist %}
+    <div class="col-sm-2 drm text-center">
+        <h2>Desires {{ dreamer.dreamer_name }}:</h2>
+        {% for desire in desires %}
+            <ul><li>
+                {{ desire.desire_text }}
+            </li></ul>
+        {% endfor %}
+    </div>
+
+{% endblock %}

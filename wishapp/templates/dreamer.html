@@ -5,9 +5,13 @@
         <h2>Desires {{ dreamer.dreamer_name }}:</h2>
         {% for desire in desires %}
             <ul><li>
-                {{ desire.desire_text }}
+               <input type="checkbox"> {{ desire.desire_text }}
             </li></ul>
         {% endfor %}
+    <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="add desire">
+    </form>
     </div>
 
 {% endblock %}

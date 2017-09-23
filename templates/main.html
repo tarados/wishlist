@@ -12,20 +12,14 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="/" class="wrk">create your desire</a></li>
-                    <li><a href="#" class="wrk">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#myModal" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <ul class="nav nav-pills desire">
+        {% if username %}
+            <li class="active"><a href="/auth/logout/">Exit ({{ username }})</a></li>
+        {% else %}
+            <li class="active"><a href="/auth/login/">Create your desire</a></li>
+        {% endif %}
+    </ul>
+{{ username }}
     <!-- HTML-код модального окна -->
     <div id="myModal" class="modal fade">
       <div class="modal-dialog">
@@ -62,8 +56,9 @@
         </div>
       </div>
     </div>
-
+<div class="container-fluid a"></div>
     {% block dreamerslist %}{% endblock %}
+    {% block login %}{% endblock %}
 {#    <div class="container-fluid bg-3 text-center">#}
 {#        <div class="row">#}
 {#            <div class="col-sm-2 drm">#}

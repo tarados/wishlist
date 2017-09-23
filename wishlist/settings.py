@@ -48,7 +48,7 @@ ROOT_URLCONF = 'wishlist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'wishapp/templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'wishapp/templates'), os.path.join(BASE_DIR, 'loginsys/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.odnoklassniki',
     'allauth.socialaccount.providers.twitter',
     'allauth.socialaccount.providers.vk',
+    'loginsys',
 ]
 
 SITE_ID = 1

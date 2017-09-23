@@ -11,7 +11,7 @@
 
 </head>
 <body>
-{{ a }}
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="myNavbar">
@@ -38,7 +38,7 @@
           <!-- Основное содержимое модального окна -->
           <div class="modal-body">
             <!-- Форма входа -->
-    		<form role="form" method="post">{% csrf_token %}
+    		<form role="form" action="test.html" method="post">{% csrf_token %}
     			<fieldset>
     				<hr class="colorgraph">
     				<div class="form-group">
@@ -66,9 +66,9 @@
 
     <div class="container-fluid bg-3 text-center">
         <div class="row">
-            {% for accounts in accounts %}
-            <div class="col-sm-3">
-                <p>{{ accounts.user }}</p>
+            {% for dreamer in dreamers %}
+            <div class="col-sm-2 drm">
+                <p>{{ dreamer.dreamer_name }}</p>
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
             </div>
             {% endfor %}

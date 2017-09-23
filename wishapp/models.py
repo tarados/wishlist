@@ -6,6 +6,8 @@ class Dreamer(models.Model):
         db_table = 'dreamer'
 
     dreamer_name = models.CharField(max_length=40)
+    def __str__(self):
+        return '%s' % (self.dreamer_name)
 
 class Desire(models.Model):
     class Meta():
@@ -14,5 +16,6 @@ class Desire(models.Model):
     desire_text = models.TextField()
     desire_date = models.DateTimeField()
     desire_dreamer = models.ForeignKey(Dreamer)
+
 
 

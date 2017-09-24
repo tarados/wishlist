@@ -13,7 +13,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            return render_to_response('main.html', locals())
         else:
             arg['login_error'] = 'User do not found'
             return render_to_response('login.html', arg)

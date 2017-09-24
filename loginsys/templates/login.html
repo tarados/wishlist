@@ -7,11 +7,13 @@
             <label for="username">User name</label>
             <input type="text" name="username" id="username"><br>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password"><br>
             {% if login_error %}
-                    <label class="error">{{ login_error }}</label>
+                    <label class="error">{{ login_error }}</label><br>
             {% endif %}
-            <input class="button" type="submit" value="Enter">
+            <div class="container-fluid a"></div>
+            <button type="submit" class="btn btn-primary btn-md">Enter</button>
+            <button type="button" class="btn btn-primary btn-md"><a href="/auth/register/">Registration</a></button>
         </form>
     </div>
 {% endblock %}

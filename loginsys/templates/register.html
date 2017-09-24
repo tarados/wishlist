@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block login %}
+    <div class="container-fluid bg-3">
+        <form action="/auth/register/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <div class="container-fluid a"></div>
+            <button type="submit" class="btn btn-primary btn-md">Registration</button>
+        </form>
+    </div>
+{% endblock %}

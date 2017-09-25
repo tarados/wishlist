@@ -4,7 +4,7 @@
     <div class="container-fluid bg-3">
         <form action="/auth/register/" method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form }}<br>
             <div class="container-fluid a"></div>
             <button type="submit" class="btn btn-primary btn-md">Registration</button>
         </form>

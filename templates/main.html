@@ -11,15 +11,16 @@
 
 </head>
 <body>
-{{ username }}
+{{ user.id }}
     <ul class="nav nav-pills desire">
         {% if username %}
-            <li><a href="/auth/logout/">Exit ({{ username }})</a></li>
+            <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
         {% else %}
-            <li><a href="/auth/login/">Input</a></li>
+            <li><a href="/auth/login/">Login</a></li>
         {% endif %}
+        <li><a href="/auth/register/">Sign up</a></li>
     </ul>
-{{ user }}
+
     <!-- HTML-код модального окна -->
     <div id="myModal" class="modal fade">
       <div class="modal-dialog">

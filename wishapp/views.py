@@ -10,12 +10,12 @@ from wishapp.forms import DesireForm
 def dreamers (request):
    return render_to_response('dreamers.html', {'dreamers': Dreamer.objects.all()})
 
-def dreamer (request, dreamer_id):
+def dreamer (request, user_id):
     desire_form = DesireForm
     arg = {}
     arg.update(csrf(request))
-    arg['dreamer'] = Dreamer.objects.get(id=dreamer_id)
-    arg['desires'] = Desire.objects.filter(desire_dreamer_id=dreamer_id)
+    arg['dreamer'] = Dreamer.objects.get(id=user_id)
+    arg['desires'] = Desire.objects.filter(desire_dreamer_id=user_id)
     arg['form'] = desire_form
     return render_to_response('dreamer.html',arg)
 

@@ -8,12 +8,10 @@
                <input type="checkbox"> {{ desire.desire_text }}
             </li></ul>
         {% endfor %}
-    {% if username %}
-    <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
+        <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
         {{ form }}
         <input type="submit" class="button" value="add desire">
     </form>
-    {% endif %}
     </div>
 
 {% endblock %}

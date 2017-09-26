@@ -3,7 +3,7 @@
 {% block dreamerslist %}
 {% for dreamer in dreamers %}
     <div class="col-sm-2 drm text-center">
-        <h4><a href="/dreamers/{{ dreamer.id }}">{{ dreamer.dreamer_name }}</a></h4>
+        <h4>{{ dreamer.username }}</h4>
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
     </div>
 {% endfor %}

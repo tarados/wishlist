@@ -11,7 +11,6 @@
 
 </head>
 <body>
-{{ user.id }}
     <ul class="nav nav-pills desire">
         {% if username %}
             <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
@@ -19,55 +18,12 @@
             <li><a href="/auth/login/">Login</a></li>
         {% endif %}
         <li><a href="/auth/register/">Sign up</a></li>
+        <li><a href="/create/{{ user.id }}/">Add to desire</a></li>
     </ul>
 
-    <!-- HTML-код модального окна -->
-    <div id="myModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Заголовок модального окна -->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Login form</h4>
-          </div>
-          <!-- Основное содержимое модального окна -->
-          <div class="modal-body">
-            <!-- Форма входа -->
-    		<form role="form" action="/" method="post">{% csrf_token %}
-    			<fieldset>
-    				<hr class="colorgraph">
-    				<div class="form-group">
-                        <input type="text" name="username" id="email" class="form-control input-lg" placeholder="enter your name">
-    				</div>
-    				<div class="form-group">
-                        <input type="text" name="password" id="password" class="form-control input-lg" placeholder="password">
-    				</div>
-    					<hr class="colorgraph">
-    				<div class="row">
-    					<div class="col-xs-6 col-sm-6 col-md-6">
-                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Вход">
-    					</div>
-    					<div class="col-xs-6 col-sm-6 col-md-6">
-    						<a href="" class="btn btn-lg btn-primary btn-block">Регистрация</a>
-    					</div>
-    				</div>
-    			</fieldset>
-    		</form>
-          </div>
-        </div>
-      </div>
-    </div>
 <div class="container-fluid a"></div>
     {% block dreamerslist %}{% endblock %}
     {% block login %}{% endblock %}
-{#    <div class="container-fluid bg-3 text-center">#}
-{#        <div class="row">#}
-{#            <div class="col-sm-2 drm">#}
-{#                {% block dreamerslist %}{% endblock %}#}
-{#                <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">#}
-{#            </div>#}
-{#        </div>#}
-{#    </div><br>#}
 
 
     <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}"></script>

@@ -5,4 +5,4 @@ import datetime
 class DesireForm(ModelForm):
     class Meta:
         model = Desire
-        fields = ['desire_text']
+        fields = ['desire_text', 'desire_date']

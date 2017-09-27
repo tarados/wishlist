@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^dreamers/(?P<dreamer_id>\d+)/$', views.dreamer),
     url(r'^create/(?P<dreamer_id>\d+)/', views.dreamer),
     url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/$', views.adddesire),
+    url(r'^dreamers/deldesire/(?P<dreamer_id>\d+)/$', views.deldesire),
     url(r'^$', views.dreamers),
 
 ]

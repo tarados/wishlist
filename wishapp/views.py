@@ -27,3 +27,7 @@ def adddesire(request, dreamer_id):
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)
 
+def deldesire(request, dreamer_id):
+    if request.POST:
+      pass
+    return redirect('/dreamers/%s' % dreamer_id)

@@ -2,16 +2,22 @@
 
 {% block dreamerslist %}
     <div class="col-sm-2 drm text-center">
-        <h2>Desires {{ dreamer.dreamer_name }}:</h2>
+        <h2>Desires by {{ dreamer.username }}:</h2>
         {% for desire in desires %}
             <ul><li>
-               <input type="checkbox"> {{ desire.desire_text }}
+                <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
+                    {{ desire.desire_text }} {{ desire.desire_date }}
+                    <input type="checkbox" name="serg" id="serg" value="checkbox">
+                </form>
             </li></ul>
         {% endfor %}
+        <input type="submit" form="deldesire" class="button" value="del desire">
         <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
-        {{ form }}
-        <input type="submit" class="button" value="add desire">
-    </form>
+            {{ form }}
+            <input type="submit" class="button" value="add desire">
+
+        </form>
+
     </div>
 
 {% endblock %}

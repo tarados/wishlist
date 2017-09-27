@@ -3,10 +3,15 @@ from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from wishapp.models import Desire
 from wishapp.forms import DesireForm
+from django.contrib import auth
 import datetime
 
 def dreamers (request):
-   return render_to_response('dreamers.html', {'dreamers': User.objects.all()})
+    arg = {}
+    arg['dreamers'] = User.objects.all()
+    arg['username'] = auth.get_user(request).username
+    arg['user_id'] = auth.get_user(request).id
+    return render_to_response('dreamers.html', arg)
 
 def dreamer (request, dreamer_id):
     desire_form = DesireForm
@@ -15,6 +20,7 @@ def dreamer (request, dreamer_id):
     arg['dreamer'] = User.objects.get(id=dreamer_id)
     arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
     arg['form'] = desire_form
+    arg['username'] = auth.get_user(request).username
     return render_to_response('dreamer.html',arg)
 
 def adddesire(request, dreamer_id):

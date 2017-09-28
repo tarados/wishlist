@@ -35,5 +35,8 @@ def adddesire(request, dreamer_id):
 
 def deldesire(request, dreamer_id):
     if request.POST:
-      pass
+        desire_id = request.POST['deldesire']
+        derise = Desire.objects.get(id=desire_id)
+        derise.delete()
+        #derise.save()
     return redirect('/dreamers/%s' % dreamer_id)

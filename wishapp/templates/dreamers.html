@@ -4,7 +4,11 @@
 {% for dreamer in dreamers %}
     <div class="col-sm-2 drm text-center">
         <h4>{{ dreamer.username }}</h4>
+        <h5>{{ dreamer.id }}</h5>
         <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
+        <ul><li>
+            {{ form }}
+        </li></ul>
     </div>
 {% endfor %}
 {% endblock %}

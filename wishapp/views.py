@@ -2,8 +2,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from wishapp.models import Desire
-from wishapp.forms import DesireForm
+from wishapp.forms import DesireForm, DreamerForm
 from django.contrib import auth
+from django.contrib.auth.forms import UserCreationForm
 import datetime
 
 def dreamers (request):
@@ -38,5 +39,4 @@ def deldesire(request, dreamer_id):
         desire_id = request.POST['deldesire']
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
-        #derise.save()
     return redirect('/dreamers/%s' % dreamer_id)

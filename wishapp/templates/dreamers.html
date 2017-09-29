@@ -1,14 +1,15 @@
 {% extends 'main.html' %}
 
 {% block dreamerslist %}
-{% for dreamer in dreamers %}
-    <div class="col-sm-2 drm text-center">
-        <h4>{{ dreamer.username }}</h4>
-        <h5>{{ dreamer.id }}</h5>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image">
-        <ul><li>
-            {{ form }}
-        </li></ul>
-    </div>
-{% endfor %}
+    {% for dreamer in dreamers %}
+        <div class="col-sm-2 drm text-center">
+            <h4>{{ dreamer.username }}</h4>
+            <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image"><br>
+            {% for desire in desires %}
+                    {% if desire.desire_user_id == dreamer.id and desire.desire_text %}
+                        {{ desire.desire_text }}<br>
+                    {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
 {% endblock %}

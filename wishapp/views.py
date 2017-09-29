@@ -12,6 +12,7 @@ def dreamers (request):
     arg['dreamers'] = User.objects.all()
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
+    arg['desires'] = Desire.objects.all()
     return render_to_response('dreamers.html', arg)
 
 def dreamer (request, dreamer_id):

@@ -17,16 +17,16 @@ def dreamers (request):
 
 def dreamer (request, dreamer_id):
     desire_form = DesireForm
-    if auth.get_user(request).id:
-        arg = {}
-        arg.update(csrf(request))
-        arg['dreamer'] = User.objects.get(id=dreamer_id)
-        arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
-        arg['form'] = desire_form
-        arg['username'] = auth.get_user(request).username
+    arg = {}
+    arg.update(csrf(request))
+    arg['dreamer'] = User.objects.get(id=dreamer_id)
+    arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
+    arg['form'] = desire_form
+    arg['username'] = auth.get_user(request).username
+    if auth.get_user(request).id == int(dreamer_id):
         return render_to_response('dreamer.html', arg)
     else:
-        return redirect('/')
+        return redirect('/auth/logout/')
 
 
 def adddesire(request, dreamer_id):

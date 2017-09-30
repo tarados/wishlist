@@ -7,7 +7,7 @@
             <ul><li>
                 <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
                     {{ desire.desire_text }} {{ desire.desire_date }}
-                    <input type="checkbox" name="deldesire"  value={{ desire.id }}>
+                    <input type="hidden" name="deldesire"  value={{ desire.id }}>
                     <input type="submit" form="deldesire" class="button" value="del desire">
                 </form>
             </li></ul>

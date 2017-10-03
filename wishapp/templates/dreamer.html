@@ -1,27 +1,22 @@
 {% extends 'main.html' %}
 
 {% block dreamerslist %}
-    <div class="container-fluid">
-        <div class="well">
-            <h1>Wishlist by {{ dreamer.username }}:</h1>
-            {% for desire in desires %}
-                <div class="well">
-                    <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
-                        <form class="fomr-inline">
-                            <textarea>
-                                    {{ desire.desire_text }}
-                            </textarea>
-                            <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                            <input type="submit" form="deldesire" class="button" value="del desire">
-                        </form>
-                    </form>
-                </div>
-            {% endfor %}
+    <div class="col-sm-2 drm text-center">
+        <h2>Desires by {{ dreamer.username }}:</h2>
+        {% for desire in desires %}
+            <ul><li>
+                <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
+                    {{ desire.desire_text }} {{ desire.desire_date }}
+                    <input type="checkbox" name="deldesire"  value={{ desire.id }}>
+                    <input type="submit" form="deldesire" class="button" value="del desire">
+                </form>
+            </li></ul>
+        {% endfor %}
 
-            <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
-                {{ form }}
-                <input type="submit" class="button" value="add desire">
-            </form>
-        </div>
+        <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
+            {{ form }}
+            <input type="submit" class="button" value="add desire">
+        </form>
     </div>
- {% endblock %}
+ {{ name }}
+{% endblock %}

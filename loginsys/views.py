@@ -16,8 +16,9 @@ def login(request):
             arg['user_id'] = auth.get_user(request).id
             return redirect('/')
         else:
-            arg['login_error'] = 'User do not found'
-            return render_to_response('login.html', arg)
+            return redirect('/auth/register/')
+            #arg['login_error'] = 'User do not found'
+            #return render_to_response('login.html', arg)
     else:
         return render_to_response('login.html', arg)
 

@@ -1,16 +1,26 @@
 {% extends 'main.html' %}
 
 {% block dreamerslist %}
-    <div class="col-sm-2 drm text-center">
-        <h2>Desires by {{ dreamer.username }}:</h2>
+    <div class="container">
+        <div class="row" style="text-align: center; margin-bottom: 50px">
+            <h3 style="font-weight: bold">Wishlist by {{ dreamer.username }}</h3>
+        </div>
         {% for desire in desires %}
-            <ul><li>
-                <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
-                    {{ desire.desire_text }} {{ desire.desire_date }}
-                    <input type="checkbox" name="deldesire"  value={{ desire.id }}>
-                    <input type="submit" form="deldesire" class="button" value="del desire">
-                </form>
-            </li></ul>
+            <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
+                <div class="row" style="text-align: center; margin-bottom: 30px">
+                    <div class="col-lg-10" style="text-align: center; background-color: yellow">
+                        <div class="well">
+                            {{ desire.desire_text }}
+                        </div>
+                    </div>
+                    <div class="col-lg-1" style="background-color: greenyellow; text-align: left">
+                        <input type="hidden" name="deldesire"  value={{ desire.id }}>
+                        <input type="submit" form="deldesire" class="btn-info" value="Edit" style="margin-bottom: 10px; width: 42.13px"><br>
+                        <input type="hidden" name="deldesire"  value={{ desire.id }}>
+                        <input type="submit" form="deldesire" class="btn-warning" value="Delete">
+                    </div>
+                </div>
+            </form>
         {% endfor %}
 
         <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}

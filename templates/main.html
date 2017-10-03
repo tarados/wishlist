@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <ul class="nav nav-pills desire">
+    <ul class="nav nav-pills">
         {% if username %}
             <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
             <li><a href="/dreamers/{{ user_id }}/">Add to desire</a></li>
@@ -20,10 +20,13 @@
         {% endif %}
         <li><a href="/auth/register/">Sign up</a></li>
     </ul>
-{{ name }}
-<div class="container-fluid a"></div>
-    {% block dreamerslist %}{% endblock %}
+<div class="container-fluid"></div>
+    <div class="well">
+        {% block dreamerslist %}{% endblock %}
+    </div>
+
     {% block login %}{% endblock %}
+
 
 
     <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}"></script>

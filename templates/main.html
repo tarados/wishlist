@@ -16,11 +16,9 @@
             <div class="col-md-12 nav">
                 {% if username %}
                     <a href="/auth/logout/" class="btn btn-info" role="button">Logout ({{ username }})</a>
-                    <a href="/dreamers/{{ user_id }}/" class="btn btn-info" role="button">Add to desire</a>
                 {% else %}
                     <a href="/auth/login/" class="btn btn-info" role="button">Login</a>
                 {% endif %}
-                    <a href="/auth/register/" class="btn btn-info" role="button">Sign up</a>
             </div>
         </div>
     </div>

@@ -2,18 +2,15 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from wishapp.models import Desire
-from wishapp.forms import DesireForm, DreamerForm
+from wishapp.forms import DesireForm
 from django.contrib import auth
-from django.contrib.auth.forms import UserCreationForm
 import datetime
 import re
 
 def dreamers (request):
     arg = {}
-    #arg['dreamers'] = User.objects.all()
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
-    #arg['desires'] = Desire.objects.all()
     return render_to_response('dreamers.html', arg)
 
 def dreamer (request, dreamer_id):
@@ -32,14 +29,12 @@ def dreamer (request, dreamer_id):
 
 def adddesire(request, dreamer_id):
     if request.POST:
-        print(request.POST)
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            c = re.search(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text).group()
-            if c:
-                print(c)
-                desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
+            if re.search(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text):
+                for c in re.findall(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text):
+                    desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
                 desire.desire_user = User.objects.get(id=dreamer_id)
                 desire.desire_date = datetime.datetime.now()
             else:

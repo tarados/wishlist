@@ -14,11 +14,9 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
-            return redirect('/')
+            return redirect('/dreamers/%d/' % arg['user_id'])
         else:
             return redirect('/auth/register/')
-            #arg['login_error'] = 'User do not found'
-            #return render_to_response('login.html', arg)
     else:
         return render_to_response('login.html', arg)
 
@@ -36,7 +34,8 @@ def register(request):
             new_user_form.save()
             newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])
             auth.login(request, newuser)
-            return redirect('/')
+            arg['user_id'] = auth.get_user(request).id
+            return redirect('/dreamers/%d/' % arg['user_id'])
         else:
             arg['form'] = new_user_form
     return render_to_response('register.html', arg)

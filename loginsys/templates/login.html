@@ -1,35 +1,19 @@
 {% extends 'main.html' %}
 
 {% block login %}
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <form action="/auth/login/" method="post">
-                    {% csrf_token %}
-                    <fieldset>
-                        <hr class="colorgraph">
-                        <div class="form-group">
-                            <label for="username">User name</label>
-                            <input type="text" name="username" id="username"><br>
-                        </div>
-                        <hr class="colorgraph">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password"><br>
-                        {% if login_error %}
-                                <label class="error">{{ login_error }}</label><br>
-                        {% endif %}
-                        <div class="row">
-                            <div class="col-xs-6 col-md-6">
-                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Вход">
-                            </div>
-                            <div class="col-xs-6 col-md-6">
-                                <a href="" class="btn btn-lg btn-primary btn-block">Регистрация</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+    <div class="container">
+        <form action="/auth/login/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">User name</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
             </div>
-        </div>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
+            <input type="submit" class="btn btn-success btn-block" value="Вход">
+            <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>
+            <a href="/auth/register/" class="btn btn-primary btn-block">Регистрация</a>
+        </form>
     </div>
 {% endblock %}
 

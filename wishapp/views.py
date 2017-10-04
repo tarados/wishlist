@@ -10,10 +10,10 @@ import re
 
 def dreamers (request):
     arg = {}
-    arg['dreamers'] = User.objects.all()
+    #arg['dreamers'] = User.objects.all()
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
-    arg['desires'] = Desire.objects.all()
+    #arg['desires'] = Desire.objects.all()
     return render_to_response('dreamers.html', arg)
 
 def dreamer (request, dreamer_id):
@@ -36,9 +36,15 @@ def adddesire(request, dreamer_id):
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            print(re.search(r'[h-s]\w+:[//.\d\w+]+', desire.desire_text).group())
-            desire.desire_user = User.objects.get(id=dreamer_id)
-            desire.desire_date = datetime.datetime.now()
+            c = re.search(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text).group()
+            if c:
+                print(c)
+                desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
+                desire.desire_user = User.objects.get(id=dreamer_id)
+                desire.desire_date = datetime.datetime.now()
+            else:
+                desire.desire_user = User.objects.get(id=dreamer_id)
+                desire.desire_date = datetime.datetime.now()
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)
 

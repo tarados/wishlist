@@ -7,7 +7,7 @@
             <div class="row">
                 <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
                     <div class="col-md-10 well">
-                        {{ desire.desire_text }}
+                        {{ desire.desire_text|safe }}
                     </div>
                     <div class="col-md-2">
                         <input type="hidden" name="deldesire"  value={{ desire.id }}>
@@ -27,6 +27,7 @@
             </form>
         </div>
     </div>
+
 {% endblock %}
 
 

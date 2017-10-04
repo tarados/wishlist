@@ -6,6 +6,7 @@ from wishapp.forms import DesireForm, DreamerForm
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 import datetime
+import re
 
 def dreamers (request):
     arg = {}
@@ -31,9 +32,11 @@ def dreamer (request, dreamer_id):
 
 def adddesire(request, dreamer_id):
     if request.POST:
+        print(request.POST)
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
+            print(re.search(r'[h-s]\w+:[//.\d\w+]+', desire.desire_text).group())
             desire.desire_user = User.objects.get(id=dreamer_id)
             desire.desire_date = datetime.datetime.now()
             form.save()

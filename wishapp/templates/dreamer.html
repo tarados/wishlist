@@ -16,9 +16,18 @@
                 </form>
             </div>
         {% endfor %}
-        <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
-            {{ form }}
-            <input type="submit" class="button" value="add desire">
-        </form>
+        <div class="row">
+            <form action="/dreamers/adddesire/{{ dreamer.id }}/" class="button" method="post" >{% csrf_token %}
+                <div class="col-md-10 well">
+                    {{ form.desire_text }}
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-info" value="Add">
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}
+
+
+

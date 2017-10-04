@@ -5,7 +5,7 @@ class Desire(models.Model):
     class Meta():
         db_table = 'desire'
 
-    desire_text = models.TextField(verbose_name='Desire text')
+    desire_text = models.TextField()
     desire_date = models.DateTimeField()
     desire_user = models.ForeignKey(User)
 

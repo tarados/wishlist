@@ -32,8 +32,8 @@ def adddesire(request, dreamer_id):
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            if re.search(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text):
-                for c in re.findall(r'[h-s]\w+:[//.a-z:\d\w+]+', desire.desire_text):
+            if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
+                for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
                     desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
                 desire.desire_user = User.objects.get(id=dreamer_id)
                 desire.desire_date = datetime.datetime.now()

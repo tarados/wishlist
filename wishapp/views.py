@@ -4,6 +4,7 @@ from django.template.context_processors import csrf
 from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
+from django.shortcuts import render, get_object_or_404
 import datetime
 import re
 
@@ -27,6 +28,7 @@ def dreamer (request, dreamer_id):
         return redirect('/auth/logout/')
 
 def adddesire(request, dreamer_id):
+    print(request.POST)
     if request.POST:
         form = DesireForm(request.POST)
         if form.is_valid():
@@ -44,19 +46,13 @@ def adddesire(request, dreamer_id):
 
 def deldesire(request, dreamer_id):
     if request.POST:
+        print(request.POST)
         desire_id = request.POST['deldesire']
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
     return redirect('/dreamers/%s' % dreamer_id)
 
 def editdesire(request, dreamer_id, desire_id):
-    editable_desire = Desire.objects.get(id=desire_id)
-    print(editable_desire)
-    if request.POST:
-        form = DesireForm(request.POST)
-        if form.is_valid():
-            desire = form.save(commit=False)
-            desire.desire_user = User.objects.get(id=dreamer_id)
-            desire.desire_date = datetime.datetime.now()
-            form.save()
+    print(request.POST)
+
     return redirect('/dreamers/%s' % dreamer_id)

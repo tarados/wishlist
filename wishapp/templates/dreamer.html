@@ -6,12 +6,16 @@
         {% for desire in desires %}
             <div class="row">
                 <form action="/dreamers/deldesire/{{ dreamer.id }}/" id="deldesire" method="post">{% csrf_token %}
-                    <div class="col-md-10 well">
+                    <div class="col-md-10 well" style="min-height: 80px">
                         {{ desire.desire_text|safe }}
+                    </div>
+                    <div class="col-md-2" style="margin-bottom: 10px">
+                        <input type="hidden" name="editdesire"  value={{ desire.id }}>
+                        <input type="submit" form="editdesire" class="btn btn-default" value="Edit">
                     </div>
                     <div class="col-md-2">
                         <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                        <input type="submit" form="deldesire" class="btn btn-info" value="Delete">
+                        <input type="submit" form="deldesire" class="btn btn-danger" value="Delete">
                     </div>
                 </form>
             </div>

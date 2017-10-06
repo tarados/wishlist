@@ -26,7 +26,6 @@ def dreamer (request, dreamer_id):
     else:
         return redirect('/auth/logout/')
 
-
 def adddesire(request, dreamer_id):
     if request.POST:
         form = DesireForm(request.POST)
@@ -48,4 +47,16 @@ def deldesire(request, dreamer_id):
         desire_id = request.POST['deldesire']
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
+    return redirect('/dreamers/%s' % dreamer_id)
+
+def editdesire(request, dreamer_id, desire_id):
+    editable_desire = Desire.objects.get(id=desire_id)
+    print(editable_desire)
+    if request.POST:
+        form = DesireForm(request.POST)
+        if form.is_valid():
+            desire = form.save(commit=False)
+            desire.desire_user = User.objects.get(id=dreamer_id)
+            desire.desire_date = datetime.datetime.now()
+            form.save()
     return redirect('/dreamers/%s' % dreamer_id)

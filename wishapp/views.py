@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
 from sqlalchemy import update
 
 from wishapp.models import Desire
@@ -54,6 +55,7 @@ def deldesire(request, dreamer_id):
         derise.delete()
     return redirect('/dreamers/%s' % dreamer_id)
 
+@csrf_exempt
 def editdesire(request, dreamer_id, desire_id):
     print(request.POST)
     desire = Desire.objects.get(id=desire_id)
@@ -62,8 +64,6 @@ def editdesire(request, dreamer_id, desire_id):
         if form.is_valid():
             desire = form.save(commit=False)
             desire.save()
-            return redirect('/dreamers/%s' % dreamer_id)
-    else:
-        form = DesireForm(instance=desire)
-    return render_to_response('edit.html', locals())
+        return render_to_response('edit.html', locals())
+    return redirect('/dreamers/%s' % dreamer_id)
 

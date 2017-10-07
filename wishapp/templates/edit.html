@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 well" style="min-height: 80px">
-                <form action="{% url 'editdesire' dreamer_id desire_id %}" method="post">{% csrf_token %}
+                <form action="{% url 'editdesire' dreamer_id desire_id %}" method="post">
                     {{ form.desire_text }}
                     <input type="submit" class="btn btn-info" value="Save">
                 </form>

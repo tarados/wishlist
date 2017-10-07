@@ -5,14 +5,19 @@
         <h1>Desires by {{ dreamer.username }}:</h1>
         {% for desire in desires %}
             <div class="row">
-                <div class="col-md-10 well" style="min-height: 80px">
+                <div class="col-md-10 well" id="desireinfo-{{ desire.id }}" style="min-height: 80px">
                     {{ desire.desire_text|safe }}
                 </div>
-                <div class="col-md-2" style="margin-bottom: 10px">
-                    <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">{% csrf_token %}
-                        <input type="hidden" name="editdesire"  value={{ desire }}>
-                        <input type="submit" form="editdesire" class="btn btn-default" value="Edit">
+                <div class="col-md-10 well hidden desire-form" id="desireform-{{ desire.id }}" style="min-height: 80px">
+                    <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                        <textarea name="desire_text">
+                            {{ desire.desire_text|safe }}
+                        </textarea>
+                        <input type="submit"  class="btn btn-info" value="Save">
                     </form>
+                </div>
+                <div class="col-md-2" style="margin-bottom: 10px">
+                    <button class="btn btn-default edit" id="desirebutton-{{ desire.id }}">Edit</button>
                 </div>
                 <div class="col-md-2">
                     <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}

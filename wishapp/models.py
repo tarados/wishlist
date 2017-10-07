@@ -6,7 +6,6 @@ class Desire(models.Model):
         db_table = 'desire'
 
     desire_text = models.TextField()
-    desire_date = models.DateTimeField()
     desire_user = models.ForeignKey(User)
 
 

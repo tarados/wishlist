@@ -10,6 +10,7 @@
                 </div>
                 <div class="col-md-2" style="margin-bottom: 10px">
                     <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="editdesire"  value={{ desire }}>
                         <input type="submit" form="editdesire" class="btn btn-default" value="Edit">
                     </form>
                 </div>

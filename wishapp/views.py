@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
+from sqlalchemy import update
+
 from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
@@ -54,7 +56,7 @@ def deldesire(request, dreamer_id):
 
 def editdesire(request, dreamer_id, desire_id):
     print(request.POST)
-    desire = get_object_or_404(Desire, id=desire_id)
+    desire = Desire.objects.get(id=desire_id)
     if request.POST:
         form = DesireForm(instance=desire)
         if form.is_valid():

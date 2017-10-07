@@ -30,6 +30,7 @@ def dreamer (request, dreamer_id):
     else:
         return redirect('/auth/logout/')
 
+@csrf_exempt
 def adddesire(request, dreamer_id):
     print(request.POST)
     if request.POST:
@@ -63,7 +64,7 @@ def editdesire(request, dreamer_id, desire_id):
         form = DesireForm(instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
-            desire.save()
+            form.save()
         return render_to_response('edit.html', locals())
     return redirect('/dreamers/%s' % dreamer_id)
 

@@ -31,13 +31,18 @@ def dreamer (request, dreamer_id):
 @csrf_exempt
 def adddesire(request, dreamer_id):
     print(request.POST)
-    if request.POST:
+    if request.method == 'GET':
+        form = DesireForm(instance=desire)
+    if request.method == 'POST':
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-                for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-                    desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
+            if re.search(r'[h-s]\w+:[//.aA-zZ:\-?&=\d\w+]+', desire.desire_text):
+                for c in re.findall(r'[h-s]\w+:[//.aA-zZ:\-?&=\d\w+]+', desire.desire_text):
+                    b = c.replace(c, '<a href="' + c + '">' + c + '</a>').strip()
+                    d = desire.desire_text.replace(c, b)
+                    desire.desire_text = d
+                print(desire.desire_text)
                 desire.desire_user = User.objects.get(id=dreamer_id)
                 desire.desire_date = datetime.datetime.now()
             else:
@@ -64,9 +69,9 @@ def editdesire(request, dreamer_id, desire_id):
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
-            # if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-            #     for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-            #         desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
+            if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
+                for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
+                    desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())

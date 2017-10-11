@@ -64,6 +64,9 @@ def editdesire(request, dreamer_id, desire_id):
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
+            # if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
+            #     for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
+            #         desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())

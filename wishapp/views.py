@@ -21,6 +21,12 @@ def dreamer (request, dreamer_id):
     arg.update(csrf(request))
     arg['dreamer'] = User.objects.get(id=dreamer_id)
     arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
+    result = []
+    for l in arg['desires']:
+        obj = {'id': l.id, 'text': l.desire_text, 'text2': l.desire_text.upper()}
+        result.append(obj)
+    print(result)
+    arg['desire2'] = result
     arg['form'] = desire_form
     arg['username'] = auth.get_user(request).username
     if auth.get_user(request).id == int(dreamer_id):
@@ -37,12 +43,11 @@ def adddesire(request, dreamer_id):
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            if re.search(r'[h-s]\w+:[//.aA-zZ:\-?&=\d\w+]+', desire.desire_text):
-                for c in re.findall(r'[h-s]\w+:[//.aA-zZ:\-?&=\d\w+]+', desire.desire_text):
+            if re.search(r'[h-s]\w+:[//.aA-zZ:\-?&=%\d\w+]+', desire.desire_text):
+                for c in re.findall(r'[h-s]\w+:[//.aA-zZ:\-?&=%\d\w+]+', desire.desire_text):
                     b = c.replace(c, '<a href="' + c + '">' + c + '</a>').strip()
                     d = desire.desire_text.replace(c, b)
                     desire.desire_text = d
-                print(desire.desire_text)
                 desire.desire_user = User.objects.get(id=dreamer_id)
                 desire.desire_date = datetime.datetime.now()
             else:
@@ -51,6 +56,7 @@ def adddesire(request, dreamer_id):
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)
 
+@csrf_exempt
 def deldesire(request, dreamer_id):
     if request.POST:
         print(request.POST)
@@ -69,9 +75,6 @@ def editdesire(request, dreamer_id, desire_id):
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
-            if re.search(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-                for c in re.findall(r'[h-s]\w+:[//.a-z:\-\d\w+]+', desire.desire_text):
-                    desire.desire_text = desire.desire_text.replace(c, '<a href="' + c + '">' + c + '</a>')
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())

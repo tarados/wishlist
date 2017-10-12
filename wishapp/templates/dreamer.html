@@ -3,15 +3,15 @@
 {% block dreamerslist %}
     <div class="container">
         <h1>Desires by {{ dreamer.username }}:</h1>
-        {% for desire in desires %}
+        {% for desire in desire2 %}
             <div class="row">
                 <div class="col-md-10 well" id="desireinfo-{{ desire.id }}" style="min-height: 80px">
-                    {{ desire.desire_text|safe }}
+                    {{ desire.text|safe }}
                 </div>
                 <div class="col-md-10 well hidden desire-form" id="desireform-{{ desire.id }}" style="min-height: 80px">
                     <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
                         <textarea name="desire_text" cols="130" rows="10">
-                            {{ desire.desire_text|safe }}
+                            {{ desire.text2|safe }}
                         </textarea>
                         <input type="submit"  class="btn btn-info" value="Save">
                     </form>
@@ -22,7 +22,7 @@
                 <div class="col-md-2">
                     <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
                         <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                        <input type="submit" form="deldesire" class="btn btn-danger" value="Delete">
+                        <input type="submit"  class="btn btn-danger" value="Delete">
                     </form>
                 </div>
             </div>

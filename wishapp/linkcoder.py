@@ -11,4 +11,4 @@ def linkOn(str):
             str = str.replace(c, '<a href="' + c + '">' + c + '</a>')
     return str
 
-print(linkOn(str))
+linkOn(str)

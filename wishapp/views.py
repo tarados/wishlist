@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
-from django.shortcuts import render, get_object_or_404
+from wishapp.linkcoder import linkOn
 import datetime
 import re
 
@@ -23,7 +23,7 @@ def dreamer (request, dreamer_id):
     arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
     result = []
     for l in arg['desires']:
-        obj = {'id': l.id, 'text': l.desire_text, 'text2': l.desire_text.upper()}
+        obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text.upper()}
         result.append(obj)
     print(result)
     arg['desire2'] = result

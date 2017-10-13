@@ -11,7 +11,7 @@
                 <div class="col-md-10 well hidden desire-form" id="desireform-{{ desire.id }}" style="min-height: 80px">
                     <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
                         <textarea name="desire_text" cols="130" rows="10">
-                            {{ desire.text2|safe }}
+                            {{ desire.text2 }}
                         </textarea>
                         <input type="submit"  class="btn btn-info" value="Save">
                     </form>

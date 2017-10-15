@@ -1,6 +1,6 @@
 import re
 
-str = 'test http://google.com sdsaasddds\n dfgsdgdbasdg http://google.com/?q=1\n http://google.com/?q=samsung\n dd http://google.com/?q=samsung'
+
 def linkOn(str):
     newstr = []
     str = str.split(' ')
@@ -18,4 +18,3 @@ def linkOn(str):
    # str = str.replace('\n', '<br>')
     return str
 
-print(linkOn(str))

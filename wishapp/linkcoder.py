@@ -5,7 +5,7 @@ d = 'test http://google.com/?q=1 sdsaasddds dfgsdgdbasdg http://google.com http:
 
 def linkOn(str):
     if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%\d+\w+]+', str):
-        for c in re.findall(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%\d+\w+]+', str):
+        for c in re.findall(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+]+', str):
             print(c)
             b = '<a href="' + c + '">' + c + '</a>'
             print(b)

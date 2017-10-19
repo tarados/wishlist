@@ -25,7 +25,6 @@ def dreamer (request, dreamer_id):
     for l in arg['desires']:
         obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text, 'date': l.desire_date}
         result.append(obj)
-    print(result)
     arg['desire2'] = result
     arg['form'] = desire_form
     arg['username'] = auth.get_user(request).username
@@ -36,7 +35,6 @@ def dreamer (request, dreamer_id):
 
 @csrf_exempt
 def adddesire(request, dreamer_id):
-    print(request.POST)
     if request.method == 'GET':
         form = DesireForm(instance=desire)
     if request.method == 'POST':
@@ -51,7 +49,6 @@ def adddesire(request, dreamer_id):
 @csrf_exempt
 def deldesire(request, dreamer_id):
     if request.POST:
-        print(request.POST)
         desire_id = request.POST['deldesire']
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
@@ -59,7 +56,6 @@ def deldesire(request, dreamer_id):
 
 @csrf_exempt
 def editdesire(request, dreamer_id, desire_id):
-    print(request.POST)
     desire = Desire.objects.get(id=desire_id)
     if request.method == 'GET':
         form = DesireForm(instance=desire)

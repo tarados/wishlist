@@ -5,7 +5,10 @@
         <h1>Desires by {{ dreamer.username }}:</h1>
         {% for desire in desire2 %}
             <div class="row">
-                <div class="col-md-10 well" id="desireinfo-{{ desire.id }}" style="min-height: 80px">{{ desire.text|safe }}</div>
+                <div class="col-md-10 well" id="desireinfo-{{ desire.id }}" style="min-height: 80px">
+                    <div class="date" align="right"style="margin-top: -12px">{{ desire.date }}<br></div>
+                    {{ desire.text|safe }}
+                </div>
                 <div class="col-md-10 well hidden desire-form" id="desireform-{{ desire.id }}" style="min-height: 80px">
                     <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
                         <textarea name="desire_text" cols="130" rows="10">{{ desire.text2 }}</textarea>

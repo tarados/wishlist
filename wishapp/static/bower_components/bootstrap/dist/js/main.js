@@ -10,4 +10,5 @@ $(function () {
     });
 });
 
-alert('d~~~sgsd');
+console.log('123');
+alert('hhhh');

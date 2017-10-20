@@ -15,27 +15,31 @@
                         <input type="submit"  class="btn btn-info" value="Save">
                     </form>
                 </div>
-                <div class="col-md-2" style="margin-bottom: 10px">
-                    <button class="btn btn-default edit" id="desirebutton-{{ desire.id }}">Edit</button>
-                </div>
-                <div class="col-md-2">
-                    <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
-                        <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                        <input type="submit"  class="btn btn-danger" value="Delete">
-                    </form>
-                </div>
+                {% if username == dreamer.username %}
+                    <div class="col-md-2" style="margin-bottom: 10px">
+                        <button class="btn btn-default edit" id="desirebutton-{{ desire.id }}">Edit</button>
+                    </div>
+                    <div class="col-md-2">
+                        <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
+                            <input type="hidden" name="deldesire"  value={{ desire.id }}>
+                            <button type="submit"  class="btn btn-danger glyphicon glyphicon-shopping-cart" value=""></button>
+                        </form>
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
-        <div class="row">
-            <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
-                <div class="col-md-10 well">
-                    {{ form.desire_text}}
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="btn btn-info" value="Add">
-                </div>
-            </form>
-        </div>
+        {% if username == dreamer.username %}
+            <div class="row">
+                <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
+                    <div class="col-md-10 well">
+                        {{ form.desire_text}}
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-info" value="Add">
+                    </div>
+                </form>
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}

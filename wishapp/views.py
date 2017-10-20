@@ -28,10 +28,7 @@ def dreamer (request, dreamer_id):
     arg['desire2'] = result
     arg['form'] = desire_form
     arg['username'] = auth.get_user(request).username
-    if auth.get_user(request).id == int(dreamer_id):
-        return render_to_response('dreamer.html', arg)
-    else:
-        return redirect('/auth/logout/')
+    return render_to_response('dreamer.html', arg)
 
 @csrf_exempt
 def adddesire(request, dreamer_id):

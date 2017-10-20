@@ -9,3 +9,5 @@ $(function () {
         form.removeClass("hidden");
     });
 });
+
+alert('d~~~sgsd');

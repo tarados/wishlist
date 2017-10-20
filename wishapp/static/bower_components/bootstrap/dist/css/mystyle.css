@@ -24,3 +24,6 @@ input{
 .btn-vk{
   margin-top: 25px;
 }
+.date{
+  textAlign: right;
+}

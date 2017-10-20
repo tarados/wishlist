@@ -23,7 +23,7 @@ def dreamer (request, dreamer_id):
     arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
     result = []
     for l in arg['desires']:
-        obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text}
+        obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text, 'date': l.desire_date}
         result.append(obj)
     print(result)
     arg['desire2'] = result

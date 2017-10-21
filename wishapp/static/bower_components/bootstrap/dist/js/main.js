@@ -9,6 +9,4 @@ $(function () {
         form.removeClass("hidden");
     });
 });
-
-console.log('123');
-alert('hhhh');
+console.log('dfhadfh');

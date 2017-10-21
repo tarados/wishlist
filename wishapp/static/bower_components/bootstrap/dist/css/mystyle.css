@@ -24,6 +24,7 @@ input{
 .btn-vk{
   margin-top: 25px;
 }
-.date{
-  textAlign: right;
+textarea#id_desire_text{
+  width: 1130px;
+  right: 7px;
 }

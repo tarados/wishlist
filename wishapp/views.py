@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
@@ -77,3 +78,4 @@ def selectdesire(request, dreamer_id, desire_id):
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
+

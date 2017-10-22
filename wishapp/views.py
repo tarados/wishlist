@@ -28,6 +28,7 @@ def dreamer (request, dreamer_id):
     arg['desire2'] = result
     arg['form'] = desire_form
     arg['username'] = auth.get_user(request).username
+    arg['date_now'] = datetime.datetime.now()
     return render_to_response('dreamer.html', arg)
 
 @csrf_exempt
@@ -64,3 +65,15 @@ def editdesire(request, dreamer_id, desire_id):
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
 
+@csrf_exempt
+def selectdesire(request, dreamer_id, desire_id):
+    desire = Desire.objects.get(id=desire_id)
+    if request.method == 'GET':
+        form = DesireForm(instance=desire)
+    elif request.method == 'POST':
+        form = DesireForm(request.POST, instance=desire)
+        if form.is_valid():
+            desire = form.save(commit=False)
+            form.save()
+            return redirect('/dreamers/%s' % dreamer_id)
+    return render_to_response('edit.html', locals())

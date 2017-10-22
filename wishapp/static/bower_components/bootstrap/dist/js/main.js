@@ -9,4 +9,15 @@ $(function () {
         form.removeClass("hidden");
     });
 });
-console.log('dfhadfh');
+$(function () {
+    $(".select_desire").click(function () {
+        var button = $(this);
+        var id = button.attr("id");
+        var desire_select_id = id.split("-")[1];
+        var desire_select_label_id = id.split("-")[1];
+        var info = $("#desireselect-" + desire_select_id);
+        var label_select =$("#labelselect-" + desire_select_label_id);
+        info.addClass("hidden");
+        label_select.removeClass("hidden");
+    });
+});

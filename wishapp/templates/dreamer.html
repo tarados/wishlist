@@ -27,8 +27,8 @@
                     </div>
                 {% elif username == "" %}
                     <div class="col-md-2">
-                        <form action="{% url 'login1' %}" method="get">{% csrf_token %}
-                            <input type="hidden" name="currentdreamer"  value={{ dreamer.id }}>
+                        <form action="{% url 'login1' %}" method="get">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                             <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
                         </form>
                     </div>

@@ -79,3 +79,22 @@ def selectdesire(request, dreamer_id, desire_id):
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
 
+@csrf_exempt
+def login1(request):
+    arg = {}
+    arg.update(csrf(request))
+    #print(request.POST)
+    print(request.GET['currentdreamer'])
+    if request.POST:
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            #arg['user_id'] = request.GET['currentdreamer']
+            #arg['user_id'] = auth.get_user(request).id
+            return redirect('/dreamers/%d/' % request.GET['currentdreamer'])
+        else:
+            return redirect('/auth/register/')
+    else:
+        return render_to_response('login.html', arg)

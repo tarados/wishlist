@@ -82,19 +82,17 @@ def selectdesire(request, dreamer_id, desire_id):
 @csrf_exempt
 def login1(request):
     arg = {}
+    arg['dreamer_id'] = request.GET.get('dreamer_id')
     arg.update(csrf(request))
-    #print(request.POST)
-    print(request.GET['currentdreamer'])
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            #arg['user_id'] = request.GET['currentdreamer']
             #arg['user_id'] = auth.get_user(request).id
-            return redirect('/dreamers/%d/' % request.GET['currentdreamer'])
+            return redirect('/dreamers/%d/' % int(request.POST.get('dreamer_id')))
         else:
             return redirect('/auth/register/')
     else:
-        return render_to_response('login.html', arg)
+        return render_to_response('login1.html', arg)

@@ -101,8 +101,8 @@ def register1(request):
     arg = {}
     arg.update(csrf(request))
     arg['form'] = UserCreationForm
-    dreamer_id = request.POST.get('dreamer_id')
-    print(dreamer_id)
+    arg['dreamer_id'] = request.POST.get('dreamer_id')
+    print(arg['dreamer_id'])
     print(request.POST)
     print(request.GET)
     if request.POST:
@@ -111,10 +111,10 @@ def register1(request):
             new_user_form.save()
             newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])
             auth.login(request, newuser)
-            # dreamer_id = int(request.POST('dreamer_id', 1))
+            dreamer_id = request.POST.get('dreamer_id', 1)
             print(dreamer_id)
             print(type(dreamer_id))
-            return redirect('/dreamers/%d/' % 1)
+            return redirect('/dreamers/%d/' % int(dreamer_id))
         else:
             arg['form'] = new_user_form
     return render_to_response('register1.html', arg)

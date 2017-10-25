@@ -90,9 +90,31 @@ def login1(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            #arg['user_id'] = auth.get_user(request).id
             return redirect('/dreamers/%d/' % int(request.POST.get('dreamer_id')))
         else:
-            return redirect('/auth/register/')
+            return redirect('/auth/register1/')
     else:
         return render_to_response('login1.html', arg)
+
+@csrf_exempt
+def register1(request):
+    arg = {}
+    arg.update(csrf(request))
+    arg['form'] = UserCreationForm
+    dreamer_id = request.POST.get('dreamer_id')
+    print(dreamer_id)
+    print(request.POST)
+    print(request.GET)
+    if request.POST:
+        new_user_form = UserCreationForm(request.POST)
+        if new_user_form.is_valid():
+            new_user_form.save()
+            newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])
+            auth.login(request, newuser)
+            # dreamer_id = int(request.POST('dreamer_id', 1))
+            print(dreamer_id)
+            print(type(dreamer_id))
+            return redirect('/dreamers/%d/' % 1)
+        else:
+            arg['form'] = new_user_form
+    return render_to_response('register1.html', arg)

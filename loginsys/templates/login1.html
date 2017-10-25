@@ -13,8 +13,12 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
             <input type="submit" class="btn btn-success btn-block" value="Вход">
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>
-            <a href="/auth/register/" class="btn btn-primary btn-block">Регистрация</a>
-            <a class="btn btn-social-icon btn-sm btn-vk" href="#"><span class="fa fa-vk"></span></a>
+{#            <a href="{% url 'register1' %}" class="btn btn-primary btn-block">Регистрация</a>#}
         </form>
+        <form action="{% url 'register1' %}" method="post">
+            <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
+            <button type="submit"  class="btn btn-primary btn-block" value="">Регистрация</button>
+        </form>
+        <a class="btn btn-social-icon btn-sm btn-vk" href="#"><span class="fa fa-vk"></span></a>
     </div>
 {% endblock %}

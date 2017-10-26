@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/$', views.adddesire, name='adddesire'),
     url(r'^dreamers/deldesire/(?P<dreamer_id>\d+)/$', views.deldesire, name='deldesire'),
     url(r'^dreamers/editdesire/(?P<dreamer_id>\d+)/(?P<desire_id>\d+)/$', views.editdesire, name='editdesire'),
-    url(r'^dreamers/selectdesire/(?P<dreamer_id>\d+)/(?P<desire_id>\d+)/$', views.selectdesire, name='selectdesire'),
+    url(r'^selectdesire/$', views.selectdesire, name='selectdesire'),
     url(r'^$', views.dreamers),
 ]

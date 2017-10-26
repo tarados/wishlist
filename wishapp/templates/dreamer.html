@@ -34,8 +34,14 @@
                     </div>
                 {% else %}
                     <div class="col-md-2">
-                        <button class="btn btn-info select_desire glyphicon glyphicon-check" id="desireselect-{{ desire.id }}">
-                            Select desire</button>
+                        <form action="{% url 'selectdesire' %}" method="post">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                            <input type="hidden" name="order_user_id"  value={{ user_id }}>
+                            <input type="hidden" name="order_user_name"  value={{ username }}>
+                            <button class="btn btn-info select_desire glyphicon glyphicon-check" id="desireselect-{{ desire.id }}">
+                                Select desire</button>
+                        </form>
                     </div>
                     <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
                         Selected by {{ username }}{{ date_now }}</i>

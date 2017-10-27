@@ -37,7 +37,8 @@ textarea#id_desire_text{
   padding-left: 5px;
   padding-right: 5px;
 }
-i.labelselect{
-  margin-bottom: 20px;
-  margin-left: -60px;
+.col-md-8{
+  margin-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
 }

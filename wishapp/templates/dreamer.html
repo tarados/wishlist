@@ -33,26 +33,26 @@
                         </form>
                     </div>
                 {% else %}
-                {% if desire.desire_state == 0 %}
-                    <div class="col-md-2">
-                        <form action="{% url 'selectdesire' %}" method="post">
-                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                            <input type="hidden" name="order_user_id"  value={{ user_id }}>
-                            <input type="hidden" name="order_user_name"  value={{ username }}>
-                            <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
-                            <button class="btn btn-info select_desire glyphicon glyphicon-check" id="desireselect-{{ desire.id }}">
-                                Select desire</button>
-                        </form>
-                    </div>
-                    <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                        Selected by {{ username }}{{ date_now }}</i>
-                {% else %}
-                    <div class="col-md-8">
-                        <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                            Selected by {{ username }}{{ date_now }}</i>
-                    </div>
-                {% endif %}
+                    {% if desire.desire_state == 0 %}
+                        <div class="col-md-2">
+                            <form action="{% url 'selectdesire' %}" method="post">
+                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                                <input type="hidden" name="order_user_id"  value={{ user_id }}>
+                                <input type="hidden" name="order_user_name"  value={{ username }}>
+                                <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
+                                <button class="btn btn-info select_desire glyphicon glyphicon-check" id="desireselect-{{ desire.id }}">
+                                    Select desire</button>
+                            </form>
+                        </div>
+                        <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                            Selected by {{ username }}</i>
+                    {% else %}
+                        <div class="col-md-8">
+                            <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                                Selected by {{ username }}</i>
+                        </div>
+                    {% endif %}
                 {% endif %}
             </div>
         {% endfor %}

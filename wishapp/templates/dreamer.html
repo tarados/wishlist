@@ -32,12 +32,6 @@
                         <div class="date">{{ desire.date }}<br></div>
                         {{ desire.text|safe }}
                     </div>
-                    <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
-                        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                            <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
-                            <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
-                        </form>
-                    </div>
                     <div class="col-md-2">
                         <form action="{% url 'login1' %}" method="get">
                             <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
@@ -51,12 +45,6 @@
                         <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
                             <div class="date">{{ desire.date }}<br></div>
                                 {{ desire.text|safe }}
-                        </div>
-                        <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
-                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                                <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
-                                <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
-                            </form>
                         </div>
                         <div class="col-md-2">
                             <form action="{% url 'selectdesire' %}" method="post">
@@ -78,15 +66,9 @@
                             <div class="date">{{ desire.date }}<br></div>
                                 {{ desire.text|safe }}
                         </div>
-                        <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
-                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                                <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
-                                <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
-                            </form>
-                        </div>
                         <div class="col-md-8">
                             <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                                Selected by {{ username }}</i>
+                                Selected by {{ desire.order_user_name }}</i>
                         </div>
                     </div>
                 {% endif %}

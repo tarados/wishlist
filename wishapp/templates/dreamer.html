@@ -4,18 +4,18 @@
     <div class="container">
         <h1>Desires by {{ dreamer.username }}:</h1>
         {% for desire in desire2 %}
-            <div class="row">
-                <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
-                    <div class="date">{{ desire.date }}<br></div>
-                    {{ desire.text|safe }}
-                </div>
-                <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
-                    <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                        <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
-                        <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
-                    </form>
-                </div>
-                {% if username == dreamer.username %}
+            {% if username == dreamer.username %}
+                <div class="row">
+                    <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                        <div class="date">{{ desire.date }}<br></div>
+                        {{ desire.text|safe }}
+                    </div>
+                    <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
+                        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                            <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
+                            <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
+                        </form>
+                    </div>
                     <div class="col-md-2">
                         <button class="btn btn-info edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>
                     </div>
@@ -25,15 +25,39 @@
                             <button type="submit"  class="btn btn-danger glyphicon glyphicon-trash" value=""></button>
                         </form>
                     </div>
-                {% elif username == "" %}
+                </div>
+            {% elif username == "" %}
+                <div class="row">
+                    <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                        <div class="date">{{ desire.date }}<br></div>
+                        {{ desire.text|safe }}
+                    </div>
+                    <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
+                        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                            <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
+                            <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
+                        </form>
+                    </div>
                     <div class="col-md-2">
                         <form action="{% url 'login1' %}" method="get">
                             <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                             <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
                         </form>
                     </div>
-                {% else %}
-                    {% if desire.desire_state == 0 %}
+                </div>
+            {% else %}
+                {% if desire.desire_state == 0 %}
+                    <div class="row">
+                        <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                            <div class="date">{{ desire.date }}<br></div>
+                                {{ desire.text|safe }}
+                        </div>
+                        <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
+                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                                <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
+                                <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
+                            </form>
+                        </div>
                         <div class="col-md-2">
                             <form action="{% url 'selectdesire' %}" method="post">
                                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
@@ -45,16 +69,28 @@
                                     Select desire</button>
                             </form>
                         </div>
-                        <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                            Selected by {{ username }}</i>
-                    {% else %}
+                    </div>
+                    <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                        Selected by {{ username }}</i>
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-12 well ordered" id="desireinfo-{{ desire.id }}" style="">
+                            <div class="date">{{ desire.date }}<br></div>
+                                {{ desire.text|safe }}
+                        </div>
+                        <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">
+                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                                <textarea name="desire_text" cols="155" rows="7">{{ desire.text2 }}</textarea>
+                                <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
+                            </form>
+                        </div>
                         <div class="col-md-8">
                             <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
                                 Selected by {{ username }}</i>
                         </div>
-                    {% endif %}
+                    </div>
                 {% endif %}
-            </div>
+            {% endif %}
         {% endfor %}
         {% if username == dreamer.username %}
             <div class="row">

@@ -23,6 +23,6 @@ $(function () {
 });
 
 $(function () {
-    var info = $("div.well");
+    var info = $("div.ordered");
     info.css('background', 'red');
 });

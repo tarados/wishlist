@@ -5,7 +5,7 @@
         <h1>Desires by {{ dreamer.username }}:</h1>
         {% for desire in desire2 %}
             <div class="row">
-                <div class="col-md-12 well" id="desireinfo-{{ desire.id }}" style="">
+                <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
                     <div class="date">{{ desire.date }}<br></div>
                     {{ desire.text|safe }}
                 </div>

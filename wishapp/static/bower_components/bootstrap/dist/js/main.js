@@ -19,12 +19,10 @@ $(function () {
         var label_select =$("#labelselect-" + desire_select_label_id);
         info.addClass("hidden");
         label_select.removeClass("hidden");
-        console.log('jfksdgja');
     });
 });
 
 $(function () {
-    alert('dfhfj');
-    // var info = $("div.well");
-    console.log("info");
+    var info = $("div.well");
+    info.css('background', 'red');
 });

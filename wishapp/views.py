@@ -26,7 +26,6 @@ def dreamer (request, dreamer_id):
     for l in arg['desires']:
         orderid = l.desire_order_user_id
         if orderid:
-            print(orderid)
             orderusername = User.objects.get(id=orderid).username
         else:
             orderusername = User.objects.get(id=1).username
@@ -84,8 +83,6 @@ def selectdesire(request):
     obj.desire_state = 1
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
-    print(request.POST)
-    print(obj.desire_state)
     return redirect('/dreamers/%s' % dreamer_id)
 
 @csrf_exempt

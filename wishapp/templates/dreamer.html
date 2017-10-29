@@ -27,18 +27,31 @@
                     </div>
                 </div>
             {% elif username == "" %}
-                <div class="row">
-                    <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
-                        <div class="date">{{ desire.date }}<br></div>
-                        {{ desire.text|safe }}
+                {% if desire.desire_state == 0 %}
+                    <div class="row">
+                        <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                            <div class="date">{{ desire.date }}<br></div>
+                            {{ desire.text|safe }}
+                        </div>
+                        <div class="col-md-2">
+                            <form action="{% url 'login1' %}" method="get">
+                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <form action="{% url 'login1' %}" method="get">
-                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                            <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
-                        </form>
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-12 well ordered" id="desireinfo-{{ desire.id }}" style="">
+                            <div class="date">{{ desire.date }}<br></div>
+                            {{ desire.text|safe }}
+                        </div>
+                        <div class="col-md-8">
+                            <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                                Selected by {{ desire.order_user_name }}</i>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             {% else %}
                 {% if desire.desire_state == 0 %}
                     <div class="row">

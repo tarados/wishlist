@@ -25,6 +25,13 @@
                             <button type="submit"  class="btn btn-danger glyphicon glyphicon-trash" value=""></button>
                         </form>
                     </div>
+                    <div class="col-md-2">
+                        <form action="{% url 'backupdesire' %}" method="post">
+                            <input type="hidden" name="backupdesire"  value={{ desire.id }}>
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <button type="submit"  class="btn btn-info glyphicon glyphicon-save-file" value=""> В архив</button>
+                        </form>
+                    </div>
                 </div>
             {% elif username == "" %}
                 {% if desire.desire_state == 0 %}

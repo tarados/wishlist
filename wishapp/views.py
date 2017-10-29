@@ -24,15 +24,18 @@ def dreamer (request, dreamer_id):
     arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
     result = []
     for l in arg['desires']:
-        orderid = l.desire_order_user_id
-        if orderid:
-            orderusername = User.objects.get(id=orderid).username
+        if l.desire_state != 2:
+            orderid = l.desire_order_user_id
+            if orderid:
+                orderusername = User.objects.get(id=orderid).username
+            else:
+                orderusername = User.objects.get(id=1).username
+            obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text,
+                   'date': l.desire_date, 'desire_state': l.desire_state,
+                   'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
+            result.append(obj)
         else:
-            orderusername = User.objects.get(id=1).username
-        obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text,
-               'date': l.desire_date, 'desire_state': l.desire_state,
-               'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
-        result.append(obj)
+            pass
     arg['desire2'] = result
     arg['form'] = desire_form
     arg['username'] = auth.get_user(request).username
@@ -84,6 +87,16 @@ def selectdesire(request):
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
     return redirect('/dreamers/%s' % dreamer_id)
+
+@csrf_exempt
+def backupdesire(request):
+    desire_id = request.POST.get('backupdesire', '')
+    dreamer_id = request.POST.get('dreamer_id', '')
+    obj = Desire.objects.get(id=desire_id)
+    obj.desire_state = 2
+    obj.save()
+    return redirect('/dreamers/%s' % dreamer_id)
+
 
 @csrf_exempt
 def login1(request):

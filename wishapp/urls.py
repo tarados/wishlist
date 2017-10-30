@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^dreamers/editdesire/(?P<dreamer_id>\d+)/(?P<desire_id>\d+)/$', views.editdesire, name='editdesire'),
     url(r'^selectdesire/$', views.selectdesire, name='selectdesire'),
     url(r'^backupdesire/$', views.backupdesire, name='backupdesire'),
+    url(r'^dreamers/archive/(?P<user_id>\d+)/$', views.archive, name='archive'),
     url(r'^$', views.dreamers),
 ]

@@ -132,3 +132,25 @@ def register1(request):
         else:
             arg['form'] = new_user_form
     return render_to_response('register1.html', arg)
+
+def archive (request, user_id):
+    arg = {}
+    arg['desires'] = Desire.objects.filter(desire_user_id=user_id)
+    result = []
+    for l in arg['desires']:
+        if l.desire_state == 2:
+            orderid = l.desire_order_user_id
+            if orderid:
+                orderusername = User.objects.get(id=orderid).username
+            else:
+                orderusername = User.objects.get(id=1).username
+            obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text,
+                   'date': l.desire_date, 'desire_state': l.desire_state,
+                   'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
+            result.append(obj)
+        else:
+            pass
+    arg['desire2'] = result
+    arg['username'] = auth.get_user(request).username
+    arg['user_id'] = auth.get_user(request).id
+    return render_to_response('archive.html')

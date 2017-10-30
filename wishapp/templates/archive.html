@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block dreamerslist %}
+    <div class="container">
+        <h1>Desires by {{ dreamer.username }}:</h1>
+        {% for desire in desire2 %}
+            <div class="row">
+                <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                    <div class="date">{{ desire.date }}<br></div>
+                    {{ desire.text|safe }}
+                </div>
+                <div class="col-md-2">
+                    <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="deldesire"  value={{ desire.id }}>
+                        <button type="submit"  class="btn btn-danger glyphicon glyphicon-trash" value=""></button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+

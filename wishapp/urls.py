@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^selectdesire/$', views.selectdesire, name='selectdesire'),
     url(r'^backupdesire/$', views.backupdesire, name='backupdesire'),
     url(r'^dreamers/archive/(?P<user_id>\d+)/$', views.archive, name='archive'),
+    url(r'^dreamers/delarchive/(?P<user_id>\d+)/$', views.delarchive, name='delarchive'),
     url(r'^$', views.dreamers),
 ]

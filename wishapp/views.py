@@ -133,6 +133,7 @@ def register1(request):
             arg['form'] = new_user_form
     return render_to_response('register1.html', arg)
 
+@csrf_exempt
 def archive (request, user_id):
     arg = {}
     arg['desires'] = Desire.objects.filter(desire_user_id=user_id)
@@ -153,4 +154,12 @@ def archive (request, user_id):
     arg['desire2'] = result
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
-    return render_to_response('archive.html')
+    return render_to_response('archive.html', arg)
+
+@csrf_exempt
+def delarchive(request, user_id):
+    if request.POST:
+        desire_id = request.POST['deldesire']
+        derise = Desire.objects.get(id=desire_id)
+        derise.delete()
+    return redirect('/dreamers/archive/%s' % user_id)

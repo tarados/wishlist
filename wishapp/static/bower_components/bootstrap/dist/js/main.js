@@ -8,21 +8,16 @@ $(function () {
         info.addClass("hidden");
         form.removeClass("hidden");
     });
-});
-$(function () {
     $(".select_desire").click(function () {
         var button = $(this);
         var id = button.attr("id");
         var desire_select_id = id.split("-")[1];
         var desire_select_label_id = id.split("-")[1];
-        var info = $("#desireselect-" + desire_select_id);
+        var info1 = $("#desireselect-" + desire_select_id);
         var label_select =$("#labelselect-" + desire_select_label_id);
-        info.addClass("hidden");
+        info1.addClass("hidden");
         label_select.removeClass("hidden");
     });
-});
-
-$(function () {
     var info = $("div.ordered");
     info.css('background', 'red');
 });

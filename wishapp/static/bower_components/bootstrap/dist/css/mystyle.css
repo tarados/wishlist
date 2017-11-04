@@ -40,5 +40,6 @@ textarea#id_desire_text{
   padding-right: 5px;
 }
 .abc{
-    margin-top: 15px;
+  margin-top: 15px;
+  text-align: right;
 }

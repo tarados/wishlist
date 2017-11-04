@@ -18,6 +18,12 @@ $(function () {
         info1.addClass("hidden");
         label_select.removeClass("hidden");
     });
-    var info = $("div.ordered");
-    info.css('background', 'red');
+    var info2 = $("div.ordered");
+    info2.css('background', 'red');
+    links = $("div.well a");
+    for (i=0; i<links.length; i++){
+        link = links[i];
+        link.target = "_blank";
+    }
+    console.log(links.length);
 });

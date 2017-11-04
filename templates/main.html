@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/help.css" %}">
 
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 nav">
+            <div class="col-md-12 abc">
                 {% if username %}
                     <a href="/dreamers/archive/{{ user_id }}/" class="btn btn-info arch" role="button">Archive</a>
                     <a href="/auth/logout/" class="btn btn-info" role="button">Logout ({{ username }})</a>

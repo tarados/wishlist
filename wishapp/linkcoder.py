@@ -1,7 +1,7 @@
 import re
 
 
-def linkOn(str):
+def link_on(str):
     newstr = []
     str = str.split(' ')
     for substr in str:

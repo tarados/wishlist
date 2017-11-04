@@ -6,17 +6,18 @@ from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
-from wishapp.linkcoder import linkOn
+from wishapp.linkcoder import link_on
 import datetime
-import re
 
-def dreamers (request):
+
+def dreamers(request):
     arg = {}
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
     return render_to_response('dreamers.html', arg)
 
-def dreamer (request, dreamer_id):
+
+def dreamer(request, dreamer_id):
     desire_form = DesireForm
     arg = {}
     arg.update(csrf(request))
@@ -30,7 +31,7 @@ def dreamer (request, dreamer_id):
                 orderusername = User.objects.get(id=orderid).username
             else:
                 orderusername = User.objects.get(id=1).username
-            obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text,
+            obj = {'id': l.id, 'text': link_on(l.desire_text), 'text2': l.desire_text,
                    'date': l.desire_date, 'desire_state': l.desire_state,
                    'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
             result.append(obj)
@@ -42,6 +43,7 @@ def dreamer (request, dreamer_id):
     arg['user_id'] = auth.get_user(request).id
     arg['date_now'] = datetime.datetime.now()
     return render_to_response('dreamer.html', arg)
+
 
 @csrf_exempt
 def adddesire(request, dreamer_id):
@@ -56,6 +58,7 @@ def adddesire(request, dreamer_id):
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)
 
+
 @csrf_exempt
 def deldesire(request, dreamer_id):
     if request.POST:
@@ -63,6 +66,7 @@ def deldesire(request, dreamer_id):
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
     return redirect('/dreamers/%s' % dreamer_id)
+
 
 @csrf_exempt
 def editdesire(request, dreamer_id, desire_id):
@@ -77,6 +81,7 @@ def editdesire(request, dreamer_id, desire_id):
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
 
+
 @csrf_exempt
 def selectdesire(request):
     desire_id = request.POST.get('desire_id', '')
@@ -87,6 +92,7 @@ def selectdesire(request):
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
     return redirect('/dreamers/%s' % dreamer_id)
+
 
 @csrf_exempt
 def backupdesire(request):
@@ -115,6 +121,7 @@ def login1(request):
     else:
         return render_to_response('login1.html', arg)
 
+
 @csrf_exempt
 def register1(request):
     arg = {}
@@ -133,8 +140,9 @@ def register1(request):
             arg['form'] = new_user_form
     return render_to_response('register1.html', arg)
 
+
 @csrf_exempt
-def archive (request, user_id):
+def archive(request, user_id):
     arg = {}
     arg['desires'] = Desire.objects.filter(desire_user_id=user_id)
     result = []
@@ -145,7 +153,7 @@ def archive (request, user_id):
                 orderusername = User.objects.get(id=orderid).username
             else:
                 orderusername = User.objects.get(id=1).username
-            obj = {'id': l.id, 'text': linkOn(l.desire_text), 'text2': l.desire_text,
+            obj = {'id': l.id, 'text': link_on(l.desire_text), 'text2': l.desire_text,
                    'date': l.desire_date, 'desire_state': l.desire_state,
                    'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
             result.append(obj)
@@ -155,6 +163,7 @@ def archive (request, user_id):
     arg['username'] = auth.get_user(request).username
     arg['user_id'] = auth.get_user(request).id
     return render_to_response('archive.html', arg)
+
 
 @csrf_exempt
 def delarchive(request, user_id):

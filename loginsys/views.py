@@ -7,7 +7,6 @@ from django.template.context_processors import csrf
 def login(request):
     arg = {}
     arg.update(csrf(request))
-    print(request.GET)
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
@@ -17,7 +16,10 @@ def login(request):
             arg['user_id'] = auth.get_user(request).id
             return redirect('/dreamers/%d/' % arg['user_id'])
         else:
-            return redirect('/auth/register/')
+            arg['password_error'] = '1'
+            print(arg)
+            return render_to_response('login.html', arg)
+            # return redirect('/auth/login/')
     else:
         return render_to_response('login.html', arg)
 

@@ -25,5 +25,8 @@ $(function () {
         link = links[i];
         link.target = "_blank";
     }
-    console.log(links.length);
+    error = $("input.error");
+    if (error.attr("value") == 1) {
+        alert('Введён неверный пароль!');
+    }
 });

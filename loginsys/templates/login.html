@@ -10,6 +10,7 @@
             </div>
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
+            <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <input type="submit" class="btn btn-success btn-block" value="Вход">
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>
             <a href="/auth/register/" class="btn btn-primary btn-block">Регистрация</a>

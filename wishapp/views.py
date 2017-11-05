@@ -21,33 +21,33 @@ def dreamer(request, dreamer_id):
     desire_form = DesireForm
     arg = {}
     arg.update(csrf(request))
-    arg['dreamer'] = User.objects.get(id=dreamer_id)
-    arg['desires'] = Desire.objects.filter(desire_user_id=dreamer_id)
+    dreamer = User.objects.get(id=dreamer_id)
+    desires = Desire.objects.filter(desire_user_id=dreamer_id)
     result = []
-    for l in arg['desires']:
-        if l.desire_state != 2:
-            orderid = l.desire_order_user_id
-            if orderid:
-                orderusername = User.objects.get(id=orderid).username
+    for desire in desires:
+        if desire.desire_state != 2:
+            if desire.desire_order_user is not None:
+                order_user_name = desire.desire_order_user.username
             else:
-                orderusername = User.objects.get(id=1).username
+                order_user_name = ''
             obj = {
-                'id': l.id,
-                'text': link_on(l.desire_text),
-                'text2': l.desire_text,
-                'date': l.desire_date,
-                'desire_state': l.desire_state,
-                'order_user_id': l.desire_order_user_id,
-                'order_user_name': orderusername}
+                'id': desire.id,
+                'text': link_on(desire.desire_text),
+                'text2': desire.desire_text,
+                'date': desire.desire_date,
+                'desire_state': desire.desire_state,
+                'order_user_id': desire.desire_order_user_id,
+                'order_user_name': order_user_name}
             result.append(obj)
         else:
             pass
-    arg['desire2'] = result
-    arg['form'] = desire_form
-    arg['username'] = auth.get_user(request).username
-    arg['user_id'] = auth.get_user(request).id
+    desire2 = result
+    form = desire_form
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
     arg['date_now'] = datetime.datetime.now()
-    return render_to_response('dreamer.html', arg)
+    return render_to_response('dreamer.html', locals())
 
 
 @csrf_exempt

@@ -17,7 +17,6 @@ def login(request):
             return redirect('/dreamers/%d/' % arg['user_id'])
         else:
             arg['password_error'] = '1'
-            print(arg)
             return render_to_response('login.html', arg)
             # return redirect('/auth/login/')
     else:

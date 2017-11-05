@@ -31,9 +31,14 @@ def dreamer(request, dreamer_id):
                 orderusername = User.objects.get(id=orderid).username
             else:
                 orderusername = User.objects.get(id=1).username
-            obj = {'id': l.id, 'text': link_on(l.desire_text), 'text2': l.desire_text,
-                   'date': l.desire_date, 'desire_state': l.desire_state,
-                   'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
+            obj = {
+                'id': l.id,
+                'text': link_on(l.desire_text),
+                'text2': l.desire_text,
+                'date': l.desire_date,
+                'desire_state': l.desire_state,
+                'order_user_id': l.desire_order_user_id,
+                'order_user_name': orderusername}
             result.append(obj)
         else:
             pass
@@ -144,25 +149,34 @@ def register1(request):
 @csrf_exempt
 def archive(request, user_id):
     arg = {}
-    arg['desires'] = Desire.objects.filter(desire_user_id=user_id)
+    desires = Desire.objects.filter(desire_user_id=user_id)
     result = []
-    for l in arg['desires']:
-        if l.desire_state == 2:
-            orderid = l.desire_order_user_id
-            if orderid:
-                orderusername = User.objects.get(id=orderid).username
+    for desire in desires:
+        if desire.desire_state == 2:
+            if desire.desire_order_user_id is not None:
+                order_id = desire.desire_order_user_id
+                order_username = desire.desire_order_user.username
             else:
-                orderusername = User.objects.get(id=1).username
-            obj = {'id': l.id, 'text': link_on(l.desire_text), 'text2': l.desire_text,
-                   'date': l.desire_date, 'desire_state': l.desire_state,
-                   'order_user_id': l.desire_order_user_id, 'order_user_name': orderusername}
+                order_id = None
+                order_username = ''
+            obj = {
+                'id': desire.id,
+                'text': link_on(desire.desire_text),
+                'text2': desire.desire_text,
+                'date': desire.desire_date,
+                'desire_state': desire.desire_state,
+                'order_user_id': desire.desire_order_user_id,
+                'order_user_name': order_username
+            }
             result.append(obj)
         else:
             pass
-    arg['desire2'] = result
-    arg['username'] = auth.get_user(request).username
-    arg['user_id'] = auth.get_user(request).id
-    return render_to_response('archive.html', arg)
+    desire2 = result
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
+    print(arg)
+    return render_to_response('archive.html', locals())
 
 
 @csrf_exempt

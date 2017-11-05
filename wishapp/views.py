@@ -11,10 +11,10 @@ import datetime
 
 
 def dreamers(request):
-    arg = {}
-    arg['username'] = auth.get_user(request).username
-    arg['user_id'] = auth.get_user(request).id
-    return render_to_response('dreamers.html', arg)
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
+    return render_to_response('dreamers.html', locals())
 
 
 def dreamer(request, dreamer_id):
@@ -175,7 +175,6 @@ def archive(request, user_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
-    print(arg)
     return render_to_response('archive.html', locals())
 
 

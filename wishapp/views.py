@@ -47,21 +47,10 @@ def dreamer(request, dreamer_id):
     username = user.username
     user_id = user.id
     arg['date_now'] = datetime.datetime.now()
-    if username == dreamer.username:
-        owner = ''
-        guest = 'hidden'
-        choice = 'hidden'
-        labelselect = 'hidden'
-    elif username == '':
+    if username == '':
         owner = 'hidden'
-        guest = ''
-        choice = 'hidden'
-        labelselect = ''
     else:
-        owner = 'hidden'
         guest = 'hidden'
-        choice = ''
-        labelselect = 'hidden'
     return render_to_response('dreamer.html', locals())
 
 

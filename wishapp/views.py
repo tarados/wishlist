@@ -53,6 +53,7 @@ def dreamer(request, dreamer_id):
     print(is_owner)
     print(is_loggedin)
     print(is_choice)
+    print(arg)
     return render_to_response('dreamer.html', locals())
 
 

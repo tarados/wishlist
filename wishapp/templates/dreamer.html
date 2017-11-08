@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load humanize %}
 
 {% block dreamerslist %}
     <div class="container">
@@ -7,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
 
-                    <div class="date">{{ desire.date }}<br></div>
+                    <div class="date">{{ desire.date|naturalday }}<br></div>
                     {{ desire.text|safe }}
                 </div>
                 <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">

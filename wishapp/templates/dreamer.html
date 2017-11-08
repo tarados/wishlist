@@ -42,11 +42,7 @@
                     </form>
                 </div>
 {#            выбор желания для покупки#}
-                <div class="col-md-8">
-                    <i class="glyphicon glyphicon-ok-circle select_desire labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                        Selected by {{ desire.order_user_name }}</i>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-2 {{ choice }}">
                     <form action="{% url 'selectdesire' %}" method="post">
                         <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                         <input type="hidden" name="desire_id"  value={{ desire.id }}>

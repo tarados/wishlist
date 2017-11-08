@@ -1,3 +1,4 @@
+from django import template
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, redirect
@@ -47,9 +48,17 @@ def dreamer(request, dreamer_id):
     username = user.username
     user_id = user.id
     arg['date_now'] = datetime.datetime.now()
-    if username == '':
+    if user_id == int(dreamer_id):
+        owner = ''
+        guest = 'hidden'
+        choice = 'hidden'
+    elif user_id is None:
         owner = 'hidden'
+        guest = ''
+        choice = 'hidden'
     else:
+        owner = 'hidden'
+        choice = ''
         guest = 'hidden'
     return render_to_response('dreamer.html', locals())
 
@@ -124,6 +133,9 @@ def login1(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
+            t = template.Template('dreamer.html')
+            c = template.Context({'owner': 'hidden'})
+            t.render(c)
             return redirect('/dreamers/%d/' % int(request.POST.get('dreamer_id')))
         else:
             return redirect('/auth/register1/')

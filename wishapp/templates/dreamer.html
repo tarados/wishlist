@@ -34,17 +34,20 @@
                         <button type="submit"  class="btn btn-info glyphicon glyphicon-save-file" value=""> В архив</button>
                     </form>
                 </div>
+                {% if desire.desire_state == 1 %}
 {#                авторизацияпри выборе желания для покупки#}
-                <div class="col-md-2 {{ guest }}">
-                    <form action="{% url 'login1' %}" method="get">
-                        <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                        <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
-                    </form>
-                </div>
+                    <div class="col-md-2 hidden">
+                        <form action="{% url 'login1' %}" method="get">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
+                        </form>
+                    </div>
 {#            выбор желания для покупки#}
-                <div class="col-md-2 {{ choice }}">
+                    <div class="col-md-2 hidden">
                     <form action="{% url 'selectdesire' %}" method="post">
+                        <input type="hidden" name="choice"  value="hidden">
                         <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                        <input type="hidden" name="labelselect"  value="">
                         <input type="hidden" name="desire_id"  value={{ desire.id }}>
                         <input type="hidden" name="order_user_id"  value={{ user_id }}>
                         <input type="hidden" name="order_user_name"  value={{ username }}>
@@ -53,8 +56,35 @@
                             Select desire</button>
                     </form>
                 </div>
-                <i class="glyphicon glyphicon-ok-circle hidden labelselect" id="labelselect-{{ desire.id }}" aria-hidden="true">
-                    Selected by {{ username }}</i>
+                <i class="glyphicon glyphicon-ok-circle" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                    Selected by {{ desire.order_user_name }}</i>
+                {% else %}
+{#                авторизацияпри выборе желания для покупки#}
+                    <div class="col-md-2 {{ guest }}">
+                        <form action="{% url 'login1' %}" method="get">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
+                        </form>
+                    </div>
+                {% endif %}
+                {% if user_id == '' %}
+{#            выбор желания для покупки#}
+                    <div class="col-md-2">
+                        <form action="{% url 'selectdesire' %}" method="post">
+                            <input type="hidden" name="choice"  value="hidden">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <input type="hidden" name="labelselect"  value="">
+                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                            <input type="hidden" name="order_user_id"  value={{ user_id }}>
+                            <input type="hidden" name="order_user_name"  value={{ username }}>
+                            <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
+                            <button class="btn btn-info select_desire glyphicon glyphicon-check" id="desireselect-{{ desire.id }}">
+                                Select desire</button>
+                        </form>
+                    </div>
+                    <i class="glyphicon glyphicon-ok-circle hidden" id="labelselect-{{ desire.id }}" aria-hidden="true">
+                        Selected by {{ desire.order_user_name }}</i>
+                {% endif %}
             </div>
         {% endfor %}
 {#    блок добавления желаний#}

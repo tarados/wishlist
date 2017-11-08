@@ -47,19 +47,23 @@ def dreamer(request, dreamer_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
+    choice = request.POST.get('choice', 'hidden')
     arg['date_now'] = datetime.datetime.now()
     if user_id == int(dreamer_id):
         owner = ''
         guest = 'hidden'
-        choice = 'hidden'
+        # choice = 'hidden'
+        # labelselect = 'hidden'
     elif user_id is None:
         owner = 'hidden'
         guest = ''
-        choice = 'hidden'
+        # choice = 'hidden'
+        # labelselect = 'hidden'
     else:
         owner = 'hidden'
         choice = ''
-        guest = 'hidden'
+        # guest = 'hidden'
+        # labelselect = 'hidden'
     return render_to_response('dreamer.html', locals())
 
 
@@ -109,6 +113,7 @@ def selectdesire(request):
     obj.desire_state = 1
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
+    print(request.POST)
     return redirect('/dreamers/%s' % dreamer_id)
 
 

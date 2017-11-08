@@ -47,10 +47,12 @@ def dreamer(request, dreamer_id):
     username = user.username
     user_id = user.id
     arg['date_now'] = datetime.datetime.now()
-    if username == '':
-        owner = 'hidden'
-    else:
-        guest = 'hidden'
+    is_owner = user_id == int(dreamer_id)
+    is_loggedin = user_id is None
+    is_choice = user_id != int(dreamer_id)
+    print(is_owner)
+    print(is_loggedin)
+    print(is_choice)
     return render_to_response('dreamer.html', locals())
 
 

@@ -5,13 +5,15 @@
         <form action="{% url 'login1' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">User name!{{ dreamer_id }}</label>
+                <label for="username">User name</label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
                 <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
                 <input type="hidden" name="owner"  value="hidden">
             </div>
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
+            <input type="text" class="form-control box_error hidden" name="box_error" placeholder="Ошибка аутентификации! Повторите попытку."><br>
+            <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <input type="submit" class="btn btn-success btn-block" value="Вход">
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>
 {#            <a href="{% url 'register1' %}" class="btn btn-primary btn-block">Регистрация</a>#}

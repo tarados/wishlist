@@ -26,7 +26,9 @@ $(function () {
         link.target = "_blank";
     }
     error = $("input.error");
+    box_error = $("input.box_error");
+    password = $("inpur#password");
     if (error.attr("value") == 1) {
-        alert('Введён неверный пароль!');
+        box_error.removeClass("hidden");
     }
 });

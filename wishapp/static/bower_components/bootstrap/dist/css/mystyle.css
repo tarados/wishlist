@@ -42,3 +42,6 @@ textarea#id_desire_text{
   padding-left: 5px;
   padding-right: 5px;
 }
+label.box_error{
+  color: red;
+}

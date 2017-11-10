@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from wishapp import views
 urlpatterns = [
     url(r'^dreamers/all/$', views.dreamers),
-    url(r'^login1/$', views.login1, name='login1'),
+    url(r'^login1/(?P<dreamer_id>\d+)/$', views.login1, name='login1'),
     url(r'^register1/$', views.register1, name='register1'),
     url(r'^dreamers/(?P<dreamer_id>\d+)/$', views.dreamer, name='dreamer'),
     url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/$', views.adddesire, name='adddesire'),

@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
+from django.template import Context
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire
@@ -51,10 +52,6 @@ def dreamer(request, dreamer_id):
     is_owner = user_id == int(dreamer_id)
     is_loggedin = user_id is None
     is_choice = user_id != int(dreamer_id)
-    print(is_owner)
-    print(is_loggedin)
-    print(is_choice)
-    print(arg)
     return render_to_response('dreamer.html', locals())
 
 
@@ -118,27 +115,25 @@ def backupdesire(request):
 
 
 @csrf_exempt
-def login1(request):
+def login1(request, dreamer_id):
     arg = {}
-    arg['dreamer_id'] = request.GET.get('dreamer_id')
     arg.update(csrf(request))
-    print(arg)
-    print(request.POST)
-    print(request.GET)
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
+        arg['dreamer_id'] = request.POST.get('dreamer_id')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/dreamers/%d/' % int(request.POST.get('dreamer_id')))
+            return redirect('/dreamers/%d/' % int(arg['dreamer_id']))
         else:
+            arg['password_error'] = '1'
+            arg['error_message'] = 'Ошибка аутентификации! Повторите попытку.'
             print(arg)
             print(request.POST)
-            print(request.GET)
-            dreamer_id = request.POST.get('dreamer_id')
-            return redirect('/login1/?dreamer_id=%s' % dreamer_id)
+            return render_to_response('login1.html', arg)
     else:
+        arg['dreamer_id'] = request.GET.get('dreamer_id')
         return render_to_response('login1.html', arg)
 
 

@@ -2,7 +2,7 @@
 
 {% block login %}
     <div class="container">
-        <form action="{% url 'login1' %}" method="post">
+        <form action="{% url 'login1' dreamer_id %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="username">User name</label>
@@ -12,7 +12,7 @@
             </div>
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
-            <label for="password" class="box_error hidden">Ошибка аутентификации! Повторите попытку.</label><br>
+            <label for="password" class="box_error">{{ error_message }}</label><br>
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <input type="submit" class="btn btn-success btn-block" value="Вход">
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>

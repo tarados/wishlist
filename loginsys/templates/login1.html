@@ -2,13 +2,12 @@
 
 {% block login %}
     <div class="container">
-        <form action="{% url 'login1' dreamer_id %}" method="post">
+        <form action="{% url 'login1' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="username">User name</label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
                 <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
-                <input type="hidden" name="owner"  value="hidden">
             </div>
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>

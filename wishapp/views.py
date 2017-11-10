@@ -115,7 +115,7 @@ def backupdesire(request):
 
 
 @csrf_exempt
-def login1(request, dreamer_id):
+def login1(request):
     arg = {}
     arg.update(csrf(request))
     if request.POST:

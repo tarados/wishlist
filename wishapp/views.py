@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -121,6 +122,9 @@ def login1(request):
     arg = {}
     arg['dreamer_id'] = request.GET.get('dreamer_id')
     arg.update(csrf(request))
+    print(arg)
+    print(request.POST)
+    print(request.GET)
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
@@ -129,7 +133,11 @@ def login1(request):
             auth.login(request, user)
             return redirect('/dreamers/%d/' % int(request.POST.get('dreamer_id')))
         else:
-            return redirect('/auth/register1/')
+            print(arg)
+            print(request.POST)
+            print(request.GET)
+            dreamer_id = request.POST.get('dreamer_id')
+            return redirect('/login1/?dreamer_id=%s' % dreamer_id)
     else:
         return render_to_response('login1.html', arg)
 

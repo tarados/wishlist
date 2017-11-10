@@ -12,7 +12,7 @@
             </div>
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"><br>
-            <input type="text" class="form-control box_error hidden" name="box_error" placeholder="Ошибка аутентификации! Повторите попытку."><br>
+            <label for="password" class="box_error hidden">Ошибка аутентификации! Повторите попытку.</label><br>
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <input type="submit" class="btn btn-success btn-block" value="Вход">
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>

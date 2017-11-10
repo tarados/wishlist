@@ -26,8 +26,7 @@ $(function () {
         link.target = "_blank";
     }
     error = $("input.error");
-    box_error = $("input.box_error");
-    password = $("inpur#password");
+    box_error = $("label.box_error");
     if (error.attr("value") == 1) {
         box_error.removeClass("hidden");
     }

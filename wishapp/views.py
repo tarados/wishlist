@@ -132,8 +132,6 @@ def login_for_guest(request):
         password = request.POST.get('password', '')
         arg['dreamer_id'] = request.POST.get('dreamer_id')
         user = auth.authenticate(username=username, password=password)
-        is_user = user == None
-        arg['is_user'] = is_user
         if user is not None:
             auth.login(request, user)
             return redirect('/dreamers/%d/' % int(arg['dreamer_id']))

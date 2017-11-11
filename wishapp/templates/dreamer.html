@@ -11,7 +11,6 @@
         {% for desire in desire_list %}
             <div class="row">
                 <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
-
                     <div class="date">{{ desire.date|naturalday }}<br></div>
                     {{ desire.text|safe }}
                 </div>

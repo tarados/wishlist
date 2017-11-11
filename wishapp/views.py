@@ -118,23 +118,22 @@ def backupdesire(request):
 def login1(request):
     arg = {}
     arg.update(csrf(request))
+    arg['dreamer_id'] = request.GET.get('dreamer_id')
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         arg['dreamer_id'] = request.POST.get('dreamer_id')
         user = auth.authenticate(username=username, password=password)
+        is_user = user == None
+        arg['is_user'] = is_user
         if user is not None:
             auth.login(request, user)
             return redirect('/dreamers/%d/' % int(arg['dreamer_id']))
         else:
             arg['password_error'] = '1'
             arg['error_message'] = 'Ошибка аутентификации! Повторите попытку.'
-            print(arg)
-            print(request.POST)
             return render_to_response('login1.html', arg)
-    else:
-        arg['dreamer_id'] = request.GET.get('dreamer_id')
-        return render_to_response('login1.html', arg)
+    return render_to_response('login1.html', arg)
 
 
 @csrf_exempt

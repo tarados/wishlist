@@ -19,9 +19,9 @@ h1{
   text-align: center;
   font-weight: bolder;
 }
-.well{
-  text-align: left;
-}
+/*.well{*/
+  /*text-align: left;*/
+/*}*/
 input{
   width: 66.48px;
 }
@@ -56,4 +56,26 @@ label.box_error{
   color: white;
   background-color: coral;
   border-color: coral;
+}
+li.well{
+  margin-bottom: 0px;
+  padding: 10px;
+  text-align: right;
+}
+button.edit{
+  position: relative;
+  right: -15px;
+}
+button.delete{
+  position: relative;
+  right: -60px;
+  top: -29px;
+}
+button.archive{
+  position: relative;
+  right: -104px;
+  top: -58px;
+}
+li.button{
+  height: 54px;
 }

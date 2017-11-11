@@ -2,7 +2,7 @@
 
 {% block login %}
     <div class="container">
-        <form action="{% url 'login1' %}" method="post">
+        <form action="{% url 'login_for_guest' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="username">User name</label>
@@ -17,7 +17,7 @@
             <p class="help-block">Если Вы впервые на сайте пожалуйста зарегистрируйтесь</p>
 {#            <a href="{% url 'register1' %}" class="btn btn-primary btn-block">Регистрация</a>#}
         </form>
-        <form action="{% url 'register1' %}" method="post">
+        <form action="{% url 'register_for_guest' %}" method="post">
             <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
             <button type="submit"  class="btn btn-primary btn-block" value="">Регистрация</button>
         </form>

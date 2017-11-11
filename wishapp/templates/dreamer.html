@@ -42,7 +42,7 @@
                     {% if is_loggedin %}
     {#                авторизацияпри выборе желания для покупки#}
                         <div class="col-md-2">
-                            <form action="{% url 'login1' %}" method="get">
+                            <form action="{% url 'login_for_guest' %}" method="get">
                                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                                 <button type="submit"  class="btn btn-info login_new_user glyphicon glyphicon-log-in" value=""></button>
                             </form>

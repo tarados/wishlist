@@ -115,7 +115,7 @@ def backupdesire(request):
 
 
 @csrf_exempt
-def login1(request):
+def login_for_guest(request):
     arg = {}
     arg.update(csrf(request))
     arg['dreamer_id'] = request.GET.get('dreamer_id')
@@ -132,12 +132,12 @@ def login1(request):
         else:
             arg['password_error'] = '1'
             arg['error_message'] = 'Ошибка аутентификации! Повторите попытку.'
-            return render_to_response('login1.html', arg)
-    return render_to_response('login1.html', arg)
+            return render_to_response('login_for_guest.html', arg)
+    return render_to_response('login_for_guest.html', arg)
 
 
 @csrf_exempt
-def register1(request):
+def register_for_guest(request):
     arg = {}
     arg.update(csrf(request))
     arg['form'] = UserCreationForm
@@ -152,7 +152,7 @@ def register1(request):
             return redirect('/dreamers/%d/' % int(dreamer_id))
         else:
             arg['form'] = new_user_form
-    return render_to_response('register1.html', arg)
+    return render_to_response('register_for_guest.html', arg)
 
 
 @csrf_exempt

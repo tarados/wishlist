@@ -2,7 +2,7 @@
 
 {% block login %}
     <div class="container">
-        <form action="{% url 'register1' %}" method="post">{% csrf_token %}
+        <form action="{% url 'register_for_guest' %}" method="post">{% csrf_token %}
             <div class="form-group">
                 <label for="username">User name</label>
                 <div class="form-control-static">

@@ -12,6 +12,7 @@ from wishapp.linkcoder import link_on
 import datetime
 
 
+# первая страница
 def dreamers(request):
     user = auth.get_user(request)
     username = user.username
@@ -19,6 +20,7 @@ def dreamers(request):
     return render_to_response('dreamers.html', locals())
 
 
+# страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):
     desire_form = DesireForm
     arg = {}
@@ -35,7 +37,7 @@ def dreamer(request, dreamer_id):
             obj = {
                 'id': desire.id,
                 'text': link_on(desire.desire_text),
-                'text2': desire.desire_text,
+                'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
                 'order_user_name': order_user_name
@@ -43,7 +45,7 @@ def dreamer(request, dreamer_id):
             result.append(obj)
         else:
             pass
-    desire2 = result
+    desire_list = result
     form = desire_form
     user = auth.get_user(request)
     username = user.username
@@ -55,6 +57,7 @@ def dreamer(request, dreamer_id):
     return render_to_response('dreamer.html', locals())
 
 
+# модуль добавления желаний
 @csrf_exempt
 def adddesire(request, dreamer_id):
     if request.method == 'GET':
@@ -69,6 +72,7 @@ def adddesire(request, dreamer_id):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
+# модуль удаления желаний
 @csrf_exempt
 def deldesire(request, dreamer_id):
     if request.POST:
@@ -78,6 +82,7 @@ def deldesire(request, dreamer_id):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
+# модуль редактирования желаний
 @csrf_exempt
 def editdesire(request, dreamer_id, desire_id):
     desire = Desire.objects.get(id=desire_id)
@@ -92,6 +97,7 @@ def editdesire(request, dreamer_id, desire_id):
     return render_to_response('edit.html', locals())
 
 
+# модуль выбора желаний для покупки
 @csrf_exempt
 def selectdesire(request):
     desire_id = request.POST.get('desire_id', '')
@@ -104,6 +110,7 @@ def selectdesire(request):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
+# модуль архивирования желаний
 @csrf_exempt
 def backupdesire(request):
     desire_id = request.POST.get('backupdesire', '')
@@ -114,6 +121,7 @@ def backupdesire(request):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
+# модуль аутентификации гостя
 @csrf_exempt
 def login_for_guest(request):
     arg = {}
@@ -136,6 +144,7 @@ def login_for_guest(request):
     return render_to_response('login_for_guest.html', arg)
 
 
+# модуль регистрации гостя
 @csrf_exempt
 def register_for_guest(request):
     arg = {}
@@ -155,6 +164,7 @@ def register_for_guest(request):
     return render_to_response('register_for_guest.html', arg)
 
 
+# страница архива
 @csrf_exempt
 def archive(request, user_id):
     arg = {}
@@ -187,6 +197,7 @@ def archive(request, user_id):
     return render_to_response('archive.html', locals())
 
 
+# модуль удаления желаний из архива
 @csrf_exempt
 def delarchive(request, user_id):
     if request.POST:

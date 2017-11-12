@@ -79,7 +79,19 @@ button.archive{
 li.button{
   height: 54px;
   text-align: right;
+  border-radius: 0px;
+  border: 0px;
 }
 li.add{
   text-align: center;
+}
+ul.list-group{
+  border: 1px solid cadetblue;
+}
+li.dt{
+  padding-right: 30px;
+  border-radius: 0px;
+}
+li.tx{
+  border: 0px;
 }

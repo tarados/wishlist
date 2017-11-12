@@ -64,18 +64,19 @@ li.well{
 }
 button.edit{
   position: relative;
-  right: -15px;
+  right: 124px;
 }
 button.delete{
   position: relative;
-  right: -60px;
+  right: 84px;
   top: -29px;
 }
 button.archive{
   position: relative;
-  right: -104px;
+  right: 12px;
   top: -58px;
 }
 li.button{
   height: 54px;
+  text-align: right;
 }

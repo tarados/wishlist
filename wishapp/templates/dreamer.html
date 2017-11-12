@@ -15,11 +15,11 @@
                     <li class="list-group-item well dt">{{ desire.date|naturalday }}</li>
                     <div class="desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
                         <li class="list-group-item tx">{{ desire.text|safe }}</li>
-                    </div>
-                    <div class="hidden desire-form" id="desireform-{{ desire.id }}">
+                    </div><hr class="dm">
+                    <div class="hidden desire-form edt" id="desireform-{{ desire.id }}">
                         <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                            <textarea name="desire_text" cols="155" rows="7">{{ desire.text_for_edit }}</textarea>
-                            <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>
+                            <textarea name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+                            <button type="submit" class="btn btn-primary sv btn-sm" value="">Сохранить</button>
                         </form>
                     </div>
                     <li class="list-group-item button">

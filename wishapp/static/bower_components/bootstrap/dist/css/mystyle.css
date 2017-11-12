@@ -95,3 +95,16 @@ li.dt{
 li.tx{
   border: 0px;
 }
+hr.dm{
+  width: 97%;
+  color: black;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+div.edt{
+  text-align: center;
+}
+button.sv{
+  position: relative;
+  right: 535px;
+}

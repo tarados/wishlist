@@ -42,39 +42,7 @@
                         </div>
                     </li>
                 </ul>
-
-{#                <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">#}
-{#                    <div class="date">{{ desire.date|naturalday }}<br></div>#}
-{#                    {{ desire.text|safe }}#}
-{#                </div>#}
-{#                <div class="col-md-12 well hidden desire-form" id="desireform-{{ desire.id }}">#}
-{#                    <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">#}
-{#                        <textarea name="desire_text" cols="155" rows="7">{{ desire.text_for_edit }}</textarea>#}
-{#                        <button type="submit" class="btn btn-info glyphicon glyphicon-save" value=""></button>#}
-{#                    </form>#}
-{#                </div>#}
-
-{#                {% if is_owner %}#}
-{#                редактирование желания#}
-{#                    <div class="col-md-2">#}
-{#                        <button class="btn btn-info edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>#}
-{#                    </div>#}
-{#                удаление желания#}
-{#                    <div class="col-md-2">#}
-{#                        <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}#}
-{#                            <input type="hidden" name="deldesire"  value={{ desire.id }}>#}
-{#                            <button type="submit"  class="btn btn-danger glyphicon glyphicon-trash" value=""></button>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                архивирование желания#}
-{#                    <div class="col-md-2">#}
-{#                        <form action="{% url 'backupdesire' %}" method="post">#}
-{#                            <input type="hidden" name="backupdesire"  value={{ desire.id }}>#}
-{#                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>#}
-{#                            <button type="submit"  class="btn btn-info glyphicon glyphicon-save-file" value=""> В архив</button>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                {% endif %}#}
+{#зона гостей#}
                 {% if desire.desire_state != 1 %}
                     {% if is_loggedin %}
     {#                авторизацияпри выборе желания для покупки#}
@@ -109,15 +77,16 @@
         {% endfor %}
         {% if is_owner %}
 {#    блок добавления желаний#}
+            <h2>Добавить новое желание:</h2>
             <div class="row">
-                <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
-                    <div class="col-md-12 well">
-                        {{ form.desire_text}}
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-info glyphicon glyphicon-pencil" value=""></button>
-                    </div>
-                </form>
+                <ul class="list-group">
+                    <li class="list-group-item well add">
+                        <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
+                            {{ form.desire_text}}
+                            <button type="submit" class="btn btn-primary add" value="">Добавить</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
         {% endif %}
     </div>

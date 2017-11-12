@@ -179,7 +179,7 @@ def archive(request, user_id):
             obj = {
                 'id': desire.id,
                 'text': link_on(desire.desire_text),
-                'text2': desire.desire_text,
+                'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
                 'order_user_id': desire.desire_order_user_id,
@@ -188,7 +188,7 @@ def archive(request, user_id):
             result.append(obj)
         else:
             pass
-    desire2 = result
+    desire_list = result
     user = auth.get_user(request)
     username = user.username
     user_id = user.id

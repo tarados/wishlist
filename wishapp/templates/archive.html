@@ -3,7 +3,7 @@
 {% block dreamerslist %}
     <div class="container">
         <h1>Архив желаний {{ username }}:</h1>
-        {% for desire in desire2 %}
+        {% for desire in desire_list %}
             <div class="row">
                 <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
                     <div class="date">{{ desire.date }}<br></div>

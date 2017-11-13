@@ -8,10 +8,20 @@ $(function () {
         info.addClass("hidden");
         form.removeClass("hidden");
     });
-
-    console.log($("div.st").length);
-
-
+    // var states = $("li.button").attr("class", "hidden");
+    // states.addClass("hidden");
+    // for (i=0; i<states.length; i++){
+    //      state = states[i].getAttribute("class");
+    //      // states.addClass("hidden");
+    //      var c = state.split("-");
+    //      if (c[3] == 1) {
+    //          var b = states[i];
+    //          // b.addClass("hidden");
+    //      }
+    //      console.log(typeof b);
+    // }
+    var d = html('<li class="list-group-item button desirestate-{{ desire.desire_state }}"></li>');
+    console.log(d);
     var info2 = $("div.ordered");
     info2.css('background', 'red');
     links = $("div.well a");

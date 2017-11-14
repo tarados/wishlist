@@ -16,9 +16,8 @@ $(function () {
          var c = state.split("-");
          if (c[3] == 1){
              states[i].setAttribute("class", "hidden");
-             var dt = $("li.dt")[i];
-             dt.style.backgroundColor = "coral";
-             console.log(dt);
+             // var dt = $("li.dt")[i];
+             // dt.style.backgroundColor = "coral";
          }
     }
          // ссылки в желаниях открываем в другом окне

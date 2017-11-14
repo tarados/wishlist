@@ -9,13 +9,16 @@ $(function () {
         info.addClass("hidden");
         form.removeClass("hidden");
     });
-    // убираем блок с кнопками у выбранного желания
+    // убираем блок с кнопками у выбранного желания и отмечаем цветом
     var states = $("li.button");
     for (i=0; i<states.length; i++){
          state = states[i].getAttribute("class");
          var c = state.split("-");
          if (c[3] == 1){
              states[i].setAttribute("class", "hidden");
+             var dt = $("li.dt")[i];
+             dt.style.backgroundColor = "coral";
+             console.log(dt);
          }
     }
          // ссылки в желаниях открываем в другом окне

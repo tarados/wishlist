@@ -18,6 +18,8 @@
             <ul class="navbar-nav mr-auto">
                 {% if is_owner %}
                     <a href="/dreamers/archive/{{ user_id }}/" class="btn btn-primary arch">Архив</a>
+                    <a href="/dreamers/{{ user_id }}/" class="btn btn-primary der">Мои желания</a>
+                    <a href="#" class="btn btn-primary der">Добавить желание</a>
                     <a href="/auth/logout/" class="btn btn-primary">Выйти ({{ username }})</a>
                 {% elif is_choice %}
                     <a href="/auth/logout/" class="btn btn-primary">Выйти ({{ username }})</a>

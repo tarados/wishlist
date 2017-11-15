@@ -9,16 +9,20 @@ $(function () {
         info.addClass("hidden");
         form.removeClass("hidden");
     });
-    // убираем блок с кнопками у выбранного желания и отмечаем цветом
+    // убираем блок с кнопками у выбранного желания
     var states = $("li.button");
     for (i=0; i<states.length; i++){
          state = states[i].getAttribute("class");
+         var u = state.split("U");
+         console.log(u[1]);
          var c = state.split("-");
-         if (c[3] == 1){
-             states[i].setAttribute("class", "hidden");
+         if (u == False) {
+               if (c[3] == 1){
+                   states[i].setAttribute("class", "hidden");
              // var dt = $("li.dt")[i];
              // dt.style.backgroundColor = "coral";
-         }
+                }
+            }
     }
          // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");

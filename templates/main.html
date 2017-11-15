@@ -22,7 +22,7 @@
                     <a href="#id_desire_text" class="btn btn-primary deradd">+Добавить желание</a>
                     <a href="/auth/logout/" class="btn btn-primary out">Выйти</a>
                 {% elif is_choice %}
-                    <a href="/auth/logout/" class="btn btn-primary">Выйти ({{ username }})</a>
+                    <a href="/auth/logout/" class="btn btn-primary out">Выйти</a>
                 {% endif %}
             </ul>
         </div>
@@ -35,7 +35,7 @@
 
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=3"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=4"></script>
 
 
 </body>

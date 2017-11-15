@@ -29,7 +29,7 @@
                             <button type="submit" class="btn btn-primary sv btn-sm" value="">Сохранить</button>
                         </form>
                     </div>
-                    <li class="list-group-item button desirestate-{{ desire.desire_state }}">
+                    <li class="list-group-item button desirestate-{{ desire.desire_state }} U{{ is_owner }}">
                         {% if is_owner %}
 {#                редактирование желания#}
                             <button class="btn btn-info btn-sm edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>

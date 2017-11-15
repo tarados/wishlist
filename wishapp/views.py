@@ -14,10 +14,11 @@ import datetime
 
 # первая страница
 def dreamers(request):
-    user = auth.get_user(request)
-    username = user.username
-    user_id = user.id
-    return render_to_response('dreamers.html', locals())
+    return redirect('/auth/login')
+    # user = auth.get_user(request)
+    # username = user.username
+    # user_id = user.id
+    # return render_to_response('dreamers.html', locals())
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя

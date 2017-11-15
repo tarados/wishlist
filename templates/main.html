@@ -9,22 +9,20 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=4">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=5">
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary nv">
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 {% if is_owner %}
                     <a href="/dreamers/archive/{{ user_id }}/" class="btn btn-primary arch">Архив</a>
                     <a href="/dreamers/{{ user_id }}/" class="btn btn-primary der">Мои желания</a>
-                    <a href="#" class="btn btn-primary der">Добавить желание</a>
-                    <a href="/auth/logout/" class="btn btn-primary">Выйти ({{ username }})</a>
+                    <a href="#id_desire_text" class="btn btn-primary deradd">+Добавить желание</a>
+                    <a href="/auth/logout/" class="btn btn-primary out">Выйти</a>
                 {% elif is_choice %}
                     <a href="/auth/logout/" class="btn btn-primary">Выйти ({{ username }})</a>
-                {% else %}
-                    <a href="/auth/login/" class="btn btn-primary">Войти</a>
                 {% endif %}
             </ul>
         </div>

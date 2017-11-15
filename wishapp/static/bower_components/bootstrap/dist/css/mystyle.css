@@ -49,13 +49,8 @@ textarea#id_desire_text{
 label.box_error{
   color: red;
 }
-.bg-primary {
+.nv {
   background-color: coral;
-}
-.btn-primary{
-  color: white;
-  background-color: coral;
-  border-color: coral;
 }
 li.well{
   margin-bottom: 0px;
@@ -108,8 +103,20 @@ button.sv{
   position: relative;
   right: 535px;
 }
-/*i.labelselect{*/
-  /*position: relative;*/
-  /*right: -369px;*/
-  /*top: -142px;*/
-/*}*/
+.arch,.der,.out,.deradd,.addd {
+  color: white;
+  background-color: coral;
+  border-color: coral;
+}
+.der{
+  position: relative;
+  right: 900px;
+}
+.arch{
+  position: relative;
+  right: 710px;
+}
+.deradd{
+  position: relative;
+  right: 822px;
+}

@@ -119,4 +119,10 @@ button.sv{
 .deradd{
   position: relative;
   right: 822px;
+  background-color: #4cae4c;
+}
+.up{
+  position: relative;
+  right: 537px;
+  bottom: 34px;
 }

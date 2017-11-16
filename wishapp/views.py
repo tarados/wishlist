@@ -193,6 +193,7 @@ def archive(request, user_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
+    is_owner = True
     return render_to_response('archive.html', locals())
 
 

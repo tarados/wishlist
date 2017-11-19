@@ -103,7 +103,7 @@ button.sv{
   position: relative;
   right: 535px;
 }
-.arch,.der,.out,.deradd,.addd {
+.arch,.der,.out,.deradd,.addd,.login_new_user,.select_desire {
   color: white;
   background-color: coral;
   border-color: coral;
@@ -125,4 +125,13 @@ button.sv{
   position: relative;
   right: 537px;
   bottom: 34px;
+}
+.loopcounter{
+  margin-left: -3%;
+}
+.list-group{
+  width: 90%;
+}
+.row{
+  text-align: -webkit-center;
 }

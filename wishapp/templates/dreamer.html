@@ -16,9 +16,13 @@
                         <li class="list-group-item well dt">
                             <i class="glyphicon glyphicon-ok-circle" id="labelselect-{{ desire.id }}">
                             Будет покупать {{ desire.order_user_name }}</i>
+                            <div class="col-md-2 loopcounter">{{ forloop.counter }}</div>
                         </li>
                     {% else %}
-                        <li class="list-group-item well dt">{{ desire.date|naturaltime }}</li>
+                        <li class="list-group-item well dt">
+                            {{ desire.date|naturaltime }}
+                            <div class="col-md-2 loopcounter">{{ forloop.counter }}</div>
+                        </li>
                     {% endif %}
                     <div class="desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
                         <li class="list-group-item tx">{{ desire.text|safe }}</li>

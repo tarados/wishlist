@@ -36,4 +36,7 @@ $(function () {
     if (error.attr("value") == 1) {
         box_error.removeClass("hidden");
     }
+    var list = document.getElementById("sortable");
+    Sortable.create(list); // That's all.
+    console.log("sdg");
 });

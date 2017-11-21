@@ -13,18 +13,22 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary nv">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                {% if is_owner %}
-                    <a href="/dreamers/archive/{{ user_id }}/" class="btn btn-primary arch">Архив</a>
-                    <a href="/dreamers/{{ user_id }}/" class="btn btn-primary der">Мои желания</a>
-                    <a href="#id_desire_text" class="btn btn-primary deradd">+Добавить желание</a>
-                    <a href="/auth/logout/" class="btn btn-primary out">Выйти</a>
-                {% elif is_choice %}
-                    <a href="/auth/logout/" class="btn btn-primary out">Выйти</a>
-                {% endif %}
-            </ul>
+            {% if is_owner %}
+                <ul class="nav navbar-nav navbar-left">
+                    <a href="/dreamers/archive/{{ user_id }}/" class="btn btn-primary">Архив</a>
+                    <a href="/dreamers/{{ user_id }}/" class="btn btn-primary">Мои желания</a>
+                    <a href="#id_desire_text" class="btn btn-primary">+Добавить желание</a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="/auth/logout/" class="btn btn-primary">Выйти</a>
+                </ul>
+            {% elif is_choice %}
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="/auth/logout/" class="btn btn-primary">Выйти</a>
+                </ul>
+            {% endif %}
         </div>
     </nav>
 

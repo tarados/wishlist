@@ -81,7 +81,7 @@ li.add{
   text-align: center;
 }
 ul.list-group{
-  border: 1px solid cadetblue;
+  border: 1px solid gray;
 }
 li.dt{
   padding-right: 30px;
@@ -122,9 +122,7 @@ button.sv{
   background-color: #4cae4c;
 }
 .up{
-  position: relative;
-  right: 478px;
-  bottom: 34px;
+  margin-left: 20px;
 }
 .loopcounter{
   margin-left: -3%;
@@ -137,4 +135,7 @@ button.sv{
 }
 .list-group-item{
   border-color: white;
+}
+textarea#id_desire_text{
+  width: 50%;
 }

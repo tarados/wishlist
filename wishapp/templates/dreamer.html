@@ -85,15 +85,11 @@
 {#    блок добавления желаний#}
             <h2>Добавить новое желание:</h2>
             <div class="row">
-                <ul class="list-group">
-                    <li class="list-group-item well add">
-                        <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
-                            {{ form.desire_text}}
-                            <button type="submit" class="btn btn-primary addd" value="">Добавить</button>
-                        </form>
-                    <p><a href="#navbarColor01" class="btn btn-primary up">Наверх</a> </p>
-                    </li>
-                </ul>
+                <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
+                    {{ form.desire_text}}<br>
+                    <button type="submit" class="btn btn-primary addd" value="">Добавить</button>
+                    <a href="#navbarColor01" class="btn btn-primary up">Наверх</a>
+                </form>
             </div>
         {% endif %}
     </div>

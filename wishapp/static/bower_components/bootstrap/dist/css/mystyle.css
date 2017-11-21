@@ -135,3 +135,6 @@ button.sv{
 .row{
   text-align: -webkit-center;
 }
+.list-group-item{
+  border-color: white;
+}

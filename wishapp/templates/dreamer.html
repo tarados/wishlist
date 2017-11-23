@@ -87,8 +87,8 @@
             <div class="row">
                 <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
                     {{ form.desire_text}}<br>
-                    <button type="submit" class="btn btn-primary" value="">Добавить</button>
-                    <a href="#navbarColor01" class="btn btn-primary">Наверх</a>
+                    <button type="submit" class="btn-sm btn-google" value="">Добавить</button>
+                    <a href="#navbarColor01" class="btn">Наверх</a>
                 </form>
             </div>
         {% endif %}

@@ -19,9 +19,6 @@ h1,h2{
   text-align: center;
   font-weight: bolder;
 }
-/*.well{*/
-  /*text-align: left;*/
-/*}*/
 input{
   width: 66.48px;
 }
@@ -120,4 +117,23 @@ div.edt{
 }
 textarea#id_desire_text{
   width: 50%;
+  margin-right: 125px;
+}
+nav{
+  background-color: orangered;
+}
+.btn{
+  color: white;
+}
+.btn-google{
+  background-color: green;
+}
+h2{
+  margin-right: 112px;
+}
+#simpleList{
+  margin-bottom: 1px;
+}
+form.button{
+  margin-bottom: 20px;
 }

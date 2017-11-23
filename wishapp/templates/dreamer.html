@@ -25,7 +25,7 @@
                                 <div class="col-md-2 loopcounter">{{ forloop.counter }}</div>
                             </li>
                         {% endif %}
-                        <div class="desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                        <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
                             <li class="list-group-item tx">{{ desire.text|safe }}</li>
                         </div><hr class="dm">
                         <div class="hidden desire-form edt" id="desireform-{{ desire.id }}">

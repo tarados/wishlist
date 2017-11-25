@@ -36,16 +36,12 @@ $(function () {
     if (error.attr("value") == 1) {
         box_error.removeClass("hidden");
     }
-    Sortable.create(simpleList, { /* options */ });
-    console.log("sdg");
-    $(".loopcounter").each(function( index ) {
-        console.log( index + ": " + $( this ).text() );
-    });
-    var desireinfo = $(".drs").each(function (index) {
-        var id = $(this).attr("id");
-        var desirecounter = id.split("-")[3];
-        var desire_id = id.split("-")[1];
-        console.log( index + ": " + desire_id + ", " + "loopcounter:" + desirecounter);
-    });
-    console.log(desireinfo[0].getAttribute("id"));
+    Sortable.create(simpleList, {onSort: function () {
+        var desireinfo = $(".drs").each(function (index) {
+            var id = $(this).attr("id");
+            var desirecounter = id.split("-")[3];
+            var desire_id = id.split("-")[1];
+            $(".loopcounter")[index].innerHTML = index + 1;
+        });
+    }});
 });

@@ -30,8 +30,8 @@
                         </div><hr class="dm">
                         <div class="hidden desire-form edt" id="desireform-{{ desire.id }}">
                             <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                                <textarea name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
-                                <button type="submit" class="btn btn-primary sv btn-sm" value="">Сохранить</button>
+                                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+                                <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
                             </form>
                         </div>
                         <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">

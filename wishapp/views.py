@@ -1,8 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render_to_response, redirect
-from django.template import Context
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire
@@ -10,6 +9,7 @@ from wishapp.forms import DesireForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
 import datetime
+import json
 
 
 # первая страница
@@ -205,3 +205,15 @@ def delarchive(request, user_id):
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
     return redirect('/dreamers/archive/%s' % user_id)
+
+
+@csrf_exempt
+def order(request):
+    order = {}
+    for l in request.POST.items():
+        if l[0][21:30] == 'desire_id':
+            order['desire_id'] = l[1]
+        else:
+            order['desire_order'] = l[1]
+        print(order)
+    return HttpResponse('')

@@ -10,5 +10,6 @@ class Desire(models.Model):
     desire_user = models.ForeignKey(User)
     desire_order_user = models.ForeignKey(User, related_name='order', null=True)
     desire_state = models.IntegerField(default=0)
+    desire_order = models.IntegerField(default=0)
 
 

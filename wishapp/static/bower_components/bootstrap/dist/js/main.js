@@ -36,12 +36,21 @@ $(function () {
     if (error.attr("value") == 1) {
         box_error.removeClass("hidden");
     }
-    Sortable.create(simpleList, {onSort: function () {
+    Sortable.create(simpleList, {onEnd: function (evt) {
+        var desire_order_list = new Array();
+        var desire_order = new Object();
         var desireinfo = $(".drs").each(function (index) {
             var id = $(this).attr("id");
             var desirecounter = id.split("-")[3];
             var desire_id = id.split("-")[1];
             $(".loopcounter")[index].innerHTML = index + 1;
+            desire_order = {
+                "desire_id": desire_id,
+                "loopcounter": $(".loopcounter")[index].innerHTML
+            };
+            desire_order_list.push(desire_order);
         });
+        console.log(desire_order_list);
+        $.post('/order/', {desire_order_list});
     }});
 });

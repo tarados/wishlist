@@ -119,6 +119,9 @@ textarea#id_desire_text{
   width: 50%;
   margin-right: 125px;
 }
+textarea#id_desire_text_for_edit{
+  width: 100%;
+}
 nav{
   background-color: orangered;
 }

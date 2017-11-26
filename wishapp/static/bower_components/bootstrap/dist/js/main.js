@@ -36,6 +36,7 @@ $(function () {
     if (error.attr("value") == 1) {
         box_error.removeClass("hidden");
     }
+    // модуль перетаскивания мышкой желаний
     Sortable.create(simpleList, {onEnd: function (evt) {
         var desire_order_list = new Array();
         var desire_order = new Object();
@@ -50,7 +51,7 @@ $(function () {
             };
             desire_order_list.push(desire_order);
         });
-        console.log(desire_order_list);
-        $.post('/order/', {desire_order_list});
+         list_for_save = JSON.stringify(desire_order_list);
+        $.post('/order/', {"a": list_for_save});
     }});
 });

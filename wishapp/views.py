@@ -15,10 +15,6 @@ import json
 # первая страница
 def dreamers(request):
     return redirect('/auth/login')
-    # user = auth.get_user(request)
-    # username = user.username
-    # user_id = user.id
-    # return render_to_response('dreamers.html', locals())
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
@@ -27,7 +23,7 @@ def dreamer(request, dreamer_id):
     arg = {}
     arg.update(csrf(request))
     dreamer = User.objects.get(id=dreamer_id)
-    desires = Desire.objects.filter(desire_user_id=dreamer_id)
+    desires = Desire.objects.filter(desire_user_id=dreamer_id).order_by('desire_order')
     result = []
     for desire in desires:
         if desire.desire_state != 2:
@@ -167,7 +163,7 @@ def register_for_guest(request):
 @csrf_exempt
 def archive(request, user_id):
     arg = {}
-    desires = Desire.objects.filter(desire_user_id=user_id)
+    desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
     result = []
     for desire in desires:
         if desire.desire_state == 2:
@@ -209,11 +205,10 @@ def delarchive(request, user_id):
 
 @csrf_exempt
 def order(request):
-    order = {}
-    for l in request.POST.items():
-        if l[0][21:30] == 'desire_id':
-            order['desire_id'] = l[1]
-        else:
-            order['desire_order'] = l[1]
-        print(order)
+    odereded_list = request.POST.get("a")
+    order_for_save = json.loads(odereded_list)
+    for data in order_for_save:
+        obj = Desire.objects.get(id=data['desire_id'])
+        obj.desire_order = int(data['loopcounter'])
+        obj.save()
     return HttpResponse('')

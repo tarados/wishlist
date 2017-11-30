@@ -54,4 +54,17 @@ $(function () {
          list_for_save = JSON.stringify(desire_order_list);
         $.post('/order/', {"a": list_for_save});
     }});
+    // кнопка "наверх"
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $(".scrollup").fadeIn();
+        } else {
+            $(".scrollup").fadeOut;
+        }
+    });
+    $(".scrollup").click(function () {
+        $("html, body").animate({scrollTop: 0}, 10);
+        return false;
+    });
 });
+

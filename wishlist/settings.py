@@ -27,7 +27,7 @@ SECRET_KEY = 'q=^!bf1g#!cbd6-5zc$9@8^(pw^q_^xv^@u&7f1kf(sw3zj538'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(env.get('DEBUG', '0')))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

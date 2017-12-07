@@ -8,3 +8,4 @@ def get_img(url):
     end = data.find('>', begin, len(data))
     result = data[begin:end].split('"')
     return result[2]
+

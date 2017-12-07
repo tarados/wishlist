@@ -63,6 +63,8 @@ def adddesire(request, dreamer_id):
     if request.method == 'POST':
         form = DesireForm(request.POST)
         if form.is_valid():
+            a = request.POST.get('desire_text')
+            print(type(a))
             desire = form.save(commit=False)
             desire.desire_user = User.objects.get(id=dreamer_id)
             desire.desire_date = datetime.datetime.now()

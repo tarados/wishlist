@@ -8,6 +8,7 @@ from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
+from wishapp.parse_img import get_img
 import datetime
 import json
 

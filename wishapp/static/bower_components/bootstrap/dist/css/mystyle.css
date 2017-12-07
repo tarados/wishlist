@@ -154,4 +154,6 @@ background: url('icon_top.png') no-repeat;
 }
 .logo{
   float: left;
-}
+  max-width: 180px;
+  image-rendering: auto;
+  }

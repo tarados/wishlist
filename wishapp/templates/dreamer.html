@@ -27,7 +27,7 @@
                         {% endif %}
                         <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
                             <li class="list-group-item tx">
-                                <img src="#" class="logo" alt="missing photos">
+                                <img src="{{ desire.desire_image }}" class="logo" alt="missing photos">
                                 {{ desire.text|safe }}
                             </li>
                         </div><hr class="dm">

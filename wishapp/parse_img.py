@@ -9,3 +9,16 @@ def get_img(url):
     result = data[begin:end].split('"')
     return result[2]
 
+
+def find_url(str):
+    d = str.find('http') + 1
+    is_url = d > 0
+    return is_url
+
+
+def get_url(str):
+    url = []
+    for d in str.split(' '):
+        if d.find('http') + 1:
+            url.append(d)
+    return url[0]

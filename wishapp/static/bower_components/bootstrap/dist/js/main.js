@@ -25,7 +25,7 @@ $(function () {
          // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
-    links = $("div.well a");
+    links = $("li.tx a");
     for (i=0; i<links.length; i++){
         link = links[i];
         link.target = "_blank";

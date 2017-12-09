@@ -9,18 +9,20 @@ def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
     begin = data.find('og:image', 0, len(data))
+    end = data.find('>', begin, len(data))
+    img_data = data[begin:end]
+    # print(img_data)
     # print(begin)
+    # print(end)
     if begin > 0:
-        end = data.find('>', begin, len(data))
-        img_data = data[begin:end]
         img_url_begin = img_data.find('http', 0, len(img_data))
-        # print(img_url_begin)
+        img_url_end = img_data.find('jpg', 0, len(img_data))
         if img_url_begin > 0:
-            img_url_end = img_data.find('jpg', 0, len(img_data))
             result = img_data[img_url_begin:img_url_end + 3]
             return result
         else:
-            result = '/static/img/new_year.png'
+            url_domen = url.split('/')[0] + '//' + url.split('/')[2]
+            result = url_domen + img_data[img_data.find('/'):img_data.find('jpg') + 3]
             return result
     else:
         result = '/static/img/new_year.png'

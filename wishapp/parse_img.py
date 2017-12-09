@@ -20,10 +20,10 @@ def get_img(url):
             result = img_data[img_url_begin:img_url_end + 3]
             return result
         else:
-            result = '/static/img/logo.png'
+            result = '/static/img/new_year.png'
             return result
     else:
-        result = '/static/img/logo.png'
+        result = '/static/img/new_year.png'
         return result
 
 # print(get_img(URL))

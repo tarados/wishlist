@@ -66,5 +66,6 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
+
 });
 

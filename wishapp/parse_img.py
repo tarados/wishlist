@@ -8,32 +8,66 @@ def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
     url_domen = url.split('/')[0] + '//' + url.split('/')[2]
-    begin = data.find('og:image', 0, len(data))
-    end = data.find('>', begin, len(data))
-    img_data = data[begin:end]
-    if begin > 0:
-        img_url_begin = img_data.find('http', 0, len(img_data))
-        img_url_end = img_data.find('jpg', 0, len(img_data))
-        if img_url_begin > 0:
-            result = img_data[img_url_begin:img_url_end + 3]
-            return result
+    soup = BeautifulSoup(data,'html.parser')
+# проверяем тег meta
+    try:
+        meta = soup.find('meta', property="og:image")['content']
+        if meta.find('http') + 1 > 0:
+            result_meta = meta
         else:
-            result = url_domen + img_data[img_data.find('/'):img_data.find('jpg') + 3]
-            return result
+            result_meta = url_domen + meta
+    except:
+        result_meta = None
+# проверяем тег а
+    result_a = None
+    for a in soup.find_all('a'):
+        try:
+            if a['href'].find('.jpg') > 0:
+                if a['href'].find('http') + 1 > 0:
+                    result_a = a['href']
+                else:
+                    result_a = url_domen + a['href']
+        except:
+            pass
+        try:
+            if a['href'].find('.png') > 0:
+                if a['href'].find('http') + 1 > 0:
+                    result_a = a['href']
+                else:
+                    result_a = url_domen + a['href']
+        except:
+            pass
+# проверяем тег img
+    for img in soup.find_all('img'):
+        try:
+            if img['src'].find('.jpg') > 0:
+                if img['src'].find('http') + 1 > 0:
+                    result_img = img['src']
+                else:
+                    result_img = url_domen + img['src']
+        except:
+            pass
+        try:
+            if img['src'].find('.png') > 0:
+                if img['src'].find('http') + 1 > 0:
+                    result_img = img['src']
+                else:
+                    result_img = url_domen + img['src']
+        except:
+            pass
+# выбираем из трех 1-2-3
+    if result_meta != None:
+        result = result_meta
     else:
-        result = ''
-        soup = BeautifulSoup(data, 'html.parser')
-        for a in soup.find_all('a'):
-            try:
-                b = a['href'].find('.jpg')
-                if b > 0:
-                    result = url_domen + a['href']
-                    return result
-            except:
-                pass
-        if result == '':
-            result = '/static/img/new_year.png'
-            return result
+        if result_a != None:
+            result = result_a
+        else:
+            if result_img != None:
+                result = result_img
+# и если изображения все равно нет, устанавливаем значение по умолчанию
+    if result == None:
+        result = '/static/img/new_year.png'
+    return result
 
 
 def find_url(str):

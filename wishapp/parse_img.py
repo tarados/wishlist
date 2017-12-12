@@ -1,15 +1,18 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
+URL = 'https://rozetka.com.ua/fiskars_111257/p4254591/'
 
 def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
-    url_domen = url.split('/')[0] + '//' + url.split('/')[2]
+    url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
     soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
+    result_meta = ''
     try:
         meta = soup.find('meta', property="og:image")['content']
         if meta.find('http') + 1 > 0:
@@ -17,58 +20,48 @@ def get_img(url):
         else:
             result_meta = url_domen + meta
     except:
-        result_meta = None
+        result_meta = ''
+    print(result_meta + ' ' + 'meta')
 # проверяем тег а
-    result_a = None
-    for a in soup.find_all('a'):
-        try:
-            if a['href'].find('.jpg') > 0:
-                if a['href'].find('http') + 1 > 0:
-                    result_a = a['href']
-                else:
-                    result_a = url_domen + a['href']
-        except:
-            pass
-        try:
-            if a['href'].find('.png') > 0:
-                if a['href'].find('http') + 1 > 0:
-                    result_a = a['href']
-                else:
-                    result_a = url_domen + a['href']
-        except:
-            pass
+    result_a = ''
+    href = re.compile(r'\.jpg')
+    try:
+        a = soup.find('a', href=href)
+        if a['href'].find('http') + 1 > 0:
+            result_a = a['href']
+        else:
+            result_a = url_domen + a['href']
+    except:
+        pass
+    print(result_a + ' ' + 'a')
 # проверяем тег img
-    for img in soup.find_all('img'):
-        try:
-            if img['src'].find('.jpg') > 0:
-                if img['src'].find('http') + 1 > 0:
-                    result_img = img['src']
-                else:
-                    result_img = url_domen + img['src']
-        except:
-            pass
-        try:
-            if img['src'].find('.png') > 0:
-                if img['src'].find('http') + 1 > 0:
-                    result_img = img['src']
-                else:
-                    result_img = url_domen + img['src']
-        except:
-            pass
+    result_img = ''
+    src = re.compile(r'[^index]\.jpg')
+    try:
+        img = soup.find('img', src=src, title=True)
+        if img['src'].find('http') + 1 > 0:
+            result_img = img['src']
+        else:
+            result_img = url_domen + img['src']
+    except:
+        pass
+    print(result_img + ' ' + 'img')
 # выбираем из трех 1-2-3
-    if result_meta != None:
+    result = ''
+    if result_meta != '':
         result = result_meta
     else:
-        if result_a != None:
-            result = result_a
+        if result_img != '':
+            result = result_img
         else:
-            if result_img != None:
-                result = result_img
+            if result_a != '':
+                result = result_a
 # и если изображения все равно нет, устанавливаем значение по умолчанию
-    if result == None:
+    if result == '':
         result = '/static/img/new_year.png'
     return result
 
+print(get_img(URL))
 
 def find_url(str):
     d = str.find('http') + 1

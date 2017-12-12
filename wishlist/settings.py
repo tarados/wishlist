@@ -29,8 +29,28 @@ DEBUG = bool(int(env.get('DEBUG', '0')))
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.auth',
+    'django.contrib.sites',
+    'wishapp',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vk',
+    'loginsys',
+]
 
 
 MIDDLEWARE = [
@@ -62,6 +82,7 @@ TEMPLATES = [
     },
 ]
 
+
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -70,28 +91,9 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'django.contrib.auth',
-    'django.contrib.sites',
-    'wishapp',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.odnoklassniki',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.vk',
-    'loginsys',
-]
-
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'wishlist.wsgi.application'
 

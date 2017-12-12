@@ -4,7 +4,7 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-URL = 'https://rozetka.com.ua/fiskars_111257/p4254591/'
+
 
 def get_img(url):
     response = requests.get(url, headers=headers)
@@ -21,7 +21,6 @@ def get_img(url):
             result_meta = url_domen + meta
     except:
         result_meta = ''
-    print(result_meta + ' ' + 'meta')
 # проверяем тег а
     result_a = ''
     href = re.compile(r'\.jpg')
@@ -33,7 +32,6 @@ def get_img(url):
             result_a = url_domen + a['href']
     except:
         pass
-    print(result_a + ' ' + 'a')
 # проверяем тег img
     result_img = ''
     src = re.compile(r'[^index]\.jpg')
@@ -45,7 +43,6 @@ def get_img(url):
             result_img = url_domen + img['src']
     except:
         pass
-    print(result_img + ' ' + 'img')
 # выбираем из трех 1-2-3
     result = ''
     if result_meta != '':
@@ -61,7 +58,6 @@ def get_img(url):
         result = '/static/img/new_year.png'
     return result
 
-print(get_img(URL))
 
 def find_url(str):
     d = str.find('http') + 1

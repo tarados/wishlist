@@ -18,12 +18,11 @@ from django.contrib import admin
 from django.contrib.auth.views import login, logout
 
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^auth/', include('loginsys.urls')),
     url(r'^', include('wishapp.urls')),
-    #url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/', include('allauth.urls')),
     #url(r'^accounts/logout/$', views.logout),
 
 ]

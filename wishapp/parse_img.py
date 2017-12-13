@@ -53,9 +53,6 @@ def get_img(url):
         else:
             if result_a != '':
                 result = result_a
-# и если изображения все равно нет, устанавливаем значение по умолчанию
-    if result == '':
-        result = '/static/img/new_year.png'
     return result
 
 

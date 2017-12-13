@@ -216,3 +216,13 @@ def order(request):
         obj.desire_order = int(data['loopcounter'])
         obj.save()
     return HttpResponse('')
+
+@csrf_exempt
+def linkfoto(request, dreamer_id):
+    desire_id = request.POST.get('desire_id')
+    link = request.POST.get('link', '')
+    if link != '':
+        obj = Desire.objects.get(id=desire_id)
+        obj.desire_img = link
+        obj.save()
+    return redirect('/dreamers/%s' % dreamer_id)

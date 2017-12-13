@@ -39,24 +39,31 @@
                         </div>
                         <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">
                             {% if is_owner %}
-{#                редактирование желания#}
+{#  блок добавления ссылки на фото#}
+                                <form class="form-inline link_foto" action="{% url 'linkfoto' dreamer_id %}" method="post">{% csrf_token %}
+                                    <input type="text" class="form-control" id="add_link_foto" name="link"  placeholder="Введите ссылку">
+                                    <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                    <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                                    <button type="submit" class="btn btn-sm">Добавить фото</button>
+                                </form>
+{#  редактирование желания#}
                                 <button class="btn btn-info btn-sm edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>
-{#                удаление желания#}
+{#  удаление желания#}
                                 <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
                                     <input type="hidden" name="deldesire"  value={{ desire.id }}>
                                     <button type="submit"  class="btn btn-danger btn-sm delete glyphicon glyphicon-trash" value=""></button>
                                 </form>
-{#                архивирование желания#}
+{#  архивирование желания#}
                                 <form action="{% url 'backupdesire' %}" method="post">
                                     <input type="hidden" name="backupdesire"  value={{ desire.id }}>
                                     <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                                     <button type="submit"  class="btn btn-info btn-sm archive" value=""> В архив</button>
                                 </form>
                             {% endif %}
-{#зона гостей#}
+{#  зона гостей#}
                             {% if desire.desire_state != 1 %}
                                 {% if is_loggedin %}
-{#                авторизацияпри выборе желания для покупки#}
+{#  авторизацияпри выборе желания для покупки#}
                                     <div class="col-md-2">
                                         <form action="{% url 'login_for_guest' %}" method="get">
                                             <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
@@ -65,7 +72,7 @@
                                     </div>
                                 {% endif %}
                                 {% if is_choice and not is_loggedin%}
-{#            выбор желания для покупки#}
+{#  выбор желания для покупки#}
                                     <div class="col-md-2">
                                         <form action="{% url 'selectdesire' %}" method="post">
                                             <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
@@ -85,7 +92,7 @@
             {% endfor %}
         </div>
         {% if is_owner %}
-{#    блок добавления желаний#}
+{#  блок добавления желаний#}
             <h2>Добавить новое желание:</h2>
             <div class="row">
                 <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}

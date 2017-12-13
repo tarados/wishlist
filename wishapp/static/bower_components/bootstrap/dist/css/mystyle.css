@@ -57,16 +57,17 @@ li.well{
 button.edit{
   position: relative;
   right: 124px;
+  top: -30px;
 }
 button.delete{
   position: relative;
   right: 84px;
-  top: -29px;
+  top: -59px;
 }
 button.archive{
   position: relative;
   right: 12px;
-  top: -58px;
+  top: -89px;
 }
 li.button{
   height: 54px;
@@ -156,4 +157,10 @@ background: url('icon_top.png') no-repeat;
   float: left;
   max-width: 180px;
   image-rendering: auto;
-  }
+}
+.link_foto{
+  text-align: left;
+}
+#add_link_foto{
+  height: 30px;
+}

@@ -178,3 +178,109 @@ background: url('icon_top.png') no-repeat;
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
+/*ssssssssssssssssssssssssssssss Shape Hover Effect */
+.grid {
+    margin: 40px auto 120px;
+    max-width: 1000px;
+    width: 90%;
+}
+.grid a {
+    float: left;
+    max-width: 250px;
+    width: 25%;
+    color: #333;
+}
+.grid a:nth-child(odd) {
+    margin: 30px 0 -30px 0;
+}
+.grid figure {
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+    background: #333;
+}
+.grid figure img {
+    position: relative;
+    display: block;
+    width: 100%;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.grid figcaption {
+    position: absolute;
+    top: 0;
+    z-index: 11;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.grid figcaption h2 {
+    margin: 0 0 20px 0;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 130%;
+    transition: transform 0.3s;
+}
+
+.grid figcaption p {
+    padding: 0 20px;
+    color: #aaa;
+    font-weight: 300;
+    transition: opacity 0.3s, transform 0.3s;
+    transition-delay: 0.05s;
+}
+
+.grid figcaption h2,
+.grid figcaption p {
+    transform: translateY(50px);
+}
+.grid figure button {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    background: #fff;
+    color: #333;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(100%);
+}
+.grid a:hover figure button {
+    transition-timing-function: ease-out;
+    transform: translateY(0);
+}
+/*.grid figcaption,*/
+/*.grid figcaption h2,*/
+/*.grid figcaption p,*/
+/*.grid figure button {*/
+    /*backface-visibility: hidden;*/
+/*}*/
+.grid svg {
+    position: absolute;
+    top: -1px; /* fixes rendering issue in FF */
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+.grid svg path {
+    fill: #fff;
+}
+.grid a:hover figure img {
+    opacity: 1;
+}
+
+.grid a:hover figcaption h2,
+.grid a:hover figcaption p {
+    transform: translateY(0);
+}
+
+.grid a:hover figcaption p {
+    opacity: 0;
+}

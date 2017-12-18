@@ -66,19 +66,6 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
-// aaaaaaaaaaaaaaaaaaaaaaaaaaa
-//     var _gaq = _gaq || [];
-//     _gaq.push(['_setAccount', 'UA-7243260-2']);
-//     _gaq.push(['_trackPageview']);
-//     (function() {
-//     var ga = document.createElement('script');
-//     ga.type = 'text/javascript';
-//     ga.async = true;
-//     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-//     var s = document.getElementsByTagName('script')[0];
-//     s.parentNode.insertBefore(ga, s);
-//     })();
-
 // // gggggggggggggggggggggggggggggggggggggggg Shape Hover Effect
     (function() {
         function init(){
@@ -105,5 +92,17 @@ $(function () {
             init();
 
         })();
+    // отрабатываем нажатие кнопки "view"
+      $("a.des").click(function () {
+          var link = $(this);
+          var id = link.attr('id');
+          var info = $('#' + id);
+          $('div .list-group-item').each(function () {
+              // console.log(this.id);
+          })
+          info.addClass("hidden");
+          // form.removeClass("hidden");
+          console.log($('div .list-group-item')[0]);
+      });
 });
 

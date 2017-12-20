@@ -178,15 +178,15 @@ background: url('icon_top.png') no-repeat;
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
-/*ssssssssssssssssssssssssssssss Shape Hover Effect */
+/*стили для ховер эффектов*/
 .grid {
     margin: 40px auto 120px;
     max-width: 1000px;
-    width: 1000px;
+    width: 90%;
 }
 .grid a {
     float: left;
-    max-width: 1000px;
+    max-width: 260px;
     width: 25%;
     color: #333;
 }
@@ -200,7 +200,6 @@ body,.navbar,.btn-google{
     background: #333;
 }
 .grid figure img {
-    margin-top: 50px;
     position: relative;
     display: block;
     width: 100%;
@@ -223,7 +222,7 @@ body,.navbar,.btn-google{
     letter-spacing: 1px;
     font-weight: 300;
     font-size: 130%;
-    transition: transform 0.3s;
+    transition-delay: 0.05s;
 }
 
 .grid figcaption p {
@@ -231,7 +230,6 @@ body,.navbar,.btn-google{
     color: #aaa;
     font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
-    transition-delay: 0.05s;
 }
 
 .grid figcaption h2,
@@ -239,30 +237,28 @@ body,.navbar,.btn-google{
     transform: translateY(50px);
 }
 .grid figure button {
+    position: absolute;
+    padding: 4px 20px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: opacity 0.3s, transform 0.3s;
     bottom: 0;
     left: 0;
-    position: absolute;
     padding: 15px;
     width: 100%;
     background: #fff;
     color: #333;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
     transform: translateY(100%);
 }
-.grid a:hover figure button {
-    transition-timing-function: ease-out;
-    transform: translateY(0);
+.grid figcaption,
+.grid figcaption h2,
+.grid figcaption p,
+.grid figure button {
+    backface-visibility: hidden;
 }
-/*.grid figcaption,*/
-/*.grid figcaption h2,*/
-/*.grid figcaption p,*/
-/*.grid figure button {*/
-    /*backface-visibility: hidden;*/
-/*}*/
 .grid svg {
     position: absolute;
     top: -1px; /* fixes rendering issue in FF */
@@ -278,10 +274,20 @@ body,.navbar,.btn-google{
 }
 
 .grid a:hover figcaption h2,
+.grid a:hover figure button,
 .grid a:hover figcaption p {
     transform: translateY(0);
 }
 
 .grid a:hover figcaption p {
     opacity: 0;
+}
+.grid figcaption h2,
+.grid figcaption p{
+    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
+}
+
+.grid a:hover figcaption p{
+    transition-delay: 0s;
+    transition-duration: 0.1s;
 }

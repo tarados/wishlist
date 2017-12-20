@@ -10,10 +10,8 @@
         {% endif %}
         <div id="simpleList" class="list-group">
             {% for desire in desire_list %}
-                <div class="container">
-                    <div class="codrops-top clearfix">
-                        <section id="grid" class="grid clearfix">
-                            <a href="#" class="des" id="{{ desire.id }}" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+                <section id="grid" class="grid clearfix">
+                            <a href="#" class="des" id="des-{{ desire.id }}" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
                                 <figure>
                                     <img src="{{ desire.desire_image }}" />
                                     <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
@@ -25,9 +23,7 @@
                                 </figure>
                             </a>
                         </section>
-                    </div>
-                </div>
-                <div class="row list-group-item hidden" id="{{ desire.id }}">
+                <div class="row list-group-item hidden" id="row-{{ desire.id }}">
 {#            зона желания#}
                     <ul class="list-group">
                         {% if is_choice and desire.desire_state %}

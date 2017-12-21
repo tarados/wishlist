@@ -178,7 +178,7 @@ background: url('icon_top.png') no-repeat;
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
-/*стили для ховер эффектов*/
+/*стили для ховер эффектов*****************************************************************/
 .grid {
     margin: 40px auto 120px;
     max-width: 1000px;
@@ -186,7 +186,7 @@ body,.navbar,.btn-google{
 }
 .grid a {
     float: left;
-    max-width: 260px;
+    max-width: 250px;
     width: 25%;
     color: #333;
 }
@@ -217,12 +217,12 @@ body,.navbar,.btn-google{
 }
 .grid figcaption h2 {
     margin: 0 0 20px 0;
-    color: #e74c3c;
+    color: #3498db;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
     font-size: 130%;
-    transition-delay: 0.05s;
+    transition: transform 0.3s;
 }
 
 .grid figcaption p {
@@ -244,14 +244,6 @@ body,.navbar,.btn-google{
     letter-spacing: 1px;
     font-weight: bold;
     transition: opacity 0.3s, transform 0.3s;
-    bottom: 0;
-    left: 0;
-    padding: 15px;
-    width: 100%;
-    background: #fff;
-    color: #333;
-    font-weight: 300;
-    transform: translateY(100%);
 }
 .grid figcaption,
 .grid figcaption h2,
@@ -274,7 +266,6 @@ body,.navbar,.btn-google{
 }
 
 .grid a:hover figcaption h2,
-.grid a:hover figure button,
 .grid a:hover figcaption p {
     transform: translateY(0);
 }
@@ -282,12 +273,95 @@ body,.navbar,.btn-google{
 .grid a:hover figcaption p {
     opacity: 0;
 }
+body {
+    background: #e74c3c;
+}
+
+.grid figcaption h2 {
+    color: #e74c3c;
+}
+
+.grid figcaption p {
+    transition-delay: 0.05s;
+}
+
+.grid figure button {
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
+    background: #fff;
+    color: #333;
+    font-weight: 300;
+    transform: translateY(100%);
+}
+
+.grid a:hover figure button {
+    transition-timing-function: ease-out;
+    transform: translateY(0);
+}
 .grid figcaption h2,
-.grid figcaption p{
+.grid figcaption p {
     timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
 }
 
-.grid a:hover figcaption p{
+.grid a:hover figcaption p {
     transition-delay: 0s;
     transition-duration: 0.1s;
+}
+@media screen and (max-width: 58em) {
+    .grid a {
+        width: 33.333%;
+    }
+
+    .grid a:nth-child(odd) {
+        margin: 0;
+    }
+
+    .grid a:nth-child(3n-1) {
+        margin: 30px 0 -30px 0;
+    }
+}
+
+@media screen and (max-width: 45em) {
+    .grid {
+        max-width: 500px;
+    }
+
+    .grid a {
+        width: 50%;
+    }
+
+    .grid a:nth-child(3n-1) {
+        margin: 0;
+    }
+
+    .grid a:nth-child(even) {
+        margin: 30px 0 -30px 0;
+    }
+
+
+    .grid figcaption h2 {
+        margin-bottom: 0px;
+        transform: translateY(30px);
+    }
+
+    .grid figcaption p {
+        margin: 0;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 27em) {
+    .grid {
+        max-width: 250px;
+    }
+
+    .grid a {
+        width: 100%;
+    }
+
+    .grid a:nth-child(even) {
+        margin: 0;
+    }
 }

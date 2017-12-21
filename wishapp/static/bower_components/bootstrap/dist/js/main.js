@@ -37,25 +37,25 @@ $(function () {
         box_error.removeClass("hidden");
     }
     // модуль перетаскивания мышкой желаний
-    Sortable.create(simpleList, {
-        onEnd: function (evt) {
-            var desire_order_list = new Array();
-            var desire_order = new Object();
-            var desireinfo = $(".drs").each(function (index) {
-                var id = $(this).attr("id");
-                var desirecounter = id.split("-")[3];
-                var desire_id = id.split("-")[1];
-                $(".loopcounter")[index].innerHTML = index + 1;
-                desire_order = {
-                    "desire_id": desire_id,
-                    "loopcounter": $(".loopcounter")[index].innerHTML
-                };
-                desire_order_list.push(desire_order);
-            });
-            list_for_save = JSON.stringify(desire_order_list);
-            $.post('/order/', {"a": list_for_save});
-        }
-    });
+    // Sortable.create(simpleList, {
+    //     onEnd: function (evt) {
+    //         var desire_order_list = new Array();
+    //         var desire_order = new Object();
+    //         var desireinfo = $(".drs").each(function (index) {
+    //             var id = $(this).attr("id");
+    //             var desirecounter = id.split("-")[3];
+    //             var desire_id = id.split("-")[1];
+    //             $(".loopcounter")[index].innerHTML = index + 1;
+    //             desire_order = {
+    //                 "desire_id": desire_id,
+    //                 "loopcounter": $(".loopcounter")[index].innerHTML
+    //             };
+    //             desire_order_list.push(desire_order);
+    //         });
+    //         list_for_save = JSON.stringify(desire_order_list);
+    //         $.post('/order/', {"a": list_for_save});
+    //     }
+    // });
     // кнопка "наверх"
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -68,7 +68,7 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
-    // анимация
+// анимация******************************************************************************************************
     function init() {
         var speed = 250,
             easing = mina.easeinout;
@@ -92,3 +92,4 @@ $(function () {
 
     init();
 });
+

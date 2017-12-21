@@ -91,5 +91,17 @@ $(function () {
     }
 
     init();
+ // отрабатываем нажатие кнопки "edit"*******************************************************************
+    $("button.view").click(function () {
+        var button = $(this);
+        var id = button.attr("id");
+        var desireid = id.split("-")[1];
+        var info = $("#row-" + desireid);
+        var form = $("#grid a");
+        info.removeClass("hidden");
+        form.addClass("hidden");
+        console.log('gzdg');
+    });
+    console.log('ghkdgh');
 });
 

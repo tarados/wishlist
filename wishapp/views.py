@@ -34,7 +34,8 @@ def dreamer(request, dreamer_id):
                 order_user_name = ''
             obj = {
                 'id': desire.id,
-                'text': link_on(desire.desire_text),
+                'text': link_on(desire.desire_text)[0],
+                'link': link_on(desire.desire_text)[1],
                 'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,

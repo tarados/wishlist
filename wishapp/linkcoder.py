@@ -1,12 +1,14 @@
 import re
 
-
+a = 'https://rozetka.com.ua/veneto_161780190/p291930/ hgkcghkhlhjlvhj'
 def link_on(str):
     newstr = []
+    href = '#'
     str = str.split(' ')
     for substr in str:
         if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),]+', substr):
             c = re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),]+', substr).group()
+            href = c
             b = '<a href="' + c + '">' + c[:20] + '...' + '</a>'
             substr = substr.replace(c, b)
             newstr.append(substr.replace('\n', '<br>'))
@@ -14,5 +16,6 @@ def link_on(str):
             substr = substr.replace('\n', '<br>')
             newstr.append(substr)
     str = ' '.join(newstr)
-    return str
+    return str, href
 
+print(link_on(a)[1])

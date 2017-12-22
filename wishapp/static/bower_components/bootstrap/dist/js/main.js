@@ -4,9 +4,9 @@ $(function () {
         var button = $(this);
         var id = button.attr("id");
         var desireid = id.split("-")[1];
-        var info = $("#desireinfo-" + desireid);
+        // var info = $("#desireinfo-" + desireid);
         var form = $("#desireform-" + desireid);
-        info.addClass("hidden");
+        // info.addClass("hidden");
         form.removeClass("hidden");
     });
     // убираем блок с кнопками у выбранного желания и выделяем цветом
@@ -91,7 +91,7 @@ $(function () {
     }
 
     init();
- // отрабатываем нажатие кнопки "edit"*******************************************************************
+ // отрабатываем нажатие кнопки "view"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
         var id = button.attr("id");
@@ -100,7 +100,16 @@ $(function () {
         var form = $("#grid a");
         info.removeClass("hidden");
         form.addClass("hidden");
-        console.log('gzdg');
+    });
+    // отрабатываем нажатие кнопки "назад"*******************************************************************
+    $("button.back").click(function () {
+        var button = $(this);
+        var id = button.attr("id");
+        var desireid = id.split("-")[1];
+        var info = $("#row-" + desireid);
+        var form = $("#grid a");
+        form.removeClass("hidden");
+        info.addClass("hidden");
     });
     console.log('ghkdgh');
 });

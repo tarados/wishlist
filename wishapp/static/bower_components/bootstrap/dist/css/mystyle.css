@@ -59,17 +59,23 @@ li.well{
 button.edit{
   position: relative;
   right: 124px;
-  top: -30px;
+  top: -24px;
 }
 button.delete{
   position: relative;
   right: 84px;
-  top: -59px;
+  top: -45px;
+}
+button.back{
+  position: relative;
+  right: 357px;
+  top: -23px;
+  margin-right: 0px;
 }
 button.archive{
   position: relative;
   right: 12px;
-  top: -89px;
+  top: -66px;
 }
 li.button{
   height: 54px;
@@ -240,12 +246,18 @@ body,.navbar,.btn-google{
     transform: translateY(50px);
 }
 .grid figure button {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    color: #333;
+    font-weight: 300;
+    transform: translateY(100%);
     position: absolute;
-    padding: 4px 20px;
+    padding: 15px 4px 26px;
     border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: bold;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figcaption,
@@ -269,38 +281,19 @@ body,.navbar,.btn-google{
 .grid a:hover figure img {
     opacity: 1;
 }
-
 .grid a:hover figcaption h2,
 .grid a:hover figcaption p {
     transform: translateY(0);
 }
-
 .grid a:hover figcaption p {
     opacity: 0;
 }
-body {
-    background: #e74c3c;
-}
-
 .grid figcaption h2 {
     color: #e74c3c;
 }
-
 .grid figcaption p {
     transition-delay: 0.05s;
 }
-
-.grid figure button {
-    bottom: 0;
-    left: 0;
-    padding: 15px;
-    width: 100%;
-    background: #fff;
-    color: #333;
-    font-weight: 300;
-    transform: translateY(100%);
-}
-
 .grid a:hover figure button {
     transition-timing-function: ease-out;
     transform: translateY(0);
@@ -309,7 +302,6 @@ body {
 .grid figcaption p {
     timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
 }
-
 .grid a:hover figcaption p {
     transition-delay: 0s;
     transition-duration: 0.1s;

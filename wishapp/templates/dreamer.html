@@ -50,9 +50,10 @@
                                    <input type="text" class="form-control" id="add_link_foto" name="link"  placeholder="Введите ссылку">
                                    <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                                    <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                   <button type="submit" class="btn btn-sm">Добавить фото</button>
+                                   <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
                                </form>
 {#  редактирование желания#}
+                               <button class="btn btn-google btn-sm back glyphicon glyphicon-new-window" id="back-{{ desire.id }}"> Назад</button>
                                <button class="btn btn-info btn-sm edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>
 {#  удаление желания#}
                                <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}

@@ -190,13 +190,13 @@ body,.navbar,.btn-google{
     max-width: 1000px;
     width: 90%;
 }
-.grid div {
+.grid div.grid-link {
     float: left;
     max-width: 250px;
     width: 25%;
     color: #333;
 }
-.grid div:nth-child(odd) {
+.grid div.grid-link:nth-child(odd) {
     margin: 30px 0 -30px 0;
 }
 .grid figure {
@@ -236,6 +236,9 @@ body,.navbar,.btn-google{
     color: #aaa;
     font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .grid figcaption h2,
@@ -267,14 +270,14 @@ body,.navbar,.btn-google{
 .grid svg path {
     fill: #fff;
 }
-.grid div:hover figure img {
+.grid div.grid-link:hover figure img {
     opacity: 1;
 }
-.grid div:hover figcaption h2,
-.grid div:hover figcaption p {
+.grid div.grid-link:hover figcaption h2,
+.grid div.grid-link:hover figcaption p {
     transform: translateY(0);
 }
-.grid div:hover figcaption p {
+.grid div.grid-link:hover figcaption p {
     opacity: 0;
 }
 .grid figcaption h2 {
@@ -294,7 +297,7 @@ body,.navbar,.btn-google{
     transform: translateY(100%);
 }
 
-.grid div:hover figure button {
+.grid div.grid-link:hover figure button {
     transition-timing-function: ease-out;
     transform: translateY(0);
 }
@@ -302,7 +305,7 @@ body,.navbar,.btn-google{
 .grid figcaption p {
     timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
 }
-.grid div:hover figcaption p {
+.grid div.grid-link:hover figcaption p {
     transition-delay: 0s;
     transition-duration: 0.1s;
 }

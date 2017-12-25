@@ -5,7 +5,7 @@ import re
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
 
-
+a = 'http://fmart.com.ua/p/461876744-televizor-samsung-lt24e310ex/'
 def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
@@ -54,6 +54,9 @@ def get_img(url):
             if result_a != '':
                 result = result_a
     return result
+
+
+print(get_img(a))
 
 
 def find_url(str):

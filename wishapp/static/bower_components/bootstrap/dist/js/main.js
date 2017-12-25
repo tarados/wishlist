@@ -73,7 +73,7 @@ $(function () {
         var speed = 250,
             easing = mina.easeinout;
 
-        [].slice.call ( document.querySelectorAll( '#grid > div' ) ).forEach( function( el ) {
+        [].slice.call ( document.querySelectorAll( '#grid > div.grid-link' ) ).forEach( function( el ) {
             var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
                 pathConfig = {
                     from : path.attr( 'd' ),
@@ -99,7 +99,7 @@ $(function () {
         var id = button.attr("id");
         var desireid = id.split("-")[1];
         var info = $("#row-" + desireid);
-        var form = $("#grid a");
+        var form = $("#grid div.grid-link");
         info.removeClass("hidden");
         form.addClass("hidden");
     });
@@ -109,7 +109,7 @@ $(function () {
         var id = button.attr("id");
         var desireid = id.split("-")[1];
         var info = $("#row-" + desireid);
-        var form = $("#grid a");
+        var form = $("#grid div.grid-link");
         form.removeClass("hidden");
         info.addClass("hidden");
     });

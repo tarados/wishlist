@@ -5,96 +5,16 @@
    <div class="container">
        <section id="grid" class="grid clearfix">
            {% for desire in desire_list %}
-               <a href="{{ desire.link }}" class="grid-link" target="_blank" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+               <div class="grid-link" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
                <figure>
                    <img src="{{ desire.desire_image }}" width="240" height="420" />
                    <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
                    <figcaption>
                        <h2>{{ desire.date }}</h2>
-                       <p>{{ desire.text|length }}</p>
+                       <p>{{ desire.text|safe }}</p>
                        <button class="view" id="view-{{ desire.id }}">View</button>
                    </figcaption>
                </figure>
-               </a>
-               <div class="row list-group-item hidden" id="row-{{ desire.id }}">
-{#            зона желания#}
-                   <ul class="list-group">
-                       {% if is_choice and desire.desire_state %}
-                           <li class="list-group-item well dt">
-                               <i class="glyphicon glyphicon-ok-circle" id="labelselect-{{ desire.id }}">
-                                Будет покупать {{ desire.order_user_name }}</i>
-                               <div class="col-md-2 loopcounter">{{ forloop.counter }}</div>
-                           </li>
-                       {% else %}
-                           <li class="list-group-item well dt">
-                               {{ desire.date|naturaltime }}
-                               <div class="col-md-2 loopcounter">{{ forloop.counter }}</div>
-                           </li>
-                       {% endif %}
-                       <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
-                           <li class="list-group-item tx">
-                               <img src="{{ desire.desire_image }}" class="logo" alt="missing photos">
-                               {{ desire.text|safe }}
-                           </li>
-                       </div><hr class="dm">
-                       <div class="hidden desire-form edt" id="desireform-{{ desire.id }}">
-                           <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                               <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
-                               <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
-                           </form>
-                       </div>
-                       <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">
-                           {% if is_owner %}
-{#  блок добавления ссылки на фото#}
-                               <form class="form-inline link_foto" action="{% url 'linkfoto' dreamer_id %}" method="post">{% csrf_token %}
-                                   <input type="text" class="form-control" id="add_link_foto" name="link"  placeholder="Введите ссылку">
-                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                   <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                   <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
-                               </form>
-{#  редактирование желания#}
-                               <button class="btn btn-google btn-sm back glyphicon glyphicon-new-window" id="back-{{ desire.id }}"> Назад</button>
-                               <button class="btn btn-info btn-sm edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>
-{#  удаление желания#}
-                               <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
-                                   <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                                   <button type="submit"  class="btn btn-danger btn-sm delete glyphicon glyphicon-trash" value=""></button>
-                               </form>
-{#  архивирование желания#}
-                               <form action="{% url 'backupdesire' %}" method="post">
-                                   <input type="hidden" name="backupdesire"  value={{ desire.id }}>
-                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                   <button type="submit"  class="btn btn-info btn-sm archive" value=""> В архив</button>
-                               </form>
-                           {% endif %}
-{#  зона гостей#}
-                           {% if desire.desire_state != 1 %}
-                               {% if is_loggedin %}
-{#  авторизацияпри выборе желания для покупки#}
-                                   <div class="col-md-2">
-                                       <form action="{% url 'login_for_guest' %}" method="get">
-                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                           <button type="submit"  class="btn btn-primary login_new_user btn-sm" value="">Буду покупать</button>
-                                       </form>
-                                   </div>
-                               {% endif %}
-                               {% if is_choice and not is_loggedin%}
-{#  выбор желания для покупки#}
-                                   <div class="col-md-2">
-                                       <form action="{% url 'selectdesire' %}" method="post">
-                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                           <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                           <input type="hidden" name="order_user_id"  value={{ user_id }}>
-                                           <input type="hidden" name="order_user_name"  value={{ username }}>
-                                           <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
-                                           <button class="btn btn-primary btn-sm select_desire" id="desireselect-{{ desire.id }}">
-                                               Буду покупать</button>
-                                       </form>
-                                   </div>
-                               {% endif %}
-                           {% endif %}
-                       </li>
-                   </ul>
                </div>
            {% endfor %}
        </section>

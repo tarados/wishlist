@@ -1,6 +1,6 @@
 import re
 
-a = 'https://rozetka.com.ua/veneto_161780190/p291930/ hgkcghkhlhjlvhj'
+
 def link_on(str):
     newstr = []
     href = '#'
@@ -18,4 +18,3 @@ def link_on(str):
     str = ' '.join(newstr)
     return str, href
 
-print(link_on(a)[1])

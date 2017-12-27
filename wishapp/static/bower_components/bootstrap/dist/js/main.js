@@ -80,8 +80,6 @@ $(function () {
                     to : el.getAttribute( 'data-path-hover' )
                 };
 
-            console.log(path.attr('d'));
-            console.log(s);
             el.addEventListener( 'mouseenter', function() {
                 path.animate( { 'path' : pathConfig.to }, speed, easing );
             } );
@@ -102,6 +100,7 @@ $(function () {
         var form = $("#grid div.grid-link");
         info.removeClass("hidden");
         form.addClass("hidden");
+        console.log(info);
     });
     // отрабатываем нажатие кнопки "назад"*******************************************************************
     $("button.back").click(function () {

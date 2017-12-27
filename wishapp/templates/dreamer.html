@@ -12,9 +12,9 @@
                    <figcaption>
                        <h2>{{ desire.date }}</h2>
                        <p>{{ desire.text|safe }}</p>
-                       <button class="view" id="view-{{ desire.id }}"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
-                       <button class="del" id="del-{{ desire.id }}"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
-                       <button class="ar" id="ar-{{ desire.id }}"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
+                       <button class="btn-info view" id="view-{{ desire.id }}"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
+                       <button class="btn-danger del" id="del-{{ desire.id }}"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></i></button>
+                       <button class="btn-info ar" id="ar-{{ desire.id }}"><i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i></i></button>
                    </figcaption>
                </figure>
                </div>
@@ -36,15 +36,15 @@
                        <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
                            <li class="list-group-item tx">
                                <img src="{{ desire.desire_image }}" class="logo" alt="missing photos">
-                               {{ desire.text|safe }}
-                           </li>
-                       </div><hr class="dm">
-                       <div class="hidden desire-form edt" id="desireform-{{ desire.id }}">
+                               <div class="desire-form edt" id="desireform-{{ desire.id }}">
                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
                                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
                                <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
                            </form>
                        </div>
+{#                               {{ desire.text|safe }}#}
+                           </li>
+                       </div><hr class="dm">
                        <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">
                            {% if is_owner %}
 {#  блок добавления ссылки на фото#}
@@ -55,7 +55,7 @@
                                    <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
                                </form>
 {#  редактирование желания#}
-                               <button class="btn btn-google btn-sm back glyphicon glyphicon-new-window" id="back-{{ desire.id }}"> Назад</button>
+{#                               <button class="btn btn-google btn-sm back glyphicon glyphicon-new-window" id="back-{{ desire.id }}"> Назад</button>#}
                                <button class="btn btn-info btn-sm edit glyphicon glyphicon-edit" id="desirebutton-{{ desire.id }}"></button>
 {#  удаление желания#}
                                <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}

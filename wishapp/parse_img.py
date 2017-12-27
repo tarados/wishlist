@@ -17,6 +17,7 @@ def get_img(url):
         meta = soup.find('meta', property="og:image")['content']
         if meta.find('http') + 1 > 0:
             result_meta = meta
+            print(result_meta)
         else:
             result_meta = url_domen + meta
     except:
@@ -43,8 +44,18 @@ def get_img(url):
             result_img = url_domen + img['src']
     except:
         pass
+    if result_img == '':
+        try:
+            img = soup.find('img', src=src)
+            if img['src'].find('http') + 1 > 0:
+                result_img = img['src']
+            else:
+                result_img = url_domen + img['src']
+        except:
+
+            pass
 # выбираем из трех 1-2-3
-    result = ''
+    result = '/static/img/new_year.png'
     if result_meta != '':
         result = result_meta
     else:

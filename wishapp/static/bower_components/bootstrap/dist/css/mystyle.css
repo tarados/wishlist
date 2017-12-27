@@ -56,39 +56,6 @@ li.well{
   padding: 10px;
   text-align: right;
 }
-button.edit{
-  position: relative;
-  right: 124px;
-  top: -24px;
-}
-button.delete{
-  position: relative;
-  right: 84px;
-  top: -45px;
-}
-button.back{
-  position: relative;
-  right: 357px;
-  top: -23px;
-  margin-right: 0px;
-}
-button.back_choice{
-  position: absolute;
-  left: 372px;
-  top: 228px;
-  margin-right: 0px;
-}
-button.back_select{
-  position: absolute;
-  left: 396px;
-  top: 0px;
-  margin-right: 0px;
-}
-button.archive{
-  position: relative;
-  right: 12px;
-  top: -66px;
-}
 li.button{
   height: 54px;
   text-align: right;
@@ -258,36 +225,28 @@ body,.navbar,.btn-google{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 33%;
+    width: 50%;
     background: #fff;
     color: #333;
     transform: translateY(100%);
     padding: 15px 4px 20px;
     border: none;
-    transition: opacity 0.3s, transform 0.3s;
-}
-.grid figure button.del {
-    position: absolute;
-    bottom: 0;
-    left: 79px;
-    width: 33%;
-    background: #fff;
-    color: #333;
-    transform: translateY(100%);
-    padding: 15px 4px 20px;
-    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figure button.ar {
     position: absolute;
     bottom: 0;
-    left: 158px;
-    width: 34%;
+    left: 120px;
+    width: 50%;
     background: #fff;
     color: #333;
     transform: translateY(100%);
     padding: 15px 4px 20px;
     border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figcaption,

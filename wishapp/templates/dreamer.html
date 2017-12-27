@@ -12,16 +12,12 @@
                    <figcaption>
                        <h2>{{ desire.date }}</h2>
                        <p>{{ desire.text|safe }}</p>
-                       <button class="btn-info view" id="view-{{ desire.id }}"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
-                       <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}
-                                   <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                                   <button type="submit" class="btn-danger del" id="del-{{ desire.id }}"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></i></button>
-                               </form>
+                       <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>
                        <form action="{% url 'backupdesire' %}" method="post">
-                                   <input type="hidden" name="backupdesire"  value={{ desire.id }}>
-                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                   <button type="submit" class="btn-info ar" id="ar-{{ desire.id }}"><i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i></i></button>
-                               </form>
+                           <input type="hidden" name="backupdesire"  value={{ desire.id }}>
+                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                           <button type="submit" class="btn-info ar" id="ar-{{ desire.id }}">в архив</i></i></button>
+                       </form>
                    </figcaption>
                </figure>
                </div>

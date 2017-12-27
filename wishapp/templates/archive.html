@@ -6,6 +6,7 @@
         {% for desire in desire_list %}
             <div class="row">
                 <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
+                    <img src="{{ desire.image }}" class="logo" alt="missing photos">
                     <div class="date">{{ desire.date }}<br></div>
                     {{ desire.text|safe }}
                 </div>

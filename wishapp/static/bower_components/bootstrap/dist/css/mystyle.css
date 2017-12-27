@@ -138,7 +138,7 @@ div.edt{
 }
 textarea#id_desire_text{
   width: 50%;
-  margin-right: 125px;
+  margin-right: 1px;
 }
 textarea#id_desire_text_for_edit{
   width: 100%;

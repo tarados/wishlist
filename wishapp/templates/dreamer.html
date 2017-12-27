@@ -49,7 +49,6 @@
                                <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
                            </form>
                        </div>
-{#                               {{ desire.text|safe }}#}
                            </li>
                        </div><hr class="dm">
                        <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">
@@ -61,17 +60,6 @@
                                    <input type="hidden" name="desire_id"  value={{ desire.id }}>
                                    <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
                                </form>
-{#  удаление желания#}
-{#                               <form action="{% url 'deldesire' dreamer.id %}" method="post">{% csrf_token %}#}
-{#                                   <input type="hidden" name="deldesire"  value={{ desire.id }}>#}
-{#                                   <button type="submit"  class="btn btn-danger btn-sm delete glyphicon glyphicon-trash" value=""></button>#}
-{#                               </form>#}
-{#  архивирование желания#}
-{#                               <form action="{% url 'backupdesire' %}" method="post">#}
-{#                                   <input type="hidden" name="backupdesire"  value={{ desire.id }}>#}
-{#                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>#}
-{#                                   <button type="submit"  class="btn btn-info btn-sm archive" value=""> В архив</button>#}
-{#                               </form>#}
                            {% endif %}
 {#  зона гостей#}
                            {% if desire.desire_state != 1 %}
@@ -109,7 +97,7 @@
            <h2>Добавить новое желание:</h2>
                <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
                    {{ form.desire_text}}<br>
-                   <button type="submit" class="btn-sm btn-google" value="">Добавить</button>
+                   <button type="submit" class="btn-sm btn-google" style="margin-right: 1px" value="">Добавить</button>
                </form>
            </div>
        {% endif %}

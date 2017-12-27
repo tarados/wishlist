@@ -182,6 +182,7 @@ def archive(request, user_id):
                 'id': desire.id,
                 'text': link_on(desire.desire_text)[0],
                 'text_for_edit': desire.desire_text,
+                'image': desire.desire_img,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
                 'order_user_id': desire.desire_order_user_id,

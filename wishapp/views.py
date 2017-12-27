@@ -180,7 +180,7 @@ def archive(request, user_id):
                 order_username = ''
             obj = {
                 'id': desire.id,
-                'text': link_on(desire.desire_text),
+                'text': link_on(desire.desire_text)[0],
                 'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,

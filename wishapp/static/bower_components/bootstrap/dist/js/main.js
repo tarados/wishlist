@@ -98,7 +98,9 @@ $(function () {
         var desireid = id.split("-")[1];
         var info = $("#row-" + desireid);
         var form = $("#grid div.grid-link");
+        var block = $("#add_desire_block");
         info.removeClass("hidden");
+        block.addClass("hidden");
         form.addClass("hidden");
         console.log(info);
     });

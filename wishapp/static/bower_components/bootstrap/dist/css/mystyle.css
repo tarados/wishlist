@@ -257,13 +257,40 @@ body,.navbar,.btn-google{
 .grid figcaption p {
     transform: translateY(50px);
 }
-.grid figure button {
+.grid figure button.view {
     position: absolute;
-    padding: 4px 20px;
+    bottom: 0;
+    left: 0;
+    width: 33%;
+    background: #fff;
+    color: #333;
+    transform: translateY(100%);
+    padding: 15px 4px 20px;
     border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.grid figure button.del {
+    position: absolute;
+    bottom: 0;
+    left: 79px;
+    width: 33%;
+    background: #fff;
+    color: #333;
+    transform: translateY(100%);
+    padding: 15px 4px 20px;
+    border: none;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.grid figure button.ar {
+    position: absolute;
+    bottom: 0;
+    left: 158px;
+    width: 34%;
+    background: #fff;
+    color: #333;
+    transform: translateY(100%);
+    padding: 15px 4px 20px;
+    border: none;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figcaption,
@@ -299,14 +326,7 @@ body,.navbar,.btn-google{
     transition-delay: 0.05s;
 }
 .grid figure button {
-    bottom: 0;
-    left: 0;
-    padding: 15px;
-    width: 100%;
-    background: #fff;
-    color: #333;
-    font-weight: 300;
-    transform: translateY(100%);
+
 }
 
 .grid div.grid-link:hover figure button {

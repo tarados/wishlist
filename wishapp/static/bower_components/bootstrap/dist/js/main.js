@@ -113,6 +113,24 @@ $(function () {
         form.removeClass("hidden");
         info.addClass("hidden");
     });
+    $("button.back_choice").click(function () {
+        var button = $(this);
+        var id = button.attr("id");
+        var desireid = id.split("-")[1];
+        var info = $("#row-" + desireid);
+        var form = $("#grid div.grid-link");
+        form.removeClass("hidden");
+        info.addClass("hidden");
+    });
+    $("button.back_select").click(function () {
+        var button = $(this);
+        var id = button.attr("id");
+        var desireid = id.split("-")[1];
+        var info = $("#row-" + desireid);
+        var form = $("#grid div.grid-link");
+        form.removeClass("hidden");
+        info.addClass("hidden");
+    });
     console.log('ghkdgh');
 });
 

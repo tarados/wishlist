@@ -72,6 +72,18 @@ button.back{
   top: -23px;
   margin-right: 0px;
 }
+button.back_choice{
+  position: absolute;
+  left: 372px;
+  top: 228px;
+  margin-right: 0px;
+}
+button.back_select{
+  position: absolute;
+  left: 396px;
+  top: 0px;
+  margin-right: 0px;
+}
 button.archive{
   position: relative;
   right: 12px;

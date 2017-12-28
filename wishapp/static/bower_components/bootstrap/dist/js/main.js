@@ -104,34 +104,19 @@ $(function () {
         form.addClass("hidden");
         console.log(info);
     });
-    // отрабатываем нажатие кнопки "назад"*******************************************************************
-    $("button.back").click(function () {
-        var button = $(this);
-        var id = button.attr("id");
-        var desireid = id.split("-")[1];
-        var info = $("#row-" + desireid);
-        var form = $("#grid div.grid-link");
-        form.removeClass("hidden");
-        info.addClass("hidden");
+    $("div.visitor").each(function () {
+        var info = this.class;
+        var owner = (this.id).split('-')[1];
+        var loggedin = (this.id).split('-')[3];
+        var choice = (this.id).split('-')[5];
+        if (loggedin == 'True') {
+            this.addClass('hidden')
+            console.log(this);
+        }
+        // console.log(owner);
+        // console.log(loggedin);
+        // console.log(choice);
     });
-    $("button.back_choice").click(function () {
-        var button = $(this);
-        var id = button.attr("id");
-        var desireid = id.split("-")[1];
-        var info = $("#row-" + desireid);
-        var form = $("#grid div.grid-link");
-        form.removeClass("hidden");
-        info.addClass("hidden");
-    });
-    $("button.back_select").click(function () {
-        var button = $(this);
-        var id = button.attr("id");
-        var desireid = id.split("-")[1];
-        var info = $("#row-" + desireid);
-        var form = $("#grid div.grid-link");
-        form.removeClass("hidden");
-        info.addClass("hidden");
-    });
-    console.log('ghkdgh');
+
 });
 

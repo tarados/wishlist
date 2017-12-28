@@ -12,8 +12,9 @@
                    <figcaption>
                        <h2>{{ desire.date }}</h2>
                        <p>{{ desire.text|safe }}</p>
-                       <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}">
+                       <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}">
                            <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>
+                           <button class="btn-info guest hidden" id="guest-{{ desire.id }}">выбрать</button>
                            <form action="{% url 'backupdesire' %}" method="post">
                                <input type="hidden" name="backupdesire"  value={{ desire.id }}>
                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>

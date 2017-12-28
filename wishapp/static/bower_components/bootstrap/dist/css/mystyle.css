@@ -235,6 +235,20 @@ body,.navbar,.btn-google{
     letter-spacing: 1px;
     transition: opacity 0.3s, transform 0.3s;
 }
+.grid figure button.guest {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    color: #333;
+    transform: translateY(100%);
+    padding: 15px 4px 20px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s, transform 0.3s;
+}
 .grid figure button.ar {
     position: absolute;
     bottom: 0;
@@ -281,10 +295,6 @@ body,.navbar,.btn-google{
 .grid figcaption p {
     transition-delay: 0.05s;
 }
-.grid figure button {
-
-}
-
 .grid div.grid-link:hover figure button {
     transition-timing-function: ease-out;
     transform: translateY(0);

@@ -105,17 +105,19 @@ $(function () {
         console.log(info);
     });
     $("div.visitor").each(function () {
-        var info = this.class;
         var owner = (this.id).split('-')[1];
         var loggedin = (this.id).split('-')[3];
         var choice = (this.id).split('-')[5];
+        var desire = (this.id).split('-')[7];
+        var button_guest = $("#guest-" + desire);
+        var button_view = $("#view-" + desire);
+        var button_arch = $("#ar-" + desire);
         if (loggedin == 'True') {
-            this.addClass('hidden')
-            console.log(this);
+            button_view.addClass('hidden');
+            button_arch.addClass('hidden');
+            button_guest.removeClass('hidden');
         }
-        // console.log(owner);
-        // console.log(loggedin);
-        // console.log(choice);
+
     });
 
 });

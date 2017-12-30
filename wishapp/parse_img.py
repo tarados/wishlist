@@ -12,12 +12,10 @@ def get_img(url):
     url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
     soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
-    result_meta = ''
     try:
         meta = soup.find('meta', property="og:image")['content']
         if meta.find('http') + 1 > 0:
             result_meta = meta
-            print(result_meta)
         else:
             result_meta = url_domen + meta
     except:
@@ -78,4 +76,18 @@ def get_url(str):
     for d in str.split(' '):
         if d.find('http') + 1:
             url.append(d)
+        else:
+            url.append('/static/img/new_year.png')
     return url[0]
+
+
+def get_title(url):
+    if url != '/static/img/new_year.png':
+        response = requests.get(url, headers=headers)
+        data = response.text
+        url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
+        soup = BeautifulSoup(data,'html.parser')
+        title = soup.find('h1').text
+    else:
+        title = 'noname'
+    return title

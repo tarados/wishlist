@@ -8,7 +8,7 @@ from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
-from wishapp.parse_img import get_img, find_url, get_url
+from wishapp.parse_img import get_img, find_url, get_url, get_title
 import datetime
 import json
 
@@ -34,8 +34,9 @@ def dreamer(request, dreamer_id):
                 order_user_name = ''
             obj = {
                 'id': desire.id,
-                'text': link_on(desire.desire_text)[0],
+                'text': link_on(desire.desire_text)[2],
                 'link': link_on(desire.desire_text)[1],
+                'title': get_title(link_on(desire.desire_text)[1]),
                 'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
@@ -46,6 +47,7 @@ def dreamer(request, dreamer_id):
         else:
             pass
     desire_list = result
+    print(desire_list)
     form = desire_form
     user = auth.get_user(request)
     username = user.username

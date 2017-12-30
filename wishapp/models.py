@@ -12,5 +12,6 @@ class Desire(models.Model):
     desire_state = models.IntegerField(default=0)
     desire_order = models.IntegerField(default=0)
     desire_img = models.TextField(null=True, default='/static/img/new_year.png')
+    desire_title = models.TextField(null=True, default='title')
 
 

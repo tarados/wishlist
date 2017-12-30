@@ -1,9 +1,9 @@
 import re
 
-
+a = 'http://www.foxtrot.com.ua/ru/shop/multivarki_redmond_rmc-m251.html dfghadf'
 def link_on(str):
     newstr = []
-    href = '#'
+    href = '/static/img/new_year.png'
     str = str.split(' ')
     for substr in str:
         if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),]+', substr):
@@ -16,5 +16,7 @@ def link_on(str):
             substr = substr.replace('\n', '<br>')
             newstr.append(substr)
     str = ' '.join(newstr)
-    return str, href
+    return str, href, substr
 
+
+print(link_on(a)[2])

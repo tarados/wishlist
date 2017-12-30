@@ -76,31 +76,6 @@
                                    <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
                                </form>
                            {% endif %}
-{#  зона гостей#}
-                           {% if desire.desire_state != 1 %}
-                               {% if is_loggedin %}
-{#  авторизацияпри выборе желания для покупки#}
-                                   <div class="col-md-2">
-                                       <form action="{% url 'login_for_guest' %}" method="get">
-                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                           <button type="submit"  class="btn btn-primary login_new_user btn-sm" value="">Буду покупать</button>
-                                       </form>
-                                   </div>
-                               {% endif %}
-                               {% if is_choice and not is_loggedin%}
-{#  выбор желания для покупки#}
-                                   <div class="col-md-2">
-                                       <form action="{% url 'selectdesire' %}" method="post">
-                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                           <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                           <input type="hidden" name="order_user_id"  value={{ user_id }}>
-                                           <input type="hidden" name="order_user_name"  value={{ username }}>
-                                           <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
-                                           <button class="btn btn-primary btn-sm select_desire" id="desireselect-{{ desire.id }}">Буду покупать</button>
-                                       </form>
-                                   </div>
-                               {% endif %}
-                           {% endif %}
                        </li>
                    </ul>
                </div>

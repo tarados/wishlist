@@ -41,30 +41,25 @@
                </div>
 {#            зона желания ******************************************************************************************#}
                <div class="row list-group-item hidden" id="row-{{ desire.id }}">
-                   <ul class="list-group">
-                       <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
-                           <li class="list-group-item tx">
-                               <img src="{{ desire.desire_image }}">
-                               <div class="desire-form edt" id="desireform-{{ desire.id }}">
-                           <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                               <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
-                               <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
-                           </form>
-                       </div>
-                           </li>
-                       </div><hr class="dm">
-                       <li class="list-group-item button desirestate-{{ desire.desire_state }}-U-{{ is_owner }}">
-                           {% if is_owner %}
+                    <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
+                        <img src="{{ desire.desire_image }}">
+                        <div class="desire-form edt" id="desireform-{{ desire.id }}">
+                            <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+                                <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
+                            </form>
+                        </div>
+
+                    </div><hr class="dm">
+                    {% if is_owner %}
 {#  блок добавления ссылки на фото#}
-                               <form class="form-inline link_foto" action="{% url 'linkfoto' dreamer_id %}" method="post">{% csrf_token %}
-                                   <input type="text" class="form-control" id="add_link_foto" name="link"  placeholder="Введите ссылку">
-                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                   <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                   <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
-                               </form>
-                           {% endif %}
-                       </li>
-                   </ul>
+                        <form class="form-inline link_foto" action="{% url 'linkfoto' dreamer_id %}" method="post">{% csrf_token %}
+                            <input type="text" class="form-control" id="add_link_foto" name="link"  placeholder="Введите ссылку">
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                            <button type="submit" class="btn btn-sm" style="margin-bottom: -3px">Добавить фото</button>
+                        </form>
+                    {% endif %}
                </div>
            {% endfor %}
        </section>

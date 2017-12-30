@@ -102,23 +102,31 @@ $(function () {
         info.removeClass("hidden");
         block.addClass("hidden");
         form.addClass("hidden");
-        console.log(info);
     });
     $("div.visitor").each(function () {
-        var owner = (this.id).split('-')[1];
+        var state = (this.id).split('-')[9];
         var loggedin = (this.id).split('-')[3];
         var choice = (this.id).split('-')[5];
         var desire = (this.id).split('-')[7];
-        var button_guest = $("#guest-" + desire);
+        var button_guest = $("#desireselect-" + desire);
+        var button_noname = $("#noname-" + desire);
         var button_view = $("#view-" + desire);
         var button_arch = $("#ar-" + desire);
+        if (state == 1) {
+            button_guest.text('выбрано');
+            button_noname.text('выбрано');
+            button_guest.css('background-color', 'red');
+            button_noname.css('background-color', 'red');
+        }
         if (loggedin == 'True') {
+            button_view.addClass('hidden');
+            button_arch.addClass('hidden');
+            button_noname.removeClass('hidden');
+        } else if (choice == 'True') {
             button_view.addClass('hidden');
             button_arch.addClass('hidden');
             button_guest.removeClass('hidden');
         }
-
     });
-
 });
 

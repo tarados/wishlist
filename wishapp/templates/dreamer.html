@@ -12,9 +12,25 @@
                    <figcaption>
                        <h2>{{ desire.date }}</h2>
                        <p>{{ desire.text|safe }}</p>
-                       <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}">
+                       <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                            <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>
-                           <button class="btn-info guest hidden" id="guest-{{ desire.id }}">выбрать</button>
+{#                           <button class="btn-info guest hidden" id="guest-{{ desire.id }}">выбрать</button>#}
+                           {% if is_loggedin %}
+                               <form action="{% url 'login_for_guest' %}" method="get">
+                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                   <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
+                               </form>
+                           {% endif %}
+                           {% if is_choice %}
+                               <form action="{% url 'selectdesire' %}" method="post">
+                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                   <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                                   <input type="hidden" name="order_user_id"  value={{ user_id }}>
+                                   <input type="hidden" name="order_user_name"  value={{ username }}>
+                                   <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
+                                   <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать </button>
+                               </form>
+                           {% endif %}
                            <form action="{% url 'backupdesire' %}" method="post">
                                <input type="hidden" name="backupdesire"  value={{ desire.id }}>
                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>

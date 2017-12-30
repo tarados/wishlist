@@ -102,6 +102,7 @@ def editdesire(request, dreamer_id, desire_id):
 # модуль выбора желаний для покупки
 @csrf_exempt
 def selectdesire(request):
+    print(request.POST)
     desire_id = request.POST.get('desire_id', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     desire_order_user_id = request.POST.get('order_user_id', '')

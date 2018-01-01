@@ -347,3 +347,7 @@ body,.navbar,.btn-google{
         margin: 0;
     }
 }
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}

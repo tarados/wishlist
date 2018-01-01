@@ -4,43 +4,44 @@
 {% block dreamerslist %}
    <div class="container">
        <section id="grid" class="grid clearfix">
-           {% for desire in desire_list %}
-               <div class="grid-link" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
-                   <figure>
-                        <img  src="{{ desire.desire_image }}" width="240" height="420" />
-                        <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
-                        <figcaption>
-                            <h2><a href="{{ desire.link }}" target="_blank">{{ desire.title }}</a></h2>
-                            <p>{{ desire.text|safe }}</p>
-                            <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
-                                <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>
-                                {% if is_loggedin %}
-                                    <form action="{% url 'login_for_guest' %}" method="get">
-                                   <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                   <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
-                               </form>
-                                {% endif %}
-                                {% if is_choice %}
-                                    <form action="{% url 'selectdesire' %}" method="post">
-                                        <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                        <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                        <input type="hidden" name="order_user_id"  value={{ user_id }}>
-                                        <input type="hidden" name="order_user_name"  value={{ username }}>
-                                        <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
-                                        <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать </button>
-                                    </form>
-                                {% endif %}
-                                <form action="{% url 'backupdesire' %}" method="post">
-                                    <input type="hidden" name="backupdesire"  value={{ desire.id }}>
-                                    <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                    <button type="submit" class="btn-info ar" id="ar-{{ desire.id }}">в архив</i></i></button>
-                                </form>
-                            </div>
-                        </figcaption>
-                   </figure>
-               </div>
+           <div id="simpleList" class="list-group">
+               {% for desire in desire_list %}
+                   <div class="grid-link list-group-item" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+                       <figure>
+                           <img  src="{{ desire.desire_image }}" width="240" height="420" />
+                           <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
+                           <figcaption>
+                               <h2><a href="{{ desire.link }}" target="_blank">{{ desire.title }}</a></h2>
+                               <p>{{ desire.text|safe }}</p>
+                               <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
+                                   <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>
+                                   {% if is_loggedin %}
+                                       <form action="{% url 'login_for_guest' %}" method="get">
+                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                           <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
+                                       </form>
+                                   {% endif %}
+                                   {% if is_choice %}
+                                       <form action="{% url 'selectdesire' %}" method="post">
+                                           <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                           <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                                           <input type="hidden" name="order_user_id"  value={{ user_id }}>
+                                           <input type="hidden" name="order_user_name"  value={{ username }}>
+                                           <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
+                                           <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать </button>
+                                       </form>
+                                   {% endif %}
+                                   <form action="{% url 'backupdesire' %}" method="post">
+                                       <input type="hidden" name="backupdesire"  value={{ desire.id }}>
+                                       <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                       <button type="submit" class="btn-info ar" id="ar-{{ desire.id }}">в архив</i></i></button>
+                                   </form>
+                               </div>
+                           </figcaption>
+                       </figure>
+                   </div>
 {#            зона желания ******************************************************************************************#}
-               <div class="row list-group-item hidden" id="row-{{ desire.id }}">
+                   <div class="row list-group-item hidden" id="row-{{ desire.id }}">
                     <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
                         <img src="{{ desire.desire_image }}">
                         <div class="desire-form edt" id="desireform-{{ desire.id }}">
@@ -49,7 +50,6 @@
                                 <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
                             </form>
                         </div>
-
                     </div><hr class="dm">
                     {% if is_owner %}
 {#  блок добавления ссылки на фото#}
@@ -61,7 +61,8 @@
                         </form>
                     {% endif %}
                </div>
-           {% endfor %}
+               {% endfor %}
+           </div>
        </section>
        {% if is_owner %}
 {#  блок добавления желаний#}

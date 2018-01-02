@@ -32,11 +32,12 @@ def dreamer(request, dreamer_id):
                 order_user_name = desire.desire_order_user.username
             else:
                 order_user_name = ''
+            desire.desire_title = get_title(link_on(desire.desire_text)[1])
             obj = {
                 'id': desire.id,
                 'text': link_on(desire.desire_text)[0],
                 'link': link_on(desire.desire_text)[1],
-                'title': get_title(link_on(desire.desire_text)[1]),
+                'title': desire.desire_title,
                 'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
@@ -71,6 +72,7 @@ def adddesire(request, dreamer_id):
             if find_url(request.POST.get('desire_text')):
                 desire.desire_img = get_img(get_url(request.POST.get('desire_text')))
             desire.desire_user = User.objects.get(id=dreamer_id)
+            desire.desire_title = get_title(link_on(desire.desire_text)[1])
             desire.desire_date = datetime.datetime.now()
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)

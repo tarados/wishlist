@@ -115,6 +115,13 @@ $(function () {
             button_guest.removeClass('hidden');
         }
     });
-    Sortable.create(simpleList, { /* options */ });
+    Sortable.create(simpleList, {
+        onEnd: function () {
+            $("figcaption > h2").each(function () {
+                var loopcounter = this.id.split('-')[1];
+                console.log(loopcounter);
+            });
+        }
+    });
 });
 

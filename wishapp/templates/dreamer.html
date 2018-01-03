@@ -11,7 +11,7 @@
                            <img  src="{{ desire.desire_image }}" width="240" height="420" />
                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
                            <figcaption>
-                               <h2 id="loopcounter-{{ forloop.counter }}"><a href="{{ desire.link }}" target="_blank">{{ desire.title }}</a></h2>
+                               <h2 id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}"><a href="{{ desire.link }}" target="_blank">{{ desire.title }}</a></h2>
                                <p>{{ desire.text|safe }}</p>
                                <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                                    <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>

@@ -117,10 +117,19 @@ $(function () {
     });
     Sortable.create(simpleList, {
         onEnd: function () {
-            $("figcaption > h2").each(function () {
+            var desire_order_list = new Array();
+            var desire_order = new Object();
+            $("figcaption > h2").each(function (index) {
                 var loopcounter = this.id.split('-')[1];
-                console.log(loopcounter);
+                var desire_id = this.id.split('-')[3];
+                desire_order = {
+                    "desire_id": desire_id,
+                    "loopcounter": index + 1
+                };
+                desire_order_list.push(desire_order);
             });
+            list_for_save = JSON.stringify(desire_order_list);
+            $.post('/order/', {"a": list_for_save});
         }
     });
 });

@@ -32,7 +32,6 @@ def dreamer(request, dreamer_id):
                 order_user_name = desire.desire_order_user.username
             else:
                 order_user_name = ''
-            desire.desire_title = get_title(link_on(desire.desire_text)[1])
             obj = {
                 'id': desire.id,
                 'text': link_on(desire.desire_text)[0],
@@ -48,7 +47,6 @@ def dreamer(request, dreamer_id):
         else:
             pass
     desire_list = result
-    print(desire_list)
     form = desire_form
     user = auth.get_user(request)
     username = user.username
@@ -106,7 +104,6 @@ def editdesire(request, dreamer_id, desire_id):
 # модуль выбора желаний для покупки
 @csrf_exempt
 def selectdesire(request):
-    print(request.POST)
     desire_id = request.POST.get('desire_id', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     desire_order_user_id = request.POST.get('order_user_id', '')

@@ -11,7 +11,7 @@ class Desire(models.Model):
     desire_order_user = models.ForeignKey(User, related_name='order', null=True)
     desire_state = models.IntegerField(default=0)
     desire_order = models.IntegerField(default=0)
-    desire_img = models.TextField(null=True, default='/static/img/new_year.png')
-    desire_title = models.TextField(null=True, default='title')
+    desire_img = models.TextField(null=True)
+    desire_title = models.TextField(null=True)
 
 

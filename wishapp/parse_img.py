@@ -17,7 +17,7 @@ def get_img(url):
         if meta.find('http') + 1 > 0:
             result_meta = meta
         else:
-            result_meta = url_domen + meta
+            result_meta = meta
     except:
         result_meta = ''
 # проверяем тег а
@@ -53,7 +53,7 @@ def get_img(url):
 
             pass
 # выбираем из трех 1-2-3
-    result = '/static/img/new_year.png'
+    result = None
     if result_meta != '':
         result = result_meta
     else:
@@ -72,22 +72,21 @@ def find_url(str):
 
 
 def get_url(str):
-    url = []
     for d in str.split(' '):
         if d.find('http') + 1:
-            url.append(d)
+            url = d
         else:
-            url.append('/static/img/new_year.png')
-    return url[0]
+            url = None
+    return url
 
 
 def get_title(url):
-    if url != '/static/img/new_year.png':
+    if url != None:
         response = requests.get(url, headers=headers)
         data = response.text
         url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
         soup = BeautifulSoup(data,'html.parser')
         title = soup.find('h1').text
     else:
-        title = 'noname'
+        title = ''
     return title

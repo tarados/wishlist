@@ -12,6 +12,6 @@ class Desire(models.Model):
     desire_state = models.IntegerField(default=0)
     desire_order = models.IntegerField(default=0)
     desire_img = models.TextField(null=True)
-    desire_title = models.TextField(null=True)
+    desire_title = models.CharField(null=True, max_length=250)
 
 

@@ -3,11 +3,10 @@
 
 {% block dreamerslist %}
    <div class="container">
-       <section id="grid" class="grid clearfix row">
+       <section id="grid" class="grid clearfix">
            <div id="simpleList" class="list-group">
                {% for desire in desire_list %}
-                   <div class="col-xs-3 al">
-                       <div class="grid-link list-group-item" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+                   <div class="grid-link list-group-item al" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
                        <figure>
                            {% if desire.desire_image %}
                                <img  src="{{ desire.desire_image }}" width="240" height="420" />
@@ -45,15 +44,16 @@
                            </figcaption>
                        </figure>
                    </div>
-                       <div class="list-group-item hidden" id="row-{{ desire.id }}">
-                           <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
-                               <img src="{{ desire.desire_image }}">
-                               <div class="desire-form edt" id="desireform-{{ desire.id }}">
-                                   <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                                       <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
-                                       <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
-                                   </form>
-                               </div>
+                   <div class="row list-group-item hidden" id="row-{{ desire.id }}">
+                       <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
+                           <img src="{{ desire.desire_image }}">
+                           <div class="desire-form edt" id="desireform-{{ desire.id }}">
+                               <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+                                   <input type="text" name="desire_title" maxlength="250" id="id_desire_title" style="width: 200px" value="{{ desire.title }}">
+                                   <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+                                   <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
+                               </form>
+                           </div>
                            </div><hr class="dm">
                            {% if is_owner %}
 {#                                            блок добавления ссылки на фото#}
@@ -65,7 +65,6 @@
                                </form>
                            {% endif %}
                        </div>
-                   </div>
                {% endfor %}
            </div>
        </section>
@@ -74,7 +73,13 @@
            <div class="row" id="add_desire_block">
            <h2>Добавить новое желание:</h2>
                <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
-                   {{ form.desire_text}}<br>
+                   <p>
+                       <input type="text" name="desire_title" maxlength="250" id="id_desire_title" style="width: 200px" placeholder="Введите краткое имя желания">
+                   </p>
+                   <p>
+                       <textarea type="text" name="desire_text" cols="40" rows="10" required id="id_desire_text" placeholder="Дополнительные сведения о желании"></textarea>
+                   </p>
+                   <br>
                    <button type="submit" class="btn-sm btn-google" style="margin-right: 1px" value="">Добавить</button>
                </form>
            </div>

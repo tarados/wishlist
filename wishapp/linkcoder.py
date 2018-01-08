@@ -3,7 +3,7 @@ import re
 
 def link_on(str):
     newstr = []
-    href = None
+    href = '#'
     str = str.split(' ')
     for substr in str:
         if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),]+', substr):

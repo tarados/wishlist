@@ -159,17 +159,24 @@ body,.navbar,.btn-google{
 /*стили для ховер эффектов*****************************************************************/
 .grid {
     margin: 40px auto 120px;
-    max-width: 1000px;
-    width: 90%;
+    /*max-width: 1000px;*/
+    /*width: 90%;*/
+}
+.grid a {
+    text-decoration: none;
+    color: #ea6052;
 }
 .grid div.grid-link {
     float: left;
     max-width: 250px;
-    width: 25%;
+    width: 100%;
     color: #333;
 }
-.grid div.grid-link:nth-child(odd) {
+.grid div.al:nth-child(odd) {
     margin: 30px 0 -30px 0;
+}
+.grid div.al {
+    padding: 5px 10px 5px 0;
 }
 .grid figure {
     position: relative;
@@ -195,7 +202,7 @@ body,.navbar,.btn-google{
 }
 .grid figcaption h2 {
     margin: 0 0 20px 0;
-    color: #3498db;
+    /*color: #3498db;*/
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
@@ -221,7 +228,7 @@ body,.navbar,.btn-google{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50%;
+    width: 51%;
     background: #fff;
     color: #333;
     transform: translateY(100%);
@@ -248,7 +255,7 @@ body,.navbar,.btn-google{
 .grid figure button.ar {
     position: absolute;
     bottom: 0;
-    left: 91.6px;
+    left: 103px;
     width: 50%;
     background: #fff;
     color: #333;
@@ -271,6 +278,7 @@ body,.navbar,.btn-google{
     z-index: 10;
     width: 100%;
     height: 100%;
+    left: 0px;
 }
 .grid svg path {
     fill: #fff;
@@ -304,13 +312,13 @@ body,.navbar,.btn-google{
     transition-duration: 0.1s;
 }
 @media screen and (max-width: 58em) {
-    .grid a {
+    .grid div.grid-link {
         width: 33.333%;
     }
-    .grid a:nth-child(odd) {
+    .grid div.grid-link:nth-child(odd) {
         margin: 0;
     }
-    .grid a:nth-child(3n-1) {
+    .grid div.grid-link:nth-child(3n-1) {
         margin: 30px 0 -30px 0;
     }
 }
@@ -318,13 +326,13 @@ body,.navbar,.btn-google{
     .grid {
         max-width: 500px;
     }
-    .grid a {
+    .grid div.grid-link {
         width: 50%;
     }
-    .grid a:nth-child(3n-1) {
+    .grid div.grid-link:nth-child(3n-1) {
         margin: 0;
     }
-    .grid a:nth-child(even) {
+    .grid div.grid-link:nth-child(even) {
         margin: 30px 0 -30px 0;
     }
     .grid figcaption h2 {
@@ -340,10 +348,10 @@ body,.navbar,.btn-google{
     .grid {
         max-width: 250px;
     }
-    .grid a {
+    .grid div.grid-link {
         width: 100%;
     }
-    .grid a:nth-child(even) {
+    .grid div.grid-link:nth-child(even) {
         margin: 0;
     }
 }

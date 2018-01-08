@@ -60,7 +60,7 @@ $(function () {
         var speed = 250,
             easing = mina.easeinout;
 
-        [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.grid-link' ) ).forEach( function( el ) {
+        [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.al > div.grid-link' ) ).forEach( function( el ) {
             var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
                 pathConfig = {
                     from : path.attr( 'd' ),

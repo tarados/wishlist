@@ -175,7 +175,6 @@ body,.navbar,.btn-google{
 .grid div.al {
     margin-right: 10px;
 }
-}
 .grid figure {
     position: relative;
     overflow: hidden;
@@ -276,7 +275,6 @@ body,.navbar,.btn-google{
     z-index: 10;
     width: 100%;
     height: 100%;
-    left: 0px;
 }
 .grid svg path {
     fill: #fff;

@@ -70,7 +70,7 @@ def adddesire(request, dreamer_id):
             if find_url(request.POST.get('desire_text')):
                 desire.desire_img = get_img(get_url(request.POST.get('desire_text')))
             desire.desire_user = User.objects.get(id=dreamer_id)
-            desire.desire_title = get_title(link_on(desire.desire_text)[1])
+            # desire.desire_title = get_title(link_on(desire.desire_text)[1])
             desire.desire_date = datetime.datetime.now()
             form.save()
     return redirect('/dreamers/%s' % dreamer_id)
@@ -97,6 +97,7 @@ def editdesire(request, dreamer_id, desire_id):
         if form.is_valid():
             desire = form.save(commit=False)
             form.save()
+            print(form)
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
 

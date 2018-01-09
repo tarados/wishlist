@@ -6,7 +6,7 @@ import datetime
 class DesireForm(ModelForm):
     class Meta:
         model = Desire
-        fields = ['desire_text']
+        fields = ['desire_title', 'desire_text']
 
 class DreamerForm(forms.Form):
     dreamer_form_user_id = forms.IntegerField()

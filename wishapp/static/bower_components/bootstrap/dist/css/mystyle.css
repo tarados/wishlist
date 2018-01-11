@@ -169,20 +169,22 @@ body,.navbar,.btn-google{
 .grid div.grid-link {
     float: left;
     width: 250px;
+    height: 420px;
     color: #333;
     padding: 0;
     margin: 0;
     border: 0;
 }
 .grid figure {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     overflow: hidden;
     margin: 0;
     background: #333;
 }
 .grid figure img {
     position: relative;
-    display: table;
+    display: block;
     width: 100%;
     opacity: 0.7;
     transition: opacity 0.3s;

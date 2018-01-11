@@ -54,7 +54,9 @@ $(function () {
             el.addEventListener( 'mouseleave', function() {
                 path.animate( { 'path' : pathConfig.from }, speed, easing );
             } );
+
         } );
+
     }
 
     init();
@@ -112,6 +114,6 @@ $(function () {
             $.post('/order/', {"a": list_for_save});
         }
     });
-    $(".al:even").css("margin", "30px 6px -23px");
+    // $(".al:even").css("margin", "30px 6px -23px");
 });
 

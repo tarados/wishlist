@@ -174,13 +174,12 @@ body,.navbar,.btn-google{
 }
 .grid div.al {
     margin-right: 10px;
-    padding: 0;
-    border: 0;
+}
 }
 .grid figure {
     position: relative;
     overflow: hidden;
-    margin: 0;
+    margin: 5px;
     background: #333;
 }
 .grid figure img {
@@ -226,7 +225,7 @@ body,.navbar,.btn-google{
 .grid figure button.view {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: -16px;
     width: 51%;
     background: #fff;
     color: #333;
@@ -277,6 +276,7 @@ body,.navbar,.btn-google{
     z-index: 10;
     width: 100%;
     height: 100%;
+    left: 0px;
 }
 .grid svg path {
     fill: #fff;

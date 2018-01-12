@@ -112,6 +112,5 @@ $(function () {
             $.post('/order/', {"a": list_for_save});
         }
     });
-    $('.al:even').css("margin", "30px");
 });
 

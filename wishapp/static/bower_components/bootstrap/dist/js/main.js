@@ -110,7 +110,9 @@ $(function () {
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
+            location.reload();
         }
     });
+
 });
 

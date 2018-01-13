@@ -168,24 +168,26 @@ body,.navbar,.btn-google{
 }
 .grid div.grid-link {
     float: left;
-    max-width: 250px;
-    width: 100%;
+    width: 250px;
+    height: 420px;
     color: #333;
+    padding: 0;
+    border: 0;
 }
-.grid div.al {
-    margin-right: 10px;
-}
+.grid div.odd {
+    margin: 30px 6px -23px;
 }
 .grid figure {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     overflow: hidden;
-    margin: 5px;
+    margin: 0;
     background: #333;
 }
 .grid figure img {
     position: relative;
-    display: table;
-    width: 100%;
+    display: block;
+    width: 250px;
     opacity: 0.7;
     transition: opacity 0.3s;
 }
@@ -225,8 +227,8 @@ body,.navbar,.btn-google{
 .grid figure button.view {
     position: absolute;
     bottom: 0;
-    left: -16px;
-    width: 51%;
+    left: 0;
+    width: 50%;
     background: #fff;
     color: #333;
     transform: translateY(100%);
@@ -253,7 +255,7 @@ body,.navbar,.btn-google{
 .grid figure button.ar {
     position: absolute;
     bottom: 0;
-    left: 110px;
+    left: 124px;
     width: 50%;
     background: #fff;
     color: #333;

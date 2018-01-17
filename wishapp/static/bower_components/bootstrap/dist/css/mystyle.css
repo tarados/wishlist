@@ -156,6 +156,9 @@ background: url('icon_top.png') no-repeat;
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
+img{
+    max-width: 410px;
+}
 /*стили для ховер эффектов*****************************************************************/
 .grid {
     margin: 40px auto 120px;

@@ -9,13 +9,13 @@
                    <div class="grid-link list-group-item {% if forloop.counter|divisibleby:"2" %}even{% else %}odd{% endif %}" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
                        <figure>
                            {% if desire.desire_image %}
-                               <img  src="{{ desire.desire_image }}" width="240"/>
+                               <img  src="{{ desire.desire_image }}"/>
                            {% else %}
-                               <img  src="/static/img/new_year.png" width="240" height="420" />
+                               <img  src="/static/img/new_year.png"/>
                            {% endif %}
                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
                            <figcaption>
-                               <h2 id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}"><a href="{{ desire.link }}" target="_blank">{{ forloop.counter }}. {{ desire.title|safe }}</a></h2>
+                               <h2 id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}"><a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a></h2>
                                <p>{{ desire.text|safe }}</p>
                                <div class="visitor" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                                    <button class="btn-info view" id="view-{{ desire.id }}">обновить</button>

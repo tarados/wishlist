@@ -112,14 +112,8 @@ $(function () {
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
-            $("div.grid-link").removeClass('odd');
-            $("div.grid-link").removeClass('even');
-            $("div.grid-link:odd").addClass('even');
-            $("div.grid-link:even").addClass('odd');
-        },
-        ghostClass: "ghost"
-
+        }
     });
-
+    // $(".al:even").css("margin", "30px 6px -23px");
 });
 

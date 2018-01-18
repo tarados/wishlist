@@ -116,7 +116,8 @@ $(function () {
             $("div.grid-link").removeClass('even');
             $("div.grid-link:odd").addClass('even');
             $("div.grid-link:even").addClass('odd');
-        }
+        },
+        ghostClass: "ghost"
 
     });
 

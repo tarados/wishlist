@@ -169,7 +169,7 @@ img{
     text-decoration: none;
     color: #ea6052;
 }
-.grid div.even {
+.grid div.grid-link {
     float: left;
     width: 250px;
     height: 420px;

@@ -165,9 +165,13 @@ body,.navbar,.btn-google{
 }
 /*стили для ховер эффектов*****************************************************************/
 .grid {
-    margin: 40px auto 120px;
-    /*max-width: 1000px;*/
-    /*width: 90%;*/
+    margin: 25px auto 120px;
+    max-width: 1000px;
+    width: 90%;
+}
+#simpleList {
+    max-width: 1000px;
+    width: 100%;
 }
 .grid a {
     text-decoration: none;
@@ -175,29 +179,25 @@ body,.navbar,.btn-google{
 }
 .grid div.grid-link {
     float: left;
-    width: 250px;
+    max-width: 250px;
+    width: 24%;
     height: 420px;
     color: #333;
-    padding: 0;
-    border: 0;
+    margin: 5px;
 }
 .grid div.odd {
-    margin: 30px 6px -23px;
+    margin: 30px 0 -30px 0;
 }
 .grid figure {
-    position: absolute;
-    bottom: 0;
-    width: 250px;
-    height: 420px;
+    position: relative;
     overflow: hidden;
-    margin: 0;
+    /*margin: 5px;*/
     background: white;
 }
 .grid figure img {
-    position: absolute;
-    bottom: 0;
+    position: relative;
     display: block;
-    width: 250px;
+    width: 100%;
     opacity: 0.7;
     transition: opacity 0.3s;
 }
@@ -211,13 +211,14 @@ body,.navbar,.btn-google{
     text-align: center;
 }
 .grid figcaption h2 {
-    margin: 0 25px 20px 0;
-    /*color: #3498db;*/
+    margin: 0 0 20px 0;
+    color: #e74c3c;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
     font-size: 130%;
     transition: transform 0.3s;
+    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
 }
 
 .grid figcaption p {
@@ -225,9 +226,8 @@ body,.navbar,.btn-google{
     color: #aaa;
     font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    transition-delay: 0.05s;
+    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
 }
 
 .grid figcaption h2,
@@ -242,10 +242,11 @@ body,.navbar,.btn-google{
     background: #fff;
     color: #333;
     transform: translateY(100%);
-    padding: 15px 4px 20px;
+    padding: 15px;
     border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figure button.guest {
@@ -256,10 +257,11 @@ body,.navbar,.btn-google{
     background: #fff;
     color: #333;
     transform: translateY(100%);
-    padding: 15px 4px 20px;
+    padding: 15px;
     border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figure button.ar {
@@ -270,10 +272,11 @@ body,.navbar,.btn-google{
     background: #fff;
     color: #333;
     transform: translateY(100%);
-    padding: 15px 4px 20px;
+    padding: 15px;
     border: none;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
 }
 .grid figcaption,
@@ -288,7 +291,6 @@ body,.navbar,.btn-google{
     z-index: 10;
     width: 100%;
     height: 100%;
-    left: 0px;
 }
 .grid svg path {
     fill: #fff;
@@ -302,35 +304,23 @@ body,.navbar,.btn-google{
 }
 .grid div.grid-link:hover figcaption p {
     opacity: 0;
-}
-.grid figcaption h2 {
-    color: #e74c3c;
-}
-.grid figcaption p {
-    transition-delay: 0.05s;
+    transition-delay: 0s;
+    transition-duration: 0.1s;
 }
 .grid div.grid-link:hover figure button {
     transition-timing-function: ease-out;
     transform: translateY(0);
 }
-.grid figcaption h2,
-.grid figcaption p {
-    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
-}
-.grid div.grid-link:hover figcaption p {
-    transition-delay: 0s;
-    transition-duration: 0.1s;
-}
 @media screen and (max-width: 58em) {
     .grid div.grid-link {
         width: 33.333%;
     }
-    .grid div.even {
-        margin: 0;
+    .grid div.grid-link:nth-child(2n) {
+        margin: 5px;
     }
-    .grid div.odd {
-        margin: 30px 0 -30px 0;
-    }
+    /*.grid div.grid-link:odd {*/
+        /*margin: 30px 0 -30px 0;*/
+    /*}*/
 }
 @media screen and (max-width: 45em) {
     .grid {
@@ -339,12 +329,12 @@ body,.navbar,.btn-google{
     .grid div.grid-link {
         width: 50%;
     }
-    .grid div.even {
-        margin: 0;
+    .grid div.grid-link {
+        margin: 5px;
     }
-    .grid div.odd {
-        margin: 30px 0 -30px 0;
-    }
+    /*.grid div.odd {*/
+        /*margin: 30px 0 -30px 0;*/
+    /*}*/
     .grid figcaption h2 {
         margin-bottom: 0;
         transform: translateY(30px);

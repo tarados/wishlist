@@ -119,5 +119,12 @@ $(function () {
         },
         ghostClass: "ghost"
     });
+    var mql = window.matchMedia('all and (max-width: 928px)');
+    if (mql.matches) {
+        var form = $("#grid div.grid-link");
+        form.removeClass('odd');
+        form.removeClass('even');
+        console.log('ffffffffffffffffff');
+    }
 });
 

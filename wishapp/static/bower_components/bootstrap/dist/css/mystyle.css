@@ -190,7 +190,8 @@ body,.navbar,.btn-google{
     margin: 30px 0 -30px 0;
 }
 .grid figure {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     overflow: hidden;
     /*margin: 5px;*/
     background: white;

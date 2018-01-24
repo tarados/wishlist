@@ -124,7 +124,6 @@ $(function () {
         var form = $("#grid div.grid-link");
         form.removeClass('odd');
         form.removeClass('even');
-        console.log('ffffffffffffffffff');
     }
 });
 

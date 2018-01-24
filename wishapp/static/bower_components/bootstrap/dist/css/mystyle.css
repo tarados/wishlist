@@ -355,10 +355,52 @@ body,.navbar,.btn-google{
         margin: 0;
     }
 }
+/*!плейсходер в сортабле*****************************************************/
 .glyphicon-move {
   cursor: move;
   cursor: -webkit-grabbing;
 }
 .ghost {
   opacity: 0;
+}
+/*!адаптивность навбар**********************************/
+.menu li {display: inline;}
+.hide {display: none;}
+
+@media (max-width:600px) {
+ .hide {
+   display: block;
+}
+.menu  ul {position: top;}
+.menu a, a:visited {
+    display:block;
+    text-decoration:none;
+    width:100px;
+    height:20px;
+    text-align:center;
+    border: solid 1px black;
+    background:#fff;
+}
+.menu ul{
+    padding:0;
+    margin:0;
+    list-style:none
+}
+.menu ul li{
+    float:left;
+    position:relative}
+.menu ul li ul{
+    display:none
+}
+.menu ul li:hover ul{
+    display:block;
+    position:absolute;
+    top:21px;
+    left:0;
+    width:100px
+}
+.menu ul li:hover ul li a:hover{
+    background:#eee;
+
+}
 }

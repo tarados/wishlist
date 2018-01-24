@@ -181,7 +181,8 @@ body,.navbar,.btn-google{
     float: left;
     max-width: 250px;
     width: 24%;
-    height: 420px;
+    padding: 0;
+    /*height: 420px;*/
     color: #333;
     margin: 5px;
 }
@@ -315,7 +316,7 @@ body,.navbar,.btn-google{
     .grid div.grid-link {
         width: 33.333%;
     }
-    .grid div.grid-link:nth-child(2n) {
+    .grid div.grid-link {
         margin: 5px;
     }
     /*.grid div.grid-link:odd {*/

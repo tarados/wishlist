@@ -10,27 +10,39 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=12">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=">
 </head>
 <body>
-    <div class="navbar">
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            {% if is_owner %}
-                <ul class="nav navbar-nav navbar-left">
-                    <a href="/dreamers/archive/{{ user_id }}/" class="btn">Архив</a>
-                    <a href="/dreamers/{{ user_id }}/" class="btn">Мои желания</a>
-                    <a href="#id_desire_text" class="btn btn-google">+Добавить желание</a>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <a href="/auth/logout/" class="btn">Выйти</a>
-                </ul>
-            {% elif is_choice %}
-                <ul class="nav navbar-nav navbar-right">
-                    <a href="/auth/logout/" class="btn">Выйти</a>
-                </ul>
-            {% endif %}
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                    <span class=sr-only>Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+      <!-- Бренд или название сайта -->
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-main">
+                {% if is_owner %}
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="/dreamers/archive/{{ user_id }}/">Архив</a></li>
+                        <li><a href="/dreamers/{{ user_id }}/">Мои желания</a></li>
+                        <li><a href="#id_desire_text">+Добавить желание</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/auth/logout/">Выйти</a></li>
+                    </ul>
+                {% elif is_choice %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/auth/logout/">Выйти</a></li>
+                    </ul>
+                {% endif %}
+            </div>
         </div>
-    </div>
+    </nav>
 
     {% block dreamerslist %}{% endblock %}
     {% block login %}{% endblock %}

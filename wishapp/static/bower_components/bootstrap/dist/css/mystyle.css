@@ -144,9 +144,23 @@ body,.navbar,.btn-google{
 }
 li a {
     color: white;
+    margin: 30px 0 30px 0;
 }
 .icon-bar {
     background-color: white;
+}
+.round {
+    width: 120px;
+    background-color: #e74c3c;
+    border-radius: 60px; /* Радиус скругления */
+    /*border: 3px solid green; !* Параметры рамки *!*/
+    /*box-shadow: 0 0 7px #666; !* Параметры тени *!*/
+}
+.navbar-left {
+    margin-left: 40px;
+}
+.navbar-right {
+    margin-right: 30px;
 }
 /*стили для ховер эффектов*****************************************************************/
 .grid {
@@ -305,6 +319,9 @@ li a {
     }
     .grid div.grid-link {
         margin: 5px;
+    }
+    .navbar-brand {
+        margin-bottom: 30px;
     }
     /*.grid div.grid-link:odd {*/
         /*margin: 30px 0 -30px 0;*/

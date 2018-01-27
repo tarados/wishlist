@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=2">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=12">
 </head>
 <body>
-    <nav class="navbar">
+    <div class="navbar">
         <div class="collapse navbar-collapse" id="navbarColor01">
             {% if is_owner %}
                 <ul class="nav navbar-nav navbar-left">
@@ -30,7 +30,7 @@
                 </ul>
             {% endif %}
         </div>
-    </nav>
+    </div>
 
     {% block dreamerslist %}{% endblock %}
     {% block login %}{% endblock %}
@@ -41,7 +41,7 @@
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
     <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=75"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=42"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
 
 </body>

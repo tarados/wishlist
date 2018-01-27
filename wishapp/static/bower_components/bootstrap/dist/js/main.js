@@ -84,8 +84,8 @@ $(function () {
         if (state == 1) {
             button_guest.text('выбрано');
             button_noname.text('выбрано');
-            button_guest.css('background-color', 'red');
-            button_noname.css('background-color', 'red');
+            button_guest.css('background-color', '#e74c3c');
+            button_noname.css('background-color', '#e74c3c');
         }
         if (loggedin == 'True') {
             button_view.addClass('hidden');

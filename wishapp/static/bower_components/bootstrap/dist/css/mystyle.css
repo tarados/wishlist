@@ -74,7 +74,7 @@ div.edt{
 .list-group{
   width: 90%;
 }
-.row{
+#add_desire_block {
   text-align: -webkit-center;
 }
 .list-group-item{
@@ -162,209 +162,6 @@ li a {
 .navbar-right {
     margin-right: 30px;
 }
-/*стили для ховер эффектов*****************************************************************/
-.grid {
-    margin: 25px auto 120px;
-    max-width: 1000px;
-    width: 90%;
-}
-#simpleList {
-    max-width: 1000px;
-    width: 100%;
-}
-.grid a {
-    text-decoration: none;
-    color: #ea6052;
-}
-.grid div.grid-link {
-    float: left;
-    max-width: 250px;
-    width: 24%;
-    padding: 0;
-    height: 420px;
-    color: #333;
-    margin: 5px;
-    border: 0;
-}
-.grid div.odd {
-    margin: 30px 0 -30px 0;
-}
-.grid figure {
-    position: relative;
-    /*top: 0;*/
-    height: 420px;
-    overflow: hidden;
-    /*margin: 5px;*/
-    background: white;
-}
-.grid figure img {
-    position: absolute;
-    bottom: 0;
-    display: block;
-    width: 100%;
-    max-height: 420px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-.grid figcaption {
-    position: absolute;
-    top: 0;
-    z-index: 11;
-    /*padding: 10px;*/
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-.grid figcaption h2 {
-    margin: 0 0 20px 0;
-    color: #e74c3c;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    font-size: 130%;
-    transition: transform 0.3s;
-    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
-}
-
-.grid figcaption p {
-    padding: 0 20px;
-    color: #aaa;
-    font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
-    transition-delay: 0.05s;
-    timing-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);
-}
-
-.grid figcaption h2,
-.grid figcaption p {
-    transform: translateY(50px);
-}
-.grid figure button.view {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    background: #fff;
-    color: #333;
-    transform: translateY(100%);
-    padding: 15px;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
-}
-.grid figure button.guest {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    color: #333333;
-    transform: translateY(100%);
-    padding: 15px;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
-}
-.grid figure button.ar {
-    position: absolute;
-    bottom: 0;
-    left: 119px;
-    width: 50%;
-    background: #fff;
-    color: #333;
-    transform: translateY(100%);
-    padding: 15px;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
-}
-.grid figcaption,
-.grid figcaption h2,
-.grid figcaption p,
-.grid figure button {
-    backface-visibility: hidden;
-}
-.grid svg {
-    position: absolute;
-    top: -1px; /* fixes rendering issue in FF */
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-
-}
-.grid svg path {
-    fill: #fff;
-}
-.grid div.grid-link:hover figure img {
-    opacity: 1;
-}
-.grid div.grid-link:hover figcaption h2,
-.grid div.grid-link:hover figcaption p {
-    transform: translateY(0);
-}
-.grid div.grid-link:hover figcaption p {
-    opacity: 0;
-    transition-delay: 0s;
-    transition-duration: 0.1s;
-}
-.grid div.grid-link:hover figure button {
-    transition-timing-function: ease-out;
-    transform: translateY(0);
-}
-@media screen and (max-width: 58em) {
-    .grid div.grid-link {
-        width: 33.333%;
-    }
-    .grid div.grid-link {
-        margin: 5px;
-    }
-    .navbar-brand {
-        margin-bottom: 30px;
-    }
-    /*.grid div.grid-link:odd {*/
-        /*margin: 30px 0 -30px 0;*/
-    /*}*/
-}
-@media screen and (max-width: 45em) {
-    .grid {
-        max-width: 500px;
-    }
-    .grid div.grid-link {
-        width: 50%;
-    }
-    .grid div.grid-link {
-        margin: 5px;
-    }
-    /*.grid div.odd {*/
-        /*margin: 30px 0 -30px 0;*/
-    /*}*/
-    .grid figcaption h2 {
-        margin-bottom: 0;
-        transform: translateY(30px);
-    }
-    .grid figcaption p {
-        margin: 0;
-        padding: 0 10px;
-    }
-}
-@media screen and (max-width: 27em) {
-    .grid {
-        max-width: 250px;
-    }
-    .grid div.grid-link {
-        width: 100%;
-    }
-    .grid div.odd {
-        margin: 0;
-    }
-}
 /*!плейсходер в сортабле*****************************************************/
 .glyphicon-move {
   cursor: move;
@@ -373,15 +170,16 @@ li a {
 .ghost {
   opacity: 0;
 }
-/*!адаптивность навбар**********************************/
+/*!адаптивность навбар************************************************************************************************/
 .menu li {display: inline;}
 .hide {display: none;}
-
 @media (max-width:600px) {
  .hide {
    display: block;
 }
-.menu  ul {position: top;}
+.menu  ul {
+    position:absolute;
+}
 .menu a, a:visited {
     display:block;
     text-decoration:none;
@@ -411,6 +209,74 @@ li a {
 }
 .menu ul li:hover ul li a:hover{
     background:#eee;
+}
+}
+/* ----masonry ---- *************************************************************************************************/
+.grid {
+  background: #e74c3c;
+  max-width: 1050px;
+}
 
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
 }
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: 250px;
+  text-align: center;
+  /*height: 300px;*/
+  float: left;
+  background: white;
+  margin: 0 10px 10px 0;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
 }
+.grid-item img {
+    position: relative;
+    width: 60%;
+    margin: 15px 0 15px 0;
+    /*max-height: 430px;*/
+    /*height: 100%;*/
+}
+.desire_top {
+    position: relative;
+    height: 40px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+.desire_date {
+    position: relative;
+    top: 10px;
+    /*bottom: 5px;*/
+}
+.desire_button {
+    padding: 0;
+}
+.view,
+.ar {
+    width: 100%;
+}
+.grid-item button {
+    border: 0;
+    background: white;
+    transform: translateY(28px);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.grid-item,
+.desire_button,
+.view,
+.ar {
+    backface-visibility: hidden;
+}
+.grid-item:hover button {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+

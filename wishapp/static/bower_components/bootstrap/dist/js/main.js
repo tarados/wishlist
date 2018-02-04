@@ -1,14 +1,4 @@
 $(function () {
-    // отрабатываем нажатие кнопки "edit"
-    $(".edit").click(function () {
-        var button = $(this);
-        var id = button.attr("id");
-        var desireid = id.split("-")[1];
-        // var info = $("#desireinfo-" + desireid);
-        var form = $("#desireform-" + desireid);
-        // info.addClass("hidden");
-        form.removeClass("hidden");
-    });
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
@@ -36,43 +26,43 @@ $(function () {
         return false;
     });
 // анимация******************************************************************************************************
-    function init() {
-        var speed = 250,
-            easing = mina.easeinout;
-
-        [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.grid-link' ) ).forEach( function( el ) {
-            var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-                pathConfig = {
-                    from : path.attr( 'd' ),
-                    to : el.getAttribute( 'data-path-hover' )
-                };
-
-            el.addEventListener( 'mouseenter', function() {
-                path.animate( { 'path' : pathConfig.to }, speed, easing );
-            } );
-
-            el.addEventListener( 'mouseleave', function() {
-                path.animate( { 'path' : pathConfig.from }, speed, easing );
-            } );
-
-        } );
-
-    }
-
-    init();
+//     function init() {
+//         var speed = 250,
+//             easing = mina.easeinout;
+//
+//         [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.grid-link' ) ).forEach( function( el ) {
+//             var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+//                 pathConfig = {
+//                     from : path.attr( 'd' ),
+//                     to : el.getAttribute( 'data-path-hover' )
+//                 };
+//
+//             el.addEventListener( 'mouseenter', function() {
+//                 path.animate( { 'path' : pathConfig.to }, speed, easing );
+//             } );
+//
+//             el.addEventListener( 'mouseleave', function() {
+//                 path.animate( { 'path' : pathConfig.from }, speed, easing );
+//             } );
+//
+//         } );
+//
+//     }
+//
+//     init();
  // отрабатываем нажатие кнопки "view"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
         var id = button.attr("id");
         var desireid = id.split("-")[1];
         var info = $("#row-" + desireid);
-        var form = $("#grid div.grid-link");
+        var form = $("div.grid-item");
         var block = $("#add_desire_block");
         info.removeClass("hidden");
         block.addClass("hidden");
         form.addClass("hidden");
     });
-    $("div.visitor").each(function () {
+    $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];
         var loggedin = (this.id).split('-')[3];
         var choice = (this.id).split('-')[5];
@@ -101,7 +91,7 @@ $(function () {
         onEnd: function () {
             var desire_order_list = new Array();
             var desire_order = new Object();
-            $("figcaption > h2").each(function (index) {
+            $(".desire_title").each(function (index) {
                 var loopcounter = this.id.split('-')[1];
                 var desire_id = this.id.split('-')[3];
                 desire_order = {
@@ -112,18 +102,13 @@ $(function () {
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
-            $("div.grid-link").removeClass('even');
-            $("div.grid-link").removeClass('odd');
-            $("div.grid-link:even").addClass('odd');
-            $("div.grid-link:odd").addClass('even');
         },
         ghostClass: "ghost"
     });
-    var mql = window.matchMedia('all and (max-width: 928px)');
-    if (mql.matches) {
-        var form = $("#grid div.grid-link");
-        form.removeClass('odd');
-        form.removeClass('even');
-    }
+    $('.grid').masonry({
+      // itemSelector: '.grid-item',
+      // columnWidth: 5
+    });
 });
+// masonry********************************************************************************************************
 

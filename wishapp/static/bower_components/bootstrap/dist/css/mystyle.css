@@ -37,15 +37,15 @@ label.box_error{
   background-color: coral;
 }
 li.well{
-  margin-bottom: 0px;
+  margin-bottom: 0;
   padding: 10px;
   text-align: right;
 }
 li.button{
   height: 54px;
   text-align: right;
-  border-radius: 0px;
-  border: 0px;
+  border-radius: 0;
+  border: 0;
 }
 li.add{
   text-align: center;
@@ -54,13 +54,13 @@ ul.list-group{
   border: 1px solid gray;
 }
 li.tx{
-  border: 0px;
+  border: 0;
 }
 hr.dm{
   width: 97%;
   color: black;
-  margin-bottom: 0px;
-  margin-top: 0px;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 div.edt{
   text-align: center;
@@ -95,9 +95,9 @@ nav{
   border-color: white;
   height: 16px;
   font-size: 12px;
-  padding-top: 0px;
+  padding-top: 0;
   padding-bottom: 18px;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .btn-google{
   margin-right: 125px;
@@ -155,12 +155,6 @@ li a {
     border-radius: 60px; /* Радиус скругления */
     /*border: 3px solid green; !* Параметры рамки *!*/
     /*box-shadow: 0 0 7px #666; !* Параметры тени *!*/
-}
-.navbar-left {
-    margin-left: 40px;
-}
-.navbar-right {
-    margin-right: 30px;
 }
 /*!плейсходер в сортабле*****************************************************/
 .glyphicon-move {
@@ -279,4 +273,10 @@ li a {
     transform: translateY(-5px);
     opacity: 1;
 }
-
+.desire_description p {
+    padding: 15px 15px 0 15px;
+    text-align: justify;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+/********************************************************************************************************************/

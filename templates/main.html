@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=32">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=12">
 </head>
 <body>
     <nav class="navbar">
@@ -27,12 +27,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-main">
                 {% if is_owner %}
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav">
                         <li><a href="/dreamers/archive/{{ user_id }}/">Архив</a></li>
                         <li><a href="/dreamers/{{ user_id }}/">Мои желания</a></li>
                         <li><a href="#id_desire_text">+Добавить желание</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_choice %}

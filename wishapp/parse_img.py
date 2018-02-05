@@ -72,11 +72,12 @@ def find_url(str):
 
 
 def get_url(str):
+    url = ''
     for d in str.split(' '):
         if d.find('http') + 1:
             url = d
         else:
-            url = None
+            pass
     return url
 
 

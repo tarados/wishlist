@@ -5,11 +5,14 @@ import re
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
 
+sa = 'https://calls.su/catalog/tovary-dlya-doma/dlya-uhoda-za-odezhdoj/stiralnye-mashiny/stiralnaya-mashina-indesit-itw-d-51052-w-rf/'
+b = 'https://calls.su/upload/iblock/1fb/1fbd4392552bba046252456908a9dbc3.jpg'
 
 def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
     url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
+    # print(url_domen)
     soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
     try:
@@ -17,7 +20,7 @@ def get_img(url):
         if meta.find('http') + 1 > 0:
             result_meta = meta
         else:
-            result_meta = meta
+            result_meta = ''
     except:
         result_meta = ''
 # проверяем тег а
@@ -50,9 +53,11 @@ def get_img(url):
             else:
                 result_img = url_domen + img['src']
         except:
-
             pass
 # выбираем из трех 1-2-3
+#     print(result_img)
+#     print(result_meta)
+#     print(result_a)
     result = None
     if result_meta != '':
         result = result_meta
@@ -80,6 +85,7 @@ def get_url(str):
             pass
     return url
 
+get_img(get_url(sa))
 
 def get_title(url):
     if url != None:

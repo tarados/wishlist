@@ -7,10 +7,11 @@
     <title>Wishlist</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=12">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=15">
 </head>
 <body>
     <nav class="navbar">
@@ -31,7 +32,7 @@
                         <li><a href="/dreamers/archive/{{ user_id }}/">Архив</a></li>
                         <li><a href="/dreamers/{{ user_id }}/">Мои желания</a></li>
                         <li><a href="#id_desire_text">+Добавить желание</a></li>
-                        <li><a href="/auth/logout/">Выйти</a></li>
+                        <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_choice %}
                     <ul class="nav navbar-nav navbar-right">
@@ -52,8 +53,8 @@
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
     <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
-    <script src="{% static "bower_components/bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=62"></script>
+    <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=8"></script>
 
 </body>
 </html>

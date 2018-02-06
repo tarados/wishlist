@@ -59,6 +59,9 @@ $(function () {
         var form = $("div.grid-item");
         var block = $("#add_desire_block");
         info.removeClass("hidden");
+        info.css('position', 'relative');
+        info.css('left', '0');
+        info.css('width', '500px');
         block.addClass("hidden");
         form.addClass("hidden");
     });

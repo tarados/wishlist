@@ -57,10 +57,12 @@ li.tx{
   border: 0;
 }
 hr.dm{
-  width: 97%;
-  color: black;
-  margin-bottom: 0;
-  margin-top: 0;
+    position: relative;
+    top: 8px;
+    width: 100%;
+    color: black;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 div.edt{
   text-align: center;
@@ -129,7 +131,9 @@ background: url('icon_top.png') no-repeat;
   image-rendering: auto;
 }
 .link_foto {
-  text-align: left;
+    position: relative;
+    bottom: 25px;
+    text-align: left;
 }
 #add_link_foto{
   height: 30px;
@@ -139,8 +143,9 @@ body,.navbar,.btn-google{
 }
 .drs img{
     position: relative;
+    top: 28px;
     max-width: 240px;
-    width: 100%;
+    width: 40%;
 }
 li a {
     color: white;
@@ -275,7 +280,7 @@ li a {
 }
 .desire_description p {
     padding: 15px 15px 0 15px;
-    text-align: justify;
+    text-align: left;
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
@@ -290,4 +295,14 @@ li a {
 .logout {
     position: relative;
     left: 627px;
+}
+
+/*м*********************************************************************************************************************/
+.sv {
+    position: relative;
+    top: 34px;
+}
+#id_desire_title {
+    width: 100%;
+    bottom: 240px;
 }

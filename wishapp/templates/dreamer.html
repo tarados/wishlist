@@ -47,7 +47,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="row list-group-item hidden" id="row-{{ desire.id }}">
+                <div class="list-group-item hidden" id="row-{{ desire.id }}">
                     <div class="desirestate-{{ desire.desire_state }} drs" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}" style="">
                         <img src="{% if desire.desire_image %}{{  desire.desire_image }}{% else %}/static/img/new_year.png{% endif %}">
                         <div class="desire-form edt" id="desireform-{{ desire.id }}">

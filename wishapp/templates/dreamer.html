@@ -23,8 +23,14 @@
                     <div class="desire_button col-lg-6" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                         <button class="view" id="view-{{ desire.id }}">обновить</button>
                     </div>
-
                     <div class="desire_button col-lg-6">
+                        <form action="{% url 'backupdesire' %}" method="post">
+                            <input type="hidden" name="backupdesire"  value={{ desire.id }}>
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <button type="submit" class="ar" id="ar-{{ desire.id }}">в архив</button>
+                        </form>
+                    </div>
+                    <div class="desire_button">
                         {% if is_loggedin %}
                             <form action="{% url 'login_for_guest' %}" method="get">
                                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
@@ -41,11 +47,6 @@
                                 <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать </button>
                             </form>
                         {% endif %}
-                        <form action="{% url 'backupdesire' %}" method="post">
-                            <input type="hidden" name="backupdesire"  value={{ desire.id }}>
-                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                            <button type="submit" class="ar" id="ar-{{ desire.id }}">в архив</button>
-                        </form>
                     </div>
                 </div>
                 <div class="list-group-item hidden" id="row-{{ desire.id }}">

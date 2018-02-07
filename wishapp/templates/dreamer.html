@@ -23,6 +23,7 @@
                     <div class="desire_button col-lg-6" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                         <button class="view" id="view-{{ desire.id }}">обновить</button>
                     </div>
+
                     <div class="desire_button col-lg-6">
                         {% if is_loggedin %}
                             <form action="{% url 'login_for_guest' %}" method="get">
@@ -52,7 +53,7 @@
                         <img src="{% if desire.desire_image %}{{  desire.desire_image }}{% else %}/static/img/new_year.png{% endif %}">
                         <div class="desire-form edt" id="desireform-{{ desire.id }}">
                             <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                                <input type="text" name="desire_title" maxlength="250" id="id_desire_title" style="width: 200px" value="{{ desire.title }}">
+                                <input type="text" name="desire_title" maxlength="250" id="desire_title" style="width: 200px" value="{{ desire.title }}">
                                 <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
                                 <button type="submit" class="btn btn-info sv btn-sm" value="">Сохранить</button>
                             </form>

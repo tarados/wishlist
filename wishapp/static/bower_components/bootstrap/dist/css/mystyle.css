@@ -302,7 +302,8 @@ li a {
     position: relative;
     top: 34px;
 }
-#id_desire_title {
+#desire_title {
     width: 100%;
-    bottom: 240px;
+    right: -134px;
+    /*bottom: 240px;*/
 }

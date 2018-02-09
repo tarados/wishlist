@@ -232,8 +232,6 @@ li a {
   float: left;
   background: white;
   margin: 0 10px 10px 0;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
 }
 .grid-item img {
@@ -248,6 +246,7 @@ li a {
     height: 40px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+    border-bottom-color: #d2d9de;
 }
 .desire_date {
     position: relative;
@@ -281,8 +280,11 @@ li a {
 .desire_description p {
     padding: 15px 15px 0 15px;
     text-align: left;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+    /*border-bottom-style: solid;*/
+    /*border-bottom-width: 1px;*/
+}
+.desire_description {
+    margin-bottom: 30px;
 }
 /********************************************************************************************************************/
 .navbar-brand {
@@ -294,7 +296,7 @@ li a {
 }
 .logout {
     position: relative;
-    left: 627px;
+    left: 440px;
 }
 
 /*м*********************************************************************************************************************/
@@ -306,4 +308,8 @@ li a {
     width: 100%;
     right: -134px;
     /*bottom: 240px;*/
+}
+.desire_date {
+    color: #d2d9de;
+    font-size: 12px;
 }

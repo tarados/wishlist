@@ -7,7 +7,7 @@
             {% for desire in desire_list %}
                 <div class="grid-item">
                     <div class="desire_top">
-                        <span class="desire_date">{{ desire.date }}</span>
+                        <span class="desire_date">{{ desire.date|naturalday }}</span>
                     </div>
                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                         <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a>
@@ -15,8 +15,6 @@
                     <div class="desire_image">
                         {% if desire.desire_image %}
                             <img  src="{{ desire.desire_image }}"/>
-                        {% else %}
-                            <img  src="/static/img/new_year.png"/>
                         {% endif %}
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>

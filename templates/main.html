@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=28">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=5">
 </head>
 <body>
+<div class="container">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -42,6 +43,8 @@
             </div>
         </div>
     </nav>
+</div>
+
 
     {% block dreamerslist %}{% endblock %}
     {% block login %}{% endblock %}

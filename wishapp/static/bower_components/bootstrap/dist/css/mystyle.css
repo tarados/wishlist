@@ -215,6 +215,9 @@ li a {
   background: #e74c3c;
   /*max-width: 1070px;*/
 }
+.general {
+    width: 1070px;
+}
 
 /* clearfix */
 .grid:after {
@@ -290,7 +293,7 @@ li a {
 }
 .logout {
     position: relative;
-    left: 440px;
+    left: 100%;
 }
 
 /*м*********************************************************************************************************************/
@@ -306,4 +309,34 @@ li a {
 .desire_date {
     color: #d2d9de;
     font-size: 12px;
+}
+@media screen and (max-width: 993px){
+    .grid {
+        width: 810px;
+    }
+    .general {
+        width: 815px;
+    }
+    .logout {
+        left: 40%;
+    }
+}
+@media screen and (max-width: 815px){
+    .grid {
+        width: 530px;
+    }
+    .general {
+        width: 535px;
+    }
+    .logout {
+        left: 0;
+    }
+}
+@media screen and (max-width: 535px){
+    .grid {
+        width: 270px;
+    }
+    .general {
+        width: 275px;
+    }
 }

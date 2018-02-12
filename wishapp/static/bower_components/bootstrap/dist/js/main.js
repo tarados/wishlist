@@ -110,9 +110,18 @@ $(function () {
         ghostClass: "ghost"
     });
     $('.grid').masonry({
-      // itemSelector: '.grid-item',
-      // columnWidth: 5
+      itemSelector: '.grid-item',
+      columnWidth: true,
+      // columnWidth: 250,
+      // gutter: 10,
     });
+    // $(window).resize(function() {
+    //     var doc_w = $(document).width();
+    //     var general_block_width = doc_w * 0.704411;
+    //     $('#general').width(general_block_width);
+    //     console.log(doc_w);
+    // });
+
 });
 // masonry********************************************************************************************************
 

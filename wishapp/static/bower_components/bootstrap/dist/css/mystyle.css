@@ -213,7 +213,7 @@ li a {
 /* ----masonry ---- *************************************************************************************************/
 .grid {
   background: #e74c3c;
-  max-width: 1050px;
+  /*max-width: 1070px;*/
 }
 
 /* clearfix */
@@ -228,18 +228,15 @@ li a {
 .grid-item {
   width: 250px;
   text-align: center;
-  /*height: 300px;*/
-  float: left;
+  /*float: right;*/
   background: white;
-  margin: 0 10px 10px 0;
+  margin: 0 5px 10px 5px;
   border-radius: 5px;
 }
 .grid-item img {
     position: relative;
     width: 60%;
     margin: 15px 0 15px 0;
-    /*max-height: 430px;*/
-    /*height: 100%;*/
 }
 .desire_top {
     position: relative;
@@ -251,7 +248,6 @@ li a {
 .desire_date {
     position: relative;
     top: 10px;
-    /*bottom: 5px;*/
 }
 .desire_button {
     padding: 0;
@@ -280,8 +276,6 @@ li a {
 .desire_description p {
     padding: 15px 15px 0 15px;
     text-align: left;
-    /*border-bottom-style: solid;*/
-    /*border-bottom-width: 1px;*/
 }
 .desire_description {
     margin-bottom: 30px;

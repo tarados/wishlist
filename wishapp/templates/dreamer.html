@@ -2,8 +2,8 @@
 {% load humanize %}
 
 {% block dreamerslist %}
-    <div class="container">
-        <div class="grid" id="simpleList">
+    <div class="container" id="general">
+        <div class="grid js-masonry" id="simpleList">
             {% for desire in desire_list %}
                 <div class="grid-item">
                     <div class="desire_top">

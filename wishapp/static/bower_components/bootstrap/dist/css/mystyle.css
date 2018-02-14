@@ -307,3 +307,13 @@ li a {
     color: #d2d9de;
     font-size: 12px;
 }
+@media screen and (max-width: 1500px){
+    #general {
+        width: 1070px;
+    }
+}
+@media screen and (max-width: 1200px){
+    #general {
+        width: 810px;
+    }
+}

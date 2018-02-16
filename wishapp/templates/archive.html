@@ -1,23 +1,33 @@
 {% extends 'main.html' %}
+{% load humanize %}
 
 {% block dreamerslist %}
-    <div class="container">
+    <div class="container general">
         <h1>Архив желаний {{ username }}:</h1>
-        {% for desire in desire_list %}
-            <div class="row">
-                <div class="col-md-12 well desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}" style="">
-                    <img src="{{ desire.image }}" class="logo" alt="missing photos">
-                    <div class="date">{{ desire.date }}<br></div>
-                    {{ desire.text|safe }}
+        <div class="grid js-masonry">
+            {% for desire in desire_list %}
+                <div class="grid-item">
+                    <div class="desire_top">
+                        <span class="desire_date">{{ desire.date|naturalday }}</span>
+                    </div>
+                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
+                        <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a>
+                    </div>
+                    <div class="desire_image">
+                        {% if desire.image %}
+                            <img  src="{{ desire.image }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
+                    <div class="desire_button">
+                        <form action="{% url 'delarchive' user_id %}" method="post">{% csrf_token %}
+                            <input type="hidden" name="deldesire"  value={{ desire.id }}>
+                            <button type="submit"  class="guest" value="">Удалить</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <form action="{% url 'delarchive' user_id %}" method="post">{% csrf_token %}
-                        <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                        <button type="submit"  class="btn btn-danger glyphicon glyphicon-trash" value=""></button>
-                    </form>
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

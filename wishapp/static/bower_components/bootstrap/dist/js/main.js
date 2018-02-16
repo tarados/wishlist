@@ -50,7 +50,7 @@ $(function () {
 //     }
 //
 //     init();
- // отрабатываем нажатие кнопки "view"*******************************************************************
+ // отрабатываем нажатие кнопки "обновить"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
         var id = button.attr("id");
@@ -59,8 +59,8 @@ $(function () {
         var form = $("div.grid-item");
         var block = $("#add_desire_block");
         info.removeClass("hidden");
-        info.css('position', 'fixed');
-        info.css('left', 'auto');
+        info.css('position', 'relative');
+        info.css('left', '265px');
         info.css('top', 'auto');
         info.css('width', '500px');
         block.addClass("hidden");

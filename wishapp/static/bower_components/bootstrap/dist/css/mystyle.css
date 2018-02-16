@@ -4,9 +4,15 @@ h1,h2{
   font-family: 'Noto Sans', sans-serif;
   color: white;
 }
+h3 {
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Noto Sans', sans-serif;
+  color: gray;
+}
 input{
   position: relative;
-  width: 50%;
+  width: 100%;
   min-width: 50px;
 }
 .btn-vk{
@@ -81,6 +87,7 @@ div.edt{
 }
 .list-group-item{
   border-color: white;
+  border-radius: 5px;
 }
 textarea#id_desire_text{
   width: 50%;
@@ -88,6 +95,8 @@ textarea#id_desire_text{
 }
 textarea#id_desire_text_for_edit{
   width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 nav{
   background-color: orangered;
@@ -137,15 +146,11 @@ background: url('icon_top.png') no-repeat;
 }
 #add_link_foto{
   height: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 body,.navbar,.btn-google{
   background-color: #e74c3c;
-}
-.drs img{
-    position: relative;
-    top: 28px;
-    max-width: 240px;
-    width: 40%;
 }
 li a {
     color: white;
@@ -298,12 +303,16 @@ li a {
 
 /*м*********************************************************************************************************************/
 .sv {
-    position: relative;
-    top: 34px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    height: 30px;
 }
 #desire_title {
     width: 100%;
-    right: -134px;
+    right: 0;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
     /*bottom: 240px;*/
 }
 .desire_date {

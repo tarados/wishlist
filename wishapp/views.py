@@ -61,6 +61,8 @@ def dreamer(request, dreamer_id):
 # модуль добавления желаний
 @csrf_exempt
 def adddesire(request, dreamer_id):
+    desire_id = request.POST.get('desire_id')
+    link = request.POST.get('link', '')
     if request.method == 'GET':
         form = DesireForm(instance=desire)
     if request.method == 'POST':
@@ -73,6 +75,13 @@ def adddesire(request, dreamer_id):
             # desire.desire_title = get_title(link_on(desire.desire_text)[1])
             desire.desire_date = datetime.datetime.now()
             form.save()
+        if link != '':
+            obj = Desire.objects.get(id=desire_id)
+            obj.desire_img = link
+            obj.save()
+            return redirect('/dreamers/%s' % dreamer_id)
+        else:
+            return redirect('/dreamers/%s' % dreamer_id)
     return redirect('/dreamers/%s' % dreamer_id)
 
 
@@ -90,6 +99,8 @@ def deldesire(request, dreamer_id):
 @csrf_exempt
 def editdesire(request, dreamer_id, desire_id):
     desire = Desire.objects.get(id=desire_id)
+    desire_id = request.POST.get('desire_id')
+    link = request.POST.get('link', '')
     if request.method == 'GET':
         form = DesireForm(instance=desire)
     elif request.method == 'POST':
@@ -97,6 +108,12 @@ def editdesire(request, dreamer_id, desire_id):
         if form.is_valid():
             desire = form.save(commit=False)
             form.save()
+        if link != '':
+            obj = Desire.objects.get(id=desire_id)
+            obj.desire_img = link
+            obj.save()
+            return redirect('/dreamers/%s' % dreamer_id)
+        else:
             return redirect('/dreamers/%s' % dreamer_id)
     return render_to_response('edit.html', locals())
 
@@ -220,13 +237,3 @@ def order(request):
         obj.desire_order = int(data['loopcounter'])
         obj.save()
     return HttpResponse('')
-
-@csrf_exempt
-def linkfoto(request, dreamer_id):
-    desire_id = request.POST.get('desire_id')
-    link = request.POST.get('link', '')
-    if link != '':
-        obj = Desire.objects.get(id=desire_id)
-        obj.desire_img = link
-        obj.save()
-    return redirect('/dreamers/%s' % dreamer_id)

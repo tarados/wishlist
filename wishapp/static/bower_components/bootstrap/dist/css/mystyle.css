@@ -83,20 +83,53 @@ div.edt{
   width: 90%;
 }
 #add_desire_block {
-  text-align: -webkit-center;
+  position: absolute;
+  width: 500px;
+  top: 30%;
+  left: 35%;
+  background-color: white;
+  text-align: center;
+  padding-top: 20px;
+  border-radius: 5px;
+}
+#id_desire_title,#desire_title,#add_link_foto {
+    width: 90%;
+    height: 40px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    border: 1px solid grey;
+}
+.form-group {
+    margin: 0;
+}
+
+.add_desire,.sv {
+    height: 40px;
+    min-width: 110px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    background-color: white;
+}
+.profile_title {
+    margin-bottom: 20px;
 }
 .list-group-item{
   border-color: white;
   border-radius: 5px;
 }
-textarea#id_desire_text{
-  width: 50%;
-  margin-right: 1px;
+input:focus {
+    outline: none;
 }
-textarea#id_desire_text_for_edit{
-  width: 100%;
-  border-radius: 5px;
-  margin-bottom: 15px;
+textarea:focus {
+    outline: none;
+}
+textarea#id_desire_text,#id_desire_text_for_edit {
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 15px 0 0 15px;
+  border-radius: 25px;
+  border: 1px solid grey;
 }
 nav{
   background-color: orangered;
@@ -139,16 +172,11 @@ background: url('icon_top.png') no-repeat;
   max-width: 180px;
   image-rendering: auto;
 }
-.link_foto {
-    position: relative;
-    bottom: 25px;
-    text-align: left;
-}
-#add_link_foto{
-  height: 30px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
+/*#add_link_foto{*/
+  /*height: 30px;*/
+  /*border-radius: 5px;*/
+  /*margin-bottom: 20px;*/
+/*}*/
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
@@ -302,19 +330,11 @@ li a {
 }
 
 /*м*********************************************************************************************************************/
-.sv {
-    margin-bottom: 20px;
-    border-radius: 25px;
-    height: 30px;
-}
-#desire_title {
-    width: 100%;
-    right: 0;
-    height: 30px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    /*bottom: 240px;*/
-}
+/*.sv {*/
+    /*margin-bottom: 20px;*/
+    /*border-radius: 25px;*/
+    /*height: 30px;*/
+/*}*/
 .desire_date {
     color: #d2d9de;
     font-size: 12px;
@@ -347,5 +367,8 @@ li a {
     }
     .general {
         width: 275px;
+    }
+    #add_desire_block {
+        left: 0;
     }
 }

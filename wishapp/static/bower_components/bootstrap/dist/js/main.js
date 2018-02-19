@@ -112,16 +112,15 @@ $(function () {
     $('.grid').masonry({
       itemSelector: '.grid-item',
       columnWidth: true,
-      // columnWidth: 250,
-      // gutter: 10,
     });
-    // $(window).resize(function() {
-    //     var doc_w = $(document).width();
-    //     var general_block_width = doc_w * 0.704411;
-    //     $('#general').width(general_block_width);
-    //     console.log(doc_w);
-    // });
-
+    $('.new_desire').click(function () {
+        var block = $("#add_desire_block");
+        var form = $("div.grid-item");
+        var general = $('.general');
+        // general.css('width', '510px');
+        block.removeClass('hidden');
+        form.addClass('hidden');
+    });
 });
 // masonry********************************************************************************************************
 

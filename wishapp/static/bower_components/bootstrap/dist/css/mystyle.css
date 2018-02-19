@@ -83,10 +83,10 @@ div.edt{
   width: 90%;
 }
 #add_desire_block {
-  position: absolute;
+  position: relative;
   width: 500px;
-  top: 22%;
-  left: 35%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   text-align: center;
   padding-top: 20px;
@@ -106,6 +106,7 @@ div.edt{
 
 .add_desire,.sv {
     height: 40px;
+    margin-bottom: 20px;
     min-width: 110px;
     border: 1px solid grey;
     border-radius: 25px;
@@ -369,6 +370,7 @@ li a {
         width: 275px;
     }
     #add_desire_block {
-        left: 0;
+        max-width: 500px;
+        width: 90%;
     }
 }

@@ -113,13 +113,16 @@ $(function () {
       itemSelector: '.grid-item',
       columnWidth: true,
     });
+    // add desire block*******************************************************************************************
     $('.new_desire').click(function () {
         var block = $("#add_desire_block");
-        var form = $("div.grid-item");
+        var form = $("div.grid");
         var general = $('.general');
         // general.css('width', '510px');
         block.removeClass('hidden');
-        form.addClass('hidden');
+        // general.css('margin', 'auto');
+        // block.css('left', 'auto');
+        form.css('display', 'none');
     });
 });
 // masonry********************************************************************************************************

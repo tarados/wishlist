@@ -116,6 +116,9 @@ div.edt{
     margin-bottom: 20px;
 }
 .list-group-item{
+  position: relative;
+  max-width: 500px;
+  width: 100%;
   border-color: white;
   border-radius: 5px;
 }
@@ -192,8 +195,6 @@ li a {
     width: 120px;
     background-color: #e74c3c;
     border-radius: 60px; /* Радиус скругления */
-    /*border: 3px solid green; !* Параметры рамки *!*/
-    /*box-shadow: 0 0 7px #666; !* Параметры тени *!*/
 }
 /*!плейсходер в сортабле*****************************************************/
 .glyphicon-move {
@@ -247,10 +248,13 @@ li a {
 /* ----masonry ---- *************************************************************************************************/
 .grid {
   background: #e74c3c;
+  margin-left: auto;
+  margin-right: auto;
   /*max-width: 1070px;*/
 }
 .general {
-    width: 1070px;
+    max-width: 1070px;
+    width: 100%;
 }
 
 /* clearfix */
@@ -331,43 +335,44 @@ li a {
 }
 
 /*м*********************************************************************************************************************/
-/*.sv {*/
-    /*margin-bottom: 20px;*/
-    /*border-radius: 25px;*/
-    /*height: 30px;*/
-/*}*/
 .desire_date {
     color: #d2d9de;
     font-size: 12px;
 }
-@media screen and (max-width: 993px){
-    .grid {
-        width: 810px;
-    }
-    .general {
-        width: 815px;
-    }
-    .logout {
-        left: 40%;
-    }
-}
-@media screen and (max-width: 815px){
-    .grid {
-        width: 530px;
-    }
-    .general {
-        width: 535px;
-    }
-    .logout {
-        left: 0;
-    }
-}
+/*@media screen and (max-width: 993px){*/
+    /*.grid {*/
+        /*max-width: 810px;*/
+        /*width: 100%;*/
+        /*margin-left: auto;*/
+        /*margin-right: auto;*/
+    /*}*/
+    /*.general {*/
+        /*max-width: 815px;*/
+        /*width: 100%;*/
+    /*}*/
+    /*.logout {*/
+        /*left: 40%;*/
+    /*}*/
+/*}*/
+/*@media screen and (max-width: 815px){*/
+    /*.grid {*/
+        /*width: 530px;*/
+    /*}*/
+    /*.general {*/
+        /*width: 535px;*/
+    /*}*/
+    /*.logout {*/
+        /*left: 0;*/
+    /*}*/
+/*}*/
 @media screen and (max-width: 535px){
     .grid {
-        width: 270px;
+        max-width: 270px;
+        width: 100%;
     }
     .general {
-        width: 275px;
+        max-width: 275px;
+        width: 100%;
     }
     #add_desire_block {
         max-width: 500px;

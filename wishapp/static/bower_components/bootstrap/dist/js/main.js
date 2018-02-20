@@ -59,12 +59,8 @@ $(function () {
         var form = $("div.grid-item");
         var block = $("#add_desire_block");
         info.removeClass("hidden");
-        info.css('position', 'relative');
-        info.css('left', '265px');
-        info.css('top', 'auto');
-        info.css('width', '500px');
-        block.addClass("hidden");
-        form.addClass("hidden");
+        block.css('display', 'none');
+        form.css('display', 'none');
     });
     $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];
@@ -118,11 +114,9 @@ $(function () {
         var block = $("#add_desire_block");
         var form = $("div.grid");
         var general = $('.general');
-        // general.css('width', '510px');
         block.removeClass('hidden');
-        // general.css('margin', 'auto');
-        // block.css('left', 'auto');
         form.css('display', 'none');
+        // general.css('display', 'none');
     });
 });
 // masonry********************************************************************************************************

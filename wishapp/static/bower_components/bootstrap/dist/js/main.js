@@ -61,13 +61,15 @@ $(function () {
         var text = id.split("-")[5];
         var title = id.split("-")[7];
         $('#desire_title').attr('value', title);
-        // $('#id_desire_text_for_edit').text(text);
+        $('.desire_id').attr('value', desireid);
+        $('#id_desire_text_for_edit').text(text);
         info.removeClass("hidden");
         block.css('display', 'none');
         form.css('display', 'none');
-        // console.log(id);
+        console.log(desireid);
         console.log(title);
-        // console.log(text);
+        console.log(text);
+        console.log($('.desire_id'));
     });
     $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];
@@ -112,10 +114,6 @@ $(function () {
         },
         ghostClass: "ghost"
     });
-    $('.grid').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: true,
-    });
     // add desire block*******************************************************************************************
     $('.new_desire').click(function () {
         var block = $("#add_desire_block");
@@ -125,6 +123,11 @@ $(function () {
         form.css('display', 'none');
         // general.css('display', 'none');
     });
-});
 // masonry********************************************************************************************************
+//       $('.grid').masonry({
+//       itemSelector: '.grid-item',
+//       columnWidth: '.gutter-sizer'
+//     });
+});
+
 

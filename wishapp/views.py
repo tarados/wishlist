@@ -95,9 +95,10 @@ def deldesire(request, dreamer_id):
 
 # модуль редактирования желаний
 @csrf_exempt
-def editdesire(request, dreamer_id, desire_id):
-    desire = Desire.objects.get(id=desire_id)
+def editdesire(request):
+    dreamer_id = request.POST.get('dreamer_id')
     desire_id = request.POST.get('desire_id')
+    desire = Desire.objects.get(id=desire_id)
     link = request.POST.get('link', '')
     if request.method == 'GET':
         form = DesireForm(instance=desire)
@@ -105,11 +106,9 @@ def editdesire(request, dreamer_id, desire_id):
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
+            if link != '':
+                desire.desire_img = link
             form.save()
-        if link != '':
-            obj = Desire.objects.get(id=desire_id)
-            obj.desire_img = link
-            obj.save()
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)

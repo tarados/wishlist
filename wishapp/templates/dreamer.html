@@ -71,17 +71,17 @@
     {% endif %}
     <div class="list-group-item hidden" id="row-{{ desire.id }}">
         <h3>Редактирование желания</h3>
-        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+        <form action="{% url 'editdesire' %}" method="post">
             <div class="form-group">
                 <input type="text" name="desire_title" maxlength="500" id="desire_title">
             </div>
             <div class="form-group">
-                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7"></textarea>
             </div>
             <div class="form-group">
                 <input type="text" id="add_link_foto" name="link"  placeholder="Введите ссылку">
                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                <input class="desire_id" type="hidden" name="desire_id" value="">
             </div>
             <button type="submit" class="sv" value="">Сохранить</button>
         </form>

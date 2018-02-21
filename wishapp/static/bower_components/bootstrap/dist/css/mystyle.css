@@ -340,32 +340,6 @@ li a {
     color: #d2d9de;
     font-size: 12px;
 }
-/*@media screen and (max-width: 993px){*/
-    /*.grid {*/
-        /*max-width: 810px;*/
-        /*width: 100%;*/
-        /*margin-left: auto;*/
-        /*margin-right: auto;*/
-    /*}*/
-    /*.general {*/
-        /*max-width: 815px;*/
-        /*width: 100%;*/
-    /*}*/
-    /*.logout {*/
-        /*left: 40%;*/
-    /*}*/
-/*}*/
-/*@media screen and (max-width: 815px){*/
-    /*.grid {*/
-        /*width: 530px;*/
-    /*}*/
-    /*.general {*/
-        /*width: 535px;*/
-    /*}*/
-    /*.logout {*/
-        /*left: 0;*/
-    /*}*/
-/*}*/
 @media screen and (max-width: 535px){
     .grid {
         max-width: 270px;
@@ -377,6 +351,10 @@ li a {
     }
     #add_desire_block {
         max-width: 500px;
+        width: 90%;
+    }
+    .grid-item {
+        max-width: 250px;
         width: 90%;
     }
 }

@@ -5,8 +5,6 @@ import re
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
 
-sa = 'https://calls.su/catalog/tovary-dlya-doma/dlya-uhoda-za-odezhdoj/stiralnye-mashiny/stiralnaya-mashina-indesit-itw-d-51052-w-rf/'
-b = 'https://calls.su/upload/iblock/1fb/1fbd4392552bba046252456908a9dbc3.jpg'
 
 def get_img(url):
     response = requests.get(url, headers=headers)
@@ -85,7 +83,6 @@ def get_url(str):
             pass
     return url
 
-get_img(get_url(sa))
 
 def get_title(url):
     if url != None:

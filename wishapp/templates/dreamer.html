@@ -19,7 +19,7 @@
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                     <div class="desire_button col-lg-6" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
-                        <button class="view" id="view-{{ desire.id }}">обновить</button>
+                        <button class="view" id="view-{{ desire.id }}-dreamer-{{ dreamer_id }}-text-{{ desire.text_for_edit }}-title-{{ desire.title }}">обновить</button>
                     </div>
                     <div class="desire_button col-lg-6">
                         <form action="{% url 'backupdesire' %}" method="post">
@@ -47,25 +47,6 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="list-group-item hidden" id="row-{{ desire.id }}">
-                    <div class="desirestate-{{ desire.desire_state }}" id="desireinfo-{{ desire.id }}-desirecounter-{{ forloop.counter }}">
-                        <h3>Редактирование желания</h3>
-                        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
-                            <div class="form-group">
-                                <input type="text" name="desire_title" maxlength="500" id="desire_title" value="{{ desire.title }}">
-                            </div>
-                            <div class="form-group">
-                                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="add_link_foto" name="link"  placeholder="Введите ссылку">
-                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                            </div>
-                            <button type="submit" class="sv" value="">Сохранить</button>
-                        </form>
-                    </div>
-                </div>
             {% endfor %}
         </div>
     </div>
@@ -88,6 +69,23 @@
             </form>
         </div>
     {% endif %}
+    <div class="list-group-item hidden" id="row-{{ desire.id }}">
+        <h3>Редактирование желания</h3>
+        <form action="{% url 'editdesire' dreamer.id  desire.id %}" method="post">
+            <div class="form-group">
+                <input type="text" name="desire_title" maxlength="500" id="desire_title">
+            </div>
+            <div class="form-group">
+                <textarea id="id_desire_text_for_edit" name="desire_text" cols="157" rows="7">{{ desire.text_for_edit }}</textarea>
+            </div>
+            <div class="form-group">
+                <input type="text" id="add_link_foto" name="link"  placeholder="Введите ссылку">
+                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                <input type="hidden" name="desire_id"  value={{ desire.id }}>
+            </div>
+            <button type="submit" class="sv" value="">Сохранить</button>
+        </form>
+    </div>
 {% endblock %}
 
 

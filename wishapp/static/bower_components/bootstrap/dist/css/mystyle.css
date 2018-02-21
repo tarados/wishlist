@@ -255,7 +255,7 @@ li a {
 }
 .general {
     max-width: 1070px;
-    width: 100%;
+    margin: 0 auto;
 }
 
 /* clearfix */
@@ -340,7 +340,23 @@ li a {
     color: #d2d9de;
     font-size: 12px;
 }
-@media screen and (max-width: 535px){
+@media screen and (max-width: 1200px){
+    .grid {
+        width: 780px;
+    }
+    .general {
+        width: 780px;
+    }
+}
+@media screen and (max-width: 780px){
+    .grid {
+        width: 520px;
+    }
+    .general {
+        width: 520px;
+    }
+}
+@media screen and (max-width: 540px){
     .grid {
         max-width: 270px;
         width: 100%;

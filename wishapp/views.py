@@ -72,13 +72,11 @@ def adddesire(request, dreamer_id):
             if find_url(request.POST.get('desire_text')):
                 desire.desire_img = get_img(get_url(request.POST.get('desire_text')))
             desire.desire_user = User.objects.get(id=dreamer_id)
-            # desire.desire_title = get_title(link_on(desire.desire_text)[1])
+            desire.desire_title = request.POST.get('desire_title')
             desire.desire_date = datetime.datetime.now()
+            if link != '':
+                desire.desire_img = link
             form.save()
-        if link != '':
-            obj = Desire.objects.get(id=desire_id)
-            obj.desire_img = link
-            obj.save()
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)

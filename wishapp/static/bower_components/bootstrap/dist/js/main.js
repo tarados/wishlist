@@ -55,7 +55,7 @@ $(function () {
         var button = $(this);
         var id = button.attr("id");
         var desireid = id.split("-")[1];
-        var info = $("#row-" + desireid);
+        var info = $('.list-group-item');
         var form = $("div.grid-item");
         var block = $("#add_desire_block");
         info.removeClass("hidden");

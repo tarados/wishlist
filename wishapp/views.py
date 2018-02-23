@@ -227,7 +227,6 @@ def delarchive(request, user_id):
 
 @csrf_exempt
 def order(request):
-    print(request.POST)
     odereded_list = request.POST.get("a")
     order_for_save = json.loads(odereded_list)
     for data in order_for_save:

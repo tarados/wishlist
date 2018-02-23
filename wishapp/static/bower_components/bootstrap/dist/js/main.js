@@ -96,6 +96,16 @@ $(function () {
             button_guest.removeClass('hidden');
         }
     });
+    $('.new_desire').click(function () {
+            var block = $("#add_desire_block");
+            var form = $("div.grid");
+            var general = $('.general');
+            block.removeClass('hidden');
+            form.css('display', 'none');
+            console.log('dfgadg');
+            // general.css('display', 'none');
+        });
+    // var simpleList = document.getElementById('simplelist');
     Sortable.create(simpleList, {
         onEnd: function () {
             var desire_order_list = new Array();
@@ -113,15 +123,6 @@ $(function () {
             $.post('/order/', {"a": list_for_save});
         },
         ghostClass: "ghost"
-    });
-    // add desire block*******************************************************************************************
-    $('.new_desire').click(function () {
-        var block = $("#add_desire_block");
-        var form = $("div.grid");
-        var general = $('.general');
-        block.removeClass('hidden');
-        form.css('display', 'none');
-        // general.css('display', 'none');
     });
 });
 

@@ -111,6 +111,7 @@ $(function () {
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
+            console.log(list_for_save);
         },
         ghostClass: "ghost"
     });
@@ -123,11 +124,13 @@ $(function () {
         form.css('display', 'none');
         // general.css('display', 'none');
     });
-// masonry********************************************************************************************************
-//       $('.grid').masonry({
-//       itemSelector: '.grid-item',
-//       columnWidth: '.gutter-sizer'
-//     });
+    // jQuery masonry**********************************************************************************************
+    // $('.grid').masonry({
+    //   // columnWidth: 200,
+    //   itemSelector: '.grid-item',
+    //   horizontalOrder: true,
+    //   gutter: 20
+    // });
 });
 
 

@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load humanize %}
+
+{% block dreamerslist %}
+    <div class="container general">
+        <h1>Список желаний {{ username }}:</h1>
+        <div class="sort-group" id="simpleList">
+            {% for desire in desire_list %}
+                <div class="sort-group-item" >
+                     <div class="desire_title col-lg-8" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ forloop.counter }}. {{ desire.title }}</div>
+                     <div class="desire_date col-lg-4"><span class="desire_date">{{ desire.date|naturalday }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

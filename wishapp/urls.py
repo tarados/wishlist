@@ -3,6 +3,7 @@ from wishapp import views
 urlpatterns = [
     url(r'^dreamers/all/$', views.dreamers),
     url(r'^order/$', views.order),
+    url(r'^dreamers/sort/(?P<user_id>\d+)/$', views.sort),
     url(r'^login_for_guest/$', views.login_for_guest, name='login_for_guest'),
     url(r'^register_for_guest/$', views.register_for_guest, name='register_for_guest'),
     url(r'^dreamers/(?P<dreamer_id>\d+)/$', views.dreamer, name='dreamer'),

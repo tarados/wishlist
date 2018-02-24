@@ -2,13 +2,16 @@
 {% load humanize %}
 
 {% block dreamerslist %}
-    <div class="container general">
+    <div class="container general sort_desire">
         <h1>Список желаний {{ username }}:</h1>
         <div class="sort-group" id="simpleList">
             {% for desire in desire_list %}
                 <div class="sort-group-item" >
-                     <div class="desire_title col-lg-8" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ forloop.counter }}. {{ desire.title }}</div>
-                     <div class="desire_date col-lg-4"><span class="desire_date">{{ desire.date|naturalday }}</span></div>
+                    <div class="desire_attr">
+                        <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ forloop.counter }}. {{ desire.title }}</div>
+                        <div class="desire_date"><span class="desire_date">{{ desire.date|date:"M., d, Y" }}</span></div>
+                        <div class="button_del"><img src="/static/img/delete-Icon.png" width="15px"></div>
+                    </div>
                 </div>
             {% endfor %}
         </div>

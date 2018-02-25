@@ -2,14 +2,6 @@
 {% load humanize %}
 
 {% block dreamerslist %}
-    <style type="text/css">
-    .wishlist_nav {
-        width: 870px;
-    }
-    .logout {
-        left: 10%;
-    }
-    </style>
     <div class="container general sort_desire">
         <h1>Список желаний {{ username }}:</h1>
         <div class="sort-group" id="simpleList">
@@ -23,7 +15,7 @@
                                 <input type="hidden" name="deldesire"  value={{ desire.id }}>
                                 <button type="submit"  class="hidden sort_desire_del" value="{{ desire.id }}">Удалить</button>
                             </form>
-                            <a href="#"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                            <a href="#" style="position: absolute; top: 2%;"><img src="/static/img/delete-Icon.png" width="15px"></a>
                         </div>
                     </div>
                 </div>

@@ -228,7 +228,6 @@ def delarchive(request, user_id):
 # модуль удаления желаний из sortlist
 @csrf_exempt
 def del_sort_desire(request, user_id):
-    print(request.POST)
     if request.POST:
         desire_id = request.POST['deldesire']
         derise = Desire.objects.get(id=desire_id)

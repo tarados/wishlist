@@ -25,31 +25,6 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
-// анимация******************************************************************************************************
-//     function init() {
-//         var speed = 250,
-//             easing = mina.easeinout;
-//
-//         [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.grid-link' ) ).forEach( function( el ) {
-//             var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-//                 pathConfig = {
-//                     from : path.attr( 'd' ),
-//                     to : el.getAttribute( 'data-path-hover' )
-//                 };
-//
-//             el.addEventListener( 'mouseenter', function() {
-//                 path.animate( { 'path' : pathConfig.to }, speed, easing );
-//             } );
-//
-//             el.addEventListener( 'mouseleave', function() {
-//                 path.animate( { 'path' : pathConfig.from }, speed, easing );
-//             } );
-//
-//         } );
-//
-//     }
-//
-//     init();
  // отрабатываем нажатие кнопки "обновить"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
@@ -109,9 +84,6 @@ $(function () {
                 var val = $(this).attr('value');
                 if (confirm('Вы точно хотите удалить желание из списка?')){
                     this.click();
-                    console.log(val);
-                    console.log(desireid);
-                    // console.log(desireid);
                 } else {
                     console.log('no!');
                     }

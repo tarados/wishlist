@@ -119,9 +119,6 @@ div.edt{
   border-radius: 5px;
   text-align: center;
 }
-/*.sort_desire {*/
-    /*width: 870px;*/
-/*}*/
 .sort-group {
   position: relative;
 
@@ -142,7 +139,6 @@ div.edt{
     position: relative;
     width: 250px;
     float: left;
-    /*padding: 5px 0 5px 15px;*/
 }
 .desire_date {
     position: relative;
@@ -358,7 +354,6 @@ li a {
     position: relative;
     left: 45%;
 }
-
 /*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px){
     .grid,.sort-group {

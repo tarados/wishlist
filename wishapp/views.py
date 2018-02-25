@@ -225,6 +225,16 @@ def delarchive(request, user_id):
     return redirect('/dreamers/archive/%s' % user_id)
 
 
+# модуль удаления желаний из sortlist
+@csrf_exempt
+def del_sort_desire(request, user_id):
+    print(request.POST)
+    if request.POST:
+        desire_id = request.POST['deldesire']
+        derise = Desire.objects.get(id=desire_id)
+        derise.delete()
+    return redirect('/dreamers/sort/%s' % user_id)
+
 @csrf_exempt
 def order(request):
     odereded_list = request.POST.get("a")

@@ -99,12 +99,28 @@ $(function () {
     $('.new_desire').click(function () {
             var block = $("#add_desire_block");
             var form = $("div.grid");
-            var general = $('.general');
+            var general = $('.wishlist_nav');
             block.removeClass('hidden');
             form.css('display', 'none');
-            console.log('dfgadg');
-            // general.css('display', 'none');
+            general.css('width', '870px');
+            console.log('fhsfghsfhsh');
         });
+    $('.button_del').click(function () {
+        var desireid = (this.id).split('-')[1];
+        $('button.sort_desire_del').each(function () {
+            if ($(this).attr('value') == desireid) {
+                var val = $(this).attr('value');
+                if (confirm('Вы точно хотите удалить желание из списка?')){
+                    this.click();
+                    console.log(val);
+                    console.log(desireid);
+                    // console.log(desireid);
+                } else {
+                    console.log('no!');
+                    }
+            }
+        });
+    });
     // var simpleList = document.getElementById('simplelist');
     Sortable.create(simpleList, {
         onEnd: function () {
@@ -124,7 +140,6 @@ $(function () {
         },
         ghostClass: "ghost"
     });
-
 });
 
 

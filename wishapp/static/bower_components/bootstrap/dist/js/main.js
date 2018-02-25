@@ -77,20 +77,44 @@ $(function () {
             block.removeClass('hidden');
             form.css('display', 'none');
         });
-    $('.button_del').click(function () {
-        var desireid = (this.id).split('-')[1];
-        $('button.sort_desire_del').each(function () {
-            if ($(this).attr('value') == desireid) {
-                var val = $(this).attr('value');
-                if (confirm('Вы точно хотите удалить желание из списка?')){
-                    this.click();
-                } else {
-                    console.log('no!');
-                    }
-            }
+    // $('.button_del').click(function () {
+    //     var desireid = (this.id).split('-')[1];
+    //     $('button.sort_desire_del').each(function () {
+    //         if ($(this).attr('value') == desireid) {
+    //             var val = $(this).attr('value');
+    //             if (confirm('Вы точно хотите удалить желание из списка?')){
+    //                 this.click();
+    //             } else {
+    //                 console.log('no!');
+    //                 }
+    //         }
+    //     });
+    // });
+// modal*********************************************************************************************************
+    $('a#go').click( function(event){ // лoвим клик пo ссылки с id="go"
+        event.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+            function(){ // пoсле выпoлнения предъидущей aнимaции
+                $('#modal_form')
+                    .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                    .animate({opacity: 1, top: '50%'}, 200);// плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+                $("<p>Вы точно хотите удалить желание из списка?</p>");
         });
+
+        console.log($("<p>Вы точно хотите удалить желание из списка?</p>"));
+        console.log('dfgagae');
     });
-    // var simpleList = document.getElementById('simplelist');
+    	/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
+    	$('#modal_form')
+    		.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+    			function(){ // пoсле aнимaции
+    				$(this).css('display', 'none'); // делaем ему display: none;
+    				$('#overlay').fadeOut(400); // скрывaем пoдлoжку
+    			}
+    		);
+    });
+//**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {
             var desire_order_list = new Array();

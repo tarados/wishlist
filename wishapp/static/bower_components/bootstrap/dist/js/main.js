@@ -99,11 +99,8 @@ $(function () {
     $('.new_desire').click(function () {
             var block = $("#add_desire_block");
             var form = $("div.grid");
-            var general = $('.wishlist_nav');
             block.removeClass('hidden');
             form.css('display', 'none');
-            general.css('width', '870px');
-            console.log('fhsfghsfhsh');
         });
     $('.button_del').click(function () {
         var desireid = (this.id).split('-')[1];

@@ -225,6 +225,15 @@ def delarchive(request, user_id):
     return redirect('/dreamers/archive/%s' % user_id)
 
 
+# модуль удаления желаний из sortlist
+@csrf_exempt
+def del_sort_desire(request, user_id):
+    if request.POST:
+        desire_id = request.POST['deldesire']
+        derise = Desire.objects.get(id=desire_id)
+        derise.delete()
+    return redirect('/dreamers/sort/%s' % user_id)
+
 @csrf_exempt
 def order(request):
     odereded_list = request.POST.get("a")
@@ -234,3 +243,26 @@ def order(request):
         obj.desire_order = int(data['loopcounter'])
         obj.save()
     return HttpResponse('')
+
+
+def sort(request, user_id):
+    arg = {}
+    desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
+    result = []
+    for desire in desires:
+        obj = {
+            'id': desire.id,
+            'title': desire.desire_title,
+            'text': link_on(desire.desire_text)[0],
+            'text_for_edit': desire.desire_text,
+            'image': desire.desire_img,
+            'date': desire.desire_date,
+            'desire_state': desire.desire_state,
+        }
+        result.append(obj)
+    desire_list = result
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
+    is_owner = True
+    return render_to_response('sort.html', locals())

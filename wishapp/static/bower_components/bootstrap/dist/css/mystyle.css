@@ -76,12 +76,6 @@ div.edt{
 .up{
   margin-left: 20px;
 }
-.loopcounter{
-  margin-left: -3%;
-}
-.list-group{
-  width: 90%;
-}
 #add_desire_block {
   position: relative;
   width: 500px;
@@ -125,6 +119,42 @@ div.edt{
   border-radius: 5px;
   text-align: center;
 }
+.sort-group {
+  position: relative;
+
+}
+.sort-group-item {
+  position: relative;
+  margin: 0 10px 10px 0;
+  float: left;
+  max-width: 250px;
+  width: 100%;
+  /*height: 30px;*/
+  border-color: white;
+  border-radius: 5px;
+  text-align: left;
+  background-color: white;
+}
+.desire_title {
+    position: relative;
+    width: 250px;
+    float: left;
+}
+.desire_date {
+    position: relative;
+    width: 100px;
+    float: left;
+    padding: 0 3px;
+    color: #d2d9de;
+}
+.button_del {
+    width: 15px;
+    float: right;
+}
+.desire_attr {
+    margin: 5px 7px;
+}
+
 input:focus {
     outline: none;
 }
@@ -251,22 +281,16 @@ li a {
   background: #e74c3c;
   margin-left: auto;
   margin-right: auto;
-  /*max-width: 1070px;*/
 }
 .general {
     max-width: 1070px;
     margin: 0 auto;
 }
-
-/* clearfix */
 .grid:after {
   content: '';
   display: block;
   clear: both;
 }
-
-/* ---- grid-item ---- */
-
 .grid-item {
   width: 250px;
   text-align: center;
@@ -286,10 +310,6 @@ li a {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #d2d9de;
-}
-.desire_date {
-    position: relative;
-    top: 10px;
 }
 .desire_button {
     padding: 0;
@@ -333,23 +353,22 @@ li a {
 .logout {
     position: relative;
     left: 66%;
-}
 
-/*м*********************************************************************************************************************/
-.desire_date {
-    color: #d2d9de;
-    font-size: 12px;
 }
+/*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px){
-    .grid {
+    .grid,.sort-group {
         width: 780px;
     }
     .general {
         width: 780px;
     }
+    .logout {
+        left: 2%;
+    }
 }
 @media screen and (max-width: 780px){
-    .grid {
+    .grid,.sort-group {
         width: 520px;
     }
     .general {
@@ -357,7 +376,7 @@ li a {
     }
 }
 @media screen and (max-width: 540px){
-    .grid {
+    .grid,.sort-group {
         max-width: 270px;
         width: 100%;
     }
@@ -377,4 +396,46 @@ li a {
 .asd {
     margin-left: auto;
     margin-right: auto;
+}
+/*modal**************************************************************************************************************/
+#modal_form {
+	width: 300px;
+	height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+	border-radius: 5px;
+	border: 1px #e74c3c solid;
+	background: #fff;
+	position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+	top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+	left: 50%; /* пoлoвинa экрaнa слевa */
+	margin-top: -150px;
+	margin-left: -150px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+	display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+	opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+	z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+	padding: 20px 10px;
+}
+/* Кнoпкa зaкрыть для тех ктo в тaнке) */
+#modal_form #modal_close {
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+/* Пoдлoжкa */
+#overlay {
+	z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+	position:fixed; /* всегдa перекрывaет весь сaйт */
+	background-color:#e74c3c;
+	opacity:0.8; /* нo немнoгo прoзрaчнa */
+	-moz-opacity:0.8; /* фикс прозрачности для старых браузеров */
+	filter:alpha(opacity=80);
+	width:100%;
+	height:100%; /* рaзмерoм вo весь экрaн */
+	top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+	left:0;
+	cursor:pointer;
+	display:none; /* в oбычнoм сoстoянии её нет) */
 }

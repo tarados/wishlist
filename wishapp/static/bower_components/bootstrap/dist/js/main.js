@@ -25,31 +25,6 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
-// анимация******************************************************************************************************
-//     function init() {
-//         var speed = 250,
-//             easing = mina.easeinout;
-//
-//         [].slice.call ( document.querySelectorAll( '#grid > #simpleList > div.grid-link' ) ).forEach( function( el ) {
-//             var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-//                 pathConfig = {
-//                     from : path.attr( 'd' ),
-//                     to : el.getAttribute( 'data-path-hover' )
-//                 };
-//
-//             el.addEventListener( 'mouseenter', function() {
-//                 path.animate( { 'path' : pathConfig.to }, speed, easing );
-//             } );
-//
-//             el.addEventListener( 'mouseleave', function() {
-//                 path.animate( { 'path' : pathConfig.from }, speed, easing );
-//             } );
-//
-//         } );
-//
-//     }
-//
-//     init();
  // отрабатываем нажатие кнопки "обновить"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
@@ -96,6 +71,50 @@ $(function () {
             button_guest.removeClass('hidden');
         }
     });
+    $('.new_desire').click(function () {
+            var block = $("#add_desire_block");
+            var form = $("div.grid");
+            block.removeClass('hidden');
+            form.css('display', 'none');
+        });
+    // $('.button_del').click(function () {
+    //     var desireid = (this.id).split('-')[1];
+    //     $('button.sort_desire_del').each(function () {
+    //         if ($(this).attr('value') == desireid) {
+    //             var val = $(this).attr('value');
+    //             if (confirm('Вы точно хотите удалить желание из списка?')){
+    //                 this.click();
+    //             } else {
+    //                 console.log('no!');
+    //                 }
+    //         }
+    //     });
+    // });
+// modal*********************************************************************************************************
+    $('a#go').click( function(event){ // лoвим клик пo ссылки с id="go"
+        event.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+            function(){ // пoсле выпoлнения предъидущей aнимaции
+                $('#modal_form')
+                    .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                    .animate({opacity: 1, top: '50%'}, 200);// плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+                $("<p>Вы точно хотите удалить желание из списка?</p>");
+        });
+
+        console.log($("<p>Вы точно хотите удалить желание из списка?</p>"));
+        console.log('dfgagae');
+    });
+    	/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
+    	$('#modal_form')
+    		.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+    			function(){ // пoсле aнимaции
+    				$(this).css('display', 'none'); // делaем ему display: none;
+    				$('#overlay').fadeOut(400); // скрывaем пoдлoжку
+    			}
+    		);
+    });
+//**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {
             var desire_order_list = new Array();
@@ -115,20 +134,6 @@ $(function () {
         },
         ghostClass: "ghost"
     });
-    // add desire block*******************************************************************************************
-    $('.new_desire').click(function () {
-        var block = $("#add_desire_block");
-        var form = $("div.grid");
-        var general = $('.general');
-        block.removeClass('hidden');
-        form.css('display', 'none');
-        // general.css('display', 'none');
-    });
-// masonry********************************************************************************************************
-//       $('.grid').masonry({
-//       itemSelector: '.grid-item',
-//       columnWidth: '.gutter-sizer'
-//     });
 });
 
 

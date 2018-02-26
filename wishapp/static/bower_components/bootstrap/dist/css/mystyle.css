@@ -415,13 +415,13 @@ li a {
 	padding: 20px 10px;
 }
 .modal_button {
-    margin: 20px 15px;
+    margin: 20px 19px;
 }
 .modal_title {
     margin: 15px 15px;
 }
 .modal_yes {
-    margin-right: 45px;
+    margin-right: 40px;
 }
 /* Кнoпкa зaкрыть для тех ктo в тaнке) */
 #modal_form #modal_close {

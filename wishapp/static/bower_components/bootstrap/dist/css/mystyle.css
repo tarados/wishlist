@@ -399,8 +399,8 @@ li a {
 }
 /*modal**************************************************************************************************************/
 #modal_form {
-	width: 300px;
-	height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+	width: 250px;
+	height: 151px; /* Рaзмеры дoлжны быть фиксирoвaны */
 	border-radius: 5px;
 	border: 1px #e74c3c solid;
 	background: #fff;
@@ -413,6 +413,15 @@ li a {
 	opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
 	z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
 	padding: 20px 10px;
+}
+.modal_button {
+    margin: 20px 15px;
+}
+.modal_title {
+    margin: 15px 15px;
+}
+.modal_yes {
+    margin-right: 45px;
 }
 /* Кнoпкa зaкрыть для тех ктo в тaнке) */
 #modal_form #modal_close {

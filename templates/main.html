@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=3">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=6">
 </head>
 <body>
 <div class="container general wishlist_nav">
@@ -56,8 +56,8 @@
         <span id="modal_close"><img src="/static/img/delete-Icon.png" width="15px"></span>
         <div class="modal_title"><span>Хотите удалить желание из списка?</span></div>
         <div class="modal_button">
-            <button type="button" class="modal_yes btn btn-default">Да</button>
-            <button class="modal_no btn btn-primary">Отменить</button>
+            <button class="modal_yes btn-default"><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Да</button>
+            <button class="modal_no btn-danger">Отменить</button>
         </div>
     </div>
     <div id="overlay"></div>
@@ -69,7 +69,7 @@
     <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
     <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=25"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=6"></script>
 
 </body>
 </html>

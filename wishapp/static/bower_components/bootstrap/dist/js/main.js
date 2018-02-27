@@ -77,7 +77,7 @@ $(function () {
             block.removeClass('hidden');
             form.css('display', 'none');
         });
-// modal*********************************************************************************************************
+// modal for sort*********************************************************************************************************
     var des_id = null
     var user_id = null
     $('a.go').click( function(event){ // лoвим клик пo ссылки с id="go"
@@ -127,7 +127,56 @@ $(function () {
     			}
     		);
     });
-
+// modal for arc********************************************************************************************************
+    var des_id = null
+    var user_id = null
+    $('button.guest').click( function(event){ // лoвим клик пo ссылки с id="go"
+        event.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+            function(){ // пoсле выпoлнения предъидущей aнимaции
+                $('#modal_form')
+                    .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                    .animate({opacity: 1, top: '50%'}, 200);// плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+        });
+        des_id = this.id.split('-')[1];
+        user_id = this.id.split('-')[2];
+    });
+    $('.modal_yes').click(function () {
+        var desire_for_delete = new Object();
+        desire_for_delete = {
+            "deldesire": des_id
+        };
+        obj_for_save = JSON.stringify(desire_for_delete);
+        $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
+        var block = $('#doo-' + des_id + '-' + user_id);
+        block.css('display', 'none');
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                function(){ // пoсле aнимaции
+                    $(this).css('display', 'none'); // делaем ему display: none;
+                    $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
+    	/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close, #overlay').click( function(){ // лoвим клик пo крестику или пoдлoжке
+    	$('#modal_form')
+    		.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+    			function(){ // пoсле aнимaцииo
+    				$(this).css('display', 'none'); // делaем ему display: none;
+    				$('#overlay').fadeOut(400); // скрывaем пoдлoжку
+    			}
+    		);
+    });
+    $('.modal_no').click(function () {
+        $('#modal_form')
+    		.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+    			function(){ // пoсле aнимaции
+    				$(this).css('display', 'none'); // делaем ему display: none;
+    				$('#overlay').fadeOut(400); // скрывaем пoдлoжку
+    			}
+    		);
+    });
 //**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {

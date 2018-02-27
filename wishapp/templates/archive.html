@@ -6,7 +6,7 @@
         <h1>Архив желаний {{ username }}:</h1>
         <div class="grid js-masonry">
             {% for desire in desire_list %}
-                <div class="grid-item">
+                <div class="grid-item" id="doo-{{ desire.id }}-{{ user_id }}">
                     <div class="desire_top">
                         <span class="desire_date">{{ desire.date|naturalday }}</span>
                     </div>
@@ -20,10 +20,7 @@
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                     <div class="desire_button">
-                        <form action="{% url 'delarchive' user_id %}" method="post">{% csrf_token %}
-                            <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                            <button type="submit"  class="guest" value="{{ desire.id }}">Удалить</button>
-                        </form>
+                        <button type="button"  class="guest" id="arch-{{ desire.id }}-{{ user_id }}">Удалить</button>
                     </div>
                 </div>
             {% endfor %}

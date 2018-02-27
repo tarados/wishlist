@@ -12,10 +12,6 @@
                         <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
                         <div class="desire_date"><span class="desire_date">{{ desire.date|date:"M., d, Y" }}</span></div>
                         <div class="button_del" id="desire-{{ desire.id }}">
-                            <form action="{% url 'del_sort_desire' user_id %}" method="post">{% csrf_token %}
-                                <input type="hidden" name="deldesire"  value={{ desire.id }}>
-                                <button type="submit"  class="hidden sort_desire_del" value="{{ desire.id }}">Удалить</button>
-                            </form>
                             <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}" style="position: absolute; top: 2%;"><img src="/static/img/delete-Icon.png" width="15px"></a>
                         </div>
                     </div>

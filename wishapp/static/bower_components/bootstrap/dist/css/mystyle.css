@@ -135,6 +135,9 @@ div.edt{
   text-align: left;
   background-color: white;
 }
+.archive {
+    float: left;
+}
 .desire_title {
     position: relative;
     width: 250px;

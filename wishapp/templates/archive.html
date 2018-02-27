@@ -4,9 +4,9 @@
 {% block dreamerslist %}
     <div class="container general">
         <h1>Архив желаний {{ username }}:</h1>
-        <div class="grid js-masonry">
+        <div class="grid">
             {% for desire in desire_list %}
-                <div class="grid-item" id="doo-{{ desire.id }}-{{ user_id }}">
+                <div class="grid-item archive" id="doo-{{ desire.id }}-{{ user_id }}">
                     <div class="desire_top">
                         <span class="desire_date">{{ desire.date|naturalday }}</span>
                     </div>

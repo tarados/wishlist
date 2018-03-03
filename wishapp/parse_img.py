@@ -4,11 +4,14 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-
+a = 'https://rozetka.com.ua/poputchik_ama2/p2119772/'
 
 def get_img(url):
     response = requests.get(url, headers=headers)
     data = response.text
+    if len(data) < 1000:
+        response = requests.get(url, headers=headers)
+        data = response.text
     url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
     # print(url_domen)
     soup = BeautifulSoup(data,'html.parser')
@@ -53,9 +56,9 @@ def get_img(url):
         except:
             pass
 # выбираем из трех 1-2-3
-#     print(result_img)
-#     print(result_meta)
-#     print(result_a)
+    print(result_img)
+    print(result_meta)
+    print(result_a)
     result = None
     if result_meta != '':
         result = result_meta
@@ -66,6 +69,8 @@ def get_img(url):
             if result_a != '':
                 result = result_a
     return result
+
+get_img(a)
 
 
 def find_url(str):

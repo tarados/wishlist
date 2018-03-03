@@ -77,9 +77,15 @@ $(function () {
             block.removeClass('hidden');
             form.css('display', 'none');
         });
+    $('new_desire').click(function () {
+        $(window).load(function() {
+            var $grid = $('.grid').masonry( masonryOptions );
+            $grid.masonry('reloadItems');
+        });
+    });
 // modal for sort*********************************************************************************************************
-    var des_id = null
-    var user_id = null
+    var des_id = null;
+    var user_id = null;
     $('a.go').click( function(event){ // лoвим клик пo ссылки с id="go"
         event.preventDefault(); // выключaем стaндaртную рoль элементa
         $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку

@@ -145,7 +145,8 @@ div.edt{
 }
 .desire_date {
     position: relative;
-    width: 100px;
+    width: 135px;
+    margin-top: 3%;
     float: left;
     padding: 0 3px;
     color: #d2d9de;
@@ -171,9 +172,9 @@ textarea#id_desire_text,#id_desire_text_for_edit {
   border-radius: 25px;
   border: 1px solid grey;
 }
-.desire_description {
-    overflow: hidden;
-}
+/*.desire_description {*/
+    /*overflow: auto;*/
+/*}*/
 nav{
   background-color: orangered;
 }

@@ -24,7 +24,6 @@ def dreamers(request):
 
 @csrf_exempt
 def login(request):
-    print(request.POST)
     arg = {}
     arg.update(csrf(request))
     if request.POST:

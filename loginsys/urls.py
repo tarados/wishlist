@@ -1,9 +1,9 @@
 from django.conf.urls import url, include
-# from loginsys import views
+from loginsys.views import logout, register
 from wishapp import views
 urlpatterns = [
    url(r'^login/', views.login),
-   # url(r'^logout/', views.logout),
-   # url(r'^register/', views.register),
+   url(r'^logout/', logout),
+   url(r'^register/', register),
 
 ]

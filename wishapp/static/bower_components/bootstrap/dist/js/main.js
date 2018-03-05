@@ -77,12 +77,14 @@ $(function () {
             block.removeClass('hidden');
             form.css('display', 'none');
         });
-    $('.new_desire').click(function () {
+    $('new_desire').click(function () {
         $(window).load(function() {
             var $grid = $('.grid').masonry( masonryOptions );
             $grid.masonry('reloadItems');
         });
     });
+// registration**************************************************************************************************
+
 // modal for sort*********************************************************************************************************
     var des_id = null;
     var user_id = null;

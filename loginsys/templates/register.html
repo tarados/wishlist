@@ -1,33 +1,30 @@
 {% extends 'main.html' %}
 
 {% block login %}
-    <div class="container">
+    <div class="form-group" id="add_desire_block" style="padding-top: 5px">
         <form action="/auth/register/" method="post">{% csrf_token %}
-            <div class="form-group">
-                <label for="username">User name</label>
+            <div class="profile_title"><h3>Регистрация</h3></div>
+            <div class="form-group-item">
+                <label for="username" style="color: gray">User name</label>
                 <div class="form-control-static">
                     {{ form.username }}
-                    <p class="help-block">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.    </p>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="password1">Enter password</label>
+            <div class="form-group-item">
+                <label for="password1" style="color: gray">Enter password</label>
                 <div class="form-control-static">
                     {{ form.password1 }}
-                    <p class="help-block">Ваш пароль не должен совпадать с вашим именем или другой персональной информацией или быть слишком похожим на неё.
-                    Ваш пароль должен содержать как минимум 8 символов.
-                    Ваш пароль не может быть одним из широко распространённых паролей.
-                    Ваш пароль не может состоять только из цифр.</p>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="password2">Confrm password</label>
+            <div class="form-group-item">
+                <label for="password2" style="color: gray">Confirm password</label>
                 <div class="form-control-static">
                     {{ form.password2 }}
-                    <p class="help-block">Для подтверждения введите, пожалуйста, пароль ещё раз</p>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-md">Registration</button>
+            <div class="form-group-item">
+                <button type="submit" class="regbut">Registration</button>
+            </div>
         </form>
     </div>
 {% endblock %}

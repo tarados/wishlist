@@ -14,9 +14,32 @@ import json
 
 
 # первая страница
-def dreamers(request):
-    return redirect('/auth/login')
 
+def dreamers(request):
+    dreamers = User.objects.all()
+    user = auth.get_user(request)
+    is_loggedin = user.id is None
+    return render_to_response('dreamers.html', locals())
+    # return redirect('/auth/login')
+
+@csrf_exempt
+def login(request):
+    print(request.POST)
+    arg = {}
+    arg.update(csrf(request))
+    if request.POST:
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            arg['user_id'] = auth.get_user(request).id
+            return redirect('/dreamers/%d/' % arg['user_id'])
+        else:
+            arg['password_error'] = '1'
+            return render_to_response('dreamers.html', arg)
+    else:
+        return render_to_response('dreamers.html', arg)
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):

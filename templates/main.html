@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=3">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=125">
 </head>
 <body>
 <div class="container general wishlist_nav">
@@ -36,10 +36,12 @@
                         <li><a href="/dreamers/sort/{{ user_id }}/">Сортировка желаний</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
-                {% elif is_choice %}
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/auth/logout/">Выйти</a></li>
-                    </ul>
+                {% else %}
+                    {% if is_choice %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/auth/logout/">Выйти</a></li>
+                        </ul>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

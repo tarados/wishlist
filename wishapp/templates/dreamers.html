@@ -1,15 +1,22 @@
 {% extends 'main.html' %}
 
 {% block dreamerslist %}
-    {% for dreamer in dreamers %}
-        <div class="col-sm-3 text-center">
-            <h4>{{ dreamer.username }}</h4>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-circle" alt="Image"><br>
-            {% for desire in desires %}
-                    {% if desire.desire_user_id == dreamer.id and desire.desire_text %}
-                        {{ desire.desire_text }}<br>
-                    {% endif %}
-            {% endfor %}
-        </div>
-    {% endfor %}
+    <div class="form-group" id="add_desire_block" style="padding-top: 5px">
+        <form action="/auth/login/" method="post">{% csrf_token %}
+            <div class="profile_title"><h3>Авторизация</h3></div>
+            <div class="form-group-item">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
+            </div>
+            <div class="form-group-item">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+            </div>
+            <label for="password"class="box_error hidden">Ошибка аутентификации! Повторите попытку.</label><br>
+            <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
+            <div class="form-group-button">
+                <button type="submit" class="svl">Вход</button>
+                <a href="/auth/register/" class="svr">Регистрация</a>
+                <a class="btn btn-social-icon btn-lg btn-vk svc" href="#"><span class="fa fa-vk"></span></a>
+            </div>
+        </form>
+    </div>
 {% endblock %}

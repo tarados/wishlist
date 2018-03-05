@@ -37,7 +37,8 @@ textarea#id_desire_text{
   padding-right: 5px;
 }
 label.box_error{
-  color: red;
+    color: red;
+    margin-bottom: 20px;
 }
 .nv {
   background-color: coral;
@@ -86,6 +87,41 @@ div.edt{
   padding-top: 20px;
   border-radius: 5px;
 }
+#username,#password {
+    width: 90%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    border: 1px solid grey;
+}
+.svl {
+    width: 30%;
+    height: 20px;
+    margin-left: 25px;
+    border-radius: 25px;
+    border: 1px solid grey;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 7%;
+    color: grey;
+    float: left;
+}
+.svr {
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+.svc {
+    margin-top: 0;
+    left: 130px;
+    bottom: 4px;
+}
+.form-group-button {
+    width: 80%;
+    height: 65px;
+}
 #id_desire_title,#desire_title,#add_link_foto {
     width: 90%;
     height: 40px;
@@ -108,6 +144,8 @@ div.edt{
 }
 .profile_title {
     margin-bottom: 20px;
+    margin-top: 0;
+
 }
 .list-group-item{
   position: relative;
@@ -452,3 +490,4 @@ li a {
 	cursor:pointer;
 	display:none; /* в oбычнoм сoстoянии её нет) */
 }
+/*авторизация**********************************************************************************************************/

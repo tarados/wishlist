@@ -14,13 +14,13 @@ import json
 
 
 # первая страница
-
 def dreamers(request):
     dreamers = User.objects.all()
     user = auth.get_user(request)
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
     # return redirect('/auth/login')
+
 
 @csrf_exempt
 def login(request):
@@ -39,6 +39,7 @@ def login(request):
             return render_to_response('dreamers.html', arg)
     else:
         return render_to_response('dreamers.html', arg)
+
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):
@@ -181,7 +182,6 @@ def login_for_guest(request):
             arg['error_message'] = 'Ошибка аутентификации! Повторите попытку.'
             return render_to_response('login_for_guest.html', arg)
     return render_to_response('login_for_guest.html', arg)
-
 
 # модуль регистрации гостя
 @csrf_exempt

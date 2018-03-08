@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.contrib import auth
-from django.contrib.auth.forms import UserCreationForm
+from wishapp.forms import SignUpForm
 from django.template.context_processors import csrf
 
 
@@ -21,16 +21,18 @@ def login(request):
     else:
         return render_to_response('login.html', arg)
 
+
 def logout(request):
     auth.logout(request)
     return redirect('/')
 
+
 def register(request):
     arg = {}
     arg.update(csrf(request))
-    arg['form'] = UserCreationForm
+    arg['form'] = SignUpForm
     if request.POST:
-        new_user_form = UserCreationForm(request.POST)
+        new_user_form = SignUpForm(request.POST)
         if new_user_form.is_valid():
             new_user_form.save()
             newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])

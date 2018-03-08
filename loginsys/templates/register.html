@@ -5,19 +5,16 @@
         <form action="/auth/register/" method="post">{% csrf_token %}
             <div class="profile_title"><h3>Регистрация</h3></div>
             <div class="form-group-item">
-                <label for="username" style="color: gray">User name</label>
                 <div class="form-control-static">
                     {{ form.username }}
                 </div>
             </div>
             <div class="form-group-item">
-                <label for="password1" style="color: gray">Enter password</label>
                 <div class="form-control-static">
                     {{ form.password1 }}
                 </div>
             </div>
             <div class="form-group-item">
-                <label for="password2" style="color: gray">Confirm password</label>
                 <div class="form-control-static">
                     {{ form.password2 }}
                 </div>

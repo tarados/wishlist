@@ -48,14 +48,12 @@
     </nav>
 </div>
 
-
     {% block dreamerslist %}{% endblock %}
     {% block login %}{% endblock %}
     {% block editlist %}{% endblock %}
 
     <a href="#" class="scrollup">Наверх</a>
     <div id="modal_form">
-        <span id="modal_close"><img src="/static/img/delete-Icon.png" width="15px"></span>
         <div class="modal_title"><span>Хотите удалить желание из списка?</span></div>
         <div class="modal_button">
             <button class="modal_yes btn-default"><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Да</button>
@@ -63,8 +61,6 @@
         </div>
     </div>
     <div id="overlay"></div>
-
-    <a href="#" class="modal">Открыть модальное окно</a>
 
     <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>

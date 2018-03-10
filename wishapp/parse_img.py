@@ -4,57 +4,62 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-# a = 'https://rozetka.com.ua/poputchik_ama2/p2119772/'
+# a = 'https://www.moyo.ua/router_intertelekom_avenor_re-500/390472.html'
 
 def get_img(url):
-    response = requests.get(url, headers=headers)
-    data = response.text
-    if len(data) < 1000:
+    try:
         response = requests.get(url, headers=headers)
         data = response.text
-    url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
-    # print(url_domen)
-    soup = BeautifulSoup(data,'html.parser')
+        if len(data) < 1000:
+            response = requests.get(url, headers=headers)
+            data = response.text
+        url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
+        # print(url_domen)
+        soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
-    try:
-        meta = soup.find('meta', property="og:image")['content']
-        if meta.find('http') + 1 > 0:
-            result_meta = meta
-        else:
-            result_meta = ''
-    except:
-        result_meta = ''
-# проверяем тег а
-    result_a = ''
-    href = re.compile(r'\.jpg')
-    try:
-        a = soup.find('a', href=href)
-        if a['href'].find('http') + 1 > 0:
-            result_a = a['href']
-        else:
-            result_a = url_domen + a['href']
-    except:
-        pass
-# проверяем тег img
-    result_img = ''
-    src = re.compile(r'[^index]\.jpg')
-    try:
-        img = soup.find('img', src=src, title=True)
-        if img['src'].find('http') + 1 > 0:
-            result_img = img['src']
-        else:
-            result_img = url_domen + img['src']
-    except:
-        pass
-    if result_img == '':
         try:
-            img = soup.find('img', src=src)
+            meta = soup.find('meta', property="og:image")['content']
+            if meta.find('http') + 1 > 0:
+                result_meta = meta
+            else:
+                result_meta = ''
+        except:
+            result_meta = ''
+# проверяем тег а
+        result_a = ''
+        href = re.compile(r'\.jpg')
+        try:
+            a = soup.find('a', href=href)
+            if a['href'].find('http') + 1 > 0:
+                result_a = a['href']
+            else:
+                result_a = url_domen + a['href']
+        except:
+            pass
+# проверяем тег img
+        result_img = ''
+        src = re.compile(r'[^index]\.jpg')
+        try:
+            img = soup.find('img', src=src, title=True)
             if img['src'].find('http') + 1 > 0:
                 result_img = img['src']
             else:
                 result_img = url_domen + img['src']
         except:
             pass
+        if result_img == '':
+            try:
+                img = soup.find('img', src=src)
+                if img['src'].find('http') + 1 > 0:
+                    result_img = img['src']
+                else:
+                    result_img = url_domen + img['src']
+            except:
+                pass
+    except:
+        result_meta = None
+        result_img = None
+        result_a = None
 # выбираем из трех 1-2-3
 #     print(result_img)
 #     print(result_meta)

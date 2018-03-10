@@ -19,7 +19,9 @@
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                     <div class="desire_button col-lg-6" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
-                        <button class="view" id="view-{{ desire.id }}-dreamer-{{ dreamer_id }}-text-{{ desire.text_for_edit }}-title-{{ desire.title }}">обновить</button>
+                        {% if is_owner %}
+                            <button class="view" id="view-{{ desire.id }}-dreamer-{{ dreamer_id }}-text-{{ desire.text_for_edit }}-title-{{ desire.title }}">обновить</button>
+                        {% endif %}
                     </div>
                     <div class="desire_button col-lg-6">
                         <form action="{% url 'backupdesire' %}" method="post">

@@ -84,103 +84,103 @@ $(function () {
         });
     });
 // modal for sort*********************************************************************************************************
-    var des_id = null;
-    var user_id = null;
-    $('a.go').click( function(event){
-        event.preventDefault();
-        $('#overlay').fadeIn(400,
-            function(){
-                $('#modal_form')
-                    .css('display', 'block')
-                    .animate({opacity: 1, top: '50%'}, 200);
-        });
-        des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
-    });
-    $('.modal_yes').click(function () {
-        var desire_for_delete = new Object();
-        desire_for_delete = {
-            "deldesire": des_id
-        };
-        obj_for_save = JSON.stringify(desire_for_delete);
-        $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
-        var block = $('#do-' + des_id + '-' + user_id);
-        block.css('display', 'none');
-        $('#modal_form')
-            .animate({opacity: 0, top: '45%'}, 200,
-                function(){
-                    $(this).css('display', 'none');
-                    $('#overlay').fadeOut(400);
-                }
-            );
-    });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
-    $('.modal_no').click(function () {
-        $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
-// modal for arc********************************************************************************************************
-    var des_id = null
-    var user_id = null
-    $('button.guest').click( function(event){
-        event.preventDefault();
-        $('#overlay').fadeIn(400,
-            function(){
-                $('#modal_form')
-                    .css('display', 'block')
-                    .animate({opacity: 1, top: '50%'}, 200);
-        });
-        des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
-    });
-    $('.modal_yes').click(function () {
-        var desire_for_delete = new Object();
-        desire_for_delete = {
-            "deldesire": des_id
-        };
-        obj_for_save = JSON.stringify(desire_for_delete);
-        $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
-        var block = $('#doo-' + des_id + '-' + user_id);
-        block.css('display', 'none');
-        $('#modal_form')
-            .animate({opacity: 0, top: '45%'}, 200,
-                function(){
-                    $(this).css('display', 'none');
-                    $('#overlay').fadeOut(400);
-                }
-            );
-    });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
-    $('.modal_no').click(function () {
-        $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
+//     var des_id = null;
+//     var user_id = null;
+//     $('a.go').click( function(event){
+//         event.preventDefault();
+//         $('#overlay').fadeIn(400,
+//             function(){
+//                 $('#modal_form')
+//                     .css('display', 'block')
+//                     .animate({opacity: 1, top: '50%'}, 200);
+//         });
+//         des_id = this.id.split('-')[1];
+//         user_id = this.id.split('-')[2];
+//     });
+//     $('.modal_yes').click(function () {
+//         var desire_for_delete = new Object();
+//         desire_for_delete = {
+//             "deldesire": des_id
+//         };
+//         obj_for_save = JSON.stringify(desire_for_delete);
+//         $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
+//         var block = $('#do-' + des_id + '-' + user_id);
+//         block.css('display', 'none');
+//         $('#modal_form')
+//             .animate({opacity: 0, top: '45%'}, 200,
+//                 function(){
+//                     $(this).css('display', 'none');
+//                     $('#overlay').fadeOut(400);
+//                 }
+//             );
+//     });
+//     $('#modal_close, #overlay').click( function(){
+//     	$('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
+//     $('.modal_no').click(function () {
+//         $('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
+// // modal for arc********************************************************************************************************
+//     var des_id = null
+//     var user_id = null
+//     $('button.guest').click( function(event){
+//         event.preventDefault();
+//         $('#overlay').fadeIn(400,
+//             function(){
+//                 $('#modal_form')
+//                     .css('display', 'block')
+//                     .animate({opacity: 1, top: '50%'}, 200);
+//         });
+//         des_id = this.id.split('-')[1];
+//         user_id = this.id.split('-')[2];
+//     });
+//     $('.modal_yes').click(function () {
+//         var desire_for_delete = new Object();
+//         desire_for_delete = {
+//             "deldesire": des_id
+//         };
+//         obj_for_save = JSON.stringify(desire_for_delete);
+//         $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
+//         var block = $('#doo-' + des_id + '-' + user_id);
+//         block.css('display', 'none');
+//         $('#modal_form')
+//             .animate({opacity: 0, top: '45%'}, 200,
+//                 function(){
+//                     $(this).css('display', 'none');
+//                     $('#overlay').fadeOut(400);
+//                 }
+//             );
+//     });
+//     $('#modal_close, #overlay').click( function(){
+//     	$('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
+//     $('.modal_no').click(function () {
+//         $('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
 //**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {

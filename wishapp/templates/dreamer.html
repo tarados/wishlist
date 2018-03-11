@@ -32,7 +32,7 @@
                     </div>
                     <div class="desire_button">
                         {% if is_loggedin %}
-                            <form action="{% url 'login_for_guest' %}" method="get">
+                            <form action="/auth/login/" method="get">
                                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                                 <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
                             </form>

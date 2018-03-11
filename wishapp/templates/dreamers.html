@@ -6,6 +6,7 @@
             <div class="profile_title"><h3>Авторизация</h3></div>
             <div class="form-group-item">
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
+                <input type="hidden" class="form-control" name="master_id" value="{{ master }}">
             </div>
             <div class="form-group-item">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
@@ -14,7 +15,7 @@
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <div class="form-group-button">
                 <button type="submit" class="svl">Вход</button>
-                <a href="/auth/register/" class="svr">Регистрация</a>
+                <a href="/auth/register/?{{ master }}" class="svr">Регистрация</a>
                 <a class="btn btn-social-icon btn-lg btn-vk svc" href="#"><span class="fa fa-vk"></span></a>
             </div>
         </form>

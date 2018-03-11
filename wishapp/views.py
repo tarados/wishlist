@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -8,7 +8,7 @@ from wishapp.models import Desire
 from wishapp.forms import DesireForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
-from wishapp.parse_img import get_img, find_url, get_url, get_title
+from wishapp.parse_img import get_img, find_url, get_url
 import datetime
 import json
 
@@ -20,25 +20,6 @@ def dreamers(request):
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
     # return redirect('/auth/login')
-
-
-@csrf_exempt
-def login(request):
-    arg = {}
-    arg.update(csrf(request))
-    if request.POST:
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
-        user = auth.authenticate(username=username, password=password)
-        if user is not None:
-            auth.login(request, user)
-            arg['user_id'] = auth.get_user(request).id
-            return redirect('/dreamers/%d/' % arg['user_id'])
-        else:
-            arg['password_error'] = '1'
-            return render_to_response('dreamers.html', arg)
-    else:
-        return render_to_response('dreamers.html', arg)
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя

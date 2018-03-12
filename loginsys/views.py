@@ -39,6 +39,7 @@ def register(request):
     arg['master_id'] = request.GET.get('master_id', '')
     arg.update(csrf(request))
     arg['form'] = SignUpForm
+    print(request.POST)
     if request.POST:
         new_user_form = SignUpForm(request.POST)
         master = request.POST.get('master', '')

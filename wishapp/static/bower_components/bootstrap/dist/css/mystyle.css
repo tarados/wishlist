@@ -200,6 +200,8 @@ div.edt{
     position: relative;
     width: 250px;
     float: left;
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 .desire_date {
     position: relative;
@@ -364,10 +366,8 @@ li a {
 }
 .desire_top {
     position: relative;
-    height: 40px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #d2d9de;
+    height: 30px;
+
 }
 .desire_button {
     padding: 0;

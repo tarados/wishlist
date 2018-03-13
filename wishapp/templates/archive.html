@@ -13,14 +13,10 @@
                      <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                         <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a>
                     </div>
-                    <div class="desire_image">
-                        {% if desire.image %}
-                            <img  src="{{ desire.image }}"/>
-                        {% endif %}
-                    </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                     <div class="desire_button">
-                        <button type="button"  class="guest" id="arch-{{ desire.id }}-{{ user_id }}">Удалить</button>
+                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ user_id }}">Удалить</button>
+                        <button type="button"  class="return_to_arch" id="return-{{ desire.id }}-{{ user_id }}">Вернуть</button>
                     </div>
                 </div>
             {% endfor %}

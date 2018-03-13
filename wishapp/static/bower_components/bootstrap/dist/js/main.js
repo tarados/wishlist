@@ -181,8 +181,6 @@ $(function () {
     			}
     		);
     });
-<<<<<<< HEAD
-=======
 // return from archive****************************************************************************************
     $('.return_from_arch').click(function () {
         var desireforreturn = new Object();
@@ -196,7 +194,6 @@ $(function () {
         block.css('display', 'none');
         console.log(user_id, ' ', desire_id);
     });
->>>>>>> fde5ba2fb90750eee3d6f83cc024a85b87666130
 //**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {

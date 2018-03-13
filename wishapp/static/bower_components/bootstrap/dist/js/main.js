@@ -181,6 +181,22 @@ $(function () {
     			}
     		);
     });
+<<<<<<< HEAD
+=======
+// return from archive****************************************************************************************
+    $('.return_from_arch').click(function () {
+        var desireforreturn = new Object();
+        var user_id = (this.id).split('-')[2];
+        var desire_id = (this.id).split('-')[1];
+        desireforreturn = {
+            'returndesire': desire_id
+        };
+        $.post('/dreamers/returnfromarchive/' + user_id + '/', desireforreturn);
+        var block = $('#doo-' + desire_id + '-' + user_id);
+        block.css('display', 'none');
+        console.log(user_id, ' ', desire_id);
+    });
+>>>>>>> fde5ba2fb90750eee3d6f83cc024a85b87666130
 //**************************************************************************************************************;
     Sortable.create(simpleList, {
         onEnd: function () {

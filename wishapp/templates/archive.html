@@ -3,7 +3,7 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1>Архив желаний {{ username }}:</h1>
+        <h1 style="margin: 0 0 30px 0">Архив желаний {{ username }}:</h1>
         <div class="grid">
             {% for desire in desire_list %}
                 <div class="grid-item archive" id="doo-{{ desire.id }}-{{ user_id }}">
@@ -11,12 +11,11 @@
                         <span class="desire_date">{{ desire.date|naturalday }}</span>
                     </div>
                      <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
-                        <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a>
+                        {{ desire.title|safe }}
                     </div>
-                    <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                     <div class="desire_button">
-                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ user_id }}">Удалить</button>
-                        <button type="button"  class="return_to_arch" id="return-{{ desire.id }}-{{ user_id }}">Вернуть</button>
+                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ user_id }}" style="width: 45%">Удалить</button>
+                        <button type="button"  class="return_from_arch" id="return-{{ desire.id }}-{{ user_id }}" style="width: 45%">Вернуть</button>
                     </div>
                 </div>
             {% endfor %}

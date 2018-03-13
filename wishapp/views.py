@@ -144,46 +144,6 @@ def backupdesire(request):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
-# модуль аутентификации гостя
-@csrf_exempt
-def login_for_guest(request):
-    arg = {}
-    arg.update(csrf(request))
-    arg['dreamer_id'] = request.GET.get('dreamer_id')
-    if request.POST:
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
-        arg['dreamer_id'] = request.POST.get('dreamer_id')
-        user = auth.authenticate(username=username, password=password)
-        if user is not None:
-            auth.login(request, user)
-            return redirect('/dreamers/%d/' % int(arg['dreamer_id']))
-        else:
-            arg['password_error'] = '1'
-            arg['error_message'] = 'Ошибка аутентификации! Повторите попытку.'
-            return render_to_response('login_for_guest.html', arg)
-    return render_to_response('login_for_guest.html', arg)
-
-# модуль регистрации гостя
-@csrf_exempt
-def register_for_guest(request):
-    arg = {}
-    arg.update(csrf(request))
-    arg['form'] = UserCreationForm
-    arg['dreamer_id'] = request.POST.get('dreamer_id')
-    if request.POST:
-        new_user_form = UserCreationForm(request.POST)
-        if new_user_form.is_valid():
-            new_user_form.save()
-            newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])
-            auth.login(request, newuser)
-            dreamer_id = request.POST.get('dreamer_id', 1)
-            return redirect('/dreamers/%d/' % int(dreamer_id))
-        else:
-            arg['form'] = new_user_form
-    return render_to_response('register_for_guest.html', arg)
-
-
 # страница архива
 @csrf_exempt
 def archive(request, user_id):
@@ -201,6 +161,7 @@ def archive(request, user_id):
             obj = {
                 'id': desire.id,
                 'text': link_on(desire.desire_text)[0],
+                'title': desire.desire_title,
                 'text_for_edit': desire.desire_text,
                 'image': desire.desire_img,
                 'date': desire.desire_date,
@@ -228,6 +189,15 @@ def delarchive(request, user_id):
         derise.delete()
     return redirect('/dreamers/archive/%s' % user_id)
 
+
+@csrf_exempt
+def returnfromarchive(request, user_id):
+    if request.POST:
+        desire_id = request.POST.get('returndesire', '')
+        desire = Desire.objects.get(id=desire_id)
+        desire.desire_state = 0
+        desire.save()
+    return redirect('/dreamers/archive/%s' % user_id)
 
 # модуль удаления желаний из sortlist
 @csrf_exempt

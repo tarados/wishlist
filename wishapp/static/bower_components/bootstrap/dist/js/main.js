@@ -58,6 +58,9 @@ $(function () {
         if (state == 1) {
             button_guest.text('выбрано');
             button_noname.text('выбрано');
+            button_noname.each(function () {
+               this.disabled = true;
+            });
             button_guest.css('background-color', '#e74c3c');
             button_noname.css('background-color', '#e74c3c');
         }

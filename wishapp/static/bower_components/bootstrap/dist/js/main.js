@@ -85,6 +85,7 @@ $(function () {
             var $grid = $('.grid').masonry( masonryOptions );
             $grid.masonry('reloadItems');
         });
+
     });
 // modal for sort*********************************************************************************************************
     var des_id = null;

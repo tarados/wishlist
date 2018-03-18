@@ -145,6 +145,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = env.get('STATIC_ROOT', '')
 
-MEDIA_URL = '/games_box/'
+MEDIA_URL = '/uploads/'
 
 MEDIA_ROOT = env.get('MEDIA_ROOT', '')

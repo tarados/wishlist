@@ -13,8 +13,8 @@
                         <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title|safe }}</a>
                     </div>
                     <div class="desire_image">
-                        {% if desire.desire_image %}
-                            <img  src="{{ desire.desire_image }}"/>
+                        {% if desire.desire_photo %}
+                            <img  src="{{ desire.desire_photo.url }}"/>
                         {% endif %}
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>

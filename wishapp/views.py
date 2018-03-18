@@ -31,6 +31,11 @@ def dreamer(request, dreamer_id):
     desires = Desire.objects.filter(desire_user_id=dreamer_id).order_by('desire_order')
     result = []
     for desire in desires:
+        try:
+            k = desire.determine_height_img()
+            print(k)
+        except:
+            pass
         if desire.desire_state != 2:
             if desire.desire_order_user is not None:
                 order_user_name = desire.desire_order_user.username
@@ -45,6 +50,7 @@ def dreamer(request, dreamer_id):
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
                 'desire_image': desire.desire_img,
+                'desire_photo': desire.desire_photo,
                 'order_user_name': order_user_name
             }
             result.append(obj)
@@ -81,6 +87,10 @@ def adddesire(request, dreamer_id):
             if link != '':
                 desire.desire_img = link
             form.save()
+            try:
+                desire.fetch_remote_img(desire.desire_img)
+            except:
+                pass
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)
@@ -111,7 +121,7 @@ def editdesire(request):
         if form.is_valid():
             desire = form.save(commit=False)
             if link != '':
-                desire.desire_img = link
+                desire.fetch_remote_img(link)
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
         else:

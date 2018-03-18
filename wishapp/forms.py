@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class DesireForm(ModelForm):
     class Meta:
         model = Desire
-        fields = ['desire_title', 'desire_text']
+        fields = ['desire_title', 'desire_text', 'desire_photo']
 
 
 class DreamerForm(forms.Form):

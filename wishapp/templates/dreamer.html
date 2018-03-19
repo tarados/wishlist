@@ -14,7 +14,7 @@
                     </div>
                     <div class="desire_image">
                         {% if desire.desire_photo %}
-                            <img  src="{{ desire.desire_photo.url }}"/>
+                            <img  src="{{ desire.desire_photo.url }}" height="{{ height_img }}"/>
                         {% endif %}
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>

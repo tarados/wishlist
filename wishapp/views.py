@@ -33,7 +33,7 @@ def dreamer(request, dreamer_id):
     for desire in desires:
         try:
             k = desire.determine_height_img()
-            print(k)
+            height_img = 150 * k
         except:
             pass
         if desire.desire_state != 2:

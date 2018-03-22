@@ -22,7 +22,7 @@ class Desire(models.Model):
     def fetch_remote_img(self, url):
         result = requests.get(url)
         file_name = 'icon_{0}.{1}'.format(self.id, url.split('.')[-1])
-        path_file = MEDIA_ROOT + '\\uploads\\' + file_name
+        path_file = MEDIA_ROOT + '\\' + file_name
         out = open(path_file, "wb")
         out.write(result.content)
         out.close()

@@ -1,4 +1,3 @@
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, redirect
@@ -19,7 +18,6 @@ def dreamers(request):
     user = auth.get_user(request)
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
-    # return redirect('/auth/login')
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя

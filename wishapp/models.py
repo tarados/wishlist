@@ -1,4 +1,4 @@
-import urllib.request
+import os
 import requests
 from wishlist.settings import MEDIA_ROOT
 from django.db import models
@@ -28,6 +28,8 @@ class Desire(models.Model):
         out.close()
         self.desire_photo.save(file_name, File(open(path_file, 'rb')))
         self.save()
+        os.remove(path_file)
+
 
     def determine_height_img(self):
         h = Desire.objects.get(id=self.id).desire_photo.height

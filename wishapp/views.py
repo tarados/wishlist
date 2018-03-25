@@ -72,7 +72,7 @@ def adddesire(request, dreamer_id):
     desire_id = request.POST.get('desire_id')
     link = request.POST.get('link', '')
     if request.method == 'GET':
-        form = DesireForm(instance=desire)
+        form = DesireForm()
     if request.method == 'POST':
         form = DesireForm(request.POST)
         if form.is_valid():
@@ -85,10 +85,9 @@ def adddesire(request, dreamer_id):
             if link != '':
                 desire.desire_img = link
             form.save()
-            try:
-                desire.fetch_remote_img(desire.desire_img)
-            except:
-                pass
+
+            desire.fetch_remote_img(desire.desire_img)
+
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)
@@ -206,6 +205,7 @@ def returnfromarchive(request, user_id):
         desire.save()
     return redirect('/dreamers/archive/%s' % user_id)
 
+
 # модуль удаления желаний из sortlist
 @csrf_exempt
 def del_sort_desire(request, user_id):
@@ -214,6 +214,7 @@ def del_sort_desire(request, user_id):
         derise = Desire.objects.get(id=desire_id)
         derise.delete()
     return redirect('/dreamers/sort/%s' % user_id)
+
 
 @csrf_exempt
 def order(request):

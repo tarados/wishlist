@@ -1,12 +1,13 @@
 import os
 import requests
-from wishlist.settings import MEDIA_ROOT
+from django.conf import settings
 from django.db import models
 from django.core.files import File
 from django.contrib.auth.models import User
 
+
 class Desire(models.Model):
-    class Meta():
+    class Meta:
         db_table = 'desire'
 
     desire_text = models.TextField()
@@ -22,7 +23,7 @@ class Desire(models.Model):
     def fetch_remote_img(self, url):
         result = requests.get(url)
         file_name = 'icon_{0}.{1}'.format(self.id, url.split('.')[-1])
-        path_file = MEDIA_ROOT + '\\' + file_name
+        path_file = os.path.join(settings.MEDIA_ROOT, file_name)
         out = open(path_file, "wb")
         out.write(result.content)
         out.close()
@@ -30,11 +31,8 @@ class Desire(models.Model):
         self.save()
         os.remove(path_file)
 
-
     def determine_height_img(self):
         h = Desire.objects.get(id=self.id).desire_photo.height
         w = Desire.objects.get(id=self.id).desire_photo.width
         image_factor = h / w
         return image_factor
-
-

@@ -52,7 +52,13 @@ def register(request):
             else:
                 return redirect('/dreamers/%d/' % arg['user_id'])
         else:
-            arg['form'] = new_user_form
+            if master != '':
+                arg['password_error'] = '1'
+                arg['error'] = new_user_form.errors
+            else:
+                arg['password_error'] = '1'
+                arg['error'] = new_user_form.errors
+                arg['form'] = new_user_form
     return render_to_response('register.html', arg)
 
 

@@ -25,7 +25,8 @@ def link_on(str):
                 href_img = href
             else:
                 href_link = href
-                href_img = get_img(href)
+        if href_img == '#':
+            href_img = get_img(href)
     return text_desire, href_link, href_img
 
 

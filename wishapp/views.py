@@ -70,7 +70,6 @@ def dreamer(request, dreamer_id):
 @csrf_exempt
 def adddesire(request, dreamer_id):
     desire_id = request.POST.get('desire_id')
-    link = request.POST.get('link', '')
     if request.method == 'GET':
         form = DesireForm()
     if request.method == 'POST':
@@ -78,16 +77,15 @@ def adddesire(request, dreamer_id):
         if form.is_valid():
             desire = form.save(commit=False)
             if find_url(request.POST.get('desire_text')):
-                desire.desire_img = get_img(get_url(request.POST.get('desire_text')))
+                desire.desire_img = link_on(request.POST.get('desire_text'))[2]
             desire.desire_user = User.objects.get(id=dreamer_id)
             desire.desire_title = request.POST.get('desire_title')
             desire.desire_date = datetime.datetime.now()
-            if link != '':
-                desire.desire_img = link
             form.save()
-
-            desire.fetch_remote_img(desire.desire_img)
-
+            try:
+                desire.fetch_remote_img(desire.desire_img)
+            except:
+                pass
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)
@@ -110,15 +108,12 @@ def editdesire(request):
     dreamer_id = request.POST.get('dreamer_id')
     desire_id = request.POST.get('desire_id')
     desire = Desire.objects.get(id=desire_id)
-    link = request.POST.get('link', '')
     if request.method == 'GET':
         form = DesireForm(instance=desire)
     elif request.method == 'POST':
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
-            if link != '':
-                desire.fetch_remote_img(link)
             form.save()
             return redirect('/dreamers/%s' % dreamer_id)
         else:

@@ -22,6 +22,7 @@ def dreamers(request):
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):
+    print(request.POST)
     desire_form = DesireForm
     arg = {}
     arg.update(csrf(request))
@@ -105,6 +106,7 @@ def deldesire(request, dreamer_id):
 # модуль редактирования желаний
 @csrf_exempt
 def editdesire(request):
+    print(request.POST)
     dreamer_id = request.POST.get('dreamer_id')
     desire_id = request.POST.get('desire_id')
     desire = Desire.objects.get(id=desire_id)

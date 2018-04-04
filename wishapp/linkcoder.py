@@ -1,9 +1,7 @@
 import re
 from wishapp.parse_img import get_img
 
-a = 'https://rozetka.com.ua/nikon_vna951e1/p9805408/ ' \
-    'Матрица 1/2.3" КМОП, 16.0 Мп / Зум 40х (оптический) / 20 МБ встроенной памяти + поддержка карт памяти SD/SDHC/SDXC / Ж ' \
-    ' fgjfgj !!!'
+a = 'dfsdfs'
 
 
 def link_on(str):
@@ -25,12 +23,10 @@ def link_on(str):
                 href_img = href
             else:
                 href_link = href
-        if href_img == '#':
-            href_img = get_img(href)
     return text_desire, href_link, href_img
 
 
 # link_on(a)
-print(link_on(a)[0])
-print(link_on(a)[1])
-print(link_on(a)[2])
+# print(link_on(a)[0])
+# print(link_on(a)[1])
+# print(link_on(a)[2])

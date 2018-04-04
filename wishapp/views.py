@@ -22,8 +22,6 @@ def dreamers(request):
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):
-    print(request.POST)
-    desire_form = DesireForm
     arg = {}
     arg.update(csrf(request))
     dreamer = User.objects.get(id=dreamer_id)
@@ -56,7 +54,7 @@ def dreamer(request, dreamer_id):
         else:
             pass
     desire_list = result
-    form = desire_form
+    form = DesireForm
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
@@ -77,10 +75,13 @@ def adddesire(request, dreamer_id):
         form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
-            if find_url(request.POST.get('desire_text')):
-                desire.desire_img = link_on(request.POST.get('desire_text'))[2]
+            linkcoder = link_on(desire.desire_text)
+            if linkcoder[2] != '#':
+                desire.desire_img = linkcoder[2]
+            elif linkcoder[1] != '#':
+                desire.desire_img = get_img(linkcoder[1])
             desire.desire_user = User.objects.get(id=dreamer_id)
-            desire.desire_title = request.POST.get('desire_title')
+            # desire.desire_title = request.POST.get('desire_title')
             desire.desire_date = datetime.datetime.now()
             form.save()
             try:

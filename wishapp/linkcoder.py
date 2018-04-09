@@ -1,7 +1,4 @@
 import re
-from wishapp.parse_img import get_img
-
-a = 'dfsdfs'
 
 
 def link_on(str):
@@ -24,9 +21,3 @@ def link_on(str):
             else:
                 href_link = href
     return text_desire, href_link, href_img
-
-
-# link_on(a)
-# print(link_on(a)[0])
-# print(link_on(a)[1])
-# print(link_on(a)[2])

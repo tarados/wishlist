@@ -30,7 +30,7 @@ def dreamer(request, dreamer_id):
     for desire in desires:
         try:
             k = desire.determine_height_img()
-            height_img = 150 * k
+            height = 150 * k
         except:
             pass
         if desire.desire_state != 2:
@@ -48,7 +48,8 @@ def dreamer(request, dreamer_id):
                 'desire_state': desire.desire_state,
                 'desire_image': desire.desire_img,
                 'desire_photo': desire.desire_photo,
-                'order_user_name': order_user_name
+                'order_user_name': order_user_name,
+                'heigth_img': height
             }
             result.append(obj)
         else:
@@ -81,7 +82,6 @@ def adddesire(request, dreamer_id):
             elif linkcoder[1] != '#':
                 desire.desire_img = get_img(linkcoder[1])
             desire.desire_user = User.objects.get(id=dreamer_id)
-            # desire.desire_title = request.POST.get('desire_title')
             desire.desire_date = datetime.datetime.now()
             form.save()
             try:
@@ -111,13 +111,22 @@ def editdesire(request):
     dreamer_id = request.POST.get('dreamer_id')
     desire_id = request.POST.get('desire_id')
     desire = Desire.objects.get(id=desire_id)
-    if request.method == 'GET':
-        form = DesireForm(instance=desire)
-    elif request.method == 'POST':
-        form = DesireForm(request.POST, instance=desire)
+    if request.method == 'POST':
+        form = DesireForm(request.POST)
         if form.is_valid():
             desire = form.save(commit=False)
+            linkcoder = link_on(desire.desire_text)
+            if linkcoder[2] != '#':
+                desire.desire_img = linkcoder[2]
+            elif linkcoder[1] != '#':
+                desire.desire_img = get_img(linkcoder[1])
+            desire.desire_user = User.objects.get(id=dreamer_id)
+            desire.desire_date = datetime.datetime.now()
             form.save()
+            try:
+                desire.fetch_remote_img(desire.desire_img)
+            except:
+                pass
             return redirect('/dreamers/%s' % dreamer_id)
         else:
             return redirect('/dreamers/%s' % dreamer_id)

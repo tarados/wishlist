@@ -112,7 +112,7 @@ def editdesire(request):
     desire_id = request.POST.get('desire_id')
     desire = Desire.objects.get(id=desire_id)
     if request.method == 'POST':
-        form = DesireForm(request.POST)
+        form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
             desire = form.save(commit=False)
             linkcoder = link_on(desire.desire_text)

@@ -27,6 +27,7 @@ def dreamer(request, dreamer_id):
     dreamer = User.objects.get(id=dreamer_id)
     desires = Desire.objects.filter(desire_user_id=dreamer_id).order_by('desire_order')
     result = []
+    height = 0
     for desire in desires:
         try:
             k = desire.determine_height_img()

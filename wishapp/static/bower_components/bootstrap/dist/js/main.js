@@ -29,19 +29,19 @@ $(function () {
     $("button.view").click(function () {
         var button = $(this);
         var id = button.attr("id");
-        var desireid = id.split("-")[1];
+        var desireid = id.split("§")[1];
         var info = $(".list-group-item");
         var form = $("div.grid");
         var block = $("#add_desire_block");
-        var text = id.split("-")[5];
-        var title = id.split("-")[7];
+        var text = id.split("§")[5];
+        var title = id.split("§")[7];
         $('#desire_title').attr('value', title);
         $('.desire_id').attr('value', desireid);
         $('#id_desire_text_for_edit').text(text);
         info.removeClass("hidden");
         block.css('display', 'none');
         form.css('display', 'none');
-        console.log(desireid);
+        console.log(id);
         console.log(title);
         console.log(text);
         console.log($('.desire_id'));

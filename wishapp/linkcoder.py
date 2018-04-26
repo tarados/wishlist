@@ -18,6 +18,8 @@ def link_on(str):
         for href in href_list:
             if re.search(r'.jpg|.png', href):
                 href_img = href
+            elif re.search(r'.jpeg', href):
+                href_img = href
             else:
                 href_link = href
     return text_desire, href_link, href_img

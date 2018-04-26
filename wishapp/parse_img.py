@@ -4,7 +4,7 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-# a = 'https://www.moyo.ua/router_intertelekom_avenor_re-500/390472.html'
+# a = 'https://modnakasta.ua/product/758154:582/?from=kosmetika-dlya-makiyazha-lica'
 
 def get_img(url):
     try:
@@ -17,14 +17,18 @@ def get_img(url):
         # print(url_domen)
         soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
+        result_meta = ''
         try:
-            meta = soup.find('meta', property="og:image")['content']
-            if meta.find('http') + 1 > 0:
-                result_meta = meta
-            else:
-                result_meta = ''
+            p = re.compile('og:image')
+            for s in soup.find_all(property=p):
+                if len(s['property']) == 8:
+                    if s['content'].find('http') + 1 > 0:
+                        result_meta = s['content']
+                    else:
+                        result_meta = url_domen + s['content']
+            # print(result_meta)
         except:
-            result_meta = ''
+            pass
 # проверяем тег а
         result_a = ''
         href = re.compile(r'\.jpg')

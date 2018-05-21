@@ -104,7 +104,12 @@ WSGI_APPLICATION = 'wishlist.wsgi.application'
 DATABASES = {'default': dj_database_url.config(default=env['DB_URL'])}
 DATABASES['default']['CONN_MAX_AGE'] = None
 
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 

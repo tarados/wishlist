@@ -197,19 +197,14 @@ div.edt{
     float: left;
 }
 .desire_title {
-    position: relative;
-    width: 250px;
-    float: left;
-    margin-top: 8px;
-    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    padding: 15px 15px 0;
 }
 .desire_date {
-    position: relative;
-    width: 135px;
-    margin-top: 3%;
     float: left;
-    padding: 0 3px;
-    color: #d2d9de;
+    padding: 15px 15px 0;
+    color: #acb8bf;
 }
 .button_del {
     width: 15px;
@@ -365,8 +360,8 @@ li a {
     margin: 15px 0 15px 0;
 }
 .desire_top {
-    position: relative;
-    height: 30px;
+    height: 45px;
+    border-bottom: 2px solid #f0f1f1;
 
 }
 .desire_button {

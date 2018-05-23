@@ -16,10 +16,10 @@ input{
   min-width: 50px;
 }
 input::-webkit-input-placeholder {
-    font-size: calc(0.3em + 1vw);
+    font-size: calc(0.3em + 0.5vw);
 }
 textarea::-webkit-input-placeholder {
-    font-size: calc(0.3em + 1vw);
+    font-size: calc(0.3em + 0.5vw);
 }
 .btn-vk{
   margin-top: 25px;

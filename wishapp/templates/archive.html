@@ -3,12 +3,12 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1 style="margin: 0 0 30px 0">Архив желаний {{ username }}:</h1>
+        <h1>Архив желаний:</h1>
         <div class="grid">
             {% for desire in desire_list %}
                 <div class="grid-item archive" id="doo-{{ desire.id }}-{{ user_id }}">
                     <div class="desire_top">
-                        <span class="desire_date">{{ desire.date|naturalday }}</span>
+                        <span>{{ desire.date|date }}</span>
                     </div>
                      <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                         {{ desire.title|safe }}

@@ -102,18 +102,6 @@ div.edt{
     border-radius: 25px;
     border: 1px solid grey;
 }
-.svl {
-    width: 30%;
-    height: 20px;
-    margin-left: 25px;
-    border-radius: 25px;
-    border: 1px solid grey;
-    background-color: white;
-    padding-top: 10px;
-    padding-bottom: 7%;
-    color: grey;
-    float: left;
-}
 .svr {
     position: relative;
     left: 0;
@@ -144,10 +132,6 @@ div.edt{
 }
 .form-group-item {
     margin-top: 5px;
-}
-.form-group-button {
-    width: 80%;
-    height: 65px;
 }
 #id_desire_title,#desire_title,#add_link_foto {
     width: 90%;

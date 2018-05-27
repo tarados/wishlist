@@ -1,0 +1,18 @@
+.svl {
+    width: 90%;
+    height: 35px;
+    padding-top: 10px;
+    border-radius: 25px;
+    border: 1px solid grey;
+    font-size: calc(0.5em + 1vw);
+    font-family: 'Noto Sans', sans-serif;
+}
+.form-group-button {
+    padding-bottom: 15px;
+}
+.authorization {
+    position: relative;
+    top: 6px;
+    font-size: calc(0.5em + 1vw);
+    font-family: 'Noto Sans', sans-serif;
+}

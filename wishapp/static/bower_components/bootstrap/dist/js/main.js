@@ -203,6 +203,10 @@ $(function () {
         onEnd: function () {
             var desire_order_list = new Array();
             var desire_order = new Object();
+            var sortcounter = new Array();
+            $('.sortcounter').each(function (index) {
+                console.log($(this).html(index + 1));
+            });
             $(".desire_title").each(function (index) {
                 var loopcounter = this.id.split('-')[1];
                 var desire_id = this.id.split('-')[3];
@@ -214,7 +218,7 @@ $(function () {
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
-            console.log(list_for_save);
+            // console.log(list_for_save);
         },
         ghostClass: "ghost"
     });

@@ -1,10 +1,10 @@
 .svl {
     width: 90%;
     height: 35px;
-    padding-top: 10px;
+    padding-top: calc(1% + 0.1vw);
     border-radius: 25px;
     border: 1px solid grey;
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(0.4em + 0.7vw);
     font-family: 'Noto Sans', sans-serif;
 }
 .form-group-button {
@@ -13,6 +13,6 @@
 .authorization {
     position: relative;
     top: 6px;
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(0.4em + 0.7vw);
     font-family: 'Noto Sans', sans-serif;
 }

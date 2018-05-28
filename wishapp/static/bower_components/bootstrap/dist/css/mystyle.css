@@ -202,9 +202,12 @@ div.edt{
     padding: 15px 15px 0;
 }
 .desire_date {
-    float: left;
+    width: 100%;
     padding: 15px 15px 0;
     color: #acb8bf;
+}
+.srt_date {
+    float: right;
 }
 .button_del {
     width: 15px;

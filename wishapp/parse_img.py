@@ -4,7 +4,7 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-a = 'https://rozetka.com.ua/acer_nx_gldeu_013/p28375961/'
+# a = 'https://rozetka.com.ua/acer_nx_gldeu_013/p28375961/'
 
 def get_img(url):
     try:
@@ -14,7 +14,7 @@ def get_img(url):
             response = requests.get(url, headers=headers)
             data = response.text
         url_domen = url.split('/')[0] + '//' + url.split('/')[2] + '/'
-        print(url_domen)
+        # print(url_domen)
         soup = BeautifulSoup(data,'html.parser')
 # проверяем тег meta
         result_meta = ''
@@ -65,9 +65,9 @@ def get_img(url):
         result_img = None
         result_a = None
 # выбираем из трех 1-2-3
-    print(result_img)
-    print(result_meta)
-    print(result_a)
+#     print(result_img)
+#     print(result_meta)
+#     print(result_a)
     result = None
     if result_meta != '':
         result = result_meta
@@ -79,7 +79,7 @@ def get_img(url):
                 result = result_a
     return result
 
-get_img(a)
+# get_img(a)
 
 
 def find_url(str):

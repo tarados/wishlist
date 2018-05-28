@@ -9,8 +9,13 @@
                 {% if desire.desire_state != 2 %}
                 <div class="sort-group-item" id="do-{{ desire.id }}-{{ user_id }}">
                     <div class="desire_attr">
-                        <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
-                        <div class="desire_date"><span class="desire_date">{{ desire.date|date:"M., d, Y" }}</span></div>
+                        <div class="desire_date">
+                            <samp class="sortcounter">{{ forloop.counter }}</samp>
+                            <span class="srt_date">{{ desire.date|date }}</span>
+                        </div>
+                        <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
+                            {{ desire.title }}
+                        </div>
                         <div class="button_del" id="desire-{{ desire.id }}">
                             <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}" style="position: absolute; top: 2%;"><img src="/static/img/delete-Icon.png" width="15px"></a>
                         </div>

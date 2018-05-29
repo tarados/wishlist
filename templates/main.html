@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=16">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=421">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=231">
 </head>
 <body>
 <div class="container general wishlist_nav">
@@ -25,21 +26,21 @@
                     <span class="icon-bar"></span>
                 </button>
       <!-- Бренд или название сайта -->
-                <a class="navbar-brand" href="#"><img src="{% static "img/logo.jpg" %}" class="round"></a>
+                <div><img src="{% static "img/logo.jpg" %}" class="round"></div>
             </div>
             <div class="collapse navbar-collapse" id="navbar-main">
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
-                        <li><a href="/dreamers/archive/{{ user_id }}/">Архив</a></li>
-                        <li><a href="/dreamers/{{ user_id }}/">Мои желания</a></li>
                         <li><a class="new_desire" href="#id_desire_title">+Добавить желание</a></li>
+                        <li><a href="/dreamers/{{ user_id }}/">Мои желания</a></li>
                         <li><a href="/dreamers/sort/{{ user_id }}/">Сортировка желаний</a></li>
+                        <li><a href="/dreamers/archive/{{ user_id }}/">Архив желаний</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% else %}
                     {% if is_choice %}
-                        <ul class="nav navbar-nav">
-                            <li><a href="/auth/logout/" style="left: 440%">Войти</a></li>
+                        <ul class="nav navbar-nav" style="float: right;margin-right: 12%">
+                            <li><a href="/auth/logout/">Войти</a></li>
                         </ul>
                     {% endif %}
                 {% endif %}
@@ -67,7 +68,7 @@
     <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
     <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=15"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=28"></script>
 
 </body>
 </html>

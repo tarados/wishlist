@@ -1,12 +1,12 @@
 h1,h2{
   text-align: center;
-  font-weight: bolder;
+  font-size: calc(0.5em + 2vw);
   font-family: 'Noto Sans', sans-serif;
   color: white;
 }
 h3 {
   text-align: center;
-  font-weight: bolder;
+  font-size: calc(0.5em + 1vw);
   font-family: 'Noto Sans', sans-serif;
   color: gray;
 }
@@ -14,6 +14,12 @@ input{
   position: relative;
   width: 100%;
   min-width: 50px;
+}
+input::-webkit-input-placeholder {
+    font-size: calc(0.3em + 0.5vw);
+}
+textarea::-webkit-input-placeholder {
+    font-size: calc(0.3em + 0.5vw);
 }
 .btn-vk{
   margin-top: 25px;
@@ -96,18 +102,6 @@ div.edt{
     border-radius: 25px;
     border: 1px solid grey;
 }
-.svl {
-    width: 30%;
-    height: 20px;
-    margin-left: 25px;
-    border-radius: 25px;
-    border: 1px solid grey;
-    background-color: white;
-    padding-top: 10px;
-    padding-bottom: 7%;
-    color: grey;
-    float: left;
-}
 .svr {
     position: relative;
     left: 0;
@@ -139,10 +133,6 @@ div.edt{
 .form-group-item {
     margin-top: 5px;
 }
-.form-group-button {
-    width: 80%;
-    height: 65px;
-}
 #id_desire_title,#desire_title,#add_link_foto {
     width: 90%;
     height: 40px;
@@ -150,6 +140,9 @@ div.edt{
     margin-bottom: 20px;
     border-radius: 25px;
     border: 1px solid grey;
+}
+#id_desire_title::input-placeholder {
+    font-size: 20px;
 }
 .form-group {
     margin: 0;
@@ -199,15 +192,22 @@ div.edt{
 .desire_title {
     width: 100%;
     text-align: center;
-    padding: 15px 15px 0;
+    overflow: auto;
+    text-overflow: ellipsis;
+    padding-bottom: 10px;
 }
 .desire_date {
-    width: 100%;
+    float: left;
     padding: 15px 15px 0;
     color: #acb8bf;
 }
-.srt_date {
+.desire_date_sort {
+    padding: 5px 10px 5px;
+    color: #acb8bf;
+}
+.srt {
     float: right;
+    margin-right: 10px;
 }
 .button_del {
     width: 15px;
@@ -273,6 +273,10 @@ background: url('icon_top.png') no-repeat;
 body,.navbar,.btn-google{
   background-color: #e74c3c;
 }
+.new_desire {
+    background-color: green;
+    border-radius: 5px;
+}
 li a {
     color: white;
     margin: 30px 0 30px 0;
@@ -283,7 +287,6 @@ li a {
 .round {
     width: 120px;
     background-color: #e74c3c;
-    border-radius: 60px; /* Радиус скругления */
 }
 /*!плейсходер в сортабле*****************************************************/
 .glyphicon-move {
@@ -310,7 +313,6 @@ li a {
     height:20px;
     text-align:center;
     border: solid 1px black;
-    background:#fff;
 }
 .menu ul{
     padding:0;
@@ -363,9 +365,9 @@ li a {
     margin: 15px 0 15px 0;
 }
 .desire_top {
-    height: 45px;
-    border-bottom: 2px solid #f0f1f1;
-
+    float: left;
+    padding: 10px 15px 5px;
+    color: #acb8bf;
 }
 .desire_button {
     padding: 0;
@@ -394,9 +396,12 @@ li a {
 .desire_description p {
     padding: 15px 15px 0 15px;
     text-align: left;
+    overflow: auto;
+    text-overflow: ellipsis;
 }
 .desire_description {
     margin-bottom: 30px;
+
 }
 /********************************************************************************************************************/
 .navbar-brand {
@@ -408,7 +413,10 @@ li a {
 }
 .logout {
     position: relative;
-    left: 45%;
+    left: 37%;
+}
+.navbar-header{
+    margin-top: 15px;
 }
 /*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px){

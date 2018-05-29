@@ -203,7 +203,10 @@ $(function () {
         onEnd: function () {
             var desire_order_list = new Array();
             var desire_order = new Object();
-            var counter = new  Array();
+            var sortcounter = new Array();
+            $('.sortcounter').each(function (index) {
+                console.log($(this).html(index + 1));
+            });
             $(".desire_title").each(function (index) {
                 var loopcounter = this.id.split('-')[1];
                 var desire_id = this.id.split('-')[3];
@@ -212,8 +215,6 @@ $(function () {
                     "loopcounter": index + 1
                 };
                 desire_order_list.push(desire_order);
-
-                console.log($(this).attr('class'));
             });
             list_for_save = JSON.stringify(desire_order_list);
             $.post('/order/', {"a": list_for_save});
@@ -221,6 +222,8 @@ $(function () {
         },
         ghostClass: "ghost"
     });
+// button login for guest********************************************************************************************
+
 });
 
 

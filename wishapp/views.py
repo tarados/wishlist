@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -190,7 +190,11 @@ def archive(request, user_id):
     username = user.username
     user_id = user.id
     is_owner = True
-    return render_to_response('archive.html', locals())
+    if username:
+        return render_to_response('archive.html', locals())
+    else:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+
 
 
 # модуль удаления желаний из архива
@@ -254,4 +258,7 @@ def sort(request, user_id):
     username = user.username
     user_id = user.id
     is_owner = True
-    return render_to_response('sort.html', locals())
+    if username:
+        return render_to_response('sort.html', locals())
+    else:
+        return HttpResponseNotFound('<h1>Page not found</h1>')

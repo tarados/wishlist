@@ -3,7 +3,7 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1>Список желаний:</h1>
+        <h1>Список желаний: {{ dreamer }}</h1>
         <div class="grid js-masonry">
             {% for desire in desire_list %}
                 <div class="grid-item">

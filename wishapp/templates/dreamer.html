@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load staticfiles %}
 {% load humanize %}
 
 {% block dreamerslist %}
@@ -87,6 +88,7 @@
             <button type="submit" class="sv" value="">Сохранить</button>
         </form>
     </div>
+    <script src="{% static "bower_components/bootstrap/dist/js/masonry_reload.js" %}"></script>
 {% endblock %}
 
 

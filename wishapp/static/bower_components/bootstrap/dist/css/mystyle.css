@@ -418,6 +418,10 @@ li a {
 .navbar-header{
     margin-top: 15px;
 }
+.navbar-header div {
+    position: relative;
+    top: 22px;
+}
 /*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px){
     .grid,.sort-group {

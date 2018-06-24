@@ -85,8 +85,11 @@ $(function () {
             var $grid = $('.grid').masonry( masonryOptions );
             $grid.masonry('reloadItems');
         });
-
     });
+    $(window).load(function() {
+            var $grid = $('.grid').masonry( masonryOptions );
+            $grid.masonry('reloadItems');
+        });
 // modal for sort*********************************************************************************************************
     var des_id = null;
     var user_id = null;

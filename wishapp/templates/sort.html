@@ -9,13 +9,14 @@
                 {% if desire.desire_state != 2 %}
                 <div class="sort-group-item" id="do-{{ desire.id }}-{{ user_id }}">
                     <div class="desire_date_sort">
-                        <span class="sortcounter">{{ forloop.counter }}</span>
+                        <span class="sortcounter">{{ forloop.counter }}. </span>
                         <span class="srt">{{ desire.date|date }}</span>
+                        <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
                     </div>
+{#                    <div class="button_del" id="desire-{{ desire.id }}">#}
+{#                        <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>#}
+{#                    </div>#}
                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
-                    <div class="button_del" id="desire-{{ desire.id }}">
-                        <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}" style="position: absolute; top: 2%;"><img src="/static/img/delete-Icon.png" width="15px"></a>
-                    </div>
                 </div>
                 {% endif %}
             {% endfor %}

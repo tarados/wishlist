@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load socialaccount %}
 
 {% block dreamerslist %}
     <div class="form-group" id="add_desire_block" style="padding-top: 5px">
@@ -18,5 +19,6 @@
                 <a class="authorization" href="/auth/register/?master_id={{ master }}">Регистрация</a>
             </div>
         </form>
+        <a href="{% provider_login_url "vk" method="oauth2" %}"> Войти через VK </a>
     </div>
 {% endblock %}

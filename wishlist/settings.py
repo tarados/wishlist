@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.instagram',
     'allauth.socialaccount.providers.odnoklassniki',
     'allauth.socialaccount.providers.twitter',
-    'spec.providers.vk',
+    'allauth.socialaccount.providers.vk',
     'loginsys',
 ]
 

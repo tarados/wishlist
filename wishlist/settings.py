@@ -41,14 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.sites',
     'wishapp',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.odnoklassniki',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.vk',
     'loginsys',
 ]
 
@@ -87,8 +79,6 @@ AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 SITE_ID = 1

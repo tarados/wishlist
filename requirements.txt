@@ -2,6 +2,5 @@ beautifulsoup4==4.5.3
 Django==1.11.5
 envdir==0.7
 dj-database-url==0.4.2
-django-allauth==0.33.0
 Pillow==5.0.0
 requests==2.18.4

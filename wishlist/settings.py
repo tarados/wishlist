@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'wishapp',
     'loginsys',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.vk',
 ]
 
 
@@ -76,9 +80,8 @@ TEMPLATES = [
 
 
 AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 SITE_ID = 1
@@ -97,14 +100,6 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 DATABASES = {'default': dj_database_url.config(default=env['DB_URL'])}
 DATABASES['default']['CONN_MAX_AGE'] = None
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'db.sqlite3',
-#     }
-# }
-# Password validation
-# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

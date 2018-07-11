@@ -28,6 +28,14 @@ def login(request):
     else:
         return render_to_response('dreamers.html', arg)
 
+def login_vk(request):
+    arg = {}
+    arg['user_id'] = auth.get_user(request).id
+    if arg['user_id']:
+        return redirect('/dreamers/%d/' % arg['user_id'])
+    print(arg)
+    return redirect('/')
+
 
 def logout(request):
     auth.logout(request)

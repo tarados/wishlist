@@ -33,7 +33,6 @@ def login_vk(request):
     arg['user_id'] = auth.get_user(request).id
     if arg['user_id']:
         return redirect('/dreamers/%d/' % arg['user_id'])
-    print(arg)
     return redirect('/')
 
 

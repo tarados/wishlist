@@ -6,6 +6,15 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 
+class Desirelist(models.Model):
+    class Meta:
+        db_table = 'desirelist'
+
+    desirelist_name = models.TextField()
+    desirelist_user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+
 class Desire(models.Model):
     class Meta:
         db_table = 'desire'
@@ -19,6 +28,7 @@ class Desire(models.Model):
     desire_img = models.TextField(null=True)
     desire_title = models.CharField(null=True, max_length=250)
     desire_photo = models.ImageField(upload_to='uploads', null=True, blank=True)
+    desire_desirelist = models.ForeignKey(Desirelist, models.SET_NULL, blank=True, null=True,)
 
     def fetch_remote_img(self, url):
         result = requests.get(url)
@@ -36,3 +46,4 @@ class Desire(models.Model):
         w = Desire.objects.get(id=self.id).desire_photo.width
         image_factor = h / w
         return image_factor
+

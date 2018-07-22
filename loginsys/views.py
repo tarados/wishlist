@@ -19,9 +19,9 @@ def login(request):
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
-                return redirect('/dreamers/%d/' % int(master_id))
+                return redirect('/desirelist/%d/' % int(master_id))
             else:
-                return redirect('/dreamers/%d/' % arg['user_id'])
+                return redirect('/desirelist/%d/' % arg['user_id'])
         else:
             arg['password_error'] = '1'
             return render_to_response('dreamers.html', arg)
@@ -32,7 +32,7 @@ def login_vk(request):
     arg = {}
     arg['user_id'] = auth.get_user(request).id
     if arg['user_id']:
-        return redirect('/dreamers/%d/' % arg['user_id'])
+        return redirect('/desirelist/%d/' % arg['user_id'])
     return redirect('/')
 
 

@@ -1,4 +1,5 @@
 $(function () {
+    console.log(block);
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');

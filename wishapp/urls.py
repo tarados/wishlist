@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^order/$', views.order),
     url(r'^dreamers/sort/(?P<user_id>\d+)/$', views.sort),
     url(r'^dreamers/(?P<dreamer_id>\d+)/$', views.dreamer, name='dreamer'),
+    url(r'^desirelist/(?P<dreamer_id>\d+)/$', views.desirelist, name='desirelist'),
     url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/$', views.adddesire, name='adddesire'),
     url(r'^dreamers/deldesire/(?P<dreamer_id>\d+)/$', views.deldesire, name='deldesire'),
     url(r'^dreamers/editdesire/$', views.editdesire, name='editdesire'),

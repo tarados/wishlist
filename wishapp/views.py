@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
-from wishapp.models import Desire
+from wishapp.models import Desire, Desirelist
 from wishapp.forms import DesireForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
@@ -19,6 +19,10 @@ def dreamers(request):
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
 
+def desirelist(request, dreamer_id):
+    is_ownerlist = True
+    desirelists = Desirelist.objects.filter(desirelist_user=dreamer_id)
+    return render_to_response('desirelist.html', locals())
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):

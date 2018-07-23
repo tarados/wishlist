@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire, Desirelist
-from wishapp.forms import DesireForm
+from wishapp.forms import DesireForm, DesireListForm
 from django.contrib import auth
 from wishapp.linkcoder import link_on
 from wishapp.parse_img import get_img, find_url, get_url
@@ -21,8 +21,25 @@ def dreamers(request):
 
 def desirelist(request, dreamer_id):
     is_ownerlist = True
-    desirelists = Desirelist.objects.filter(desirelist_user=dreamer_id)
+    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
+    list_count = desirelists.count
+    user = auth.get_user(request)
     return render_to_response('desirelist.html', locals())
+
+
+@csrf_exempt
+def adddesirelist(request, dreamer_id):
+    is_ownerlist = True
+    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
+    list_count = desirelists.count
+    user = auth.get_user(request)
+    form = DesireListForm(request.POST)
+    if form.is_valid:
+        desirelist = form.save(commit=False)
+        desirelist.desirelist_user_id = dreamer_id
+        form.save()
+    return render_to_response('desirelist.html', locals())
+
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 def dreamer(request, dreamer_id):

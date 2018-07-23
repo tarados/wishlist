@@ -37,8 +37,8 @@
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_ownerlist %}
-                     <ul class="nav navbar-nav">
-                        <li><a class="new_desire" href="#id_desire_title">+Добавить желание</a></li>
+                    <ul class="nav navbar-nav">
+                        <li><a class="new_desirelist" href="#id_desirelist_name">+Add desirelist</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% endif %}
@@ -66,7 +66,7 @@
     <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
     <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
     <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=22"></script>
+    <script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=3"></script>
 
 </body>
 </html>

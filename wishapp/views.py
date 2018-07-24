@@ -34,19 +34,22 @@ def adddesirelist(request, dreamer_id):
     list_count = desirelists.count
     user = auth.get_user(request)
     form = DesireListForm(request.POST)
-    if form.is_valid:
+    if form.is_valid():
         desirelist = form.save(commit=False)
         desirelist.desirelist_user_id = dreamer_id
         form.save()
+    else:
+        return redirect('/desirelist/%d/' % int(dreamer_id))
     return render_to_response('desirelist.html', locals())
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
-def dreamer(request, dreamer_id):
+def dreamer(request, dreamer_id, desirelist_id):
     arg = {}
     arg.update(csrf(request))
     dreamer = User.objects.get(id=dreamer_id)
-    desires = Desire.objects.filter(desire_user_id=dreamer_id).order_by('desire_order')
+    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
+    desirelist = Desirelist.objects.get(id=desirelist_id)
     result = []
     height = 0
     for desire in desires:
@@ -90,8 +93,9 @@ def dreamer(request, dreamer_id):
 
 # модуль добавления желаний
 @csrf_exempt
-def adddesire(request, dreamer_id):
-    desire_id = request.POST.get('desire_id')
+def adddesire(request, dreamer_id, desirelist_id):
+    print(request.POST)
+    # desire_id = request.POST.get('desire_id')
     if request.method == 'GET':
         form = DesireForm()
     if request.method == 'POST':
@@ -105,15 +109,16 @@ def adddesire(request, dreamer_id):
                 desire.desire_img = get_img(linkcoder[1])
             desire.desire_user = User.objects.get(id=dreamer_id)
             desire.desire_date = datetime.datetime.now()
+            desire.desire_desirelist_id = desirelist_id
             form.save()
             try:
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s' % dreamer_id)
+            return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
         else:
-            return redirect('/dreamers/%s' % dreamer_id)
-    return redirect('/dreamers/%s' % dreamer_id)
+            return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
+    return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
 
 
 # модуль удаления желаний
@@ -131,6 +136,7 @@ def deldesire(request, dreamer_id):
 def editdesire(request):
     dreamer_id = request.POST.get('dreamer_id')
     desire_id = request.POST.get('desire_id')
+    desirelist_id = request.POST.get('desirelist_id')
     desire = Desire.objects.get(id=desire_id)
     if request.method == 'POST':
         form = DesireForm(request.POST, instance=desire)
@@ -148,9 +154,9 @@ def editdesire(request):
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s' % dreamer_id)
+            return redirect('/dreamers/%s/%s/' % (dreamer_id, desirelist_id))
         else:
-            return redirect('/dreamers/%s' % dreamer_id)
+            return redirect('/dreamers/%s/%s/' %(dreamer_id, desirelist_id))
     return render_to_response('edit.html', locals())
 
 

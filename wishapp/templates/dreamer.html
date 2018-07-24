@@ -4,7 +4,7 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1>Список желаний: {{ dreamer }}</h1>
+        <h1>Список желаний  {{ desirelist.desirelist_name }}</h1>
         <div class="grid js-masonry">
             {% for desire in desire_list %}
                 <div class="grid-item">
@@ -56,8 +56,8 @@
     </div>
     {% if is_owner %}
         <div class="form-group hidden" id="add_desire_block">
-            <form action="{% url 'adddesire' dreamer.id %}" class="button" method="post" >{% csrf_token %}
-                <div class="profile_title"><h3>Добавьте Ваше желание</h3></div>
+            <form action="{% url 'adddesire' dreamer_id desirelist_id %}" class="button" method="post" >{% csrf_token %}
+                <div class="profile_title"><h3>Добавьте Ваше желание{{ desirelist_id }}</h3></div>
                 <div class="form-group-item">
                     <input type="text" name="desire_title" maxlength="250" id="id_desire_title" placeholder="Введите краткое имя желания">
                 </div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group-item">
                     <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                    <input type="hidden" name="desire_id"  value={{ desire.id }}>
+                    <input type="hidden" name="desirelist_id"  value= 1>
                 </div>
                 <button type="submit" class="add_desire" value="">Добавить</button>
             </form>
@@ -84,6 +84,7 @@
             <div class="form-group">
                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                 <input class="desire_id" type="hidden" name="desire_id" value="">
+                <input class="desirelist_id" type="hidden" name="desirelist_id" value={{ desirelist_id }}>
             </div>
             <button type="submit" class="sv" value="">Сохранить</button>
         </form>

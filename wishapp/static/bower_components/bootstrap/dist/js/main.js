@@ -1,5 +1,4 @@
 $(function () {
-    console.log(block);
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
@@ -76,12 +75,11 @@ $(function () {
         }
     });
     $('.new_desire').click(function () {
-            var block = $("#add_desire_block");
-            var form = $("div.grid");
-            block.removeClass('hidden');
-            form.css('display', 'none');
-        });
-    $('new_desire').click(function () {
+        console.log('sdg');
+        var block = $("#add_desire_block");
+        var form = $("div.grid");
+        block.removeClass('hidden');
+        form.css('display', 'none');
         $(window).load(function() {
             var $grid = $('.grid').masonry( masonryOptions );
             $grid.masonry('reloadItems');

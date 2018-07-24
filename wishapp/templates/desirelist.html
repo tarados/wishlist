@@ -18,8 +18,8 @@
             <button type="submit" class="add_desirelist" value="">Добавить</button>
         </form>
         {% for desirelist in desirelists %}
-            <div>
-                <a href="#">{{ desirelist.desirelist_name }}</a>
+            <div class="form-group">
+                <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">{{ desirelist.desirelist_name }}</a>
             </div>
         {% endfor %}
       </div>

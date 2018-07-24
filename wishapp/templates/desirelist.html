@@ -5,7 +5,7 @@
         <h1>dreamer_id: {{ dreamer_id }}</h1>
         <h1>user: {{ user }}</h1>
         <h1>list_count: {{ list_count }}</h1>
-        <div class="form-group" id="add_desirelist_block">
+        <div class="form-group hidden" id="add_desirelist_block">
         <form action="{% url 'adddesirelist' dreamer_id %}" class="button" method="post">{% csrf_token %}
             <div class="profile_title"><h3>Cоздайте Ваш список желаний</h3></div>
             <div class="form-group-item">
@@ -17,11 +17,11 @@
             </div>
             <button type="submit" class="add_desirelist" value="">Добавить</button>
         </form>
-        {% for desirelist in desirelists %}
+      </div>
+       {% for desirelist in desirelists %}
             <div class="form-group">
                 <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">{{ desirelist.desirelist_name }}</a>
             </div>
         {% endfor %}
-      </div>
       </div>
 {% endblock %}

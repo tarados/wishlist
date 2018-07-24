@@ -1,4 +1,11 @@
 $(function () {
+    $('.new_desirelist').click(function () {
+        var block = $('#add_desirelist_block');
+        block.removeClass('hidden');
+        console.log(block);
+    });
+
+
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
@@ -41,10 +48,6 @@ $(function () {
         info.removeClass("hidden");
         block.css('display', 'none');
         form.css('display', 'none');
-        console.log(id);
-        console.log(title);
-        console.log(text);
-        console.log($('.desire_id'));
     });
     $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];

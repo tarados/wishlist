@@ -181,15 +181,20 @@ def backupdesire(request):
     desire_id = request.POST.get('backupdesire', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     obj = Desire.objects.get(id=desire_id)
+    desirelist_id = obj.desire_desirelist_id
     obj.desire_state = 2
     obj.save()
-    print(obj)
-    return redirect('/dreamers/%s' % dreamer_id)
+    return redirect('/dreamers/%s/%s/' % (dreamer_id, desirelist_id))
 
 
 # страница архива
 @csrf_exempt
-def archive(request, user_id):
+def archive(request, dreamer_id, desirelist_id):
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
+    dreamer_id = user_id
+    is_owner = True
     arg = {}
     desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
     result = []
@@ -216,11 +221,6 @@ def archive(request, user_id):
         else:
             pass
     desire_list = result
-    user = auth.get_user(request)
-    username = user.username
-    user_id = user.id
-    dreamer_id = user_id
-    is_owner = True
     if username:
         return render_to_response('archive.html', locals())
     else:

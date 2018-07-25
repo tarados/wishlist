@@ -176,11 +176,13 @@ def selectdesire(request):
 # модуль архивирования желаний
 @csrf_exempt
 def backupdesire(request):
+    print(request.POST)
     desire_id = request.POST.get('backupdesire', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     obj = Desire.objects.get(id=desire_id)
     obj.desire_state = 2
     obj.save()
+    print(obj)
     return redirect('/dreamers/%s' % dreamer_id)
 
 
@@ -216,6 +218,7 @@ def archive(request, user_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
+    dreamer_id = user_id
     is_owner = True
     if username:
         return render_to_response('archive.html', locals())
@@ -284,6 +287,7 @@ def sort(request, user_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
+    dreamer_id = user_id
     is_owner = True
     if username:
         return render_to_response('sort.html', locals())

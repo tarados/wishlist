@@ -73,6 +73,7 @@ def dreamer(request, dreamer_id, desirelist_id):
                 'desire_state': desire.desire_state,
                 'desire_image': desire.desire_img,
                 'desire_photo': desire.desire_photo,
+                'desirelist_id': desire.desire_desirelist_id,
                 'order_user_name': order_user_name,
                 'heigth_img': height
             }
@@ -268,7 +269,13 @@ def order(request):
     return HttpResponse('')
 
 
-def sort(request, user_id):
+def sort(request, dreamer_id, desirelist_id):
+    user = auth.get_user(request)
+    username = user.username
+    user_id = user.id
+    dreamer_id = user_id
+    is_ownersort = True
+    print(request.POST)
     arg = {}
     desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
     result = []
@@ -281,15 +288,11 @@ def sort(request, user_id):
             'image': desire.desire_img,
             'date': desire.desire_date,
             'desire_state': desire.desire_state,
+            'desirelist_id': desire.desire_desirelist_id
         }
         result.append(obj)
     desire_list = result
-    user = auth.get_user(request)
-    username = user.username
-    user_id = user.id
-    dreamer_id = user_id
-    is_owner = True
     if username:
         return render_to_response('sort.html', locals())
     else:
-        return HttpResponseNotFound('<h1>Page not found</h1>')
+        return HttpResponseNotFound('<h1>Page not found!!!</h1>')

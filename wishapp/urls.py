@@ -5,7 +5,7 @@ from wishapp import views
 urlpatterns = [
     url(r'^dreamers/all/$', views.dreamers),
     url(r'^order/$', views.order),
-    url(r'^dreamers/sort/(?P<user_id>\d+)/$', views.sort),
+    url(r'^dreamers/sort/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.sort),
     url(r'^dreamers/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.dreamer, name='dreamer'),
     url(r'^desirelist/(?P<dreamer_id>\d+)/$', views.desirelist, name='desirelist'),
     url(r'^adddesirelist/(?P<dreamer_id>\d+)/$', views.adddesirelist, name='adddesirelist'),

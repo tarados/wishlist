@@ -194,7 +194,7 @@ def archive(request, dreamer_id, desirelist_id):
     username = user.username
     user_id = user.id
     dreamer_id = user_id
-    is_owner = True
+    is_ownersort = True
     arg = {}
     desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
     result = []
@@ -214,6 +214,7 @@ def archive(request, dreamer_id, desirelist_id):
                 'image': desire.desire_img,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
+                'desirelist_id': desire.desire_desirelist_id,
                 'order_user_id': desire.desire_order_user_id,
                 'order_user_name': order_username
             }
@@ -275,7 +276,6 @@ def sort(request, dreamer_id, desirelist_id):
     user_id = user.id
     dreamer_id = user_id
     is_ownersort = True
-    print(request.POST)
     arg = {}
     desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
     result = []

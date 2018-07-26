@@ -196,7 +196,7 @@ def archive(request, dreamer_id, desirelist_id):
     dreamer_id = user_id
     is_ownersort = True
     arg = {}
-    desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
+    desires = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
     for desire in desires:
         if desire.desire_state == 2:

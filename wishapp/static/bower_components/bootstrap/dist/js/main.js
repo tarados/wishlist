@@ -1,7 +1,11 @@
 $(function () {
     $('.new_desirelist').click(function () {
         var block = $('#add_desirelist_block');
+        var nv = $('.navbar-nav');
+        var list = $('.listdes');
+        nv.addClass('collapse');
         block.removeClass('hidden');
+        list.addClass('hidden');
     });
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");

@@ -2,10 +2,7 @@ $(function () {
     $('.new_desirelist').click(function () {
         var block = $('#add_desirelist_block');
         block.removeClass('hidden');
-        console.log(block);
     });
-
-
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
@@ -200,32 +197,33 @@ $(function () {
         block.css('display', 'none');
         console.log(user_id, ' ', desire_id);
     });
-//**************************************************************************************************************;
-    Sortable.create(simpleList, {
-        onEnd: function () {
-            var desire_order_list = new Array();
-            var desire_order = new Object();
-            var sortcounter = new Array();
-            $('.sortcounter').each(function (index) {
-                console.log($(this).html(index + 1));
-            });
-            $(".desire_title").each(function (index) {
-                var loopcounter = this.id.split('-')[1];
-                var desire_id = this.id.split('-')[3];
-                desire_order = {
-                    "desire_id": desire_id,
-                    "loopcounter": index + 1
-                };
-                desire_order_list.push(desire_order);
-            });
-            list_for_save = JSON.stringify(desire_order_list);
-            $.post('/order/', {"a": list_for_save});
-            // console.log(list_for_save);
-        },
-        ghostClass: "ghost"
-    });
-// button login for guest********************************************************************************************
 
+//**************************************************************************************************************;
+    if ($('#simpleList')[0] != undefined) {
+        var sor = $('#simpleList')[0];
+        Sortable.create(simpleList, {
+            onEnd: function () {
+                var desire_order_list = new Array();
+                var desire_order = new Object();
+                var sortcounter = new Array();
+                $('.sortcounter').each(function (index) {
+                    console.log($(this).html(index + 1));
+                });
+                $(".desire_title").each(function (index) {
+                    var loopcounter = this.id.split('-')[1];
+                    var desire_id = this.id.split('-')[3];
+                    desire_order = {
+                        "desire_id": desire_id,
+                        "loopcounter": index + 1
+                    };
+                    desire_order_list.push(desire_order);
+                });
+                list_for_save = JSON.stringify(desire_order_list);
+                $.post('/order/', {"a": list_for_save});
+            },
+            ghostClass: "ghost"
+        });
+    };
 });
 
 

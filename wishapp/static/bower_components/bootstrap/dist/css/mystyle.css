@@ -516,4 +516,30 @@ li a {
 	cursor:pointer;
 	display:none;
 }
+#add_desirelist_block {
+    margin-top: 20px;
+}
 
+.add_desirelist_form {
+    width: 250px;
+    margin: 0 auto 0 auto;
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: white;
+}
+.add_desirelist_form_input {
+    width: 90%;
+    height: 40px;
+    left: 13px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+.add_desirelist_form_button {
+    min-width: 110px;
+    height: 40px;
+    margin: 20px 0 20px 67px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    background-color: white;
+}

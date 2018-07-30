@@ -543,3 +543,11 @@ li a {
     border-radius: 25px;
     background-color: white;
 }
+.listdes {
+    width: 250px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    /*background-color: gold;*/
+    padding: 50px;
+    /*background-image: url(/wishapp/static/img/1.png);*/
+}

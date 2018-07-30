@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^dreamers/delarchive/(?P<user_id>\d+)/$', views.delarchive, name='delarchive'),
     url(r'^dreamers/returnfromarchive/(?P<user_id>\d+)/$', views.returnfromarchive, name='returnfromarchive'),
     url(r'^dreamers/del_sort_desire/(?P<user_id>\d+)/$', views.del_sort_desire, name='del_sort_desire'),
+    url(r'^dreamers/desirelist_del/(?P<user_id>\d+)/$', views.deldesirelist, name='deldesirelist'),
     url(r'^uploads/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^$', views.dreamers),
 ]

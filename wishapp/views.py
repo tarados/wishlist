@@ -132,6 +132,18 @@ def deldesire(request, dreamer_id):
     return redirect('/dreamers/%s' % dreamer_id)
 
 
+@csrf_exempt
+def deldesirelist(request, user_id):
+    print(request.POST)
+    dreamer_id = user_id
+    if request.POST:
+        desirelist_id = request.POST['deldesirelist']
+        derise = Desire.objects.get(desire_desirelist_id=desirelist_id)
+        print(derise)
+        # derise.delete()
+    return render_to_response('desirelist.html', locals())
+
+
 # модуль редактирования желаний
 @csrf_exempt
 def editdesire(request):

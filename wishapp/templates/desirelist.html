@@ -1,24 +1,30 @@
 {% extends 'main.html' %}
 {% load socialaccount %}
+{% load staticfiles %}
 {% block dreamerslist %}
       <div class="container general">
-        <div class="desire-group-sort hidden" id="add_desirelist_block">
-        <form action="{% url 'adddesirelist' dreamer_id %}" class="button add_desirelist_form" method="post">{% csrf_token %}
-            <div class="profile_title"><h3>Cоздайте Ваш список желаний</h3></div>
-            <div class="form-group-item">
-                <input type="text"  class= 'add_desirelist_form_input' name="desirelist_name" maxlength="250" placeholder="Введите краткое имя для списка">
-            </div>
-            <div class="form-group-item">
+          <div class="desire-group-sort hidden" id="add_desirelist_block">
+            <form action="{% url 'adddesirelist' dreamer_id %}" class="button add_desirelist_form" method="post">{% csrf_token %}
+                <div class="profile_title"><h3>Cоздайте Ваш список желаний</h3></div>
+                <div class="form-group-item">
+                    <input type="text"  class= 'add_desirelist_form_input' name="desirelist_name" maxlength="250" placeholder="Введите краткое имя для списка">
+                </div>
+                <div class="form-group-item">
 {#                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>#}
 {#                <input type="hidden" name="desire_id"  value={{ desire.id }}>#}
-            </div>
-            <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
-        </form>
-      </div>
-       {% for desirelist in desirelists %}
-            <div class="form-group listdes">
-                <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">{{ desirelist.desirelist_name }}</a>
-            </div>
-        {% endfor %}
+                </div>
+                <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
+            </form>
+        </div>
+          <div class="grid js-masonry">
+              {% for desirelist in desirelists %}
+                  <div class="grid-item listdes" style="background-image: url({% static "img/1.png" %})">
+                      <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">
+                          <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                          {{ desirelist.desirelist_name }}
+                      </a>
+                  </div>
+              {% endfor %}
+          </div>
       </div>
 {% endblock %}

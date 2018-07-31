@@ -109,7 +109,7 @@ $(function () {
         desire_for_delete = {
             "deldesire": des_id
         };
-        obj_for_save = JSON.stringify(desire_for_delete);
+        // obj_for_save = JSON.stringify(desire_for_delete);
         $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete);
         var block = $('#do-' + des_id + '-' + user_id);
         block.css('display', 'none');
@@ -139,55 +139,104 @@ $(function () {
     			}
     		);
     });
-// // modal for arc********************************************************************************************************
-    var des_id = null
-    var user_id = null
-    $('button.del_from_arch').click( function(event){
-        event.preventDefault();
-        $('#overlay').fadeIn(400,
-            function(){
-                $('#modal_form')
-                    .css('display', 'block')
-                    .animate({opacity: 1, top: '50%'}, 200);
-        });
-        des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
-    });
-    $('.modal_yes').click(function () {
-        var desire_for_delete = new Object();
-        desire_for_delete = {
-            "deldesire": des_id
-        };
-        obj_for_save = JSON.stringify(desire_for_delete);
-        $.post('/dreamers/delarchive/' + user_id + '/', desire_for_delete);
-        var block = $('#doo-' + des_id + '-' + user_id);
-        block.css('display', 'none');
-        $('#modal_form')
-            .animate({opacity: 0, top: '45%'}, 200,
-                function(){
-                    $(this).css('display', 'none');
-                    $('#overlay').fadeOut(400);
-                }
-            );
-    });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
-    $('.modal_no').click(function () {
-        $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
+// modal for arc********************************************************************************************************
+//     var des_id = null
+//     var user_id = null
+//     $('button.del_from_arch').click( function(event){
+//         event.preventDefault();
+//         $('#overlay').fadeIn(400,
+//             function(){
+//                 $('#modal_form')
+//                     .css('display', 'block')
+//                     .animate({opacity: 1, top: '50%'}, 200);
+//         });
+//         des_id = this.id.split('-')[1];
+//         user_id = this.id.split('-')[2];
+//     });
+//     $('.modal_yes').click(function () {
+//         var desire_for_delete = new Object();
+//         desire_for_delete = {
+//             "deldesire": des_id
+//         };
+//         obj_for_save = JSON.stringify(desire_for_delete);
+//         $.post('/dreamers/delarchive/' + user_id + '/', desire_for_delete);
+//         var block = $('#doo-' + des_id + '-' + user_id);
+//         block.css('display', 'none');
+//         $('#modal_form')
+//             .animate({opacity: 0, top: '45%'}, 200,
+//                 function(){
+//                     $(this).css('display', 'none');
+//                     $('#overlay').fadeOut(400);
+//                 }
+//             );
+//     });
+//     $('#modal_close, #overlay').click( function(){
+//     	$('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
+//     $('.modal_no').click(function () {
+//         $('#modal_form')
+//     		.animate({opacity: 0, top: '45%'}, 200,
+//     			function(){
+//     				$(this).css('display', 'none');
+//     				$('#overlay').fadeOut(400);
+//     			}
+//     		);
+//     });
+        // modal for desirelist*********************************************************************************************************
+    // var deslist_id = null;
+    // var user_id = null;
+    // $('a.go1').click( function(event){
+    //     event.preventDefault();
+    //     $('#overlay').fadeIn(400,
+    //         function(){
+    //             $('#modal_form')
+    //                 .css('display', 'block')
+    //                 .animate({opacity: 1, top: '50%'}, 200);
+    //     });
+    //     deslist_id = this.id.split('-')[1];
+    //     user_id = this.id.split('-')[2];
+    // });
+    // $('.modal_yes').click(function () {
+    //     var desirelist_for_delete = new Object();
+    //     desirelist_for_delete = {
+    //         "deldesirelist": deslist_id
+    //     };
+    //     console.log(desirelist_for_delete);
+    //     $.post('/dreamers/deldesirelist/' + user_id + '/', desirelist_for_delete);
+    //     var block = $('#do-' + deslist_id + '-' + user_id);
+    //     block.css('display', 'none');
+    //     $('#modal_form')
+    //         .animate({opacity: 0, top: '45%'}, 200,
+    //             function(){
+    //                 $(this).css('display', 'none');
+    //                 $('#overlay').fadeOut(400);
+    //             }
+    //         );
+    // });
+    // $('#modal_close, #overlay').click( function(){
+    // 	$('#modal_form')
+    // 		.animate({opacity: 0, top: '45%'}, 200,
+    // 			function(){
+    // 				$(this).css('display', 'none');
+    // 				$('#overlay').fadeOut(400);
+    // 			}
+    // 		);
+    // });
+    // $('.modal_no').click(function () {
+    //     $('#modal_form')
+    // 		.animate({opacity: 0, top: '45%'}, 200,
+    // 			function(){
+    // 				$(this).css('display', 'none');
+    // 				$('#overlay').fadeOut(400);
+    // 			}
+    // 		);
+    // });
 // return from archive****************************************************************************************
     $('.return_from_arch').click(function () {
         var desireforreturn = new Object();
@@ -199,7 +248,6 @@ $(function () {
         $.post('/dreamers/returnfromarchive/' + user_id + '/', desireforreturn);
         var block = $('#doo-' + desire_id + '-' + user_id);
         block.css('display', 'none');
-        console.log(user_id, ' ', desire_id);
     });
 
 //**************************************************************************************************************;
@@ -228,56 +276,7 @@ $(function () {
             ghostClass: "ghost"
         });
     };
-    // modal for desirelist*********************************************************************************************************
-    var des_id = null;
-    var user_id = null;
-    $('a.go1').click( function(event){
-        event.preventDefault();
-        $('#overlay').fadeIn(400,
-            function(){
-                $('#modal_form')
-                    .css('display', 'block')
-                    .animate({opacity: 1, top: '50%'}, 200);
-        });
-        des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
-    });
-    $('.modal_yes').click(function () {
-        var desirelist_for_delete = new Object();
-        desirelist_for_delete = {
-            "deldesirelist": des_id
-        };
-        console.log('fdhsfd0');
-        obj_for_save = JSON.stringify(desirelist_for_delete);
-        $.post('/dreamers/desirelist_del/' + user_id + '/', desirelist_for_delete);
-        var block = $('#do-' + des_id + '-' + user_id);
-        block.css('display', 'none');
-        $('#modal_form')
-            .animate({opacity: 0, top: '45%'}, 200,
-                function(){
-                    $(this).css('display', 'none');
-                    $('#overlay').fadeOut(400);
-                }
-            );
-    });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
-    $('.modal_no').click(function () {
-        $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
-    });
+
 });
 
 

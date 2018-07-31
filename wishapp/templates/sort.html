@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 {% load humanize %}
 
-{% block dreamerslist %}
+{% block sortlist %}
     <div class="container general sort_desire">
         <h1>Сортировка желаний:</h1>
         <div class="sort-group" id="simpleList">
@@ -11,7 +11,7 @@
                     <div class="desire_date_sort">
                         <span class="sortcounter">{{ forloop.counter }}. </span>
                         <span class="srt">{{ desire.date|date }}</span>
-                        <a href="#" class="go" id="go-{{ desire.id }}-{{ user_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                        <a href="/" class="go" id="go-{{ desire.id }}-{{ user_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
                     </div>
                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
                 </div>

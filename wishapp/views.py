@@ -95,8 +95,6 @@ def dreamer(request, dreamer_id, desirelist_id):
 # модуль добавления желаний
 @csrf_exempt
 def adddesire(request, dreamer_id, desirelist_id):
-    print(request.POST)
-    # desire_id = request.POST.get('desire_id')
     if request.method == 'GET':
         form = DesireForm()
     if request.method == 'POST':
@@ -138,10 +136,12 @@ def deldesirelist(request, user_id):
     dreamer_id = user_id
     if request.POST:
         desirelist_id = request.POST['deldesirelist']
-        derise = Desire.objects.get(desire_desirelist_id=desirelist_id)
-        print(derise)
-        # derise.delete()
-    return render_to_response('desirelist.html', locals())
+        derises = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id)
+        for desire in derises:
+            desire.delete()
+        desirelist = Desirelist.objects.get(id=desirelist_id)
+        desirelist.delete()
+    return redirect('desirelist/%s' % dreamer_id)
 
 
 # модуль редактирования желаний
@@ -189,7 +189,6 @@ def selectdesire(request):
 # модуль архивирования желаний
 @csrf_exempt
 def backupdesire(request):
-    print(request.POST)
     desire_id = request.POST.get('backupdesire', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     obj = Desire.objects.get(id=desire_id)
@@ -289,7 +288,7 @@ def sort(request, dreamer_id, desirelist_id):
     dreamer_id = user_id
     is_ownersort = True
     arg = {}
-    desires = Desire.objects.filter(desire_user_id=user_id).order_by('desire_order')
+    desires = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
     for desire in desires:
         obj = {

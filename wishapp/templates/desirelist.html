@@ -9,16 +9,12 @@
                 <div class="form-group-item">
                     <input type="text"  class= 'add_desirelist_form_input' name="desirelist_name" maxlength="250" placeholder="Введите краткое имя для списка">
                 </div>
-                <div class="form-group-item">
-{#                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>#}
-{#                <input type="hidden" name="desire_id"  value={{ desire.id }}>#}
-                </div>
                 <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
             </form>
         </div>
           <div class="grid js-masonry">
               {% for desirelist in desirelists %}
-                  <div class="grid-item listdes" style="background-image: url({% static "img/1.png" %})">
+                  <div class="grid-item listdes" id="do-{{ desirelist.id }}-{{ dreamer_id }}" style="background-image: url({% static "img/1.png" %})">
                       <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
                       <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">
                           {{ desirelist.desirelist_name }}

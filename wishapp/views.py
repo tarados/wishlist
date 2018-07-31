@@ -122,25 +122,15 @@ def adddesire(request, dreamer_id, desirelist_id):
 
 # модуль удаления желаний
 @csrf_exempt
-def deldesire(request, dreamer_id):
-    if request.POST:
-        desire_id = request.POST['deldesire']
-        derise = Desire.objects.get(id=desire_id)
-        derise.delete()
-    return redirect('/dreamers/%s' % dreamer_id)
-
-
-@csrf_exempt
 def deldesirelist(request, user_id):
-    print(request.POST)
     dreamer_id = user_id
     if request.POST:
         desirelist_id = request.POST['deldesirelist']
         derises = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id)
         for desire in derises:
             desire.delete()
-        desirelist = Desirelist.objects.get(id=desirelist_id)
-        desirelist.delete()
+    desirelist = Desirelist.objects.get(id=desirelist_id)
+    desirelist.delete()
     return redirect('desirelist/%s' % dreamer_id)
 
 
@@ -244,10 +234,11 @@ def archive(request, dreamer_id, desirelist_id):
 @csrf_exempt
 def delarchive(request, user_id):
     if request.POST:
-        desire_id = request.POST['deldesire']
+        desire_id = request.POST['deldesire_arch']
         derise = Desire.objects.get(id=desire_id)
+        desirelist_id = derise.desire_desirelist_id
         derise.delete()
-    return redirect('/dreamers/archive/%s' % user_id)
+    return redirect('/dreamers/archive/%s/%s' % (user_id, desirelist_id))
 
 
 @csrf_exempt
@@ -264,10 +255,11 @@ def returnfromarchive(request, user_id):
 @csrf_exempt
 def del_sort_desire(request, user_id):
     if request.POST:
-        desire_id = request.POST['deldesire']
+        desire_id = request.POST['deldesire_sort']
         derise = Desire.objects.get(id=desire_id)
+        desirelist_id = derise.desire_desirelist_id
         derise.delete()
-    return redirect('/dreamers/sort/%s' % user_id)
+    return redirect('/dreamers/sort/%s/%s' % (user_id, desirelist_id))
 
 
 @csrf_exempt

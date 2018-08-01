@@ -14,8 +14,10 @@
         </div>
           <div class="grid js-masonry">
               {% for desirelist in desirelists %}
-                  <div class="grid-item listdes" id="do-{{ desirelist.id }}-{{ dreamer_id }}" style="background-image: url({% static "img/1.png" %})">
-                      <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                  <div class="grid-item listdes" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
+                      <div class="deldesire_img">
+                          <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                      </div>
                       <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.id }}">
                           {{ desirelist.desirelist_name }}
                       </a>

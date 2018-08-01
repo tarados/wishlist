@@ -39,8 +39,8 @@ def adddesirelist(request, dreamer_id):
         desirelist.desirelist_user_id = dreamer_id
         form.save()
     else:
-        return redirect('/desirelist/%d/' % int(dreamer_id))
-    return render_to_response('desirelist.html', locals())
+        return redirect('/adddesirelist/%d/' % int(dreamer_id))
+    return redirect('/desirelist/%d/' % int(dreamer_id))
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя

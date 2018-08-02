@@ -544,11 +544,13 @@ li a {
     border-radius: 25px;
     background-color: white;
 }
-.listdes {
-    width: 250px;
-    border: 1px solid grey;
-    border-radius: 15px;
-    /*background-color: gold;*/
-    padding: 50px;
-    /*background-image: url(/wishapp/static/img/1.png);*/
+.deldesire_img {
+    width: 97%;
+    margin-top: 4px;
+    text-align: right;
+}
+.desirelist_name {
+    text-align: center;
+    margin-bottom: 5px;
+    overflow: auto;
 }

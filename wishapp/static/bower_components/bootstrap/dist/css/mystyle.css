@@ -363,9 +363,8 @@ li a {
   border-radius: 5px;
 }
 .grid-item img {
-    position: absolute;
-    width: 10%;
-    right: 10px;
+    position: relative;
+    width: 80%;
     top: 10px;
 }
 .desire_top {

@@ -8,26 +8,28 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def login(request):
     arg = {}
-    arg['master'] = request.GET.get('dreamer_id', '')
+    master_id = request.GET.get('dreamer_id', '')
     desirelist_id = request.GET.get('desirelist_id', '')
     arg.update(csrf(request))
     if request.POST:
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         master_id = request.POST.get('master_id', '')
+        desirelist_id = request.POST.get('desirelist_id', '')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
-                return redirect('/desirelist/%d/%s' % (int(master_id), desirelist_id))
+                return redirect('/dreamers/%s/%s' % (master_id, desirelist_id))
             else:
-                return redirect('/desirelist/%d/%s' % (arg['user_id']), desirelist_id)
+                return redirect('/dreamers/%s/%s' % (arg['user_id'], desirelist_id))
         else:
             arg['password_error'] = '1'
-            return render_to_response('dreamers.html', arg)
+            return render_to_response('dreamers.html', locals())
     else:
-        return redirect('/')
+        return render_to_response('dreamers.html', locals())
+
 
 def login_vk(request):
     arg = {}

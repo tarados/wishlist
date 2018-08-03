@@ -36,7 +36,7 @@
                         {% if is_loggedin %}
                             <form action="/auth/login/" method="get">
                                 <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
-                                <input type="hidden" name="desielist_id"  value={{ desirelist_id }}>
+                                <input type="hidden" name="desirelist_id"  value={{ desirelist_id }}>
                                 <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
                             </form>
                         {% endif %}

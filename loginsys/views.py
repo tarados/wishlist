@@ -47,23 +47,24 @@ def logout(request):
 def register(request):
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
-    desirelist_id = request.GET.get('desirelist_id', '')
+    arg['desirelist_id'] = request.GET.get('desirelist_id', '')
     arg.update(csrf(request))
     arg['form'] = SignUpForm
     if request.POST:
         new_user_form = SignUpForm(request.POST)
-        master = request.POST.get('master', '')
+        master_id = request.POST.get('master_id', '')
+        desirelist_id = request.POST.get('desirelist_id', '')
         if new_user_form.is_valid():
             new_user_form.save()
             newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])
             auth.login(request, newuser)
             arg['user_id'] = auth.get_user(request).id
-            if master != '':
-                return redirect('/dreamers/%d/' % int(master))
+            if master_id != '':
+                return redirect('/dreamers/%s/%s' % (master_id, desirelist_id))
             else:
-                return redirect('/dreamers/%d/' % arg['user_id'])
+                return redirect('/dreamers/%d/%s' % (arg['user_id']), desirelist_id)
         else:
-            if master != '':
+            if master_id != '':
                 arg['password_error'] = '1'
                 arg['error'] = new_user_form.errors
             else:

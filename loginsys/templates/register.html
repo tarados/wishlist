@@ -22,7 +22,8 @@
             <label for="password"class="box_error hidden">Ошибка аутентификации! Повторите попытку. {{ error }}</label><br>
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <div class="form-group-button">
-                <input type="hidden" name="master" value="{{ master_id }}">
+                <input type="hidden" name="master_id" value="{{ master_id }}">
+                <input type="hidden" name="desirelist_id" value="{{ desirelist_id }}">
                 <button type="submit" class="svl btn btn-primary btn-lg">Registration</button>
             </div>
         </form>

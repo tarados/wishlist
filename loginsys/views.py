@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 def login(request):
     arg = {}
     arg['master'] = request.GET.get('dreamer_id', '')
+    desirelist_id = request.GET.get('desirelist_id', '')
     arg.update(csrf(request))
     if request.POST:
         username = request.POST.get('username', '')
@@ -19,14 +20,14 @@ def login(request):
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
-                return redirect('/desirelist/%d/' % int(master_id))
+                return redirect('/desirelist/%d/%s' % (int(master_id), desirelist_id))
             else:
-                return redirect('/desirelist/%d/' % arg['user_id'])
+                return redirect('/desirelist/%d/%s' % (arg['user_id']), desirelist_id)
         else:
             arg['password_error'] = '1'
             return render_to_response('dreamers.html', arg)
     else:
-        return render_to_response('dreamers.html', arg)
+        return redirect('/')
 
 def login_vk(request):
     arg = {}
@@ -44,6 +45,7 @@ def logout(request):
 def register(request):
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
+    desirelist_id = request.GET.get('desirelist_id', '')
     arg.update(csrf(request))
     arg['form'] = SignUpForm
     if request.POST:

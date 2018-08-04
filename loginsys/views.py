@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def login(request):
+    print(request.POST)
     arg = {}
     master_id = request.GET.get('dreamer_id', '')
     desirelist_id = request.GET.get('desirelist_id', '')
@@ -23,7 +24,7 @@ def login(request):
             if master_id != '':
                 return redirect('/dreamers/%s/%s' % (master_id, desirelist_id))
             else:
-                return redirect('/dreamers/%s/%s' % (arg['user_id'], desirelist_id))
+                return redirect('/desirelist/%s' % arg['user_id'])
         else:
             arg['password_error'] = '1'
             return render_to_response('dreamers.html', locals())
@@ -44,6 +45,7 @@ def logout(request):
     return redirect('/')
 
 
+@csrf_exempt
 def register(request):
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
@@ -62,7 +64,7 @@ def register(request):
             if master_id != '':
                 return redirect('/dreamers/%s/%s' % (master_id, desirelist_id))
             else:
-                return redirect('/dreamers/%d/%s' % (arg['user_id']), desirelist_id)
+                return redirect('/desirelist/%s' % arg['user_id'])
         else:
             if master_id != '':
                 arg['password_error'] = '1'

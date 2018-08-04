@@ -7,7 +7,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def login(request):
-    print(request.POST)
     arg = {}
     master_id = request.GET.get('dreamer_id', '')
     desirelist_id = request.GET.get('desirelist_id', '')

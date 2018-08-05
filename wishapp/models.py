@@ -12,6 +12,7 @@ class Desirelist(models.Model):
 
     desirelist_name = models.TextField()
     desirelist_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    desirelist_substitute_id = models.CharField(max_length=8, default='', unique=True)
 
 
 
@@ -29,6 +30,7 @@ class Desire(models.Model):
     desire_title = models.CharField(null=True, max_length=250)
     desire_photo = models.ImageField(upload_to='uploads', null=True, blank=True)
     desire_desirelist = models.ForeignKey(Desirelist, models.SET_NULL, blank=True, null=True,)
+    desire_substitute_id = models.CharField(max_length=8, default='', unique=True)
 
     def fetch_remote_img(self, url):
         result = requests.get(url)

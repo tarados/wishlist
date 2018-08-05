@@ -1,4 +1,6 @@
 import re
+import random
+import string
 
 
 def link_on(str):
@@ -23,3 +25,10 @@ def link_on(str):
             else:
                 href_link = href
     return text_desire, href_link, href_img
+
+
+def substitute_id():
+    sub_id = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+    return sub_id
+
+

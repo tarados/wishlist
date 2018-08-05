@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire, Desirelist
 from wishapp.forms import DesireForm, DesireListForm
 from django.contrib import auth
-from wishapp.linkcoder import link_on
+from wishapp.linkcoder import link_on, substitute_id
 from wishapp.parse_img import get_img, find_url, get_url
 import datetime
 import json
@@ -37,6 +37,7 @@ def adddesirelist(request, dreamer_id):
     if form.is_valid():
         desirelist = form.save(commit=False)
         desirelist.desirelist_user_id = dreamer_id
+        desirelist.desirelist_substitute_id = substitute_id()
         form.save()
     else:
         return redirect('/adddesirelist/%d/' % int(dreamer_id))
@@ -109,6 +110,7 @@ def adddesire(request, dreamer_id, desirelist_id):
             desire.desire_user = User.objects.get(id=dreamer_id)
             desire.desire_date = datetime.datetime.now()
             desire.desire_desirelist_id = desirelist_id
+            desire.desire_substitute_id = substitute_id()
             form.save()
             try:
                 desire.fetch_remote_img(desire.desire_img)

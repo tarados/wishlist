@@ -2,7 +2,7 @@
 
 {% block login %}
     <div class="form-group" id="add_desire_block" style="padding-top: 5px">
-        <form {% if error %}action="/auth/register/"{% else %}action="/auth/register/?master_id={{ master_id }}"{% endif %} method="post">{% csrf_token %}
+        <form action="/auth/register/?master_id={{ master_id }}&desirelist_id={{ desirelist_id }}" method="post">{% csrf_token %}
             <div class="profile_title"><h3>Регистрация</h3>
             <div class="form-group-item">
                 <div class="form-control-static">

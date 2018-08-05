@@ -47,8 +47,6 @@ def logout(request):
 
 @csrf_exempt
 def register(request):
-    print(request.GET)
-    print(request.POST)
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
     arg['desirelist_id'] = request.GET.get('desirelist_id', '')

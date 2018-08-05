@@ -18,6 +18,7 @@ def login(request):
         desirelist_id = request.POST.get('desirelist_id', '')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
+            print(user)
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
@@ -25,7 +26,7 @@ def login(request):
             else:
                 return redirect('/desirelist/%s' % arg['user_id'])
         else:
-            arg['password_error'] = '1'
+            password_error = '1'
             return render_to_response('dreamers.html', locals())
     else:
         return render_to_response('dreamers.html', locals())
@@ -46,6 +47,8 @@ def logout(request):
 
 @csrf_exempt
 def register(request):
+    print(request.GET)
+    print(request.POST)
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
     arg['desirelist_id'] = request.GET.get('desirelist_id', '')

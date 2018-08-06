@@ -6,10 +6,10 @@ urlpatterns = [
     url(r'^dreamers/all/$', views.dreamers),
     url(r'^order/$', views.order),
     url(r'^dreamers/sort/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.sort),
-    url(r'^dreamers/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.dreamer, name='dreamer'),
+    url(r'^dreamers/(?P<dreamer_id>\d+)/(?P<sub_id>\w+)/$', views.dreamer, name='dreamer'),
     url(r'^desirelist/(?P<dreamer_id>\d+)/$', views.desirelist, name='desirelist'),
     url(r'^adddesirelist/(?P<dreamer_id>\d+)/$', views.adddesirelist, name='adddesirelist'),
-    url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.adddesire, name='adddesire'),
+    url(r'^dreamers/adddesire/(?P<dreamer_id>\d+)/$', views.adddesire, name='adddesire'),
 
    
     url(r'^dreamers/delarchive/(?P<user_id>\d+)/$', views.delarchive, name='delarchive'),

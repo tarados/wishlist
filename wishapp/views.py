@@ -24,6 +24,7 @@ def desirelist(request, dreamer_id):
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
     list_count = desirelists.count
     user = auth.get_user(request)
+    sub_id = 'gfdfg'
     return render_to_response('desirelist.html', locals())
 
 
@@ -45,12 +46,13 @@ def adddesirelist(request, dreamer_id):
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
-def dreamer(request, dreamer_id, desirelist_id):
+def dreamer(request, dreamer_id, sub_id):
     arg = {}
     arg.update(csrf(request))
     dreamer = User.objects.get(id=dreamer_id)
-    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
-    desirelist = Desirelist.objects.get(id=desirelist_id)
+    desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
+    print(desirelist.desirelist_substitute_id)
+    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist.id).order_by('desire_order')
     result = []
     height = 0
     for desire in desires:
@@ -95,7 +97,9 @@ def dreamer(request, dreamer_id, desirelist_id):
 
 # модуль добавления желаний
 @csrf_exempt
-def adddesire(request, dreamer_id, desirelist_id):
+def adddesire(request, dreamer_id):
+    desirelist_id = request.POST.get('desirelist_id', '')
+    sub_id = request.POST.get('sub_id', '')
     if request.method == 'GET':
         form = DesireForm()
     if request.method == 'POST':
@@ -116,10 +120,10 @@ def adddesire(request, dreamer_id, desirelist_id):
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
+            return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
         else:
-            return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
-    return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
+            return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
+    return render_to_response('dreamer.html', locals())
 
 
 # модуль удаления желаний

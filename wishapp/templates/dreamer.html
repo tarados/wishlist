@@ -27,7 +27,7 @@
                     </div>
                     <div class="desire_button col-lg-6">
                         <form action="{% url 'backupdesire' %}" method="post">
-                            <input type="hidden" name="backupdesire"  value={{ desire.id }}>
+                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
                             <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
                             <button type="submit" class="ar" id="ar-{{ desire.id }}">в архив</button>
                         </form>

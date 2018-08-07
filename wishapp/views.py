@@ -185,24 +185,28 @@ def selectdesire(request):
 # модуль архивирования желаний
 @csrf_exempt
 def backupdesire(request):
-    desire_id = request.POST.get('backupdesire', '')
+    desire_id = request.POST.get('desire_id', '')
     dreamer_id = request.POST.get('dreamer_id', '')
     obj = Desire.objects.get(id=desire_id)
     desirelist_id = obj.desire_desirelist_id
+    desirelist = Desirelist.objects.get(id=desirelist_id)
+    sub_id = desirelist.desirelist_substitute_id
     obj.desire_state = 2
     obj.save()
-    return redirect('/dreamers/%s/%s/' % (dreamer_id, desirelist_id))
+    return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
 
 
 # страница архива
 @csrf_exempt
-def archive(request, dreamer_id, desirelist_id):
+def archive(request, dreamer_id, sub_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
     dreamer_id = user_id
     is_ownersort = True
     arg = {}
+    desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
+    desirelist_id = desirelist.id
     desires = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
     for desire in desires:

@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^dreamers/editdesire/$', views.editdesire, name='editdesire'),
     url(r'^selectdesire/$', views.selectdesire, name='selectdesire'),
     url(r'^backupdesire/$', views.backupdesire, name='backupdesire'),
-    url(r'^dreamers/archive/(?P<dreamer_id>\d+)/(?P<desirelist_id>\d+)/$', views.archive, name='archive'),
+    url(r'^dreamers/archive/(?P<dreamer_id>\d+)/(?P<sub_id>\w+)/$', views.archive, name='archive'),
 
     url(r'^dreamers/returnfromarchive/(?P<user_id>\d+)/$', views.returnfromarchive, name='returnfromarchive'),
 

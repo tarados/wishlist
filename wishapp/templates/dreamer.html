@@ -76,7 +76,7 @@
     {% endif %}
     <div class="list-group-item hidden" id="row-{{ desire.id }}">
         <h3>Редактирование желания</h3>
-        <form action="{% url 'editdesire' %}" method="post">
+        <form action="{% url 'editdesire' %}" method="post">{% csrf_token %}
             <div class="form-group">
                 <input type="text" name="desire_title" maxlength="500" id="desire_title">
             </div>

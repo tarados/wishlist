@@ -142,10 +142,12 @@ def deldesirelist(request, user_id):
 # модуль редактирования желаний
 @csrf_exempt
 def editdesire(request):
-    dreamer_id = request.POST.get('dreamer_id')
-    desire_id = request.POST.get('desire_id')
-    desirelist_id = request.POST.get('desirelist_id')
+    dreamer_id = request.POST.get('dreamer_id', '')
+    desire_id = request.POST.get('desire_id', '')
     desire = Desire.objects.get(id=desire_id)
+    desirelist_id = desire.desire_desirelist_id
+    desirelist = Desirelist.objects.get(id=desirelist_id)
+    sub_id = desirelist.desirelist_substitute_id
     if request.method == 'POST':
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
@@ -162,9 +164,11 @@ def editdesire(request):
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s/%s/' % (dreamer_id, desirelist_id))
+            return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
         else:
-            return redirect('/dreamers/%s/%s/' %(dreamer_id, desirelist_id))
+            return redirect('/dreamers/%s/%s/' %(dreamer_id, sub_id))
+    else:
+        return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
     return render_to_response('edit.html', locals())
 
 

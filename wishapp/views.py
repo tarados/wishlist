@@ -51,7 +51,6 @@ def dreamer(request, dreamer_id, sub_id):
     arg.update(csrf(request))
     dreamer = User.objects.get(id=dreamer_id)
     desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
-    print(desirelist.desirelist_substitute_id)
     desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist.id).order_by('desire_order')
     result = []
     height = 0

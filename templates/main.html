@@ -31,8 +31,8 @@
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
                         <li><a class="new_desire" href="#id_desire_title">+Добавить желание</a></li>
-                        <li><a href="/desirelist/{{ dreamer_id }}/">Мои желания</a></li>
-                        <li><a href="/dreamers/sort/{{ dreamer_id }}/{{ desirelist_id }}/">Сортировка желаний</a></li>
+                        <li><a href="/desirelist/{{ dreamer_id }}/">Мои списки желаний</a></li>
+                        <li><a href="/dreamers/sort/{{ dreamer_id }}/{{ sub_id }}/">Сортировка желаний</a></li>
                         <li><a href="/dreamers/archive/{{ dreamer_id }}/{{ desirelist_id }}/">Архив желаний</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
@@ -43,7 +43,7 @@
                     </ul>
                 {% elif is_ownersort %}
                      <ul class="nav navbar-nav">
-                        <li><a class="sort_desirelist" href="/dreamers/{{ dreamer_id }}/{{ desirelist_id }}">Мои желания</a></li>
+                        <li><a class="sort_desirelist" href="/dreamers/{{ dreamer_id }}/{{ sub_id }}">Мои желания</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% endif %}

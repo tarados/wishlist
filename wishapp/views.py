@@ -279,13 +279,15 @@ def order(request):
     return HttpResponse('')
 
 
-def sort(request, dreamer_id, desirelist_id):
+def sort(request, dreamer_id, sub_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
     dreamer_id = user_id
     is_ownersort = True
     arg = {}
+    desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
+    desirelist_id = desirelist.id
     desires = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
     for desire in desires:

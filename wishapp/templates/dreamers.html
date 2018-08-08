@@ -3,8 +3,7 @@
 {% block dreamerslist %}
     <div class="form-group" id="add_desire_block" style="padding-top: 5px">
         <form action="/auth/login/" method="post">{% csrf_token %}
-            <div class="profile_title"><h3>Авторизация</h3></div>
-            {{ master_id }}!! {{ sub_id}}
+            <div class="profile_title"><h3>Авторизация</h3></div
             <div class="form-group-item">
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
                 <input type="hidden" class="form-control" name="master_id" value="{{ master_id }}">

@@ -48,15 +48,13 @@ def logout(request):
 def register(request):
     arg = {}
     arg['master_id'] = request.GET.get('master_id', '')
-    arg['desirelist_id'] = request.GET.get('desirelist_id', '')
+    arg['sub_id'] = request.GET.get('sub_id', '')
     arg.update(csrf(request))
     arg['form'] = SignUpForm
     if request.POST:
         new_user_form = SignUpForm(request.POST)
         master_id = request.POST.get('master_id', '')
-        desirelist_id = request.POST.get('desirelist_id', '')
-        desirelist = Desirelist.objects.get(id=desirelist_id)
-        sub_id = desirelist.desirelist_substitute_id
+        sub_id = request.POST.get('sub_id', '')
         if new_user_form.is_valid():
             new_user_form.save()
             newuser = auth.authenticate(username=new_user_form.cleaned_data['username'], password=new_user_form.cleaned_data['password2'])

@@ -553,3 +553,8 @@ li a {
     margin-bottom: 5px;
     overflow: auto;
 }
+span.glyphicon-upload {
+    font-size: 17px;
+    margin-right: 10px;
+    color: green;
+}

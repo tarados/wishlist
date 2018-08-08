@@ -19,9 +19,11 @@
                           <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
                       </div>
                       <div class="desirelist_name">
+                          <a href="#" title="Копировать адрес списка">
+                              <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                          </a>
                           <a href="/dreamers/{{ dreamer_id }}/{{ desirelist.desirelist_substitute_id }}">{{ desirelist.desirelist_name }}</a>
                       </div>
-
                   </div>
               {% endfor %}
           </div>

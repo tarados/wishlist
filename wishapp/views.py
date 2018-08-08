@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpRequest
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt

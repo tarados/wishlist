@@ -180,10 +180,12 @@ def selectdesire(request):
     desire_order_user_id = request.POST.get('order_user_id', '')
     obj = Desire.objects.get(id=desire_id)
     desirelist_id = obj.desire_desirelist_id
+    desirelist = Desirelist.objects.get(id=desirelist_id)
+    sub_id = desirelist.desirelist_substitute_id
     obj.desire_state = 1
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
-    return redirect('/dreamers/%s/%s' % (dreamer_id, desirelist_id))
+    return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
 
 
 # модуль архивирования желаний

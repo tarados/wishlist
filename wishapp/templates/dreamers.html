@@ -4,10 +4,11 @@
     <div class="form-group" id="add_desire_block" style="padding-top: 5px">
         <form action="/auth/login/" method="post">{% csrf_token %}
             <div class="profile_title"><h3>Авторизация</h3></div>
+            {{ master_id }}!! {{ sub_id}}
             <div class="form-group-item">
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your name">
                 <input type="hidden" class="form-control" name="master_id" value="{{ master_id }}">
-                <input type="hidden" class="form-control" name="desirelist_id" value="{{ desirelist_id }}">
+                <input type="hidden" class="form-control" name="sub_id" value="{{ sub_id }}">
             </div>
             <div class="form-group-item">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
@@ -16,7 +17,7 @@
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <div class="form-group-button">
                 <button type="submit" class="svl btn btn-primary btn-lg">Вход</button>
-                <a class="authorization" href="/auth/register/?master_id={{ master_id }}&desirelist_id={{ desirelist_id }}">Регистрация</a>
+                <a class="authorization" href="/auth/register/?master_id={{ master_id }}&sub_id={{ sub_id }}">Регистрация</a>
             </div>
         </form>
         <a href="{% provider_login_url "vk" method="oauth2" next="/auth/login_vk" %}"><i style="color:#45668e;" class="fa fa-vk fa-lg"></i> ВКонтакте</a>

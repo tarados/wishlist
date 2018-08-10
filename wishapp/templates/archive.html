@@ -6,7 +6,7 @@
         <h1>Архив желаний:</h1>
         <div class="grid">
             {% for desire in desire_list %}
-                <div class="grid-item archive" id="doo-{{ desire.id }}-{{ user_id }}">
+                <div class="grid-item archive" id="doo-{{ desire.id }}-{{ sub_id }}">
                     <div class="desire_top">
                         <span>{{ desire.date|date }}</span>
                     </div>
@@ -14,8 +14,8 @@
                         {{ desire.title|safe }}
                     </div>
                     <div class="desire_button">
-                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ user_id }}" style="width: 45%">Удалить</button>
-                        <button type="button"  class="return_from_arch" id="return-{{ desire.id }}-{{ user_id }}" style="width: 45%">Вернуть</button>
+                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}" style="width: 45%">Удалить</button>
+                        <button type="button"  class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}" style="width: 45%">Вернуть</button>
                     </div>
                 </div>
             {% endfor %}

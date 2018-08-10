@@ -23,7 +23,7 @@ def login(request):
             if master_id != '':
                 return redirect('/dreamers/%s/%s' % (master_id, sub_id))
             else:
-                return redirect('/desirelist/%s' % arg['user_id'])
+                return redirect('/desirelist/')
         else:
             password_error = '1'
             return render_to_response('dreamers.html', locals())
@@ -35,7 +35,7 @@ def login_vk(request):
     arg = {}
     arg['user_id'] = auth.get_user(request).id
     if arg['user_id']:
-        return redirect('/desirelist/%d/' % arg['user_id'])
+        return redirect('/desirelist/')
     return redirect('/')
 
 
@@ -63,7 +63,7 @@ def register(request):
             if master_id != '':
                 return redirect('/dreamers/%s/%s' % (master_id, sub_id))
             else:
-                return redirect('/desirelist/%s' % arg['user_id'])
+                return redirect('/desirelist/')
         else:
             if master_id != '':
                 arg['password_error'] = '1'

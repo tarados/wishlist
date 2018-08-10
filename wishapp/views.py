@@ -19,21 +19,20 @@ def dreamers(request):
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
 
-def desirelist(request, dreamer_id):
+def desirelist(request):
     is_ownerlist = True
-    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
-    list_count = desirelists.count
     user = auth.get_user(request)
-    sub_id = 'gfdfg'
+    dreamer_id = user.id
+    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
     return render_to_response('desirelist.html', locals())
 
 
 @csrf_exempt
-def adddesirelist(request, dreamer_id):
+def adddesirelist(request):
     is_ownerlist = True
-    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
-    list_count = desirelists.count
     user = auth.get_user(request)
+    dreamer_id = user.id
+    desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
     form = DesireListForm(request.POST)
     if form.is_valid():
         desirelist = form.save(commit=False)
@@ -41,17 +40,20 @@ def adddesirelist(request, dreamer_id):
         desirelist.desirelist_substitute_id = substitute_id()
         form.save()
     else:
-        return redirect('/adddesirelist/%d/' % int(dreamer_id))
-    return redirect('/desirelist/%d/' % int(dreamer_id))
+        return redirect('/adddesirelist/')
+    return redirect('/desirelist/')
 
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
-def dreamer(request, dreamer_id, sub_id):
+@csrf_exempt
+def dreamer(request, sub_id):
     arg = {}
     arg.update(csrf(request))
-    dreamer = User.objects.get(id=dreamer_id)
+    user = auth.get_user(request)
+    dreamer_id = user.id
     desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
-    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist.id).order_by('desire_order')
+    desirelist_id = desirelist.id
+    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
     height = 0
     for desire in desires:
@@ -84,7 +86,6 @@ def dreamer(request, dreamer_id, sub_id):
             pass
     desire_list = result
     form = DesireForm
-    user = auth.get_user(request)
     username = user.username
     user_id = user.id
     arg['date_now'] = datetime.datetime.now()
@@ -96,7 +97,9 @@ def dreamer(request, dreamer_id, sub_id):
 
 # модуль добавления желаний
 @csrf_exempt
-def adddesire(request, dreamer_id):
+def adddesire(request, sub_id):
+    user = auth.get_user(request)
+    dreamer_id = user.id
     desirelist_id = request.POST.get('desirelist_id', '')
     sub_id = request.POST.get('sub_id', '')
     if request.method == 'GET':
@@ -119,16 +122,17 @@ def adddesire(request, dreamer_id):
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
+            return redirect('/dreamers/%s' % sub_id)
         else:
-            return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
+            return redirect('/dreamers/%s' % sub_id)
     return render_to_response('dreamer.html', locals())
 
 
 # модуль удаления желаний
 @csrf_exempt
-def deldesirelist(request, user_id):
-    dreamer_id = user_id
+def deldesirelist(request):
+    user = auth.get_user(request)
+    dreamer_id = user.id
     if request.POST:
         desirelist_id = request.POST['deldesirelist']
         derises = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id)
@@ -136,18 +140,16 @@ def deldesirelist(request, user_id):
             desire.delete()
     desirelist = Desirelist.objects.get(id=desirelist_id)
     desirelist.delete()
-    return redirect('desirelist/%s' % dreamer_id)
+    return redirect('desirelist')
 
 
 # модуль редактирования желаний
 @csrf_exempt
-def editdesire(request):
-    dreamer_id = request.POST.get('dreamer_id', '')
+def editdesire(request, sub_id):
+    user = auth.get_user(request)
+    dreamer_id = user.id
     desire_id = request.POST.get('desire_id', '')
     desire = Desire.objects.get(id=desire_id)
-    desirelist_id = desire.desire_desirelist_id
-    desirelist = Desirelist.objects.get(id=desirelist_id)
-    sub_id = desirelist.desirelist_substitute_id
     if request.method == 'POST':
         form = DesireForm(request.POST, instance=desire)
         if form.is_valid():
@@ -164,11 +166,11 @@ def editdesire(request):
                 desire.fetch_remote_img(desire.desire_img)
             except:
                 pass
-            return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
+            return redirect('/dreamers/%s' % sub_id)
         else:
-            return redirect('/dreamers/%s/%s/' %(dreamer_id, sub_id))
+            return redirect('/dreamers/%s' % sub_id)
     else:
-        return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
+        return redirect('/dreamers/%s' % sub_id)
     return render_to_response('edit.html', locals())
 
 
@@ -176,7 +178,6 @@ def editdesire(request):
 @csrf_exempt
 def selectdesire(request):
     desire_id = request.POST.get('desire_id', '')
-    dreamer_id = request.POST.get('dreamer_id', '')
     desire_order_user_id = request.POST.get('order_user_id', '')
     obj = Desire.objects.get(id=desire_id)
     desirelist_id = obj.desire_desirelist_id
@@ -185,26 +186,25 @@ def selectdesire(request):
     obj.desire_state = 1
     obj.desire_order_user_id = desire_order_user_id
     obj.save()
-    return redirect('/dreamers/%s/%s' % (dreamer_id, sub_id))
+    return redirect('/dreamers/%s' % sub_id)
 
 
 # модуль архивирования желаний
 @csrf_exempt
 def backupdesire(request):
     desire_id = request.POST.get('desire_id', '')
-    dreamer_id = request.POST.get('dreamer_id', '')
     obj = Desire.objects.get(id=desire_id)
     desirelist_id = obj.desire_desirelist_id
     desirelist = Desirelist.objects.get(id=desirelist_id)
     sub_id = desirelist.desirelist_substitute_id
     obj.desire_state = 2
     obj.save()
-    return redirect('/dreamers/%s/%s/' % (dreamer_id, sub_id))
+    return redirect('/dreamers/%s' % sub_id)
 
 
 # страница архива
 @csrf_exempt
-def archive(request, dreamer_id, sub_id):
+def archive(request, sub_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id
@@ -248,34 +248,33 @@ def archive(request, dreamer_id, sub_id):
 
 # модуль удаления желаний из архива
 @csrf_exempt
-def delarchive(request, user_id):
+def delarchive(request, sub_id):
     if request.POST:
         desire_id = request.POST['deldesire_arch']
         derise = Desire.objects.get(id=desire_id)
-        desirelist_id = derise.desire_desirelist_id
         derise.delete()
-    return redirect('/dreamers/archive/%s/%s' % (user_id, desirelist_id))
+    return redirect('/dreamers/archive/%s' % sub_id)
 
 
 @csrf_exempt
-def returnfromarchive(request, user_id):
+def returnfromarchive(request, sub_id):
     if request.POST:
         desire_id = request.POST.get('returndesire', '')
         desire = Desire.objects.get(id=desire_id)
         desire.desire_state = 0
         desire.save()
-    return redirect('/dreamers/archive/%s' % user_id)
+    return redirect('/dreamers/archive/%s' & sub_id)
 
 
 # модуль удаления желаний из sortlist
 @csrf_exempt
-def del_sort_desire(request, user_id):
+def del_sort_desire(request, sub_id):
+    print(request.POST)
     if request.POST:
         desire_id = request.POST['deldesire_sort']
         derise = Desire.objects.get(id=desire_id)
-        desirelist_id = derise.desire_desirelist_id
         derise.delete()
-    return redirect('/dreamers/sort/%s/%s' % (user_id, desirelist_id))
+    return redirect('/dreamers/sort/%s' % sub_id)
 
 
 @csrf_exempt
@@ -289,7 +288,7 @@ def order(request):
     return HttpResponse('')
 
 
-def sort(request, dreamer_id, sub_id):
+def sort(request, sub_id):
     user = auth.get_user(request)
     username = user.username
     user_id = user.id

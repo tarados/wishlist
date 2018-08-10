@@ -7,11 +7,11 @@
         <div class="sort-group" id="simpleList">
             {% for desire in desire_list %}
                 {% if desire.desire_state != 2 %}
-                <div class="sort-group-item" id="do-{{ desire.id }}-{{ user_id }}">
+                <div class="sort-group-item" id="do-{{ desire.id }}-{{ sub_id }}">
                     <div class="desire_date_sort">
                         <span class="sortcounter">{{ forloop.counter }}. </span>
                         <span class="srt">{{ desire.date|date }}</span>
-                        <a href="/" class="go" id="go-{{ desire.id }}-{{ user_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                        <a href="/" class="go" id="go-{{ desire.id }}-{{ sub_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
                     </div>
                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
                 </div>

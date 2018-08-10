@@ -88,7 +88,7 @@ $(function () {
 
 // modal for sort*********************************************************************************************************
     var des_id = null;
-    var user_id = null;
+    var sub_id = null;
     $('a.go').click( function(event){
         event.preventDefault();
         $('#overlay').fadeIn(400,
@@ -98,7 +98,9 @@ $(function () {
                     .animate({opacity: 1, top: '50%'}, 200);
         });
         des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
+        sub_id = this.id.split('-')[2];
+        console.log(des_id)
+        console.log(sub_id)
     });
     $('.modal_yes').click(function () {
         var desire_for_delete_sort = new Object();
@@ -107,9 +109,9 @@ $(function () {
         };
         var sort_block = $('a.go');
         if (sort_block.length > 0) {
-            $.post('/dreamers/del_sort_desire/' + user_id + '/', desire_for_delete_sort);
+            $.post('/dreamers/del_sort_desire/' + sub_id + '/', desire_for_delete_sort);
         }
-        var block = $('#do-' + des_id + '-' + user_id);
+        var block = $('#do-' + des_id + '-' + sub_id);
         block.css('display', 'none');
         $('#modal_form')
             .animate({opacity: 0, top: '45%'}, 200,
@@ -139,7 +141,7 @@ $(function () {
     });
 // modal for arc********************************************************************************************************
     var des_id = null
-    var user_id = null
+    var sub_id = null
     $('button.del_from_arch').click( function(event){
         event.preventDefault();
         $('#overlay').fadeIn(400,
@@ -149,7 +151,7 @@ $(function () {
                     .animate({opacity: 1, top: '50%'}, 200);
         });
         des_id = this.id.split('-')[1];
-        user_id = this.id.split('-')[2];
+        sub_id = this.id.split('-')[2];
     });
     $('.modal_yes').click(function () {
         var desire_for_delete_archiv = new Object();
@@ -158,9 +160,9 @@ $(function () {
         };
         var arch_block = $("button.del_from_arch");
         if (arch_block.length > 0) {
-            $.post('/dreamers/delarchive/' + user_id + '/', desire_for_delete_archiv);
+            $.post('/dreamers/delarchive/' + sub_id + '/', desire_for_delete_archiv);
         }
-        var block = $('#doo-' + des_id + '-' + user_id);
+        var block = $('#doo-' + des_id + '-' + sub_id);
         block.css('display', 'none');
         $('#modal_form')
             .animate({opacity: 0, top: '45%'}, 200,

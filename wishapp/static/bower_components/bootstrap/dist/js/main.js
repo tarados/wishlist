@@ -280,7 +280,18 @@ $(function () {
             ghostClass: "ghost"
         });
     };
-
+   $('a.copy_to_clipboard').click(function () {
+       var part_link = $(this).attr('id');
+       var domen_name = 'http://localhost:8000';
+       var link_send = domen_name + part_link;
+       var textArea = document.createElement("textarea");
+       textArea.value = link_send;
+       document.body.appendChild(textArea);
+       textArea.focus();
+       textArea.select();
+       document.execCommand('copy');
+       $('textArea').addClass('hidden');
+   })
 });
 
 

@@ -245,7 +245,6 @@ def archive(request, sub_id):
         return HttpResponseNotFound('<h1>Page not found</h1>')
 
 
-
 # модуль удаления желаний из архива
 @csrf_exempt
 def delarchive(request, sub_id):
@@ -269,7 +268,6 @@ def returnfromarchive(request, sub_id):
 # модуль удаления желаний из sortlist
 @csrf_exempt
 def del_sort_desire(request, sub_id):
-    print(request.POST)
     if request.POST:
         desire_id = request.POST['deldesire_sort']
         derise = Desire.objects.get(id=desire_id)

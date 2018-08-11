@@ -14,7 +14,7 @@ urlpatterns = [
    
     url(r'^dreamers/delarchive/(?P<sub_id>\w+)/$', views.delarchive, name='delarchive'),
     url(r'^dreamers/del_sort_desire/(?P<sub_id>\w+)/$', views.del_sort_desire, name='del_sort_desire'),
-    url(r'^dreamers/deldesirelist/$', views.deldesirelist, name='deldesirelist'),
+    url(r'^dreamers/deldesirelist/(?P<user_id>\w+)/$', views.deldesirelist, name='deldesirelist'),
 
     url(r'^dreamers/editdesire/(?P<sub_id>\w+)/$', views.editdesire, name='editdesire'),
     url(r'^selectdesire/$', views.selectdesire, name='selectdesire'),

@@ -21,7 +21,7 @@ def login(request):
             auth.login(request, user)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
-                return redirect('/dreamers/%s/%s' % (master_id, sub_id))
+                return redirect('/dreamers/%s' %  sub_id)
             else:
                 return redirect('/desirelist/')
         else:
@@ -61,7 +61,7 @@ def register(request):
             auth.login(request, newuser)
             arg['user_id'] = auth.get_user(request).id
             if master_id != '':
-                return redirect('/dreamers/%s/%s' % (master_id, sub_id))
+                return redirect('/dreamers/%s' % sub_id)
             else:
                 return redirect('/desirelist/')
         else:

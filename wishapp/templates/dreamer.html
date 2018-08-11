@@ -28,21 +28,21 @@
                     <div class="desire_button col-lg-6">
                         <form action="{% url 'backupdesire' %}" method="post">{% csrf_token %}
                             <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                            <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                            <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
                             <button type="submit" class="ar" id="ar-{{ desire.id }}">в архив</button>
                         </form>
                     </div>
                     <div class="desire_button">
                         {% if is_loggedin %}
                             <form action="/auth/login/" method="get">
-                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
                                 <input type="hidden" name="sub_id"  value={{ sub_id }}>
                                 <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
                             </form>
                         {% endif %}
                         {% if is_choice %}
                             <form action="{% url 'selectdesire' %}" method="post">
-                                <input type="hidden" name="dreamer_id"  value={{ dreamer.id }}>
+                                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
                                 <input type="hidden" name="desire_id"  value={{ desire.id }}>
                                 <input type="hidden" name="order_user_id"  value={{ user_id }}>
                                 <input type="hidden" name="order_user_name"  value={{ username }}>
@@ -89,7 +89,6 @@
             <button type="submit" class="sv" value="">Сохранить</button>
         </form>
     </div>
-{#    <script src="{% static "bower_components/bootstrap/dist/js/masonry_reload.js" %}"></script>#}
 {% endblock %}
 
 

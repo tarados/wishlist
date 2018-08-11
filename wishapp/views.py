@@ -50,8 +50,8 @@ def dreamer(request, sub_id):
     arg = {}
     arg.update(csrf(request))
     user = auth.get_user(request)
-    dreamer_id = user.id
     desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
+    dreamer_id = desirelist.desirelist_user_id
     desirelist_id = desirelist.id
     desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
     result = []
@@ -130,9 +130,7 @@ def adddesire(request, sub_id):
 
 # модуль удаления желаний
 @csrf_exempt
-def deldesirelist(request):
-    user = auth.get_user(request)
-    dreamer_id = user.id
+def deldesirelist(request, user_id):
     if request.POST:
         desirelist_id = request.POST['deldesirelist']
         derises = Desire.objects.filter(desire_user_id=user_id, desire_desirelist_id=desirelist_id)

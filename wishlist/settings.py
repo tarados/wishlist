@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django.contrib.auth',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'wishapp',
     'loginsys',
     'allauth',

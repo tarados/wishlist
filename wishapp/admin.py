@@ -3,4 +3,5 @@ from wishapp.models import Desire
 
 
 admin.site.register(Desire)
+
 # Register your models here.

@@ -31,14 +31,6 @@ def login(request):
         return render_to_response('dreamers.html', locals())
 
 
-def login_vk(request):
-    arg = {}
-    arg['user_id'] = auth.get_user(request).id
-    if arg['user_id']:
-        return redirect('/desirelist/')
-    return redirect('/')
-
-
 def logout(request):
     auth.logout(request)
     return redirect('/')

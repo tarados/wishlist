@@ -19,6 +19,6 @@
                 <a class="authorization" href="/auth/register/?master_id={{ master_id }}&sub_id={{ sub_id }}">Регистрация</a>
             </div>
         </form>
-{#        <a href="{% provider_login_url "vk" method="oauth2" next="/auth/login_vk" %}"><i style="color:#45668e;" class="fa fa-vk fa-lg"></i> ВКонтакте</a>#}
+        <a href="{% provider_login_url 'vk' method='oauth2' %}"><i style="color:#45668e;" class="fa fa-vk fa-lg"></i> ВКонтакте</a>
     </div>
 {% endblock %}

@@ -84,15 +84,14 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'desirelist'
 
 WSGI_APPLICATION = 'wishlist.wsgi.application'
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

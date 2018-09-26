@@ -19,7 +19,7 @@
                     {{ form.password2 }}
                 </div>
             </div>
-            <label for="password"class="box_error hidden">Ошибка аутентификации! Повторите попытку. {{ error }}</label><br>
+            <label for="password"class="box_error hidden">{{ error }}</label><br>
             <input type="hidden" class="form-control error" name="password_error" value="{{ password_error }}">
             <div class="form-group-button">
                 <input type="hidden" name="master_id" value="{{ master_id }}">

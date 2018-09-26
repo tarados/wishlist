@@ -59,10 +59,10 @@ def register(request):
         else:
             if master_id != '':
                 arg['password_error'] = '1'
-                arg['error'] = new_user_form.errors
+                arg['error'] = new_user_form.errors['password2'][0]
             else:
                 arg['password_error'] = '1'
-                arg['error'] = new_user_form.errors
+                arg['error'] = new_user_form.errors['password2'][0]
                 arg['form'] = new_user_form
     return render_to_response('register.html', arg)
 

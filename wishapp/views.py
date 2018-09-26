@@ -24,6 +24,7 @@ def desirelist(request):
     user = auth.get_user(request)
     dreamer_id = user.id
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
+
     return render_to_response('desirelist.html', locals())
 
 

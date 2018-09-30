@@ -24,8 +24,13 @@ def desirelist(request):
     user = auth.get_user(request)
     dreamer_id = user.id
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
-
-    return render_to_response('desirelist.html', locals())
+    if desirelists.count() == 0:
+        d = Desirelist.objects.create(desirelist_name='My first desirelist', desirelist_user_id=dreamer_id, desirelist_substitute_id=substitute_id())
+        d_sub = d.desirelist_substitute_id
+        return redirect('/dreamers/%s' % d_sub)
+    else:
+        return render_to_response('desirelist.html', locals())
+    # return render_to_response('desirelist.html', locals())
 
 
 @csrf_exempt
@@ -120,7 +125,8 @@ def adddesire(request, sub_id):
             desire.desire_substitute_id = substitute_id()
             form.save()
             try:
-                desire.fetch_remote_img(desire.desire_img)
+                v = desire.fetch_remote_img(desire.desire_img)
+                print(v)
             except:
                 pass
             return redirect('/dreamers/%s' % sub_id)

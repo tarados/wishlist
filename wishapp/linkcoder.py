@@ -2,6 +2,7 @@ import re
 import random
 import string
 
+# a = 'https://hotline.ua/computer-planshety/xiaomi-mi-pad-4-wi-fi-332gb-gold/'
 
 def link_on(str):
     text = []
@@ -32,3 +33,4 @@ def substitute_id():
     return sub_id
 
 
+# print(link_on(a))

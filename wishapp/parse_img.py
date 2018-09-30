@@ -4,8 +4,8 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-# a = 'https://rozetka.com.ua/acer_nx_gldeu_013/p28375961/'
-
+# a = 'https://hotline.ua/computer-planshety/xiaomi-mi-pad-4-wi-fi-332gb-gold/'
+#
 def get_img(url):
     try:
         response = requests.get(url, headers=headers)
@@ -79,7 +79,7 @@ def get_img(url):
                 result = result_a
     return result
 
-# get_img(a)
+# print(get_img(a))
 
 
 def find_url(str):

@@ -28,12 +28,14 @@ class Desire(models.Model):
     desire_order = models.IntegerField(default=0)
     desire_img = models.TextField(null=True)
     desire_title = models.CharField(null=True, max_length=250)
-    desire_photo = models.ImageField(upload_to='uploads', null=True, blank=True)
+    desire_photo = models.ImageField(upload_to='images', null=True, blank=True)
     desire_desirelist = models.ForeignKey(Desirelist, models.SET_NULL, blank=True, null=True,)
     desire_substitute_id = models.CharField(max_length=8, default='', unique=True)
 
     def fetch_remote_img(self, url):
-        result = requests.get(url)
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
+        result = requests.get(url,headers=headers)
         file_name = 'icon_{0}.{1}'.format(self.id, url.split('.')[-1])
         path_file = os.path.join(settings.MEDIA_ROOT, file_name)
         out = open(path_file, "wb")

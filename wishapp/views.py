@@ -25,7 +25,7 @@ def desirelist(request):
     dreamer_id = user.id
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
     if desirelists.count() == 0:
-        d = Desirelist.objects.create(desirelist_name='My first desirelist', desirelist_user_id=dreamer_id, desirelist_substitute_id=substitute_id())
+        d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id, desirelist_substitute_id=substitute_id())
         d_sub = d.desirelist_substitute_id
         return redirect('/dreamers/%s' % d_sub)
     else:

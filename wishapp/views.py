@@ -5,6 +5,7 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire, Desirelist
 from wishapp.forms import DesireForm, DesireListForm
+from django.contrib.sessions.models import Session
 from django.contrib import auth
 from wishapp.linkcoder import link_on, substitute_id
 from wishapp.parse_img import get_img, find_url, get_url
@@ -12,7 +13,13 @@ import datetime
 import json
 
 
-# первая страница
+@csrf_exempt
+def index(request):
+    if request.session.get('list_id', False):
+        return redirect('/dreamers/%s' % request.session['list_id'])
+    return render_to_response('dreamers.html', locals())
+
+# первая страница форма авторизации
 def dreamers(request):
     dreamers = User.objects.all()
     user = auth.get_user(request)
@@ -27,6 +34,7 @@ def desirelist(request):
     if desirelists.count() == 0:
         d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id, desirelist_substitute_id=substitute_id())
         d_sub = d.desirelist_substitute_id
+        request.session['list_id'] = d_sub
         return redirect('/dreamers/%s' % d_sub)
     else:
         return render_to_response('desirelist.html', locals())
@@ -98,6 +106,7 @@ def dreamer(request, sub_id):
     is_owner = user_id == int(dreamer_id)
     is_loggedin = user_id is None
     is_choice = user_id != int(dreamer_id)
+    request.session['list_id'] = sub_id
     return render_to_response('dreamer.html', locals())
 
 
@@ -126,7 +135,6 @@ def adddesire(request, sub_id):
             form.save()
             try:
                 v = desire.fetch_remote_img(desire.desire_img)
-                print(v)
             except:
                 pass
             return redirect('/dreamers/%s' % sub_id)

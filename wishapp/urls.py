@@ -25,5 +25,5 @@ urlpatterns = [
 
 
     url(r'^uploads/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
-    url(r'^$', views.dreamers),
+    url(r'^$', views.index),
 ]

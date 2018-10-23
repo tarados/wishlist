@@ -99,8 +99,6 @@ $(function () {
         });
         des_id = this.id.split('-')[1];
         sub_id = this.id.split('-')[2];
-        console.log(des_id)
-        console.log(sub_id)
     });
     $('.modal_yes').click(function () {
         var desire_for_delete_sort = new Object();

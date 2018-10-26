@@ -516,17 +516,7 @@ li a {
 	cursor:pointer;
 	display:none;
 }
-#add_desirelist_block {
-    margin-top: 20px;
-}
 
-.add_desirelist_form {
-    width: 250px;
-    margin: 0 auto 0 auto;
-    border: 1px solid grey;
-    border-radius: 5px;
-    background-color: white;
-}
 .add_desirelist_form_input {
     width: 90%;
     height: 40px;
@@ -560,8 +550,8 @@ span.glyphicon-upload {
 }
 /*modal for add desirelist*********************************************************************************************/
 #modal_form1 {
-	width: 300px;
-	height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+	width: 500px;
+	height: 309px; /* Рaзмеры дoлжны быть фиксирoвaны */
 	border-radius: 5px;
 	border: 3px #000 solid;
 	background: #fff;

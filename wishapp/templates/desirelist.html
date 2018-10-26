@@ -3,7 +3,8 @@
 {% load staticfiles %}
 {% block dreamerslist %}
     <div class="container general">
-        <div class="desire-group-sort hidden" id="add_desirelist_block">
+        <div id="modal_form1">
+            <span id="modal_close1">X</span> <!-- Кнoпкa зaкрыть -->
             <form action="{% url 'adddesirelist' %}" class="button add_desirelist_form" method="post">{% csrf_token %}
                 <div class="profile_title">
                     <h3>Добавьте список желаний</h3>
@@ -15,6 +16,7 @@
                 <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
             </form>
         </div>
+        <div id="overlay1"></div>
         <div class="sort-group listdes">
             {% for desirelist in desirelists %}
                 <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">

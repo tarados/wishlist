@@ -627,16 +627,18 @@ li a {
 .add_desirelist_form_input {
     width: 90%;
     height: 40px;
-    left: 13px;
+    left: 5%;
+    margin-top: 15%;
     border: 1px solid grey;
     border-radius: 5px;
     padding-left: 10px;
+
 }
 
 .add_desirelist_form_button {
     min-width: 110px;
     height: 40px;
-    margin: 20px 0 20px 67px;
+    margin: 44px 0 20px 120px;
     border: 1px solid grey;
     border-radius: 25px;
     background-color: white;
@@ -718,12 +720,16 @@ table {
 
 div.internal {
     margin: 0;
-    height: 25%;
     background-color: white;
 }
 
 .firs {
     border-bottom: 1px solid #e2e2e2;
+    height: 25%;
+}
+
+.secnd {
+    height: 75%;
 }
 
 .name_desirelist {

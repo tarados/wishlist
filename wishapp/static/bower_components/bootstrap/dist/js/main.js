@@ -301,6 +301,16 @@ $(function () {
        document.execCommand('copy');
        $('textArea').addClass('hidden');
    })
+// masonry*************************************************************************************
+    var $grid = $('.grid').masonry({
+        // disable initial layout
+        initLayout: false,
+        //...
+    });
+// bind event
+    $grid.masonry('on', 'layoutComplete', function () {
+        console.log('layout is complete');
+    });
+// trigger initial layout
+    $grid.masonry();
 });
-
-

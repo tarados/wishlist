@@ -5,7 +5,7 @@
 {% block dreamerslist %}
     <div class="container general">
         <h1>Список желаний  {{ desirelist.desirelist_name }}</h1>
-        <div class="grid js-masonry">
+        <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
             {% for desire in desire_list %}
                 <div class="grid-item">
                     <div class="desire_top">

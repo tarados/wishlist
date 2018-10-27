@@ -434,7 +434,7 @@ li a {
 .grid-item {
     width: 250px;
     text-align: center;
-    /*float: right;*/
+    float: left;
     background: white;
     margin: 0 5px 10px 5px;
     border-radius: 5px;

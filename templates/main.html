@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=2">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=5">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=6">
 </head>
 <body>
@@ -32,14 +32,15 @@
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
                         <li><a class="new_desire" href="#id_desire_title">+Добавить желание</a></li>
-{#                        <li><a href="/desirelist/">Мои списки желаний</a></li>#}
+                        {#                        <li><a href="/desirelist/">Мои списки желаний</a></li>#}
                         <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
                         <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_ownerlist %}
                     <ul class="nav navbar-nav">
-                        <li><a class="new_desire" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a></li>
+                        <li><a class="new_desire" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a>
+                        </li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_ownersort %}

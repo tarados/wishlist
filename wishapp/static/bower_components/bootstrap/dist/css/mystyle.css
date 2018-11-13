@@ -736,7 +736,7 @@ div.internal {
 }
 
 nav {
-    margin: 0 5px 0 5px;
+    margin: 20px 5px 0 5px;
 }
 
 ol.breadcrumb {
@@ -751,3 +751,4 @@ ul.navbar-nav {
 .new_desirelist {
     margin-right: 180px;
 }
+

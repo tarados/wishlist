@@ -4,7 +4,14 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1>Список желаний  {{ desirelist.desirelist_name }}</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Список желаний "{{ desirelist.desirelist_name }}"</li>
+                <li class="breadcrumb-item"><a href="/dreamers/sort/{{ sub_id }}/">Сотировка</a></li>
+                <li class="breadcrumb-item"><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
+            </ol>
+        </nav>
         <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
             {% for desire in desire_list %}
                 <div class="grid-item">
@@ -12,42 +19,48 @@
                         <span class="desire_date">{{ desire.date|date }}</span>
                     </div>
                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
-                        <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"{% else %}target="_blank"{% endif %}>{{ desire.title}}</a>
+                        <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"
+                           {% else %}target="_blank"{% endif %}>{{ desire.title }}</a>
                     </div>
                     <div class="desire_image">
                         {% if desire.desire_photo %}
-                            <img  src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"/>
+                            <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"/>
                         {% endif %}
                     </div>
                     <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
-                    <div class="desire_button col-lg-6" id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
+                    <div class="desire_button col-lg-6"
+                         id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                         {% if is_owner %}
-                            <button class="view" id="view§{{ desire.id }}§dreamer§{{ dreamer_id }}§text§{{ desire.text_for_edit }}§title§{{ desire.title }}">обновить</button>
+                            <button class="view"
+                                    id="view§{{ desire.id }}§dreamer§{{ dreamer_id }}§text§{{ desire.text_for_edit }}§title§{{ desire.title }}">
+                                обновить
+                            </button>
                         {% endif %}
                     </div>
                     <div class="desire_button col-lg-6">
                         <form action="{% url 'backupdesire' %}" method="post">{% csrf_token %}
-                            <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                            <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
+                            <input type="hidden" name="desire_id" value={{ desire.id }}>
+                            <input type="hidden" name="dreamer_id" value={{ dreamer_id }}>
                             <button type="submit" class="ar" id="ar-{{ desire.id }}">в архив</button>
                         </form>
                     </div>
                     <div class="desire_button">
                         {% if is_loggedin %}
                             <form action="/auth/login/" method="get">
-                                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
-                                <input type="hidden" name="sub_id"  value={{ sub_id }}>
-                                <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать</button>
+                                <input type="hidden" name="dreamer_id" value={{ dreamer_id }}>
+                                <input type="hidden" name="sub_id" value={{ sub_id }}>
+                                <button type="submit" class="guest hidden" id="noname-{{ desire.id }}">Буду покупать
+                                </button>
                             </form>
                         {% endif %}
                         {% if is_choice %}
                             <form action="{% url 'selectdesire' %}" method="post">
-                                <input type="hidden" name="dreamer_id"  value={{ dreamer_id }}>
-                                <input type="hidden" name="desire_id"  value={{ desire.id }}>
-                                <input type="hidden" name="order_user_id"  value={{ user_id }}>
-                                <input type="hidden" name="order_user_name"  value={{ username }}>
-                                <input type="hidden" name="desire_desire_state"  value={{ desire.desire_state }}>
-                                <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать </button>
+                                <input type="hidden" name="dreamer_id" value={{ dreamer_id }}>
+                                <input type="hidden" name="desire_id" value={{ desire.id }}>
+                                <input type="hidden" name="order_user_id" value={{ user_id }}>
+                                <input type="hidden" name="order_user_name" value={{ username }}>
+                                <input type="hidden" name="desire_desire_state" value={{ desire.desire_state }}>
+                                <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать</button>
                             </form>
                         {% endif %}
                     </div>
@@ -57,17 +70,19 @@
     </div>
     {% if is_owner %}
         <div class="form-group hidden" id="add_desire_block">
-            <form action="{% url 'adddesire' sub_id %}" class="button" method="post" >{% csrf_token %}
+            <form action="{% url 'adddesire' sub_id %}" class="button" method="post">{% csrf_token %}
                 <div class="profile_title"><h3>Добавьте Ваше желание</h3></div>
                 <div class="form-group-item">
-                    <input type="text" name="desire_title" maxlength="250" id="id_desire_title" placeholder="Введите краткое имя желания">
+                    <input type="text" name="desire_title" maxlength="250" id="id_desire_title"
+                           placeholder="Введите краткое имя желания">
                 </div>
                 <div class="form-group-item">
-                    <textarea type="text" name="desire_text" cols="40" rows="10" required id="id_desire_text" placeholder="Дополнительные сведения о желании"></textarea>
+                    <textarea type="text" name="desire_text" cols="40" rows="10" required id="id_desire_text"
+                              placeholder="Дополнительные сведения о желании"></textarea>
                 </div>
                 <div class="form-group-item">
-                    <input type="hidden" name="desirelist_id"  value={{ desirelist.id }}>
-                    <input type="hidden" name="sub_id"  value={{ sub_id }}>
+                    <input type="hidden" name="desirelist_id" value={{ desirelist.id }}>
+                    <input type="hidden" name="sub_id" value={{ sub_id }}>
                 </div>
                 <button type="submit" class="add_desire" value="">Добавить</button>
             </form>

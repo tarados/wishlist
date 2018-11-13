@@ -3,19 +3,32 @@
 
 {% block dreamerslist %}
     <div class="container general">
-        <h1>Архив желаний:</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
+                <li class="breadcrumb-iteme"><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Список желаний
+                    "{{ desirelist.desirelist_name }}"</a>
+                </li>
+                <li class="breadcrumb-item"><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
+                <li class="breadcrumb-item active" aria-current="page">>Архив</li>
+            </ol>
+        </nav>
         <div class="grid">
             {% for desire in desire_list %}
                 <div class="grid-item archive" id="doo-{{ desire.id }}-{{ sub_id }}">
                     <div class="desire_top">
                         <span>{{ desire.date|date }}</span>
                     </div>
-                     <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
+                    <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                         {{ desire.title|safe }}
                     </div>
                     <div class="desire_button">
-                        <button type="button"  class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}" style="width: 45%">Удалить</button>
-                        <button type="button"  class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}" style="width: 45%">Вернуть</button>
+                        <button type="button" class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}"
+                                style="width: 45%">Удалить
+                        </button>
+                        <button type="button" class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}"
+                                style="width: 45%">Вернуть
+                        </button>
                     </div>
                 </div>
             {% endfor %}

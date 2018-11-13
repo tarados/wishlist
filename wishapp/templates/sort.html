@@ -3,18 +3,30 @@
 
 {% block sortlist %}
     <div class="container general sort_desire">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
+                <li class="breadcrumb-iteme"><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Список желаний
+                    "{{ desirelist.desirelist_name }}"</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Сотировка</li>
+                <li class="breadcrumb-item"><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
+            </ol>
+        </nav>
         <h1>Сортировка желаний:</h1>
         <div class="sort-group" id="simpleList">
             {% for desire in desire_list %}
                 {% if desire.desire_state != 2 %}
-                <div class="sort-group-item" id="do-{{ desire.id }}-{{ sub_id }}">
-                    <div class="desire_date_sort">
-                        <span class="sortcounter">{{ forloop.counter }}. </span>
-                        <span class="srt">{{ desire.date|date }}</span>
-                        <a href="/" class="go" id="go-{{ desire.id }}-{{ sub_id }}"><img src="/static/img/delete-Icon.png" width="15px"></a>
+                    <div class="sort-group-item" id="do-{{ desire.id }}-{{ sub_id }}">
+                        <div class="desire_date_sort">
+                            <span class="sortcounter">{{ forloop.counter }}. </span>
+                            <span class="srt">{{ desire.date|date }}</span>
+                            <a href="/" class="go" id="go-{{ desire.id }}-{{ sub_id }}"><img
+                                    src="/static/img/delete-Icon.png" width="15px"></a>
+                        </div>
+                        <div class="desire_title"
+                             id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
                     </div>
-                    <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">{{ desire.title }}</div>
-                </div>
                 {% endif %}
             {% endfor %}
         </div>

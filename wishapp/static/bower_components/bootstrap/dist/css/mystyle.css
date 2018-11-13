@@ -505,7 +505,7 @@ li a {
 
 .logout {
     position: relative;
-    left: 37%;
+    left: 25%;
 }
 
 .navbar-header {
@@ -738,4 +738,12 @@ div.internal {
     position: relative; /* Относительное позиционирование */
     top: 21px; /* Сдвиг сверху */
     left: 7%;
+}
+
+nav {
+    margin: 0 5px 0 5px;
+}
+
+ol.breadcrumb {
+    background-color: #e74c3c;
 }

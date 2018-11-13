@@ -32,19 +32,19 @@
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
                         <li><a class="new_desire" href="#id_desire_title">+Добавить желание</a></li>
-                        <li><a href="/desirelist/">Мои списки желаний</a></li>
-                        <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка желаний</a></li>
-                        <li><a href="/dreamers/archive/{{ sub_id }}/">Архив желаний</a></li>
+{#                        <li><a href="/desirelist/">Мои списки желаний</a></li>#}
+                        <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
+                        <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_ownerlist %}
                     <ul class="nav navbar-nav">
-                        <li><a class="new_desirelist" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a></li>
+                        <li><a class="new_desire" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% elif is_ownersort %}
                     <ul class="nav navbar-nav">
-                        <li><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Мои желания</a></li>
+                        <li><a class="sort_desirelist new_desire" href="/dreamers/{{ sub_id }}">Мои желания</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
                 {% endif %}

@@ -498,11 +498,6 @@ li a {
     margin-top: 15px;
 }
 
-.navbar-nav {
-    position: relative;
-    left: 26px;
-}
-
 .logout {
     position: relative;
     left: 25%;
@@ -746,4 +741,13 @@ nav {
 
 ol.breadcrumb {
     background-color: #e74c3c;
+}
+
+ul.navbar-nav {
+    margin-left: 15%;
+    font-size: 20px;
+}
+
+.new_desirelist {
+    margin-right: 180px;
 }

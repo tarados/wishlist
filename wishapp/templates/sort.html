@@ -10,10 +10,8 @@
                     "{{ desirelist.desirelist_name }}"</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Сотировка</li>
-                <li class="breadcrumb-item"><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
             </ol>
         </nav>
-        <h1>Сортировка желаний:</h1>
         <div class="sort-group" id="simpleList">
             {% for desire in desire_list %}
                 {% if desire.desire_state != 2 %}

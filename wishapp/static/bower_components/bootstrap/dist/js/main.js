@@ -1,23 +1,23 @@
 $(function () {
-   $('a#add_desirelist').click( function(event){ // лoвим клик пo ссылки с id="go"
-		event.preventDefault(); // выключaем стaндaртную рoль элементa
-		$('#overlay1').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
-		 	function(){ // пoсле выпoлнения предъидущей aнимaции
-				$('#modal_form1')
-					.css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
-					.animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
-		});
-	});
-	/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
-	$('#modal_close1, #overlay1, .add_desirelist_form_button').click( function(){ // лoвим клик пo крестику или пoдлoжке
-		$('#modal_form1')
-			.animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
-				function(){ // пoсле aнимaции
-					$(this).css('display', 'none'); // делaем ему display: none;
-					$('#overlay1').fadeOut(400); // скрывaем пoдлoжку
-				}
-			);
-	});
+    $('a#add_desirelist').click(function (event) { // лoвим клик пo ссылки с id="go"
+        event.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay1').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+            function () { // пoсле выпoлнения предъидущей aнимaции
+                $('#modal_form1')
+                    .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                    .animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+            });
+    });
+    /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close1, #overlay1, .add_desirelist_form_button').click(function () { // лoвим клик пo крестику или пoдлoжке
+        $('#modal_form1')
+            .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                function () { // пoсле aнимaции
+                    $(this).css('display', 'none'); // делaем ему display: none;
+                    $('#overlay1').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
     // ссылки в желаниях открываем в другом окне
     var info2 = $("div.ordered");
     info2.css('background', 'red');
@@ -44,7 +44,7 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
- // отрабатываем нажатие кнопки "обновить"*******************************************************************
+    // отрабатываем нажатие кнопки "обновить"*******************************************************************
     $("button.view").click(function () {
         var button = $(this);
         var id = button.attr("id");
@@ -74,7 +74,7 @@ $(function () {
             button_guest.text('выбрано');
             button_noname.text('выбрано');
             button_noname.each(function () {
-               this.disabled = true;
+                this.disabled = true;
             });
             button_guest.css('background-color', '#e74c3c');
             button_noname.css('background-color', '#e74c3c');
@@ -100,14 +100,14 @@ $(function () {
 // modal for sort*********************************************************************************************************
     var des_id = null;
     var sub_id = null;
-    $('a.go').click( function(event){
+    $('a.go').click(function (event) {
         event.preventDefault();
         $('#overlay').fadeIn(400,
-            function(){
+            function () {
                 $('#modal_form')
                     .css('display', 'block')
                     .animate({opacity: 1, top: '50%'}, 200);
-        });
+            });
         des_id = this.id.split('-')[1];
         sub_id = this.id.split('-')[2];
     });
@@ -124,41 +124,41 @@ $(function () {
         block.css('display', 'none');
         $('#modal_form')
             .animate({opacity: 0, top: '45%'}, 200,
-                function(){
+                function () {
                     $(this).css('display', 'none');
                     $('#overlay').fadeOut(400);
                 }
             );
     });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+    $('#modal_close, #overlay').click(function () {
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
     $('.modal_no').click(function () {
         $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
 // modal for arc********************************************************************************************************
     var des_id = null
     var sub_id = null
-    $('button.del_from_arch').click( function(event){
+    $('button.del_from_arch').click(function (event) {
         event.preventDefault();
         $('#overlay').fadeIn(400,
-            function(){
+            function () {
                 $('#modal_form')
                     .css('display', 'block')
                     .animate({opacity: 1, top: '50%'}, 200);
-        });
+            });
         des_id = this.id.split('-')[1];
         sub_id = this.id.split('-')[2];
     });
@@ -175,41 +175,41 @@ $(function () {
         block.css('display', 'none');
         $('#modal_form')
             .animate({opacity: 0, top: '45%'}, 200,
-                function(){
+                function () {
                     $(this).css('display', 'none');
                     $('#overlay').fadeOut(400);
                 }
             );
     });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+    $('#modal_close, #overlay').click(function () {
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
     $('.modal_no').click(function () {
         $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
-// modal for desirelist*********************************************************************************************************
+// modal for desirelist delete*********************************************************************************************************
     var deslist_id = null;
     var user_id = null;
-    $('a.go1').click( function(event){
+    $('a.go1').click(function (event) {
         event.preventDefault();
         $('#overlay').fadeIn(400,
-            function(){
+            function () {
                 $('#modal_form')
                     .css('display', 'block')
                     .animate({opacity: 1, top: '50%'}, 200);
-        });
+            });
         deslist_id = this.id.split('-')[1];
         user_id = this.id.split('-')[2];
     });
@@ -226,29 +226,29 @@ $(function () {
         block.css('display', 'none');
         $('#modal_form')
             .animate({opacity: 0, top: '45%'}, 200,
-                function(){
+                function () {
                     $(this).css('display', 'none');
                     $('#overlay').fadeOut(400);
                 }
             );
     });
-    $('#modal_close, #overlay').click( function(){
-    	$('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+    $('#modal_close, #overlay').click(function () {
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
     $('.modal_no').click(function () {
         $('#modal_form')
-    		.animate({opacity: 0, top: '45%'}, 200,
-    			function(){
-    				$(this).css('display', 'none');
-    				$('#overlay').fadeOut(400);
-    			}
-    		);
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
+            );
     });
 // return from archive****************************************************************************************
     $('.return_from_arch').click(function () {
@@ -288,19 +288,20 @@ $(function () {
             },
             ghostClass: "ghost"
         });
-    };
-   $('a.copy_to_clipboard').click(function () {
-       var part_link = $(this).attr('id');
-       var domen_name = 'http://localhost:8000';
-       var link_send = domen_name + part_link;
-       var textArea = document.createElement("textarea");
-       textArea.value = link_send;
-       document.body.appendChild(textArea);
-       textArea.focus();
-       textArea.select();
-       document.execCommand('copy');
-       $('textArea').addClass('hidden');
-   })
+    }
+    ;
+    $('a.copy_to_clipboard').click(function () {
+        var part_link = $(this).attr('id');
+        var domen_name = 'http://localhost:8000';
+        var link_send = domen_name + part_link;
+        var textArea = document.createElement("textarea");
+        textArea.value = link_send;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        $('textArea').addClass('hidden');
+    })
 // masonry*************************************************************************************
     var $grid = $('.grid').masonry({
         // disable initial layout
@@ -313,4 +314,25 @@ $(function () {
     });
 // trigger initial layout
     $grid.masonry();
+
+// modal for desire*********************************************************************************************************
+    $('a#add_desire').click(function (event) { // лoвим клик пo ссылки с id="go"
+        event.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay2').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+            function () { // пoсле выпoлнения предъидущей aнимaции
+                $('#modal_form2')
+                    .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                    .animate({opacity: 1, top: '50%'}, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+            });
+    });
+    /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close2, #overlay2, .add_desire_form_button').click(function () { // лoвим клик пo крестику или пoдлoжке
+        $('#modal_form2')
+            .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+                function () { // пoсле aнимaции
+                    $(this).css('display', 'none'); // делaем ему display: none;
+                    $('#overlay2').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
 });

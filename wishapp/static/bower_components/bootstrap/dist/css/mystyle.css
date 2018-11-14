@@ -271,7 +271,8 @@ textarea:focus {
 
 textarea#id_desire_text, #id_desire_text_for_edit {
     width: 90%;
-    margin-bottom: 20px;
+    height: 124px;
+    margin-bottom: 10px;
     padding: 15px 0 0 15px;
     border-radius: 5px;
     border: 1px solid grey;
@@ -639,6 +640,15 @@ li a {
     background-color: white;
 }
 
+.add_desire_form_button {
+    min-width: 110px;
+    height: 40px;
+    margin: 44px 0 20px 120px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    background-color: white;
+}
+
 .deldesire_img {
     width: 97%;
     margin-top: 4px;
@@ -674,7 +684,6 @@ span.glyphicon-upload {
     padding: 0;
 }
 
-/* Кнoпкa зaкрыть*/
 #modal_form1 #modal_close1 {
     width: 21px;
     height: 21px;
@@ -685,20 +694,19 @@ span.glyphicon-upload {
     display: block;
 }
 
-/* Пoдлoжкa */
 #overlay1 {
-    z-index: 3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
-    position: fixed; /* всегдa перекрывaет весь сaйт */
-    background-color: #000; /* чернaя */
-    opacity: 0.8; /* нo немнoгo прoзрaчнa */
-    -moz-opacity: 0.8; /* фикс прозрачности для старых браузеров */
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
     filter: alpha(opacity=80);
     width: 100%;
-    height: 100%; /* рaзмерoм вo весь экрaн */
-    top: 0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+    height: 100%;
+    top: 0;
     left: 0;
     cursor: pointer;
-    display: none; /* в oбычнoм сoстoянии её нет) */
+    display: none;
 }
 
 table {
@@ -727,14 +735,14 @@ div.internal {
 }
 
 .name_desirelist {
-    color: black; /* Красный цвет символов */
-    font-size: 165%; /* Размер шрифта в процентах */
-    font-family: serif; /* Шрифт с засечками */
-    position: relative; /* Относительное позиционирование */
-    top: 21px; /* Сдвиг сверху */
+    color: black;
+    font-size: 165%;
+    font-family: serif;
+    position: relative;
+    top: 21px;
     left: 7%;
 }
-
+/*********************************************************************************************************************/
 nav {
     margin: 20px 5px 0 5px;
 }
@@ -752,3 +760,119 @@ ul.navbar-nav {
     margin-right: 180px;
 }
 
+/*modal for add desire*********************************************************************************************/
+#modal_form2 {
+    width: 500px;
+    height: 309px;
+    border-radius: 5px;
+    border: 3px #000 solid;
+    background: #e2e2e2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    opacity: 0;
+    z-index: 5;
+    padding: 0;
+}
+
+#modal_form2 #modal_close2 {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+#overlay2 {
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+#modal_form2 table {
+    width: 485px;
+    height: 303px;
+    margin-left: 5px;
+}
+
+#modal_form2 .side {
+    width: 60px;
+    background-color: #e2e2e2;
+}
+
+#modal_form2 div.internal {
+    margin: 0;
+    background-color: white;
+}
+
+#modal_form2 .firs {
+    border-bottom: 1px solid #e2e2e2;
+    height: 15%;
+}
+
+#modal_form2 .secnd {
+    height: 85%;
+}
+
+#modal_form2 .name_desire {
+    color: black;
+    font-size: 165%;
+    font-family: serif;
+    position: relative;
+    top: 5px;
+    left: 17%;
+}
+
+#modal_form2 form.button {
+    margin-bottom: 20px;
+}
+
+#modal_form2 .add_desire_form_button {
+    min-width: 110px;
+    height: 40px;
+    margin: 7px 0 12px 120px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    background-color: white;
+}
+
+#modal_form2 textarea#id_desire_text, #id_desire_text_for_edit {
+    width: 90%;
+    height: 103px;
+    margin-bottom: 4px;
+    margin-left: 5%;
+    margin-top: 3px;
+    padding: 15px 0 0 15px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+#modal_form2 #id_desire_title, #desire_title, #add_link_foto {
+    width: 90%;
+    height: 40px;
+    left: 5%;
+    top: 10px;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+#modal_form2 #id_desire_title::input-placeholder {
+    font-size: 20px;
+}
+
+/*********************************************************************************************************************/

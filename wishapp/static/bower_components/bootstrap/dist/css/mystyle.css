@@ -5,6 +5,10 @@ h1, h2 {
     color: white;
 }
 
+.breadcrumb {
+     font-size: calc(0.4em + 0.5vw);
+}
+
 h3 {
     text-align: center;
     font-size: calc(0.5em + 1vw);
@@ -745,10 +749,6 @@ ol.breadcrumb {
 
 ul.navbar-nav {
     margin-left: 15%;
-    font-size: 20px;
-}
-
-.new_desirelist {
-    margin-right: 180px;
+    font-size: 14px;
 }
 

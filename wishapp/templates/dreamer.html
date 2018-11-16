@@ -7,7 +7,9 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Список желаний "{{ desirelist.desirelist_name }}"</li>
+                <li class="breadcrumb-item active" aria-current="page">Список желаний
+                    "{{ desirelist.desirelist_name }}"
+                </li>
             </ol>
         </nav>
         <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
@@ -67,24 +69,39 @@
         </div>
     </div>
     {% if is_owner %}
-        <div class="form-group hidden" id="add_desire_block">
-            <form action="{% url 'adddesire' sub_id %}" class="button" method="post">{% csrf_token %}
-                <div class="profile_title"><h3>Добавьте Ваше желание</h3></div>
-                <div class="form-group-item">
-                    <input type="text" name="desire_title" maxlength="250" id="id_desire_title"
-                           placeholder="Введите краткое имя желания">
-                </div>
-                <div class="form-group-item">
+        <div id="modal_form2">
+            <table>
+                <tr>
+                    <td class="side"></td>
+                    <td>
+                        <div class="row internal firs">
+                            <span class="name_desire">Добавьте Ваше желание</span>
+                        </div>
+                        <div class="row internal secnd">
+                            <form action="{% url 'adddesire' sub_id %}" class="button" method="post">{% csrf_token %}
+                                <div class="form-group-item">
+                                    <input type="text" name="desire_title" maxlength="250" id="id_desire_title"
+                                           placeholder="Введите краткое имя желания">
+                                </div>
+                                <div class="form-group-item">
                     <textarea type="text" name="desire_text" cols="40" rows="10" required id="id_desire_text"
                               placeholder="Дополнительные сведения о желании"></textarea>
-                </div>
-                <div class="form-group-item">
-                    <input type="hidden" name="desirelist_id" value={{ desirelist.id }}>
-                    <input type="hidden" name="sub_id" value={{ sub_id }}>
-                </div>
-                <button type="submit" class="add_desire" value="">Добавить</button>
-            </form>
+                                </div>
+                                <div class="form-group-item">
+                                    <input type="hidden" name="desirelist_id" value={{ desirelist.id }}>
+                                    <input type="hidden" name="sub_id" value={{ sub_id }}>
+                                </div>
+                                <button type="submit" class="add_desire_form_button" value="">Добавить</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td class="side">
+                        <span id="modal_close2">X</span> <!-- Кнoпкa зaкрыть -->
+                    </td>
+                </tr>
+            </table>
         </div>
+        <div id="overlay2"></div>
     {% endif %}
     <div class="list-group-item hidden" id="row-{{ desire.id }}">
         <h3>Редактирование желания</h3>

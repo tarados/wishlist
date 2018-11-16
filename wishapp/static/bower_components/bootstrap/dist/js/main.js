@@ -45,22 +45,22 @@ $(function () {
         return false;
     });
     // отрабатываем нажатие кнопки "обновить"*******************************************************************
-    $("button.view").click(function () {
-        var button = $(this);
-        var id = button.attr("id");
-        var desireid = id.split("§")[1];
-        var info = $(".list-group-item");
-        var form = $("div.grid");
-        var block = $("#add_desire_block");
-        var text = id.split("§")[5];
-        var title = id.split("§")[7];
-        $('#desire_title').attr('value', title);
-        $('.desire_id').attr('value', desireid);
-        $('#id_desire_text_for_edit').text(text);
-        info.removeClass("hidden");
-        block.css('display', 'none');
-        form.css('display', 'none');
-    });
+    // $("button.view").click(function () {
+    //     var button = $(this);
+    //     var id = button.attr("id");
+    //     var desireid = id.split("§")[1];
+    //     var info = $(".list-group-item");
+    //     var form = $("div.grid");
+    //     var block = $("#add_desire_block");
+    //     var text = id.split("§")[5];
+    //     var title = id.split("§")[7];
+    //     $('#desire_title').attr('value', title);
+    //     $('.desire_id').attr('value', desireid);
+    //     $('#id_desire_text_for_edit').text(text);
+    //     info.removeClass("hidden");
+    //     block.css('display', 'none');
+    //     form.css('display', 'none');
+    // });
     $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];
         var loggedin = (this.id).split('-')[3];
@@ -332,6 +332,34 @@ $(function () {
                 function () { // пoсле aнимaции
                     $(this).css('display', 'none'); // делaем ему display: none;
                     $('#overlay2').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
+    // modal for desire edit*********************************************************************************************************
+    $('button.edit_desire').click(function (event) {
+        event.preventDefault();
+        $('#overlay3').fadeIn(400,
+            function () {
+                $('#modal_form3')
+                    .css('display', 'block')
+                    .animate({opacity: 1, top: '50%'}, 200);
+            });
+        var button = $(this);
+        var id = button.attr("id");
+        var desireid = id.split("§")[1];
+        var text = id.split("§")[5];
+        var title = id.split("§")[7];
+        $('#desire_title').attr('value', title);
+        $('.desire_id').attr('value', desireid);
+        $('#id_desire_text_for_edit').text(text);
+    });
+    /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close3, #overlay3, .edit_desire_from_button').click(function () {
+        $('#modal_form3')
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay3').fadeOut(400);
                 }
             );
     });

@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=55">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=8">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
+<div class="fixed">
+    <a href="#" class="button dsgnmoo">+</a>
+</div>
 <div class="container general">
     <nav class="navbar">
         <div class="container">
@@ -32,7 +35,7 @@
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
                         <li><a class="new_desire" href="#id_desire_title" id="add_desire">+Добавить желание</a></li>
-                        {#                        <li><a href="/desirelist/">Мои списки желаний</a></li>#}
+                        <li><a href="/desirelist/">Мои списки желаний</a></li>
                         <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
                         <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
@@ -52,13 +55,11 @@
             </div>
         </div>
     </nav>
-</div>
-
 {% block dreamerslist %}{% endblock %}
 {% block sortlist %}{% endblock %}
 {% block login %}{% endblock %}
 {% block editlist %}{% endblock %}
-
+</div>
 <a href="#" class="scrollup">Наверх</a>
 <div id="modal_form">
     <div class="modal_title"><span>Хотите удалить желание из списка?</span></div>
@@ -74,7 +75,7 @@
 <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
 <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
 <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-<script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=88"></script>
+<script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=22"></script>
 
 </body>
 </html>

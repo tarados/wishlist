@@ -2,48 +2,47 @@
 {% load socialaccount %}
 {% load staticfiles %}
 {% block dreamerslist %}
-    <div class="container general">
-        <div id="modal_form1">
-            <table>
-                <tr>
-                    <td class="side"></td>
-                    <td>
-                        <div class="row internal firs">
-                            <span class="name_desirelist">Введите имя для нового списка:</span>
-                        </div>
-                        <div class="row internal secnd">
-                            <form action="{% url 'adddesirelist' %}" class="button" method="post">{% csrf_token %}
-                                <input type="text" class='add_desirelist_form_input' name="desirelist_name"
-                                       maxlength="250"
-                                       placeholder="Введите краткое имя для списка">
-                                <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td class="side">
-                         <span id="modal_close1">X</span> <!-- Кнoпкa зaкрыть -->
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div id="overlay1"></div>
-        <div class="sort-group listdes">
-            {% for desirelist in desirelists %}
-                <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
-                    <div class="deldesire_img">
-                        <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img
-                                src="/static/img/delete-Icon.png" width="15px"></a>
+
+    <div id="modal_form1">
+        <table>
+            <tr>
+                <td class="side"></td>
+                <td>
+                    <div class="row internal firs">
+                        <span class="name_desirelist">Введите имя для нового списка:</span>
                     </div>
-                    <div class="desirelist_name">
-                        <a href="#" class="copy_to_clipboard" title="Копировать адрес списка"
-                           id="/dreamers/{{ desirelist.desirelist_substitute_id }}">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                        </a>
-                        <a href="/dreamers/{{ desirelist.desirelist_substitute_id }}"
-                           class="link_for_send">{{ desirelist.desirelist_name }}</a>
+                    <div class="row internal secnd">
+                        <form action="{% url 'adddesirelist' %}" class="button" method="post">{% csrf_token %}
+                            <input type="text" class='add_desirelist_form_input' name="desirelist_name"
+                                   maxlength="250"
+                                   placeholder="Введите краткое имя для списка">
+                            <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
+                        </form>
                     </div>
+                </td>
+                <td class="side">
+                    <span id="modal_close1">X</span> <!-- Кнoпкa зaкрыть -->
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="overlay1"></div>
+    <div class="sort-group listdes">
+        {% for desirelist in desirelists %}
+            <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
+                <div class="deldesire_img">
+                    <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img
+                            src="/static/img/delete-Icon.png" width="15px"></a>
                 </div>
-            {% endfor %}
-        </div>
+                <div class="desirelist_name">
+                    <a href="#" class="copy_to_clipboard" title="Копировать адрес списка"
+                       id="/dreamers/{{ desirelist.desirelist_substitute_id }}">
+                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                    </a>
+                    <a href="/dreamers/{{ desirelist.desirelist_substitute_id }}"
+                       class="link_for_send">{{ desirelist.desirelist_name }}</a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

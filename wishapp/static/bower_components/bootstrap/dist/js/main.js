@@ -44,23 +44,6 @@ $(function () {
         $("html, body").animate({scrollTop: 0}, 10);
         return false;
     });
-    // отрабатываем нажатие кнопки "обновить"*******************************************************************
-    // $("button.view").click(function () {
-    //     var button = $(this);
-    //     var id = button.attr("id");
-    //     var desireid = id.split("§")[1];
-    //     var info = $(".list-group-item");
-    //     var form = $("div.grid");
-    //     var block = $("#add_desire_block");
-    //     var text = id.split("§")[5];
-    //     var title = id.split("§")[7];
-    //     $('#desire_title').attr('value', title);
-    //     $('.desire_id').attr('value', desireid);
-    //     $('#id_desire_text_for_edit').text(text);
-    //     info.removeClass("hidden");
-    //     block.css('display', 'none');
-    //     form.css('display', 'none');
-    // });
     $(".desire_button").each(function () {
         var state = (this.id).split('-')[9];
         var loggedin = (this.id).split('-')[3];
@@ -363,4 +346,24 @@ $(function () {
                 }
             );
     });
+
+    function fixDiv() {
+        var $cache = $('.fixed');
+        if ($(window).scrollTop() > 50) {
+            $cache.css({
+                'position': 'fixed',
+                'top': '0px'
+            });
+        } else {
+            $cache.css({
+                'position': 'relative',
+            });
+        }
+        if ($(window).width() < 768) {
+            $cache.removeClass('hidden');
+        }
+    }
+
+    $(window).scroll(fixDiv);
+    fixDiv();
 });

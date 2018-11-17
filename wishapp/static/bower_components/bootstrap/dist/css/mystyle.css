@@ -1065,6 +1065,12 @@ a.button.dsgnmoo:active {
 
 .fixed {
     z-index: 1;
+    opacity: 0;
     height: 20px;
+}
 
+@media screen and (max-width: 768px) {
+    .fixed {
+        opacity: 1;
+    }
 }

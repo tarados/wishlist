@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=8">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=88">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- Бренд или название сайта -->
-                <div><img src="{% static "img/logo.jpg" %}" class="round"></div>
+                <a class="navbar-brand"><img src="{% static "img/logo.jpg" %}" class="round"></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-main">
                 {% if is_owner %}

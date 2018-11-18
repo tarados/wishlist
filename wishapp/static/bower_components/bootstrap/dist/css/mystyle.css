@@ -495,9 +495,6 @@ li a {
 }
 
 /********************************************************************************************************************/
-.navbar-brand {
-    margin-top: 15px;
-}
 
 .logout {
     position: relative;
@@ -1068,4 +1065,9 @@ a.button.dsgnmoo:active {
     .fixed {
         opacity: 1;
     }
+}
+
+a.navbar-brand {
+    padding: 0;
+    margin-left: 30px;
 }

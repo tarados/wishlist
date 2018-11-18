@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=88">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=28">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
 <div class="fixed">
-    <a href="#" class="button dsgnmoo">+</a>
+    {% if is_owner %}
+        <a href="#" class="button dsgnmoo new_desire">+</a>
+    {% elif is_ownerlist %}
+        <a href="#" class="button dsgnmoo new_desirelist">+</a>
+    {% endif %}
+
 </div>
 <div class="container general">
     <nav class="navbar">
@@ -42,7 +47,7 @@
                     </ul>
                 {% elif is_ownerlist %}
                     <ul class="nav navbar-nav">
-                        <li><a class="new_desire" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a>
+                        <li><a class="new_desirelist" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a>
                         </li>
                         <li class="logout"><a href="/auth/logout/">Выйти</a></li>
                     </ul>
@@ -55,10 +60,10 @@
             </div>
         </div>
     </nav>
-{% block dreamerslist %}{% endblock %}
-{% block sortlist %}{% endblock %}
-{% block login %}{% endblock %}
-{% block editlist %}{% endblock %}
+    {% block dreamerslist %}{% endblock %}
+    {% block sortlist %}{% endblock %}
+    {% block login %}{% endblock %}
+    {% block editlist %}{% endblock %}
 </div>
 <a href="#" class="scrollup">Наверх</a>
 <div id="modal_form">
@@ -75,7 +80,7 @@
 <script src="{% static "bower_components/Sortable/Sortable.min.js" %}"></script>
 <script src="{% static "bower_components/bootstrap/dist/js/snap.svg-min.js" %}"></script>
 <script src="{% static "bower_components/masonry-layout/dist/masonry.pkgd.min.js" %}"></script>
-<script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=22"></script>
+<script src="{% static "bower_components/bootstrap/dist/js/main.js" %}?v=6"></script>
 
 </body>
 </html>

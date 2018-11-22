@@ -1071,3 +1071,10 @@ a.navbar-brand {
     padding: 0;
     margin-left: 30px;
 }
+.selected {
+    background-color: yellow;
+}
+.selected span {
+    font-size: 15px;
+    color: #acb8bf;
+}

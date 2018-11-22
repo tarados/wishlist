@@ -68,7 +68,7 @@ $(function () {
             button_noname.each(function () {
                 this.disabled = true;
             });
-            button_guest.css('background-color', '#e74c3c');
+            button_guest.css('opacity', '0');
             button_noname.css('background-color', '#e74c3c');
         }
         if (loggedin == 'True') {

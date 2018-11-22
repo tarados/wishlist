@@ -53,6 +53,9 @@
                         </form>
                     {% endif %}
                     {% if is_choice %}
+                        <div class="selected">
+                            {% if desire.desire_state == 1 %}<span>Выбрано</span>{% endif %}
+                        </div>
                         <form action="{% url 'selectdesire' %}" method="post">
                             <input type="hidden" name="dreamer_id" value={{ dreamer_id }}>
                             <input type="hidden" name="desire_id" value={{ desire.id }}>

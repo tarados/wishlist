@@ -278,7 +278,7 @@ $(function () {
     ;
     $('a.copy_to_clipboard').click(function () {
         var part_link = $(this).attr('id');
-        var domen_name = 'http://localhost:8000';
+        var domen_name = document.location.origin;
         var link_send = domen_name + part_link;
         var textArea = document.createElement("textarea");
         textArea.value = link_send;

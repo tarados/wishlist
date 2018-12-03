@@ -15,9 +15,14 @@ import json
 
 @csrf_exempt
 def index(request):
-    if request.session.get('list_id', False):
-        return redirect('/dreamers/%s' % request.session['list_id'])
+    user = auth.get_user(request)
+    if user.id:
+        if request.session.get('list_id', False):
+            return redirect('/dreamers/%s' % request.session['list_id'])
+        else:
+            return redirect('/desirelist/')
     return render_to_response('dreamers.html', locals())
+
 
 # первая страница форма авторизации
 def dreamers(request):
@@ -26,19 +31,19 @@ def dreamers(request):
     is_loggedin = user.id is None
     return render_to_response('dreamers.html', locals())
 
+
 def desirelist(request):
     is_ownerlist = True
     user = auth.get_user(request)
     dreamer_id = user.id
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
     if desirelists.count() == 0:
-        d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id, desirelist_substitute_id=substitute_id())
+        d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id,
+                                      desirelist_substitute_id=substitute_id())
         d_sub = d.desirelist_substitute_id
         request.session['list_id'] = d_sub
         return redirect('/dreamers/%s' % d_sub)
-    else:
-        return render_to_response('desirelist.html', locals())
-    # return render_to_response('desirelist.html', locals())
+    return render_to_response('desirelist.html', locals())
 
 
 @csrf_exempt
@@ -67,7 +72,8 @@ def dreamer(request, sub_id):
     desirelist = Desirelist.objects.get(desirelist_substitute_id=sub_id)
     dreamer_id = desirelist.desirelist_user_id
     desirelist_id = desirelist.id
-    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by('desire_order')
+    desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist_id).order_by(
+        'desire_order')
     result = []
     height = 0
     for desire in desires:
@@ -153,6 +159,7 @@ def deldesirelist(request, user_id):
             desire.delete()
     desirelist = Desirelist.objects.get(id=desirelist_id)
     desirelist.delete()
+    Desirelist.save()
     return redirect('desirelist')
 
 

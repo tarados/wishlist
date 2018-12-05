@@ -4,8 +4,8 @@ import re
 
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
-# a = 'https://hotline.ua/computer-planshety/xiaomi-mi-pad-4-wi-fi-332gb-gold/'
-#
+# a = 'http://n1s1.starhit.ru/33/39/60/333960fb87fa2e6ac926282379bec93e/400x600_0_e764b98d6e11ca70984790a76907b527@400x600_0x0a330c9a_2145567971543852053.jpeg'
+
 def get_img(url):
     try:
         response = requests.get(url, headers=headers)

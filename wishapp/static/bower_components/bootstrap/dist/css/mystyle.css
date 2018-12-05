@@ -282,10 +282,6 @@ textarea#id_desire_text {
     border: 1px solid grey;
 }
 
-nav {
-    background-color: orangered;
-}
-
 .btn, .btn-google {
     color: white;
     border-color: white;
@@ -495,11 +491,6 @@ li a {
 }
 
 /********************************************************************************************************************/
-
-.logout {
-    position: relative;
-    left: 25%;
-}
 
 .navbar-header {
     margin-top: 5px;
@@ -741,16 +732,12 @@ div.internal {
 }
 
 /*********************************************************************************************************************/
-nav {
-    margin: 20px 5px 0 5px;
-}
 
 ol.breadcrumb {
     background-color: #e74c3c;
 }
 
 ul.navbar-nav {
-    margin-left: 15%;
     font-size: 14px;
 }
 
@@ -1055,25 +1042,15 @@ a.button.dsgnmoo:active {
     box-shadow: inset 0 10px 15px 0 #bd2524;
 }
 
-.fixed {
-    z-index: 1;
-    opacity: 0;
-    height: 20px;
-}
-
-@media screen and (max-width: 768px) {
-    .fixed {
-        opacity: 1;
-    }
-}
-
 a.navbar-brand {
     padding: 0;
     margin-left: 30px;
 }
+
 .selected {
     background-color: yellow;
 }
+
 .selected span {
     font-size: 15px;
     color: #acb8bf;

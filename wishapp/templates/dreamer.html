@@ -3,14 +3,12 @@
 {% load humanize %}
 
 {% block dreamerslist %}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Список желаний
-                "{{ desirelist.desirelist_name }}"
-            </li>
-        </ol>
-    </nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Список желаний
+            "{{ desirelist.desirelist_name }}"
+        </li>
+    </ol>
     <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
         {% for desire in desire_list %}
             <div class="grid-item">

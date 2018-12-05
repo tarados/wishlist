@@ -10,18 +10,10 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=888">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=2">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
-<div class="fixed">
-    {% if is_owner %}
-        <a href="#" class="button dsgnmoo new_desire">+</a>
-    {% elif is_ownerlist %}
-        <a href="#" class="button dsgnmoo new_desirelist">+</a>
-    {% endif %}
-
-</div>
 <div class="container general">
     <nav class="navbar">
         <div class="container">
@@ -33,32 +25,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- Бренд или название сайта -->
-                <a class="navbar-brand"><img src="{% static "img/logo.jpg" %}" class="round"></a>
+
+                <div class="collapse navbar-collapse" id="navbar-main">
+                    {% if is_owner %}
+                        <ul class="nav navbar-nav">
+                            <li><a class="new_desire" href="#id_desire_title" id="add_desire">+Добавить желание</a></li>
+                            <li><a href="/desirelist/">Мои списки желаний</a></li>
+                            <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
+                            <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
+                            <li class="logout"><a href="/auth/logout/">Выйти</a></li>
+                        </ul>
+                    {% elif is_ownerlist %}
+                        <ul class="nav navbar-nav">
+                            <li><a class="new_desirelist" href="#id_desirelist_name" id="add_desirelist">+Add
+                                desirelist</a>
+                            </li>
+                            <li class="logout"><a href="/auth/logout/">Выйти</a></li>
+                        </ul>
+                    {% elif is_ownersort %}
+                        <ul class="nav navbar-nav">
+                            <li><a class="sort_desirelist new_desire" href="/dreamers/{{ sub_id }}">Мои желания</a></li>
+                            <li class="logout"><a href="/auth/logout/">Выйти</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-main">
-                {% if is_owner %}
-                    <ul class="nav navbar-nav">
-                        <li><a class="new_desire" href="#id_desire_title" id="add_desire">+Добавить желание</a></li>
-                        <li><a href="/desirelist/">Мои списки желаний</a></li>
-                        <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
-                        <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>
-                        <li class="logout"><a href="/auth/logout/">Выйти</a></li>
-                    </ul>
-                {% elif is_ownerlist %}
-                    <ul class="nav navbar-nav">
-                        <li><a class="new_desirelist" href="#id_desirelist_name" id="add_desirelist">+Add desirelist</a>
-                        </li>
-                        <li class="logout"><a href="/auth/logout/">Выйти</a></li>
-                    </ul>
-                {% elif is_ownersort %}
-                    <ul class="nav navbar-nav">
-                        <li><a class="sort_desirelist new_desire" href="/dreamers/{{ sub_id }}">Мои желания</a></li>
-                        <li class="logout"><a href="/auth/logout/">Выйти</a></li>
-                    </ul>
-                {% endif %}
-            </div>
-        </div>
     </nav>
     {% block dreamerslist %}{% endblock %}
     {% block sortlist %}{% endblock %}

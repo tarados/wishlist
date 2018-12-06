@@ -326,12 +326,16 @@ form.button {
     image-rendering: auto;
 }
 
-body, .navbar, .btn-google {
+.btn-google {
     background-color: #e74c3c;
 }
 
-li a {
-    color: white;
+body {
+  padding-top: 70px;
+}
+
+ol li a {
+    color: #cba887;
     margin: 30px 0 30px 0;
 }
 
@@ -412,7 +416,6 @@ li a {
 
 /* ----masonry ---- *************************************************************************************************/
 .grid {
-    background: #e74c3c;
     margin-left: auto;
     margin-right: auto;
 }
@@ -491,15 +494,6 @@ li a {
 }
 
 /********************************************************************************************************************/
-
-.navbar-header {
-    margin-top: 5px;
-}
-
-.navbar-header div {
-    position: relative;
-    top: 22px;
-}
 
 /*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px) {
@@ -734,13 +728,33 @@ div.internal {
 /*********************************************************************************************************************/
 
 ol.breadcrumb {
-    background-color: #e74c3c;
+    background-color: #f8f8f8;
 }
 
-ul.navbar-nav {
-    font-size: 14px;
+:target:before {
+  display: block;
+  content: " ";
+  margin-top: -70px;
+  height: 70px;
+  visibility: hidden;
 }
 
+nav {
+    max-width: 1040px;
+    margin: auto;
+}
+
+a.navbar-brand {
+    font-weight: bold;
+}
+
+ul.nav.navbar-nav {
+    margin-left: 12%;
+}
+
+li.logout a {
+    left: 150%;
+}
 /**************************modal for add desire******************************************************************/
 #modal_form2 {
     width: 500px;
@@ -1040,11 +1054,6 @@ a.button.dsgnmoo:active {
     background: linear-gradient(#ce2424, #f97779);
     border: solid 1px #be2424;
     box-shadow: inset 0 10px 15px 0 #bd2524;
-}
-
-a.navbar-brand {
-    padding: 0;
-    margin-left: 30px;
 }
 
 .selected {

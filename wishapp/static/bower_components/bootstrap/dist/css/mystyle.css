@@ -435,15 +435,16 @@ ol li a {
     width: 250px;
     text-align: center;
     float: left;
-    background: white;
+    background: #f8f8f8;
     margin: 0 5px 10px 5px;
     border-radius: 5px;
 }
 
 .grid-item img {
     position: relative;
-    width: 80%;
+    width: 94%;
     top: 10px;
+    border-radius: 5px;
 }
 
 .desire_top {
@@ -463,8 +464,7 @@ ol li a {
 
 .grid-item button {
     border: 0;
-    background: white;
-    transform: translateY(28px);
+    background: #f8f8f8;
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
 }
@@ -477,7 +477,6 @@ ol li a {
 }
 
 .grid-item:hover button {
-    transform: translateY(-5px);
     opacity: 1;
 }
 

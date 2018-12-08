@@ -14,17 +14,17 @@
     <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
         {% for desire in desire_list %}
             <div class="grid-item">
+                <div class="desire_image">
+                    {% if desire.desire_photo %}
+                        <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"/>
+                    {% endif %}
+                </div>
                 <div class="desire_top">
                     <span class="desire_date">{{ desire.date|date }}</span>
                 </div>
                 <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                     <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"
                        {% else %}target="_blank"{% endif %}>{{ desire.title }}</a>
-                </div>
-                <div class="desire_image">
-                    {% if desire.desire_photo %}
-                        <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"/>
-                    {% endif %}
                 </div>
                 <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
                 <div class="desire_button col-lg-6"

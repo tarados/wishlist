@@ -234,12 +234,11 @@ div.edt {
     text-align: center;
     overflow: auto;
     text-overflow: ellipsis;
-    padding-bottom: 10px;
 }
 
 .desire_date {
     float: left;
-    padding: 15px 15px 0;
+    padding: 5px 5px 0;
     color: #acb8bf;
 }
 
@@ -450,7 +449,7 @@ ol li a {
 
 .desire_top {
     float: left;
-    padding: 10px 15px 5px;
+    padding: 10px 10px 5px;
     color: #acb8bf;
 }
 
@@ -467,20 +466,19 @@ ol li a {
 }
 
 .view {
-    background-color:  #f8f8f8;
+    background-color: #f8f8f8;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 
 }
 
 .ar {
-    background-color:  #bd081c;
+    background-color: #bd081c;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     color: white;
 
 }
-
 
 .grid-item button {
     opacity: 0;
@@ -505,16 +503,20 @@ ol li a {
     text-overflow: ellipsis;
 }
 
-.desire_description {
-    margin-bottom: 30px;
-
-}
-
 .desire_button_group {
     position: absolute;
     top: 18px;
     left: 15px;
     width: 88%;
+}
+
+.guest {
+    position: absolute;
+    height: 40px;
+    top: 18px;
+    border-radius: 3px;
+    border: 0;
+    right: 15px;
 }
 
 /********************************************************************************************************************/

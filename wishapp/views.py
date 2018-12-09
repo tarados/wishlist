@@ -77,6 +77,8 @@ def dreamer(request, sub_id):
     result = []
     height = 0
     for desire in desires:
+        now = datetime.datetime.now()
+        delta = (now.date() - datetime.timedelta(days=30)) - desire.desire_date.date()
         try:
             k = desire.determine_height_img()
             height = 235 * k
@@ -94,6 +96,7 @@ def dreamer(request, sub_id):
                 'title': desire.desire_title,
                 'text_for_edit': desire.desire_text,
                 'date': desire.desire_date,
+                'delta': delta.days,
                 'desire_state': desire.desire_state,
                 'desire_image': desire.desire_img,
                 'desire_photo': desire.desire_photo,

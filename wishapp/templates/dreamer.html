@@ -20,7 +20,8 @@
                     {% endif %}
                 </div>
                 <div class="desire_top">
-                    <span class="desire_date">{{ desire.date|date }}</span>
+                    <span class="desire_date">{% if desire.delta > 0 %}{{ desire.date|date:"d/m/Y" }}{% else %}
+                        {{ desire.date|naturalday }}{% endif %}</span>
                 </div>
                 <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                     <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"

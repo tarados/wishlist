@@ -221,7 +221,8 @@ div.edt {
     border-color: white;
     border-radius: 5px;
     text-align: left;
-    background-color: white;
+    background-color: #f8f8f8;
+
 }
 
 .archive {
@@ -661,9 +662,12 @@ ol li a {
 }
 
 .desirelist_name {
-    text-align: center;
-    margin-bottom: 5px;
+    margin: 0 0 5px 10px;
     overflow: auto;
+}
+
+.link_for_send {
+    margin-left: 25%;
 }
 
 span.glyphicon-upload {

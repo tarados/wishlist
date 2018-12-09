@@ -458,26 +458,29 @@ ol li a {
 }
 
 .view,
-.ar {
+.ar,
+.del_from_arch,
+.return_from_arch {
     border: 0;
     width: 100%;
     height: 40px;
     font-size: 18px;
 }
 
-.view {
+.view,
+.return_from_arch {
     background-color: #f8f8f8;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 
 }
 
-.ar {
+.ar,
+.del_from_arch {
     background-color: #bd081c;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     color: white;
-
 }
 
 .grid-item button {
@@ -517,6 +520,10 @@ ol li a {
     border-radius: 3px;
     border: 0;
     right: 15px;
+}
+
+.del_from_arch {
+    width: 100%;
 }
 
 /********************************************************************************************************************/

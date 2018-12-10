@@ -282,10 +282,6 @@ textarea#id_desire_text {
     border: 1px solid grey;
 }
 
-nav {
-    background-color: orangered;
-}
-
 .btn, .btn-google {
     color: white;
     border-color: white;
@@ -330,7 +326,7 @@ form.button {
     image-rendering: auto;
 }
 
-body, .navbar, .btn-google {
+body, .btn-google {
     background-color: #e74c3c;
 }
 
@@ -493,16 +489,22 @@ li a {
 
 }
 
-/********************************************************************************************************************/
-
-.logout {
-    position: relative;
-    left: 25%;
+/*******************************navbar*************************************************************************************/
+body {
+    padding-top: 70px;
 }
 
-.navbar-header div {
-    position: relative;
-    top: 0;
+nav {
+    max-width: 1030px;
+    margin: auto;
+}
+
+ul.nav.navbar-nav {
+    margin-left: 12%;
+}
+
+.logout {
+    left: 30%;
 }
 
 /*м*********************************************************************************************************************/
@@ -739,10 +741,6 @@ div.internal {
 
 ol.breadcrumb {
     background-color: #e74c3c;
-}
-
-ul.navbar-nav {
-    font-size: 14px;
 }
 
 /**************************modal for add desire******************************************************************/
@@ -1019,11 +1017,6 @@ a.button:active {
     .fixed {
         opacity: 1;
     }
-}
-
-a.navbar-brand {
-    padding: 0;
-    margin-left: 30px;
 }
 
 .selected {

@@ -469,7 +469,7 @@ ol li a {
 
 .view,
 .return_from_arch {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 
@@ -499,6 +499,10 @@ ol li a {
     opacity: 1;
 }
 
+.grid-item:hover img {
+    opacity: 0.7;
+}
+
 .desire_description p {
     padding: 15px 15px 0 15px;
     text-align: left;
@@ -508,9 +512,14 @@ ol li a {
 
 .desire_button_group {
     position: absolute;
-    top: 18px;
-    left: 15px;
-    width: 88%;
+    top: 20px;
+    left: 19px;
+    width: 85%;
+}
+
+.desire_button_group_for_archive {
+    margin: 10px 10px 10px 10px;
+    height: 40px;
 }
 
 .guest {

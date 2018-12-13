@@ -764,7 +764,7 @@ div.internal {
 .name_desirelist {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 21px;
     left: 7%;
@@ -871,10 +871,10 @@ li.logout a {
 #modal_form2 .name_desire {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 5px;
-    left: 17%;
+    left: 21%;
 }
 
 #modal_form2 form.button {
@@ -882,12 +882,15 @@ li.logout a {
 }
 
 #modal_form2 .add_desire_form_button {
+    position: absolute;
+    top: 66%;
+    left: 15%;
     min-width: 110px;
     height: 40px;
-    margin: 7px 0 12px 120px;
     border: 1px solid grey;
-    border-radius: 25px;
-    background-color: white;
+    border-radius: 5px;
+    background-color: #0ac10a;
+    font-size: calc(0.5em + 0.5vw);
 }
 
 #modal_form2 textarea#id_desire_text {
@@ -898,7 +901,7 @@ li.logout a {
     margin-top: 3px;
     padding: 15px 0 0 15px;
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 1px solid #1c53ef;
 }
 
 #modal_form2 #id_desire_title {
@@ -909,11 +912,37 @@ li.logout a {
     padding-left: 15px;
     margin-bottom: 21px;
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 1px solid #1c53ef;
 }
 
-#modal_form2 #id_desire_title::input-placeholder {
-    font-size: 20px;
+#modal_form2 #id_desire_title::placeholder {
+    font-size: calc(0.5em + 0.5vw);
+}
+
+#modal_form2 textarea::placeholder {
+    font-size: calc(0.5em + 0.5vw);
+}
+
+@media screen and (max-width: 350px) {
+    #modal_form2 {
+        width: 300px;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        position: absolute;
+        top: 66%;
+        left: -7%;
+        font-size: calc(0.8em + 0.5vw);
+        background-color: #0ac10a;
+        border-radius: 5px;
+    }
+
 }
 
 /*modal for edit desire*********************************************************************************************/
@@ -986,7 +1015,7 @@ li.logout a {
 #modal_form3 .name_desire {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 5px;
     left: 17%;

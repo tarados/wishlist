@@ -69,7 +69,6 @@
     </div>
     {% if is_owner %}
         <div id="modal_form2">
-            <div class="side"></div>
             <div class="row internal firs">
                 <span class="name_desire">Добавьте Ваше желание</span>
             </div>
@@ -97,36 +96,29 @@
         <div id="overlay2"></div>
     {% endif %}
     <div id="modal_form3">
-        <table>
-            <tr>
-                <td class="side"></td>
-                <td>
-                    <div class="row internal firs">
-                        <span class="name_desire">Редактирование желания</span>
-                    </div>
-                    <div class="row internal secnd">
-                        <form action="{% url 'editdesire' sub_id %}" method="post">{% csrf_token %}
-                            <div class="form-group">
-                                <input type="text" name="desire_title" maxlength="500" id="desire_title">
-                            </div>
-                            <div class="form-group">
+        <div class="row internal firs">
+            <span class="name_desire">Редактирование желания</span>
+        </div>
+        <div class="row internal secnd">
+            <form action="{% url 'editdesire' sub_id %}" method="post">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="desire_title" maxlength="500" id="desire_title">
+                </div>
+                <div class="form-group">
                                 <textarea id="id_desire_text_for_edit" name="desire_text" cols="157"
                                           rows="7"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input class="desire_id" type="hidden" name="desire_id" value="">
-                                <input class="desirelist_id" type="hidden" name="desirelist_id"
-                                       value={{ desirelist_id }}>
-                            </div>
-                            <button type="submit" class="edit_desire_from_button" value="">Сохранить</button>
-                        </form>
-                    </div>
-                </td>
-                <td class="side">
-                    <span id="modal_close3">X</span> <!-- Кнoпкa зaкрыть -->
-                </td>
-            </tr>
-        </table>
+                </div>
+                <div class="form-group">
+                    <input class="desire_id" type="hidden" name="desire_id" value="">
+                    <input class="desirelist_id" type="hidden" name="desirelist_id"
+                           value={{ desirelist_id }}>
+                </div>
+                <button type="submit" class="edit_desire_from_button" value="">Сохранить</button>
+            </form>
+        </div>
+        <div class="side">
+            <span id="modal_close3">X</span> <!-- Кнoпкa зaкрыть -->
+        </div>
     </div>
     <div id="overlay3"></div>
 {% endblock %}

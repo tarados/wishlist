@@ -664,14 +664,7 @@ ol li a {
     background-color: white;
 }
 
-.add_desire_form_button {
-    min-width: 110px;
-    height: 40px;
-    margin: 44px 0 20px 120px;
-    border: 1px solid grey;
-    border-radius: 25px;
-    background-color: white;
-}
+
 
 .deldesire_img {
     width: 97%;
@@ -802,14 +795,14 @@ li.logout a {
 }
 
 /**************************modal for add desire******************************************************************/
-#modal_form2 {
+#modal_form2,
+#modal_form3 {
     width: 500px;
     height: 309px;
     border-radius: 5px;
     border: 3px #000 solid;
     background: #e2e2e2;
     position: absolute;
-    /*top: 50%;*/
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
@@ -818,7 +811,8 @@ li.logout a {
     padding: 0;
 }
 
-#modal_form2 #modal_close2 {
+#modal_form2 #modal_close2,
+#modal_form3 #modal_close3 {
     width: 21px;
     height: 21px;
     position: absolute;
@@ -828,7 +822,8 @@ li.logout a {
     display: block;
 }
 
-#overlay2 {
+#overlay2,
+#overlay3 {
     z-index: 3;
     position: fixed;
     background-color: #000;
@@ -843,32 +838,31 @@ li.logout a {
     display: none;
 }
 
-#modal_form2 table {
-    width: 485px;
-    height: 303px;
-    margin-left: 5px;
-}
-
-#modal_form2 .side {
+#modal_form2 .side,
+#modal_form3 .side {
     width: 60px;
     background-color: #e2e2e2;
 }
 
-#modal_form2 div.internal {
+#modal_form2 div.internal,
+#modal_form3 div.internal {
     margin: 0;
     background-color: white;
 }
 
-#modal_form2 .firs {
+#modal_form2 .firs,
+#modal_form3 .firs {
     border-bottom: 1px solid #e2e2e2;
     height: 15%;
 }
 
-#modal_form2 .secnd {
+#modal_form2 .secnd,
+#modal_form3 .secnd {
     height: 85%;
 }
 
-#modal_form2 .name_desire {
+#modal_form2 .name_desire,
+#modal_form3 .name_desire {
     color: black;
     font-size: 165%;
     font-family: 'Noto Sans', sans-serif;
@@ -877,14 +871,10 @@ li.logout a {
     left: 21%;
 }
 
-#modal_form2 form.button {
-    margin-bottom: 20px;
-}
-
 #modal_form2 .add_desire_form_button {
     position: absolute;
-    top: 66%;
-    left: 15%;
+    top: 79%;
+    left: 39%;
     min-width: 110px;
     height: 40px;
     border: 1px solid grey;
@@ -893,7 +883,20 @@ li.logout a {
     font-size: calc(0.5em + 0.5vw);
 }
 
-#modal_form2 textarea#id_desire_text {
+button.edit_desire_from_button {
+    position: absolute;
+    top: 77%;
+    left: 39%;
+    min-width: 110px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: #0ac10a;
+    font-size: calc(0.5em + 0.5vw);
+}
+
+#modal_form2 textarea#id_desire_text,
+#modal_form3 textarea#id_desire_text_for_edit {
     width: 90%;
     height: 103px;
     margin-bottom: 4px;
@@ -904,7 +907,8 @@ li.logout a {
     border: 1px solid #1c53ef;
 }
 
-#modal_form2 #id_desire_title {
+#modal_form2 #id_desire_title,
+#modal_form3 #desire_title {
     width: 90%;
     height: 40px;
     left: 5%;
@@ -923,9 +927,9 @@ li.logout a {
     font-size: calc(0.5em + 0.5vw);
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 570px) {
     #modal_form2 {
-        width: 300px;
+        width: 90%;
     }
 
     #modal_form2 span.name_desire {
@@ -935,9 +939,27 @@ li.logout a {
     }
 
     #modal_form2 .add_desire_form_button {
+        left: 35%;
+    }
+
+}
+
+/*modal for edit desire*********************************************************************************************/
+
+@media screen and (max-width: 570px) {
+    #modal_form3 {
+        width: 90%;
+    }
+
+    #modal_form3 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form3 button {
         position: absolute;
-        top: 66%;
-        left: -7%;
+        left: 33%;
         font-size: calc(0.8em + 0.5vw);
         background-color: #0ac10a;
         border-radius: 5px;
@@ -945,116 +967,7 @@ li.logout a {
 
 }
 
-/*modal for edit desire*********************************************************************************************/
-#modal_form3 {
-    width: 500px;
-    height: 309px;
-    border-radius: 5px;
-    border: 3px #000 solid;
-    background: #e2e2e2;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    opacity: 0;
-    z-index: 5;
-    padding: 0;
-}
-
-#modal_form3 #modal_close3 {
-    width: 21px;
-    height: 21px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    display: block;
-}
-
-#overlay3 {
-    z-index: 3;
-    position: fixed;
-    background-color: #000;
-    opacity: 0.8;
-    -moz-opacity: 0.8;
-    filter: alpha(opacity=80);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    display: none;
-}
-
-#modal_form3 table {
-    width: 485px;
-    height: 303px;
-    margin-left: 5px;
-}
-
-#modal_form3 .side {
-    width: 60px;
-    background-color: #e2e2e2;
-}
-
-#modal_form3 div.internal {
-    margin: 0;
-    background-color: white;
-}
-
-#modal_form3 .firs {
-    border-bottom: 1px solid #e2e2e2;
-    height: 15%;
-}
-
-#modal_form3 .secnd {
-    height: 85%;
-}
-
-#modal_form3 .name_desire {
-    color: black;
-    font-size: 165%;
-    font-family: 'Noto Sans', sans-serif;
-    position: relative;
-    top: 5px;
-    left: 17%;
-}
-
-#modal_form3 form.button {
-    margin-bottom: 20px;
-}
-
-button.edit_desire_from_button {
-    min-width: 110px;
-    height: 40px;
-    margin: 7px 0 12px 120px;
-    border: 1px solid grey;
-    border-radius: 25px;
-    background-color: white;
-}
-
-#modal_form3 textarea#id_desire_text_for_edit {
-    width: 90%;
-    height: 103px;
-    margin-bottom: 4px;
-    margin-left: 5%;
-    margin-top: 3px;
-    padding: 15px 0 0 15px;
-    border-radius: 5px;
-    border: 1px solid grey;
-}
-
-#modal_form3 #desire_title {
-    width: 90%;
-    height: 40px;
-    left: 5%;
-    top: 10px;
-    padding-left: 15px;
-    margin-bottom: 21px;
-    border-radius: 5px;
-    border: 1px solid grey;
-}
+/**************************************!*/
 
 a.button {
     -moz-box-shadow: inset 0 0 0 1px #63ad0d;

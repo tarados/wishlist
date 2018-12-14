@@ -15,18 +15,23 @@
         {% for desire in desire_list %}
             <div class="grid-item archive" id="doo-{{ desire.id }}-{{ sub_id }}">
                 <div class="desire_top">
-                    <span>{{ desire.date|date }}</span>
+                    <span>{% if desire.delta > 0 %}{{ desire.date|date:"d/m/Y" }}{% else %}
+                        {{ desire.date|naturalday }}{% endif %}</span>
                 </div>
                 <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                     {{ desire.title|safe }}
                 </div>
-                <div class="desire_button">
-                    <button type="button" class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}"
-                            style="width: 45%">Удалить
-                    </button>
-                    <button type="button" class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}"
-                            style="width: 45%">Вернуть
-                    </button>
+                <div class="desire_button_group_for_archive">
+                     <div class="desire_button col-lg-6">
+                        <button type="button" class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}">
+                            Вернуть
+                        </button>
+                    </div>
+                    <div class="desire_button col-lg-6">
+                        <button class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}">
+                            Удалить
+                        </button>
+                    </div>
                 </div>
             </div>
         {% endfor %}

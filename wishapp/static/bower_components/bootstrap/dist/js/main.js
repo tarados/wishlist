@@ -351,5 +351,7 @@ $(function () {
                 }
             );
     });
-
+    $('.navbar-nav a').click(function () {
+        $('#navbar-main').collapse('hide');
+    });
 });

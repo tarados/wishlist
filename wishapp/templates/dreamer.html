@@ -69,36 +69,30 @@
     </div>
     {% if is_owner %}
         <div id="modal_form2">
-            <table>
-                <tr>
-                    <td class="side"></td>
-                    <td>
-                        <div class="row internal firs">
-                            <span class="name_desire">Добавьте Ваше желание</span>
-                        </div>
-                        <div class="row internal secnd">
-                            <form action="{% url 'adddesire' sub_id %}" class="button" method="post">{% csrf_token %}
-                                <div class="form-group-item">
-                                    <input type="text" name="desire_title" maxlength="250" id="id_desire_title"
-                                           placeholder="Введите краткое имя желания">
-                                </div>
-                                <div class="form-group-item">
+            <div class="side"></div>
+            <div class="row internal firs">
+                <span class="name_desire">Добавьте Ваше желание</span>
+            </div>
+            <div class="row internal secnd">
+                <form action="{% url 'adddesire' sub_id %}" class="button" method="post">{% csrf_token %}
+                    <div class="form-group-item">
+                        <input type="text" name="desire_title" maxlength="250" id="id_desire_title"
+                               placeholder="Введите краткое имя желания">
+                    </div>
+                    <div class="form-group-item">
                     <textarea type="text" name="desire_text" cols="40" rows="10" required id="id_desire_text"
                               placeholder="Дополнительные сведения о желании"></textarea>
-                                </div>
-                                <div class="form-group-item">
-                                    <input type="hidden" name="desirelist_id" value={{ desirelist.id }}>
-                                    <input type="hidden" name="sub_id" value={{ sub_id }}>
-                                </div>
-                                <button type="submit" class="add_desire_form_button" value="">Добавить</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td class="side">
-                        <span id="modal_close2">X</span> <!-- Кнoпкa зaкрыть -->
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                    <div class="form-group-item">
+                        <input type="hidden" name="desirelist_id" value={{ desirelist.id }}>
+                        <input type="hidden" name="sub_id" value={{ sub_id }}>
+                    </div>
+                    <button type="submit" class="add_desire_form_button" value="">Добавить</button>
+                </form>
+            </div>
+            <div class="side">
+                <span id="modal_close2">X</span> <!-- Кнoпкa зaкрыть -->
+            </div>
         </div>
         <div id="overlay2"></div>
     {% endif %}

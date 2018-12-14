@@ -221,7 +221,8 @@ div.edt {
     border-color: white;
     border-radius: 5px;
     text-align: left;
-    background-color: white;
+    background-color: #f8f8f8;
+
 }
 
 .archive {
@@ -233,12 +234,11 @@ div.edt {
     text-align: center;
     overflow: auto;
     text-overflow: ellipsis;
-    padding-bottom: 10px;
 }
 
 .desire_date {
     float: left;
-    padding: 15px 15px 0;
+    padding: 5px 5px 0;
     color: #acb8bf;
 }
 
@@ -326,12 +326,17 @@ form.button {
     image-rendering: auto;
 }
 
-body, .btn-google {
+.btn-google {
     background-color: #e74c3c;
 }
 
-li a {
-    color: white;
+body {
+    padding-top: 70px;
+}
+
+ol li a {
+    color: #cba887;
+    margin: 30px 0 30px 0;
 }
 
 .icon-bar {
@@ -411,7 +416,6 @@ li a {
 
 /* ----masonry ---- *************************************************************************************************/
 .grid {
-    background: #e74c3c;
     margin-left: auto;
     margin-right: auto;
 }
@@ -431,20 +435,21 @@ li a {
     width: 250px;
     text-align: center;
     float: left;
-    background: white;
+    background: #f8f8f8;
     margin: 0 5px 10px 5px;
     border-radius: 5px;
 }
 
 .grid-item img {
     position: relative;
-    width: 80%;
+    width: 94%;
     top: 10px;
+    border-radius: 5px;
 }
 
 .desire_top {
     float: left;
-    padding: 10px 15px 5px;
+    padding: 10px 10px 5px;
     color: #acb8bf;
 }
 
@@ -453,14 +458,32 @@ li a {
 }
 
 .view,
-.ar {
+.ar,
+.del_from_arch,
+.return_from_arch {
+    border: 0;
     width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+
+.view,
+.return_from_arch {
+    background-color: #ffffff;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+}
+
+.ar,
+.del_from_arch {
+    background-color: #bd081c;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    color: white;
 }
 
 .grid-item button {
-    border: 0;
-    background: white;
-    transform: translateY(28px);
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
 }
@@ -473,8 +496,11 @@ li a {
 }
 
 .grid-item:hover button {
-    transform: translateY(-5px);
     opacity: 1;
+}
+
+.grid-item:hover img {
+    opacity: 0.7;
 }
 
 .desire_description p {
@@ -484,28 +510,32 @@ li a {
     text-overflow: ellipsis;
 }
 
-.desire_description {
-    margin-bottom: 30px;
-
+.desire_button_group {
+    position: absolute;
+    top: 20px;
+    left: 19px;
+    width: 85%;
 }
 
-/*******************************navbar*************************************************************************************/
-body {
-    padding-top: 70px;
+.desire_button_group_for_archive {
+    margin: 10px 10px 10px 10px;
+    height: 40px;
 }
 
-nav {
-    max-width: 1030px;
-    margin: auto;
+.guest {
+    position: absolute;
+    height: 40px;
+    top: 18px;
+    border-radius: 3px;
+    border: 0;
+    right: 15px;
 }
 
-ul.nav.navbar-nav {
-    margin-left: 12%;
+.del_from_arch {
+    width: 100%;
 }
 
-.logout {
-    left: 30%;
-}
+/********************************************************************************************************************/
 
 /*м*********************************************************************************************************************/
 @media screen and (max-width: 1200px) {
@@ -650,9 +680,12 @@ ul.nav.navbar-nav {
 }
 
 .desirelist_name {
-    text-align: center;
-    margin-bottom: 5px;
+    margin: 0 0 5px 10px;
     overflow: auto;
+}
+
+.link_for_send {
+    margin-left: 25%;
 }
 
 span.glyphicon-upload {
@@ -731,7 +764,7 @@ div.internal {
 .name_desirelist {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 21px;
     left: 7%;
@@ -740,7 +773,32 @@ div.internal {
 /*********************************************************************************************************************/
 
 ol.breadcrumb {
-    background-color: #e74c3c;
+    background-color: #f8f8f8;
+}
+
+:target:before {
+    display: block;
+    content: " ";
+    margin-top: -70px;
+    height: 70px;
+    visibility: hidden;
+}
+
+nav {
+    max-width: 1040px;
+    margin: auto;
+}
+
+a.navbar-brand {
+    font-weight: bold;
+}
+
+ul.nav.navbar-nav {
+    margin-left: 12%;
+}
+
+li.logout a {
+    left: 150%;
 }
 
 /**************************modal for add desire******************************************************************/
@@ -813,10 +871,10 @@ ol.breadcrumb {
 #modal_form2 .name_desire {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 5px;
-    left: 17%;
+    left: 21%;
 }
 
 #modal_form2 form.button {
@@ -824,12 +882,15 @@ ol.breadcrumb {
 }
 
 #modal_form2 .add_desire_form_button {
+    position: absolute;
+    top: 66%;
+    left: 15%;
     min-width: 110px;
     height: 40px;
-    margin: 7px 0 12px 120px;
     border: 1px solid grey;
-    border-radius: 25px;
-    background-color: white;
+    border-radius: 5px;
+    background-color: #0ac10a;
+    font-size: calc(0.5em + 0.5vw);
 }
 
 #modal_form2 textarea#id_desire_text {
@@ -840,7 +901,7 @@ ol.breadcrumb {
     margin-top: 3px;
     padding: 15px 0 0 15px;
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 1px solid #1c53ef;
 }
 
 #modal_form2 #id_desire_title {
@@ -851,11 +912,37 @@ ol.breadcrumb {
     padding-left: 15px;
     margin-bottom: 21px;
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 1px solid #1c53ef;
 }
 
-#modal_form2 #id_desire_title::input-placeholder {
-    font-size: 20px;
+#modal_form2 #id_desire_title::placeholder {
+    font-size: calc(0.5em + 0.5vw);
+}
+
+#modal_form2 textarea::placeholder {
+    font-size: calc(0.5em + 0.5vw);
+}
+
+@media screen and (max-width: 350px) {
+    #modal_form2 {
+        width: 300px;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        position: absolute;
+        top: 66%;
+        left: -7%;
+        font-size: calc(0.8em + 0.5vw);
+        background-color: #0ac10a;
+        border-radius: 5px;
+    }
+
 }
 
 /*modal for edit desire*********************************************************************************************/
@@ -928,7 +1015,7 @@ ol.breadcrumb {
 #modal_form3 .name_desire {
     color: black;
     font-size: 165%;
-    font-family: serif;
+    font-family: 'Noto Sans', sans-serif;
     position: relative;
     top: 5px;
     left: 17%;
@@ -1013,10 +1100,35 @@ a.button:active {
     top: 2px;
 }
 
-@media screen and (max-width: 768px) {
-    .fixed {
-        opacity: 1;
-    }
+a.button.dsgnmoo {
+    background: #f97779;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f97779), to(#ce2424));
+    background: -moz-linear-gradient(#f97779, #ce2424);
+    background: linear-gradient(#f97779, #ce2424);
+    border: solid 1px #be2424;
+    border-bottom: solid 3px #bd2524;
+    box-shadow: inset 0 0 0 1px #e67e7b;
+    color: #fff;
+    text-shadow: 0 1px 0 #bd2524;
+}
+
+a.button.dsgnmoo:hover {
+    background: #ce2424;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ce2424), to(#f97779));
+    background: -moz-linear-gradient(#ce2424, #f97779);
+    background: linear-gradient(#ce2424, #f97779);
+    border: solid 1px #be2424;
+    border-bottom: solid 3px #bd2524;
+    box-shadow: inset 0 0 0 1px #e67e7b;
+}
+
+a.button.dsgnmoo:active {
+    background: #ce2424;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ce2424), to(#f97779));
+    background: -moz-linear-gradient(#ce2424, #f97779);
+    background: linear-gradient(#ce2424, #f97779);
+    border: solid 1px #be2424;
+    box-shadow: inset 0 10px 15px 0 #bd2524;
 }
 
 .selected {

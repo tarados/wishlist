@@ -457,8 +457,6 @@ ol li a {
     padding: 0;
 }
 
-.view,
-.ar,
 .del_from_arch,
 .return_from_arch {
     border: 0;
@@ -467,7 +465,7 @@ ol li a {
     font-size: 18px;
 }
 
-.view,
+.upDate,
 .return_from_arch {
     background-color: #ffffff;
     border-top-left-radius: 3px;
@@ -475,12 +473,32 @@ ol li a {
 
 }
 
-.ar,
+.toArch,
 .del_from_arch {
     background-color: #bd081c;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     color: white;
+}
+
+.upDate,
+.toArch {
+    width: 50%;
+    height: 40px;
+    font-size: 18px;
+    backface-visibility: hidden;
+    border: 0;
+}
+
+.upDate {
+    float: left;
+}
+
+.desire_button {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    left: 5%;
 }
 
 .grid-item button {
@@ -489,9 +507,7 @@ ol li a {
 }
 
 .grid-item,
-.desire_button,
-.view,
-.ar {
+.desire_button {
     backface-visibility: hidden;
 }
 
@@ -663,8 +679,6 @@ ol li a {
     border-radius: 25px;
     background-color: white;
 }
-
-
 
 .deldesire_img {
     width: 97%;

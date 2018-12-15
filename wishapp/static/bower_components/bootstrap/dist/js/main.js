@@ -323,7 +323,7 @@ $(function () {
             );
     });
     // modal for desire edit*********************************************************************************************************
-    $('button.edit_desire').click(function (event) {
+    $('button.upDate').click(function (event) {
         event.preventDefault();
         $('#overlay3').fadeIn(400,
             function () {

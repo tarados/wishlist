@@ -11,8 +11,8 @@ def link_on(str):
     href_img = '#'
     str_desire = str.split(' ')
     for substr in str_desire:
-        if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),*]+', substr):
-            href_list.append(re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#\d+\w+_(),*]+', substr).group())
+        if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#@\d+\w+_(),*]+', substr):
+            href_list.append(re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#@\d+\w+_(),*]+', substr).group())
         else:
             substr = substr.replace('\n', '<br>')
             text.append(substr)

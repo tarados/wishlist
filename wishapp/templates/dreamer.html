@@ -9,7 +9,7 @@
             "{{ desirelist.desirelist_name }}"
         </li>
     </ol>
-    <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 20 }'>
+    <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item"}' id="container">
         {% for desire in desire_list %}
             <div class="grid-item">
                 <div class="desire_image">

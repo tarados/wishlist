@@ -433,6 +433,7 @@ ol li a {
 
 .grid-item {
     width: 245px;
+    height: 148px;
     text-align: center;
     float: left;
     background: #f8f8f8;
@@ -509,7 +510,16 @@ ol li a {
 
 .desire_button {
     position: absolute;
-    top: 56%;
+    top: 6%;
+    width: 90%;
+    left: 5%;
+}
+
+.desire_button_group_for_archive {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 63%;
     width: 90%;
     left: 5%;
 }
@@ -544,11 +554,6 @@ ol li a {
     top: 20px;
     left: 19px;
     width: 85%;
-}
-
-.desire_button_group_for_archive {
-    margin: 10px 10px 10px 10px;
-    height: 40px;
 }
 
 .guest {

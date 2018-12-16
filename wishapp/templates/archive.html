@@ -2,6 +2,15 @@
 {% load humanize %}
 
 {% block dreamerslist %}
+    <div id="modal_form">
+        <div class="modal_title">
+            <span>Хотите удалить желание из архива списка "{{ desirelist.desirelist_name }}"?</span></div>
+        <div class="modal_button">
+            <button class="modal_yes"><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Да</button>
+            <button class="modal_no">Отменить</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
@@ -22,16 +31,12 @@
                     {{ desire.title|safe }}
                 </div>
                 <div class="desire_button_group_for_archive">
-                     <div class="desire_button col-lg-6">
-                        <button type="button" class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}">
-                            Вернуть
-                        </button>
-                    </div>
-                    <div class="desire_button col-lg-6">
-                        <button class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}">
-                            Удалить
-                        </button>
-                    </div>
+                    <button type="button" class="return_from_arch" id="return-{{ desire.id }}-{{ sub_id }}">
+                        Вернуть
+                    </button>
+                    <button class="del_from_arch" id="arch-{{ desire.id }}-{{ sub_id }}">
+                        Удалить
+                    </button>
                 </div>
             </div>
         {% endfor %}

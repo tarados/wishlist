@@ -791,20 +791,22 @@ ol.breadcrumb {
 }
 
 nav {
-    max-width: 1040px;
+    /*max-width: 1040px;*/
     margin: auto;
 }
 
 a.navbar-brand {
+    padding-left: 50%;
     font-weight: bold;
 }
 
 ul.nav.navbar-nav {
-    margin-left: 12%;
+    float: right;
+    margin-right: 10%;
 }
 
 li.logout a {
-    left: 150%;
+    margin-left: 150%;
 }
 
 /**************************modal for add desire******************************************************************/

@@ -4,27 +4,22 @@
 {% block dreamerslist %}
 
     <div id="modal_form1">
-        <table>
-            <tr>
-                <td class="side"></td>
-                <td>
-                    <div class="row internal firs">
-                        <span class="name_desirelist">Введите имя для нового списка:</span>
-                    </div>
-                    <div class="row internal secnd">
-                        <form action="{% url 'adddesirelist' %}" class="button" method="post">{% csrf_token %}
-                            <input type="text" class='add_desirelist_form_input' name="desirelist_name"
-                                   maxlength="250"
-                                   placeholder="Введите краткое имя для списка">
-                            <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
-                        </form>
-                    </div>
-                </td>
-                <td class="side">
-                    <span id="modal_close1">X</span> <!-- Кнoпкa зaкрыть -->
-                </td>
-            </tr>
-        </table>
+        <div class="row internal firs">
+            <span class="name_desirelist">Введите имя для нового списка:</span>
+        </div>
+        <div class="row internal secnd">
+            <form action="{% url 'adddesirelist' %}" class="button" method="post">{% csrf_token %}
+                <input type="text" class='add_desirelist_form_input' name="desirelist_name"
+                       maxlength="250"
+                       placeholder="Введите краткое имя для списка">
+                <button type="submit" class="add_desirelist_form_button" value="">Добавить</button>
+            </form>
+        </div>
+
+        <div class="side">
+            <span id="modal_close1">X</span> <!-- Кнoпкa зaкрыть -->
+        </div>
+
     </div>
     <div id="overlay1"></div>
     <div class="sort-group listdes">

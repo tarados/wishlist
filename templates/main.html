@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=6">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=1">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
@@ -57,14 +57,7 @@
     {% block editlist %}{% endblock %}
 </div>
 <a href="#" class="scrollup">Наверх</a>
-<div id="modal_form">
-    <div class="modal_title"><span>Хотите удалить желание из списка?</span></div>
-    <div class="modal_button">
-        <button class="modal_yes btn-default"><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Да</button>
-        <button class="modal_no btn-danger">Отменить</button>
-    </div>
-</div>
-<div id="overlay"></div>
+
 
 <script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
 <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>

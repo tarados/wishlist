@@ -460,9 +460,22 @@ ol li a {
 .del_from_arch,
 .return_from_arch {
     border: 0;
-    width: 100%;
+    width: 50%;
     height: 40px;
     font-size: 18px;
+}
+
+.del_from_arch {
+    opacity: 1;
+    position: absolute;
+    right: 0;
+
+}
+
+.return_from_arch {
+    position: absolute;
+    left: 0;
+    border: 1px solid #bec6cc;
 }
 
 .upDate,
@@ -496,7 +509,7 @@ ol li a {
 
 .desire_button {
     position: absolute;
-    top: 2%;
+    top: 56%;
     width: 90%;
     left: 5%;
 }
@@ -544,10 +557,6 @@ ol li a {
     height: 40px;
     border-radius: 3px;
     border: 0;
-}
-
-.del_from_arch {
-    width: 100%;
 }
 
 /********************************************************************************************************************/
@@ -624,10 +633,10 @@ ol li a {
 
 /*modal**************************************************************************************************************/
 #modal_form {
-    width: 250px;
-    height: 151px;
+    width: 300px;
+    height: 180px;
     border-radius: 5px;
-    border: 1px #e74c3c solid;
+    border: 0;
     background: #fff;
     position: fixed;
     top: 45%;
@@ -641,15 +650,40 @@ ol li a {
 }
 
 .modal_button {
-    margin: 20px 19px;
+    position: absolute;
+    width: 100%;
+    top: 65%;
+    left: 12px;
 }
 
-.modal_title {
-    margin: 15px 15px;
+.modal_yes,
+.modal_no {
+    width: 45%;
+    height: 40px;
+    border: 0;
+    padding: 0;
 }
 
 .modal_yes {
-    margin-right: 40px;
+    float: left;
+    background-color: #bd081c;
+    color: white;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.modal_no {
+    color: black;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.modal_title {
+    position: absolute;
+    top: 8%;
+    width: 90%;
+    text-align: center;
+    font-size: 150%;
 }
 
 #modal_form #modal_close {
@@ -660,21 +694,6 @@ ol li a {
     right: 10px;
     cursor: pointer;
     display: block;
-}
-
-#overlay {
-    z-index: 3;
-    position: fixed;
-    background-color: #e74c3c;
-    opacity: 0.8;
-    -moz-opacity: 0.8;
-    filter: alpha(opacity=80);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    display: none;
 }
 
 .deldesire_img {
@@ -759,6 +778,7 @@ li.logout a {
     display: block;
 }
 
+#overlay,
 #overlay1,
 #overlay2,
 #overlay3 {

@@ -2,6 +2,14 @@
 {% load humanize %}
 
 {% block sortlist %}
+    <div id="modal_form">
+        <div class="modal_title"><span>Хотите удалить желание из списка "{{ desirelist.desirelist_name }}"?</span></div>
+        <div class="modal_button">
+            <button class="modal_yes"><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Да</button>
+            <button class="modal_no">Отменить</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>

@@ -559,7 +559,7 @@ ol li a {
     }
 
     .general {
-        width: 780px;
+        width: 79%;
     }
 
     .logout {
@@ -573,7 +573,7 @@ ol li a {
     }
 
     .general {
-        width: 520px;
+        width: 72%;
     }
 }
 
@@ -584,8 +584,9 @@ ol li a {
     }
 
     .general {
-        max-width: 275px;
-        width: 100%;
+        max-width: 84%;
+        position: absolute;
+        left: 10%;
     }
 
     #add_desire_block {
@@ -593,9 +594,26 @@ ol li a {
         width: 90%;
     }
 
-    .grid-item {
-        max-width: 250px;
-        width: 90%;
+}
+
+@media screen and (max-width: 420px) {
+    .general {
+        position: absolute;
+        left: 14%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .general {
+        position: absolute;
+        left: 9%;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .general {
+        position: absolute;
+        left: 3%;
     }
 }
 
@@ -902,6 +920,10 @@ li.logout a {
 
     #modal_form2 .add_desire_form_button {
         left: 35%;
+    }
+
+    a.navbar-brand {
+        padding-left: 10%;
     }
 
 }

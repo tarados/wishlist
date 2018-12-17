@@ -302,7 +302,7 @@ $(function () {
     $grid.masonry();
 
 // modal for desire*********************************************************************************************************
-    $('a.new_desire').click(function (event) {
+    $('button.new_desire').click(function (event) {
         event.preventDefault();
         $('#overlay2').fadeIn(400,
             function () {

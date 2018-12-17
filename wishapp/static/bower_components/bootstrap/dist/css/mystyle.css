@@ -433,7 +433,7 @@ ol li a {
 
 .grid-item {
     width: 245px;
-    height: 148px;
+    /*height: 148px;*/
     text-align: center;
     float: left;
     background: #f8f8f8;
@@ -1082,4 +1082,49 @@ a.button.dsgnmoo:active {
 .selected span {
     font-size: 15px;
     color: #acb8bf;
+}
+
+.new_desire {
+    position: absolute;
+    height: 40px;
+    width: 9%;
+    margin: 0;
+    padding: 0;
+    top: 5px;
+    left: 40%;
+    border: 0;
+    border-radius: 3px;
+    background-color: #5cc15c;
+}
+
+@media (max-width: 1024px) {
+    li.logout a {
+        margin-left: 80%;
+    }
+
+    .new_desire {
+        left: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    li.logout a {
+        margin-left: 80%;
+    }
+
+    .new_desire {
+        left: 16%;
+    }
+}
+
+@media (max-width: 450px) {
+    .new_desire {
+        left: 38%;
+    }
+}
+
+@media (max-width: 320px) {
+    .new_desire {
+        left: 35%;
+    }
 }

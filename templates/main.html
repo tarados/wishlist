@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap-social.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=1">
+    <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/mystyle.css" %}?v=56">
     <link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/authorization.css" %}?v=126">
 </head>
 <body>
@@ -25,12 +25,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <a class="navbar-brand" href="#">Wishlist</a>
+                <a class="navbar-brand" href="#">Wishlist</a>
+                <button class="new_desire navbar-btn" href="#id_desire_title" id="add_desire">+Добавить желание</button>
             </div>
             <div class="collapse navbar-collapse" id="navbar-main">
                 {% if is_owner %}
                     <ul class="nav navbar-nav">
-                        <li><a class="new_desire" href="#id_desire_title" id="add_desire">+Добавить желание</a></li>
+                        {#                        <li><a class="new_desire" href="#id_desire_title" id="add_desire">+Добавить желание</a></li>#}
                         <li><a href="/desirelist/">Мои списки желаний</a></li>
                         <li><a href="/dreamers/sort/{{ sub_id }}/">Сортировка</a></li>
                         <li><a href="/dreamers/archive/{{ sub_id }}/">Архив</a></li>

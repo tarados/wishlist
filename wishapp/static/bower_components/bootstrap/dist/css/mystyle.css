@@ -519,9 +519,14 @@ ol li a {
     position: absolute;
     margin: 0;
     padding: 0;
-    top: 63%;
+    top: 2%;
     width: 90%;
     left: 5%;
+}
+
+.img_in_archive img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .grid-item button {

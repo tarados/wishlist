@@ -2,6 +2,15 @@
 {% load humanize %}
 
 {% block dreamerslist %}
+    <div class="bread">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
+        <li class="breadcrumb-iteme"><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Список желаний
+            "{{ desirelist.desirelist_name }}"</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Архив</li>
+    </ol>
+    </div>
     <div id="modal_form">
         <div class="modal_title">
             <span>Хотите удалить желание из архива списка "{{ desirelist.desirelist_name }}"?</span></div>
@@ -11,18 +20,14 @@
         </div>
     </div>
     <div id="overlay"></div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
-            <li class="breadcrumb-iteme"><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Список желаний
-                "{{ desirelist.desirelist_name }}"</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Архив</li>
-        </ol>
-    </nav>
-    <div class="grid">
+    <div class="grid for_archive">
         {% for desire in desire_list %}
             <div class="grid-item archive" id="doo-{{ desire.id }}-{{ sub_id }}">
+                <div class="desire_image img_in_archive">
+                    {% if desire.desire_photo %}
+                        <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"/>
+                    {% endif %}
+                </div>
                 <div class="desire_top">
                     <span>{% if desire.delta > 0 %}{{ desire.date|date:"d/m/Y" }}{% else %}
                         {{ desire.date|naturalday }}{% endif %}</span>

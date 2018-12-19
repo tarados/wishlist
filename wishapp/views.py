@@ -251,6 +251,7 @@ def archive(request, sub_id):
                 'title': desire.desire_title,
                 'text_for_edit': desire.desire_text,
                 'image': desire.desire_img,
+                'desire_photo': desire.desire_photo,
                 'date': desire.desire_date,
                 'desire_state': desire.desire_state,
                 'desirelist_id': desire.desire_desirelist_id,

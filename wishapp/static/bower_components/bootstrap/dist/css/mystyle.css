@@ -1097,13 +1097,22 @@ a.button.dsgnmoo:active {
     background-color: #5cc15c;
 }
 
+.bread {
+    margin-left: 15px;
+}
+
 @media (max-width: 1024px) {
     li.logout a {
         margin-left: 80%;
     }
 
     .new_desire {
-        left: 30%;
+        left: 25%;
+        width: 20%;
+    }
+
+    .bread {
+        width: 97%;
     }
 }
 
@@ -1113,18 +1122,67 @@ a.button.dsgnmoo:active {
     }
 
     .new_desire {
-        left: 16%;
+        left: 15%;
+        width: 20%;
+    }
+
+    a.navbar-brand {
+        padding-left: 20px;
+    }
+
+    .bread {
+        width: 96%;
     }
 }
 
 @media (max-width: 450px) {
     .new_desire {
-        left: 38%;
+        left: 34%;
+        width: 45%;
+    }
+
+    .bread {
+        width: 92%;
+        margin-left: 15px;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .new_desire {
-        left: 35%;
+        left: 34%;
+        width: 45%;
+    }
+
+    .bread {
+        width: 102%;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .new_desire {
+        left: 34%;
+        width: 45%;
+    }
+
+    .bread {
+        width: 107%;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 325px) {
+    .new_desire {
+        left: 31%;
+        width: 46%;
+    }
+
+    a.navbar-brand {
+        padding-left: 15px;
+    }
+
+    .bread {
+        width: 123%;
+        margin-left: 15px;
     }
 }

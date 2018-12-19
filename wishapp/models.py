@@ -20,7 +20,7 @@ class Desire(models.Model):
     class Meta:
         db_table = 'desire'
 
-    desire_text = models.TextField()
+    desire_text = models.TextField(null=True, blank=True)
     desire_date = models.DateTimeField()
     desire_user = models.ForeignKey(User, on_delete=models.CASCADE)
     desire_order_user = models.ForeignKey(User, related_name='order', null=True, on_delete=models.CASCADE)

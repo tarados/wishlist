@@ -166,6 +166,7 @@ def deldesirelist(request, user_id):
 # модуль редактирования желаний
 @csrf_exempt
 def editdesire(request, sub_id):
+    print(request.POST)
     user = auth.get_user(request)
     dreamer_id = user.id
     desire_id = request.POST.get('desire_id', '')
@@ -188,7 +189,8 @@ def editdesire(request, sub_id):
                 pass
             return redirect('/dreamers/%s' % sub_id)
         else:
-            return redirect('/dreamers/%s' % sub_id)
+            pass
+            # return redirect('/dreamers/%s' % sub_id)
     else:
         return redirect('/dreamers/%s' % sub_id)
     return render_to_response('edit.html', locals())

@@ -1,17 +1,18 @@
 {% extends 'main.html' %}
 
 {% block editlist %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 well" style="min-height: 80px">
-                <form method="post">{% csrf_token %}
-                    {{ form.desire_text }}
-                    <input type="submit" class="btn btn-info save" value="Save">
-                </form>
-            </div>
-        </div>
+    {{ desire_id }}
+    <div class="container" id="edit_form">
+        <form action="{% url 'editdesire' sub_id %}" method="post">{% csrf_token %}
+            {#            <span class="name_desire">Редактирование желания</span>#}
+            {{ form.desire_text }}
+            <input type="text" name="desire_title" maxlength="500" id="desire_title">
+            <textarea id="id_desire_text_for_edit" name="desire_text" cols="157"
+                      rows="7"></textarea>
+            <input class="desire_id" type="hidden" name="desire_id" value="">
+            <button type="submit" class="edit_desire_from_button" value="">Сохранить</button>
+        </form>
     </div>
-
 {% endblock %}
 
 

@@ -234,6 +234,7 @@ div.edt {
     text-align: center;
     overflow: auto;
     text-overflow: ellipsis;
+    margin-bottom: 10px;
 }
 
 .desire_date {

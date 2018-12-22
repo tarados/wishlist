@@ -10,7 +10,7 @@
         </div>
     </div>
     <div id="overlay"></div>
-    <nav aria-label="breadcrumb">
+    <div class="bread">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/desirelist/">Все списки</a></li>
             <li class="breadcrumb-iteme"><a class="sort_desirelist" href="/dreamers/{{ sub_id }}">Список желаний
@@ -18,7 +18,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">Сотировка</li>
         </ol>
-    </nav>
+    </div>
     <div class="sort-group" id="simpleList">
         {% for desire in desire_list %}
             {% if desire.desire_state != 2 %}

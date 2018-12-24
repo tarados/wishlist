@@ -216,8 +216,7 @@ div.edt {
     position: relative;
     margin: 0 10px 10px 0;
     float: left;
-    max-width: 250px;
-    width: 100%;
+    width: 245px;
     border-color: white;
     border-radius: 5px;
     text-align: left;
@@ -303,6 +302,7 @@ textarea#id_desire_text {
 
 #simpleList {
     margin-bottom: 1px;
+    margin-left: 15px;
 }
 
 form.button {
@@ -369,53 +369,6 @@ ol li a {
     display: none;
 }
 
-@media (max-width: 600px) {
-    .hide {
-        display: block;
-    }
-
-    .menu ul {
-        position: absolute;
-    }
-
-    .menu a, a:visited {
-        display: block;
-        text-decoration: none;
-        width: 100px;
-        height: 20px;
-        text-align: center;
-        border: solid 1px black;
-    }
-
-    .menu ul {
-        padding: 0;
-        margin: 0;
-        list-style: none
-    }
-
-    .menu ul li {
-        float: left;
-        position: relative
-    }
-
-    .menu ul li ul {
-        display: none
-    }
-
-    .menu ul li:hover ul {
-        display: block;
-        position: absolute;
-        top: 21px;
-        left: 0;
-        width: 100px
-    }
-
-    .menu ul li:hover ul li a:hover {
-        background: #eee;
-    }
-
-}
-
 /* ----masonry ---- *************************************************************************************************/
 .grid {
     margin-left: 10px;
@@ -471,7 +424,6 @@ ol li a {
     opacity: 1;
     position: absolute;
     right: 0;
-
 }
 
 .return_from_arch {
@@ -568,70 +520,6 @@ ol li a {
     height: 40px;
     border-radius: 3px;
     border: 0;
-}
-
-@media screen and (max-width: 1200px) {
-    .grid, .sort-group {
-        width: 780px;
-    }
-
-    .general {
-        width: 79%;
-    }
-
-    .logout {
-        left: 2%;
-    }
-}
-
-@media screen and (max-width: 780px) {
-    .grid, .sort-group {
-        width: 520px;
-    }
-
-    .general {
-        width: 72%;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .grid, .sort-group {
-        max-width: 270px;
-        width: 100%;
-    }
-
-    .general {
-        max-width: 84%;
-        position: absolute;
-        left: 10%;
-    }
-
-    #add_desire_block {
-        max-width: 500px;
-        width: 90%;
-    }
-
-}
-
-@media screen and (max-width: 420px) {
-    .general {
-        position: absolute;
-        left: 14%;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .general {
-        position: absolute;
-        left: 9%;
-    }
-}
-
-@media screen and (max-width: 325px) {
-    .general {
-        position: absolute;
-        left: 3%;
-    }
 }
 
 .asd {
@@ -756,7 +644,6 @@ li.logout a {
     margin-left: 150%;
 }
 
-/**************************modal for add desire******************************************************************/
 #modal_form1,
 #modal_form2,
 #modal_form3 {
@@ -941,163 +828,6 @@ li.logout a {
     font-size: calc(0.5em + 0.5vw);
 }
 
-@media screen and (max-width: 570px) {
-    #modal_form2 {
-        width: 90%;
-    }
-
-    #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 23%;
-    }
-
-    #modal_form2 .add_desire_form_button {
-        left: 35%;
-    }
-
-    a.navbar-brand {
-        padding-left: 10%;
-    }
-
-}
-
-@media screen and (max-width: 420px) {
-    #modal_form2 {
-        width: 132%;
-        left: 50%;
-    }
-
-    #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
-    }
-
-    #modal_form2 .add_desire_form_button {
-        font-size: calc(0.5em + 2vw);
-        left: 35%;
-    }
-
-    a.navbar-brand {
-        padding-left: 10%;
-    }
-
-     #modal_form3 {
-        width: 130%;
-        left: 50%;
-    }
-
-    #modal_form3 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 23%;
-    }
-
-    #modal_form3 button {
-        left: 33%;
-        font-size: calc(0.8em + 0.5vw);
-    }
-
-}
-
-@media screen and (max-width: 375px) {
-    #modal_form2 {
-        width: 130%;
-        left: 57%;
-    }
-
-    #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
-    }
-
-    #modal_form2 .add_desire_form_button {
-        font-size: calc(0.5em + 2vw);
-        left: 31%;
-    }
-
-    a.navbar-brand {
-        padding-left: 10%;
-    }
-
-    #modal_form3 {
-        width: 130%;
-        left: 57%;
-    }
-
-    #modal_form3 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 23%;
-    }
-
-    #modal_form3 button {
-        left: 33%;
-        font-size: calc(0.8em + 0.5vw);
-    }
-}
-
-@media screen and (max-width: 320px) {
-    #modal_form2 {
-        width: 125%;
-        left: 65%;
-    }
-
-    #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
-    }
-
-    #modal_form2 .add_desire_form_button {
-        font-size: calc(0.5em + 2vw);
-        left: 31%;
-    }
-
-    a.navbar-brand {
-        padding-left: 10%;
-    }
-
-     #modal_form3 {
-        width: 131%;
-        left: 66%;
-    }
-
-    #modal_form3 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
-    }
-
-    #modal_form3 button {
-        left: 32%;
-        font-size: calc(0.8em + 0.5vw);
-    }
-}
-
-@media screen and (max-width: 570px) {
-    #modal_form1 {
-        width: 90%;
-    }
-
-    #modal_form1 span.name_desirelist {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 10%;
-    }
-
-    #modal_form1 button {
-        position: absolute;
-        left: 33%;
-        font-size: calc(0.8em + 0.5vw);
-        background-color: #0ac10a;
-        border-radius: 5px;
-    }
-}
-
-/**************************************!*/
 a.button {
     -moz-box-shadow: inset 0 0 0 1px #63ad0d;
     -webkit-box-shadow: inset 0 0 0 1px #63ad0d;
@@ -1197,12 +927,40 @@ a.button.dsgnmoo:active {
 
 .bread {
     margin-left: 15px;
-    width: 98%;
+    width: 97.5%;
 }
 
-@media (max-width: 1024px) {
-    li.logout a {
-        margin-left: 80%;
+/**************************media***************************************************************************************/
+@media screen and (max-width: 1200px) {
+    .general {
+        padding: 0;
+        margin-left: 3px;
+    }
+
+    .grid-item {
+        margin-left: 5px;
+        margin-right: 4px;
+    }
+
+    .bread {
+        width: 1011px;
+        margin-left: 3px;
+    }
+
+    .sort-group {
+        margin-left: 3px;
+    }
+
+    .grid {
+        margin-left: 0;
+    }
+
+    #simpleList {
+        margin-left: 3px;
+    }
+
+    .logout {
+        left: 2%;
     }
 
     .new_desire {
@@ -1210,12 +968,13 @@ a.button.dsgnmoo:active {
         width: 20%;
     }
 
-    .bread {
-        width: 97%;
+    li.logout a {
+        margin-left: 80%;
     }
+
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     li.logout a {
         margin-left: 80%;
     }
@@ -1230,50 +989,281 @@ a.button.dsgnmoo:active {
     }
 
     .bread {
-        width: 96%;
+        width: 98.5%;
+        margin-left: 3px;
+    }
+
+    .grid {
+        margin-left: 0;
+    }
+
+    #simpleList {
+        margin-left: 3px;
     }
 }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 600px) {
+    .hide {
+        display: block;
+    }
+
+    .menu ul {
+        position: absolute;
+    }
+
+    .menu a, a:visited {
+        display: block;
+        text-decoration: none;
+        width: 100px;
+        height: 20px;
+        text-align: center;
+        border: solid 1px black;
+    }
+
+    .menu ul {
+        padding: 0;
+        margin: 0;
+        list-style: none
+    }
+
+    .menu ul li {
+        float: left;
+        position: relative
+    }
+
+    .menu ul li ul {
+        display: none
+    }
+
+    .menu ul li:hover ul {
+        display: block;
+        position: absolute;
+        top: 21px;
+        left: 0;
+        width: 100px
+    }
+
+    .menu ul li:hover ul li a:hover {
+        background: #eee;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    #modal_form2 {
+        width: 90%;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        left: 35%;
+    }
+
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
+    #modal_form1 {
+        width: 90%;
+    }
+
+    #modal_form1 span.name_desirelist {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 10%;
+    }
+
+    #modal_form1 button {
+        position: absolute;
+        left: 33%;
+        font-size: calc(0.8em + 0.5vw);
+        background-color: #0ac10a;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .general {
+        max-width: 84%;
+        position: absolute;
+        left: 10%;
+    }
+
+    #add_desire_block {
+        max-width: 500px;
+        width: 90%;
+    }
+
+    #simpleList {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
     .new_desire {
         left: 34%;
         width: 45%;
     }
 
     .bread {
-        width: 92%;
-        margin-left: 15px;
+        width: 245px;
+        margin-left: 42px;
     }
 }
 
-@media (max-width: 375px) {
+@media screen and (max-width: 420px) {
+    .general {
+        position: absolute;
+        left: 38px;
+    }
+
+    .sort-group {
+        margin-left: 42px;
+    }
+
+    .grid {
+        margin-left: 37px;
+    }
+
+    #simpleList {
+        margin-left: 42px;
+    }
+
+    #modal_form2 {
+        width: 132%;
+        left: 50%;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 21%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        font-size: calc(0.5em + 2vw);
+        left: 35%;
+    }
+
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
+    #modal_form3 {
+        width: 130%;
+        left: 50%;
+    }
+
+    #modal_form3 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form3 button {
+        left: 33%;
+        font-size: calc(0.8em + 0.5vw);
+    }
+
+}
+
+@media screen and (max-width: 375px) {
     .new_desire {
         left: 34%;
         width: 45%;
     }
 
     .bread {
-        width: 102%;
-        margin-left: 15px;
-    }
-}
-
-@media (max-width: 360px) {
-    .new_desire {
-        left: 34%;
-        width: 45%;
+        width: 245px;
+        margin-left: 28px;
     }
 
-    .bread {
-        width: 107%;
-        margin-left: 15px;
+    .sort-group {
+        margin-left: 27px;
     }
-}
 
-@media (max-width: 325px) {
-    .new_desire {
+    .grid {
+        margin-left: 23px;
+    }
+
+    #simpleList {
+        margin-left: 28px;
+    }
+
+    #modal_form2 {
+        width: 130%;
+        left: 57%;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 21%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        font-size: calc(0.5em + 2vw);
         left: 31%;
-        width: 46%;
+    }
+
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
+    #modal_form3 {
+        width: 130%;
+        left: 57%;
+    }
+
+    #modal_form3 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 23%;
+    }
+
+    #modal_form3 button {
+        left: 33%;
+        font-size: calc(0.8em + 0.5vw);
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .general {
+        position: absolute;
+        left: 24px;
+    }
+
+    .new_desire {
+        left: 34%;
+        width: 45%;
+    }
+
+    .bread {
+        width: 245px;
+        margin-left: 30px;
+    }
+
+    .grid {
+        margin-left: 25px;
+    }
+
+    .sort-group {
+        margin-left: 31px;
+    }
+
+    #simpleList {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .new_desire {
+        left: 34%;
+        width: 45%;
     }
 
     a.navbar-brand {
@@ -1281,7 +1271,61 @@ a.button.dsgnmoo:active {
     }
 
     .bread {
-        width: 123%;
-        margin-left: 15px;
+        width: 245px;
+        margin-left: 6px;
+    }
+
+    .sort-group {
+        margin-left: 7px;
+    }
+
+    .general {
+        position: absolute;
+        left: 29px;
+    }
+
+    .grid {
+        margin-left: 0;
+    }
+
+    #simpleList {
+        margin-left: 6px;
+    }
+
+    #modal_form2 {
+        width: 125%;
+        left: 65%;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 21%;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        font-size: calc(0.5em + 2vw);
+        left: 31%;
+    }
+
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
+    #modal_form3 {
+        width: 131%;
+        left: 66%;
+    }
+
+    #modal_form3 span.name_desire {
+        font-size: calc(0.5em + 2vw);
+        top: 10px;
+        left: 21%;
+    }
+
+    #modal_form3 button {
+        left: 32%;
+        font-size: calc(0.8em + 0.5vw);
     }
 }
+

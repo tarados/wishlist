@@ -668,7 +668,7 @@ li.logout a {
     height: 21px;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 3px;
     cursor: pointer;
     display: block;
 }
@@ -766,7 +766,7 @@ li.logout a {
     position: absolute;
     top: 67%;
     left: 39%;
-    min-width: 110px;
+    width: 110px;
     height: 40px;
     border: 1px solid grey;
     border-radius: 5px;
@@ -1292,15 +1292,43 @@ a.button.dsgnmoo:active {
         margin-left: 6px;
     }
 
+    li.logout a {
+        margin-left: 0;
+    }
+
+    #modal_form1 {
+        width: 300px;
+        left: 128px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form1 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form1 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form1 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
+    }
+
     #modal_form2 {
-        width: 125%;
-        left: 65%;
+        width: 300px;
+        left: 128px;
     }
 
     #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
+        font-size: 17px;
+        top: 8px;
+        left: 43px;
     }
 
     #modal_form2 .add_desire_form_button {
@@ -1313,19 +1341,25 @@ a.button.dsgnmoo:active {
     }
 
     #modal_form3 {
-        width: 131%;
-        left: 66%;
+        width: 300px;
+        height: 287px;
+        left: 128px;
     }
 
     #modal_form3 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
+        font-size: 17px;
+        top: 8px;
+        left: 38px;
     }
 
     #modal_form3 button {
-        left: 32%;
+        left: 95px;
+        top: 225px;
         font-size: calc(0.8em + 0.5vw);
+    }
+
+    #modal_form3 input#desire_title {
+        margin-top: 3px;
     }
 }
 

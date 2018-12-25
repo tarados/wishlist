@@ -1194,15 +1194,47 @@ a.button.dsgnmoo:active {
         margin-left: 28px;
     }
 
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
+    li.logout a {
+        margin-left: 0;
+    }
+
+    #modal_form1 {
+        width: 300px;
+        left: 147px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form1 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form1 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form1 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
+    }
+
     #modal_form2 {
-        width: 130%;
-        left: 57%;
+        width: 300px;
+        left: 147px;
     }
 
     #modal_form2 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 21%;
+        font-size: 17px;
+        top: 8px;
+        left: 43px;
     }
 
     #modal_form2 .add_desire_form_button {
@@ -1210,24 +1242,26 @@ a.button.dsgnmoo:active {
         left: 31%;
     }
 
-    a.navbar-brand {
-        padding-left: 10%;
-    }
-
     #modal_form3 {
-        width: 130%;
-        left: 57%;
+        width: 300px;
+        height: 287px;
+        left: 147px;
     }
 
     #modal_form3 span.name_desire {
-        font-size: calc(0.5em + 2vw);
-        top: 10px;
-        left: 23%;
+        font-size: 17px;
+        top: 8px;
+        left: 38px;
     }
 
     #modal_form3 button {
-        left: 33%;
+        left: 95px;
+        top: 225px;
         font-size: calc(0.8em + 0.5vw);
+    }
+
+    #modal_form3 input#desire_title {
+        margin-top: 3px;
     }
 }
 
@@ -1287,7 +1321,7 @@ a.button.dsgnmoo:active {
         left: 8%;
     }
 
-     #modal_form2 {
+    #modal_form2 {
         width: 300px;
         left: 153px;
     }
@@ -1303,7 +1337,7 @@ a.button.dsgnmoo:active {
         left: 31%;
     }
 
-     #modal_form3 {
+    #modal_form3 {
         width: 300px;
         height: 287px;
         left: 153px;
@@ -1362,6 +1396,10 @@ a.button.dsgnmoo:active {
         margin-left: 0;
     }
 
+    a.navbar-brand {
+        padding-left: 10%;
+    }
+
     #modal_form1 {
         width: 300px;
         left: 128px;
@@ -1400,10 +1438,6 @@ a.button.dsgnmoo:active {
     #modal_form2 .add_desire_form_button {
         font-size: calc(0.5em + 2vw);
         left: 31%;
-    }
-
-    a.navbar-brand {
-        padding-left: 10%;
     }
 
     #modal_form3 {

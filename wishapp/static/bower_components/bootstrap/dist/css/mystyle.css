@@ -1258,6 +1258,72 @@ a.button.dsgnmoo:active {
     #simpleList {
         margin-left: 30px;
     }
+
+    li.logout a {
+        margin-left: 0;
+    }
+
+    #modal_form1 {
+        width: 300px;
+        left: 154px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form1 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form1 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form1 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
+    }
+
+     #modal_form2 {
+        width: 300px;
+        left: 153px;
+    }
+
+    #modal_form2 span.name_desire {
+        font-size: 17px;
+        top: 8px;
+        left: 43px;
+    }
+
+    #modal_form2 .add_desire_form_button {
+        font-size: calc(0.5em + 2vw);
+        left: 31%;
+    }
+
+     #modal_form3 {
+        width: 300px;
+        height: 287px;
+        left: 153px;
+    }
+
+    #modal_form3 span.name_desire {
+        font-size: 17px;
+        top: 8px;
+        left: 38px;
+    }
+
+    #modal_form3 button {
+        left: 95px;
+        top: 225px;
+        font-size: calc(0.8em + 0.5vw);
+    }
+
+    #modal_form3 input#desire_title {
+        margin-top: 3px;
+    }
 }
 
 @media screen and (max-width: 320px) {

@@ -143,7 +143,7 @@ $(function () {
             function () {
                 $('#modal_form')
                     .css('display', 'block')
-                    .animate({opacity: 1, top: '50%'}, 200);
+                    .animate({opacity: 1, top: '45%'}, 200);
             });
         des_id = this.id.split('-')[1];
         sub_id = this.id.split('-')[2];

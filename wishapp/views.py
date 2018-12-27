@@ -37,6 +37,30 @@ def desirelist(request):
     user = auth.get_user(request)
     dreamer_id = user.id
     desirelists = Desirelist.objects.filter(desirelist_user_id=dreamer_id)
+    results = []
+    for desirelist in desirelists:
+        desires = Desire.objects.filter(desire_user_id=dreamer_id, desire_desirelist_id=desirelist.id).order_by(
+            'desire_order')
+        listphoto = []
+        for desire in desires:
+            if desire.desire_photo:
+                try:
+                    k = desire.determine_height_img()
+                    height = 120 * k
+                    print(height)
+                    tuple_for_img = (desire.desire_photo, height)
+                except:
+                    tuple_for_img = ("/static/img/delete-Icon.png", 15)
+                listphoto.append(tuple_for_img)
+                # print(desires[i].desire_photo)
+        obj = {
+            'id': desirelist.id,
+            'listname': desirelist.desirelist_name,
+            'listphoto': listphoto[:4],
+            'substitute_id': desirelist.desirelist_substitute_id
+        }
+        results.append(obj)
+    desire_list = results
     if desirelists.count() == 0:
         d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id,
                                       desirelist_substitute_id=substitute_id())

@@ -599,17 +599,15 @@ ol li a {
 }
 
 .desirelist_name {
-    margin: 0 0 5px 10px;
-    overflow: auto;
-}
-
-.link_for_send {
-    margin-left: 25%;
+    margin: 20px 0 10px 10px;
+    text-align: center;
 }
 
 span.glyphicon-upload {
     font-size: 17px;
-    margin-right: 10px;
+    position: absolute;
+    top: 135px;
+    left: 15px;
     color: green;
 }
 
@@ -928,6 +926,26 @@ a.button.dsgnmoo:active {
 .bread {
     margin-left: 15px;
     width: 97.5%;
+}
+
+.desirelist_block {
+    width: 245px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border: 1px solid grey;
+}
+
+.reticle {
+    width: 121px;
+    height: 122px;
+    background-color: white;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+
+.top_left, .top_right {
+    margin-bottom: 10px;
 }
 
 /**************************media***************************************************************************************/

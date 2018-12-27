@@ -23,19 +23,29 @@
     </div>
     <div id="overlay1"></div>
     <div class="sort-group listdes">
-        {% for desirelist in desirelists %}
+        {% for desirelist in desire_list %}
             <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
-                <div class="deldesire_img">
-                    <a href="#" class="go1" id="go-{{ desirelist.id }}-{{ dreamer_id }}"><img
-                            src="/static/img/delete-Icon.png" width="15px"></a>
+                <div class="desirelist_block">
+                    <div class="reticle top_left">
+                        <img src="{{ desirelist.listphoto.0.0.url }}" height="{{ desirelist.listphoto.0.1 }}">
+                    </div>
+                    <div class="reticle top_right">
+                        <img src="{{ desirelist.listphoto.1.0.url }}" height="{{ desirelist.listphoto.1.1 }}">
+                    </div>
+{#                    <div class="reticle bottom_left">#}
+{#                        <img src="{{ desirelist.listphoto.2.0.url }}" height="{{ desirelist.listphoto.2.1 }}">#}
+{#                    </div>#}
+{#                    <div class="reticle bottom_right">#}
+{#                        <img src="{{ desirelist.listphoto.3.0.url }}" height="{{ desirelist.listphoto.3.1 }}">#}
+{#                    </div>#}
                 </div>
                 <div class="desirelist_name">
                     <a href="#" class="copy_to_clipboard" title="Копировать адрес списка"
                        id="/dreamers/{{ desirelist.desirelist_substitute_id }}">
                         <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
                     </a>
-                    <a href="/dreamers/{{ desirelist.desirelist_substitute_id }}"
-                       class="link_for_send">{{ desirelist.desirelist_name }}</a>
+                    <a href="/dreamers/{{ desirelist.substitute_id }}"
+                       class="link_for_send">{{ desirelist.listname }}</a>
                 </div>
             </div>
         {% endfor %}

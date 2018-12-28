@@ -47,7 +47,6 @@ def desirelist(request):
                 try:
                     k = desire.determine_height_img()
                     height = 120 * k
-                    print(height)
                     tuple_for_img = (desire.desire_photo, height)
                 except:
                     tuple_for_img = ("/static/img/delete-Icon.png", 15)
@@ -61,6 +60,7 @@ def desirelist(request):
         }
         results.append(obj)
     desire_list = results
+    # is_owner = user.id == int(dreamer_id)
     if desirelists.count() == 0:
         d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id,
                                       desirelist_substitute_id=substitute_id())
@@ -86,6 +86,22 @@ def adddesirelist(request):
         return redirect('/adddesirelist/')
     return redirect('/desirelist/')
 
+@csrf_exempt
+def editdesirelist(request):
+    print(request.POST)
+    is_ownerlist = True
+    user = auth.get_user(request)
+    dreamer_id = user.id
+    desirelist_name = request.POST.get('listname', '')
+    substitute_id = request.POST.get('sub', '')
+    desirelist_id = request.POST.get('desirelist_id', '')
+    desirelist = Desirelist.objects.get(id=desirelist_id)
+    print(desirelist.id)
+    form = DesireListForm(request.POST, instance=desirelist)
+    if form.is_valid():
+        desirelist = form.save(commit=False)
+        form.save()
+    return redirect('/desirelist/')
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 @csrf_exempt
@@ -190,7 +206,6 @@ def deldesirelist(request, user_id):
 # модуль редактирования желаний
 @csrf_exempt
 def editdesire(request, sub_id):
-    print(request.POST)
     user = auth.get_user(request)
     dreamer_id = user.id
     desire_id = request.POST.get('desire_id', '')

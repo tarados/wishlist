@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^dreamers/(?P<sub_id>\w+)/$', views.dreamer, name='dreamer'),
     url(r'^desirelist/$', views.desirelist, name='desirelist'),
     url(r'^adddesirelist/$', views.adddesirelist, name='adddesirelist'),
+    url(r'^editdesirelist/$', views.editdesirelist, name='editdesirelist'),
     url(r'^dreamers/adddesire/(?P<sub_id>\w+)/$', views.adddesire, name='adddesire'),
 
    

@@ -354,4 +354,33 @@ $(function () {
     $('.navbar-nav a').click(function () {
         $('#navbar-main').collapse('hide');
     });
+    // modal for edit desirelist******************************************************************************
+    $('button.list').click(function (event) {
+        event.preventDefault();
+        $('#overlay4').fadeIn(400,
+            function () {
+                var scrol = $(window).scrollTop() + 270;
+                $('#modal_form4')
+                    .css('display', 'block')
+                    .animate({opacity: 1, top: scrol}, 200);
+            });
+        var button = $(this);
+        var id = button.attr("id");
+        var desirelist_id = id.split("§")[1];
+        var listname = id.split("§")[5];
+        var sub = id.split("§")[7];
+        $('#text_desirelist_for_edit').attr('value', listname);
+        $('#desirelist_id_for_edit').attr('value', desirelist_id);
+        $('#substitute_id_for_edit').attr('value', sub);
+    });
+    /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+    $('#modal_close4, #overlay4, .add_desirelist_form_button').click(function () {
+        $('#modal_form4')
+            .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay4').fadeOut(400);
+                }
+            );
+    });
 });

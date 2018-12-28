@@ -5,7 +5,6 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from wishapp.models import Desire, Desirelist
 from wishapp.forms import DesireForm, DesireListForm
-from django.contrib.sessions.models import Session
 from django.contrib import auth
 from wishapp.linkcoder import link_on, substitute_id
 from wishapp.parse_img import get_img, find_url, get_url
@@ -51,7 +50,6 @@ def desirelist(request):
                 except:
                     tuple_for_img = ("/static/img/delete-Icon.png", 15)
                 listphoto.append(tuple_for_img)
-                # print(desires[i].desire_photo)
         obj = {
             'id': desirelist.id,
             'listname': desirelist.desirelist_name,
@@ -60,7 +58,6 @@ def desirelist(request):
         }
         results.append(obj)
     desire_list = results
-    # is_owner = user.id == int(dreamer_id)
     if desirelists.count() == 0:
         d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id,
                                       desirelist_substitute_id=substitute_id())
@@ -86,22 +83,18 @@ def adddesirelist(request):
         return redirect('/adddesirelist/')
     return redirect('/desirelist/')
 
+
 @csrf_exempt
 def editdesirelist(request):
-    print(request.POST)
     is_ownerlist = True
-    user = auth.get_user(request)
-    dreamer_id = user.id
-    desirelist_name = request.POST.get('listname', '')
-    substitute_id = request.POST.get('sub', '')
     desirelist_id = request.POST.get('desirelist_id', '')
     desirelist = Desirelist.objects.get(id=desirelist_id)
-    print(desirelist.id)
     form = DesireListForm(request.POST, instance=desirelist)
     if form.is_valid():
         desirelist = form.save(commit=False)
         form.save()
     return redirect('/desirelist/')
+
 
 # страница добавлений, редактирования, архивирования и удаления желаний пользователя
 @csrf_exempt
@@ -229,7 +222,6 @@ def editdesire(request, sub_id):
             return redirect('/dreamers/%s' % sub_id)
         else:
             pass
-            # return redirect('/dreamers/%s' % sub_id)
     else:
         return redirect('/dreamers/%s' % sub_id)
     return render_to_response('edit.html', locals())

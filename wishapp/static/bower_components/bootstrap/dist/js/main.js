@@ -368,10 +368,8 @@ $(function () {
         var id = button.attr("id");
         var desirelist_id = id.split("§")[1];
         var listname = id.split("§")[5];
-        var sub = id.split("§")[7];
         $('#text_desirelist_for_edit').attr('value', listname);
         $('#desirelist_id_for_edit').attr('value', desirelist_id);
-        $('#substitute_id_for_edit').attr('value', sub);
     });
     /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
     $('#modal_close4, #overlay4, .add_desirelist_form_button').click(function () {

@@ -1240,6 +1240,30 @@ a.button.dsgnmoo:active {
     #modal_form3 input#desire_title {
         margin-top: 3px;
     }
+
+    #modal_form4 {
+        width: 300px;
+        left: 166px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form4 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form4 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form4 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -1333,6 +1357,30 @@ a.button.dsgnmoo:active {
 
     #modal_form3 input#desire_title {
         margin-top: 3px;
+    }
+
+    #modal_form4 {
+        width: 300px;
+        left: 147px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form4 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form4 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form4 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
     }
 }
 
@@ -1428,6 +1476,30 @@ a.button.dsgnmoo:active {
 
     #modal_form3 input#desire_title {
         margin-top: 3px;
+    }
+
+    #modal_form4 {
+        width: 300px;
+        left: 154px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form4 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form4 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form4 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
     }
 }
 
@@ -1531,6 +1603,30 @@ a.button.dsgnmoo:active {
 
     #modal_form3 input#desire_title {
         margin-top: 3px;
+    }
+
+    #modal_form4 {
+        width: 300px;
+        left: 128px;
+        height: 185px;
+        background-color: white;
+    }
+
+    #modal_form4 div.firs {
+        position: absolute;
+        width: 294px;
+        height: 37px;
+    }
+
+    #modal_form4 button {
+        top: 70%;
+        left: 95px;
+    }
+
+    #modal_form4 span.name_desirelist {
+        font-size: 17px;
+        top: 7px;
+        left: 8%;
     }
 }
 

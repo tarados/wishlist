@@ -25,7 +25,7 @@
                         <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
                     </a>
                     <a href="/dreamers/{{ desirelist.substitute_id }}"
-                       class="link_for_send">{{ desirelist.listname }}</a>{{ desirelist.id }}!!{{ desirelist.substitute_id }}
+                       class="link_for_send">{{ desirelist.listname }}</a>
                 </div>
                 <div class="desire_button">
                     {% if is_ownerlist %}
@@ -63,11 +63,11 @@
         </div>
         <div class="row internal secnd">
             <form action="{% url 'editdesirelist' %}" class="button" method="post">{% csrf_token %}
-                <input type="text" class='add_desirelist_form_input' id="text_desirelist_for_edit" name="desirelist_name"
+                <input type="text" class='add_desirelist_form_input' id="text_desirelist_for_edit"
+                       name="desirelist_name"
                        maxlength="250"
                        placeholder="Введите краткое имя для списка">
                 <input class="desirelist_id" id="desirelist_id_for_edit" type="hidden" name="desirelist_id">
-                <input type="hidden" id="substitute_id_for_edit" name="substitute_id">
                 <button type="submit" class="add_desirelist_form_button" value="">Сохранить</button>
             </form>
         </div>

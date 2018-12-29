@@ -44,7 +44,7 @@ def get_img(url):
         result_img = ''
         src = re.compile(r'[^index]\.jpg')
         try:
-            img = soup.find('img', src=src, title=True)
+            img = soup.findAll('img', src=src, title=True)
             if img['src'].find('http') + 1 > 0:
                 result_img = img['src']
             else:

@@ -958,6 +958,7 @@ a.button.dsgnmoo:active {
 .reticle img {
     width: 100%;
 }
+
 .two_photo {
     width: 122px;
 }
@@ -968,6 +969,10 @@ a.button.dsgnmoo:active {
 
 .two {
     border-top-right-radius: 3px;
+}
+
+.second {
+    margin-left: 1px;
 }
 
 .list {

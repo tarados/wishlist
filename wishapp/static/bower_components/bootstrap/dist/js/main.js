@@ -381,4 +381,25 @@ $(function () {
                 }
             );
     });
+    // total desirelist*******************************************************************************************
+    $('.one_pthoto').each(function () {
+        var item = $(this);
+        var id = item.attr('id');
+        var listphoto = id.split("§")[1];
+        var k = listphoto.replace(',', '.');
+        var height = 245 * k;
+        $('this img').attr('height', height);
+    });
+    $('.two_photo').each(function () {
+        var item = $(this);
+        var id = item.attr('id');
+        var listphoto1 = id.split("§")[1];
+        var listphoto2 = id.split("§")[3];
+        console.log(id);
+        console.log(listphoto1);
+        console.log(listphoto2);
+        // var k = listphoto.replace(',', '.');
+        // var height = 245 * k;
+        // $('this img').attr('height', height);
+    });
 });

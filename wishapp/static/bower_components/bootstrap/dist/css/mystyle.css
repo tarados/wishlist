@@ -605,9 +605,8 @@ ol li a {
 
 span.glyphicon-upload {
     font-size: 17px;
-    position: absolute;
-    top: 135px;
-    left: 15px;
+    position: relative;
+    float: left;
     color: green;
 }
 
@@ -948,16 +947,27 @@ a.button.dsgnmoo:active {
 }
 
 .reticle {
-    width: 121px;
-    height: 122px;
+    /*width: 100%;*/
+    min-height: 45px;
     background-color: white;
     position: relative;
     float: left;
     overflow: hidden;
 }
 
-.top_left, .top_right {
-    margin-bottom: 10px;
+.reticle img {
+    width: 100%;
+}
+.two_photo {
+    width: 122px;
+}
+
+.one {
+    border-top-left-radius: 3px;
+}
+
+.two {
+    border-top-right-radius: 3px;
 }
 
 .list {
@@ -966,6 +976,10 @@ a.button.dsgnmoo:active {
     color: white;
     border-radius: 3px;
     opacity: 0;
+}
+
+.desirelist {
+    margin: 0;
 }
 
 /**************************media***************************************************************************************/

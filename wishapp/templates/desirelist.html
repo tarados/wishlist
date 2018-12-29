@@ -5,27 +5,45 @@
     <div class="sort-group listdes">
         {% for desirelist in desire_list %}
             <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
-                <div class="desirelist_block">
-                    <div class="reticle top_left">
-                        <img src="{{ desirelist.listphoto.0.0.url }}" height="{{ desirelist.listphoto.0.1 }}">
-                    </div>
-                    <div class="reticle top_right">
-                        <img src="{{ desirelist.listphoto.1.0.url }}" height="{{ desirelist.listphoto.1.1 }}">
-                    </div>
-                    {#                    <div class="reticle bottom_left">#}
-                    {#                        <img src="{{ desirelist.listphoto.2.0.url }}" height="{{ desirelist.listphoto.2.1 }}">#}
-                    {#                    </div>#}
-                    {#                    <div class="reticle bottom_right">#}
-                    {#                        <img src="{{ desirelist.listphoto.3.0.url }}" height="{{ desirelist.listphoto.3.1 }}">#}
-                    {#                    </div>#}
+                <div class="row desirelist">
+                    {% if desirelist.len <= 1 %}
+                        <div class="reticle one_pthoto"
+                             id="listphoto§{{ desirelist.listphoto.0.1 }}">
+                            <img src="{{ desirelist.listphoto.0.0.url }}">
+                        </div>
+                    {% elif desirelist.len == 2 %}
+                        <div class="reticle two_photo" id="listphoto1§{{ desirelist.listphoto.0.1 }}">
+                            <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
+                        </div>
+                        <div class="reticle two_photo two" id="listphoto2§{{ desirelist.listphoto.1.1 }}">
+                            <img class="two" src="{{ desirelist.listphoto.1.0.url }}">
+                        </div>
+                    {% elif desirelist.len == 3 %}
+                        <div class="reticle three_photo"
+                             id="len§{{ desirelist.len }}§listphoto§{{ desirelist.listphoto.0.1 }}">
+                            {#                            <img src="{{ desirelist.listphoto.0.0.url }}">#}
+                            {#                            <img src="{{ desirelist.listphoto.1.0.url }}">#}
+                            {#                            <img src="{{ desirelist.listphoto.2.0.url }}">#}
+                        </div>
+                    {% elif desirelist.len >= 4 %}
+                        <div class="reticle four_photo"
+                             id="len§{{ desirelist.len }}§listphoto§{{ desirelist.listphoto.0.1 }}">
+                            {#                            <img src="{{ desirelist.listphoto.0.0.url }}">#}
+                            {#                            <img src="{{ desirelist.listphoto.1.0.url }}">#}
+                            {#                            <img src="{{ desirelist.listphoto.2.0.url }}">#}
+                            {#                            <img src="{{ desirelist.listphoto.3.0.url }}">#}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="desirelist_name">
-                    <a href="#" class="copy_to_clipboard" title="Копировать адрес списка"
-                       id="/dreamers/{{ desirelist.substitute_id }}">
-                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                    </a>
-                    <a href="/dreamers/{{ desirelist.substitute_id }}"
-                       class="link_for_send">{{ desirelist.listname }}</a>
+                <div class="row desirelist">
+                    <div class="desirelist_name">
+                        <a href="#" class="copy_to_clipboard" title="Копировать адрес списка"
+                           id="/dreamers/{{ desirelist.substitute_id }}">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                        </a>
+                        <a href="/dreamers/{{ desirelist.substitute_id }}"
+                           class="link_for_send">{{ desirelist.listname }}</a>
+                    </div>
                 </div>
                 <div class="desire_button">
                     {% if is_ownerlist %}

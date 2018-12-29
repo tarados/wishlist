@@ -382,30 +382,31 @@ $(function () {
             );
     });
     // total desirelist*******************************************************************************************
-    $('.one_pthoto').each(function () {
-        var item = $(this);
-        var id = item.attr('id');
-        var listphoto = id.split("§")[1];
-        var k = listphoto.replace(',', '.');
-        var height = 245 * k;
-        $('this img').attr('height', height);
-    });
-    $('.first').each(function () {
-        var item = $(this);
-        var id = item.attr('id');
-        var listphoto = id.split("§")[1];
-        var k = listphoto.replace(',', '.');
-        var height = 122 * k;
-        console.log(height);
-        $('this img').attr('height', height);
-    });
-    $('.second').each(function () {
-        var item = $(this);
-        var id = item.attr('id');
-        var listphoto = id.split("§")[1];
-        var k = listphoto.replace(',', '.');
-        var height = 122 * k;
-        console.log(height);
-        $('this img').attr('height', height);
-    });
+    // $('.one_pthoto').each(function () {
+    //     var item = $(this);
+    //     var id = item.attr('id');
+    //     var listphoto = id.split("§")[1];
+    //     var k = listphoto.replace(',', '.');
+    //     var height = 245 * k;
+    //     $('this img').attr('height', height);
+    // });
+    // $('.first').each(function () {
+    //     var item = $(this);
+    //     var id = item.attr('id');
+    //     var listphoto = id.split("§")[1];
+    //     var k = listphoto.replace(',', '.');
+    //     var height = 122 * k;
+    //     console.log(height);
+    //     $('this img').attr('height', height);
+    // });
+    // $('.second').each(function () {
+    //     var item = $(this);
+    //     var id = item.attr('id');
+    //     var listphoto = id.split("§")[1];
+    //     var k = listphoto.replace(',', '.');
+    //     var height = 122 * k;
+    //     console.log(height);
+    //     $('this img').attr('height', height);
+    // });
+    console.log('safasf');
 });

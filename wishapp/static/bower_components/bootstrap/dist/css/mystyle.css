@@ -963,6 +963,10 @@ a.button.dsgnmoo:active {
     width: 122px;
 }
 
+.three_photo {
+    width: 81px;
+}
+
 .one {
     border-top-left-radius: 3px;
 }
@@ -973,6 +977,14 @@ a.button.dsgnmoo:active {
 
 .second {
     margin-left: 1px;
+}
+
+.third {
+    border-top-right-radius: 3px;
+}
+
+.thirds {
+    margin-left: 2px;
 }
 
 .list {

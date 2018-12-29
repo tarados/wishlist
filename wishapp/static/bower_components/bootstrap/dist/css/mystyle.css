@@ -964,7 +964,11 @@ a.button.dsgnmoo:active {
 }
 
 .three_photo {
-    width: 81px;
+    width: 79px;
+}
+
+.four_photo {
+    width: 58px;
 }
 
 .one {
@@ -983,8 +987,19 @@ a.button.dsgnmoo:active {
     border-top-right-radius: 3px;
 }
 
-.thirds {
-    margin-left: 2px;
+.four {
+    border-top-right-radius: 3px;
+}
+
+.thirds1,
+.thirds2,
+.thirds3,
+.fourth1,
+.fourth2,
+.fourth3,
+.fourth4 {
+    margin-left: 1px;
+    margin-top: 10px;
 }
 
 .list {

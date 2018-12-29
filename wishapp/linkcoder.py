@@ -2,7 +2,7 @@ import re
 import random
 import string
 
-# a = 'https://hotline.ua/computer-planshety/xiaomi-mi-pad-4-wi-fi-332gb-gold/'
+# a = 'https://megamag.online/catalog/gazonokosilki/gazonokosilka-rotornaya-bosch-arm-34-06008a6101/'
 
 def link_on(str):
     text = []

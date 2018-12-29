@@ -2,9 +2,9 @@
 {% load socialaccount %}
 {% load staticfiles %}
 {% block dreamerslist %}
-    <div class="sort-group listdes">
+    <div class="grid listdes js-masonry" data-masonry-options='{ "itemSelector": ".grid-item"}' id="container">
         {% for desirelist in desire_list %}
-            <div class="sort-group-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
+            <div class="sort-group-item grid-item" id="do-{{ desirelist.id }}-{{ dreamer_id }}">
                 <div class="row desirelist">
                     {% if desirelist.len <= 1 %}
                         <div class="reticle one_pthoto"

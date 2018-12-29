@@ -408,5 +408,4 @@ $(function () {
     //     console.log(height);
     //     $('this img').attr('height', height);
     // });
-    console.log('safasf');
 });

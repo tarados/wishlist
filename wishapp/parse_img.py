@@ -65,9 +65,9 @@ def get_img(url):
         result_img = None
         result_a = None
 # выбираем из трех 1-2-3
-#     print(result_img)
-#     print(result_meta)
-#     print(result_a)
+    print('result_img= ', result_img)
+    print('result_meta= ', result_meta)
+    print('result_a= ', result_a)
     result = None
     if result_meta != '':
         result = result_meta

@@ -36,7 +36,11 @@ class Desire(models.Model):
         headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
         result = requests.get(url,headers=headers)
-        file_name = 'icon_{0}.{1}'.format(self.id, url.split('.')[-1])
+        image_format = result.headers.get('Content-Type').split(';')[0].split('/')[1]
+        if image_format == 'html':
+            file_name = 'icon_{0}.{1}'.format(self.id, url.split('.')[-1])
+        else:
+            file_name = 'icon_{0}.{1}'.format(self.id, image_format)
         path_file = os.path.join(settings.MEDIA_ROOT, file_name)
         out = open(path_file, "wb")
         out.write(result.content)

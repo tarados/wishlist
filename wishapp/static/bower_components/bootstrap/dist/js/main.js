@@ -296,7 +296,7 @@ $(function () {
     });
 // bind event
     $grid.masonry('on', 'layoutComplete', function () {
-        console.log('layout is complete');
+        // consol/e.log('layout is complete');
     });
 // trigger initial layout
     $grid.masonry();
@@ -404,7 +404,7 @@ $(function () {
         list_k.push(k_second);
         var k = list_k.sort()[1];
         var height = 122 * k;
-        $(this).attr('height', height);
+        $(this).children().attr('height', height);
     });
     $('.three_photo').each(function () {
         var list_k = [];

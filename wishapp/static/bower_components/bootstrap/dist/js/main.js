@@ -427,14 +427,30 @@ $(function () {
         var height = 122 * k;
         $(this).children().attr('height', height);
     });
-    // $('.four_photo').each(function () {
-    //      var item = $(this);
-    //      var id = item.attr('id');
-    //      var listphoto = id.split("§")[1];
-    //      var k = listphoto.replace(',', '.');
-    //      var height = 58 * k;
-    //      console.log(height);
-    //      $(this).children().attr('height', height);
-    //  });
+    $('.four_photo').each(function () {
+        var list_k = [];
+        var item_1 = $(this).children('.fourth1');
+        var item_2 = $(this).children('.fourth2');
+        var item_3 = $(this).children('.fourth3');
+        var item_4 = $(this).children('.fourth4');
+        var id_1 = item_1.attr('id');
+        var id_2 = item_2.attr('id');
+        var id_3 = item_3.attr('id');
+        var id_4 = item_4.attr('id');
+        var listphoto1 = id_1.split("§")[1];
+        var listphoto2 = id_2.split("§")[1];
+        var listphoto3 = id_3.split("§")[1];
+        var listphoto4 = id_4.split("§")[1];
+        var k1 = listphoto1.replace(',', '.');
+        var k2 = listphoto2.replace(',', '.');
+        var k3 = listphoto3.replace(',', '.');
+        var k4 = listphoto4.replace(',', '.');
+        list_k.push(k1);
+        list_k.push(k2);
+        list_k.push(k3);
+        list_k.push(k4);
+        var height = 58 * list_k.sort()[3];
+        $(this).children().attr('height', height);
+    });
 
 });

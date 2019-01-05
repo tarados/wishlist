@@ -25,25 +25,27 @@
                             <div class="thirds1" id="listphoto3§{{ desirelist.listphoto.0.1 }}">
                                 <img src="{{ desirelist.listphoto.0.0.url }}">
                             </div>
-                            <div class="thirds2" id="listphoto§{{ desirelist.listphoto.1.1 }}">
+                            <div class="thirds2" id="listphoto4§{{ desirelist.listphoto.1.1 }}">
                                 <img src="{{ desirelist.listphoto.1.0.url }}">
                             </div>
-                            <div class="thirds3" id="listphoto§{{ desirelist.listphoto.2.1 }}">
+                            <div class="thirds3" id="listphoto5§{{ desirelist.listphoto.2.1 }}">
                                 <img src="{{ desirelist.listphoto.2.0.url }}">
                             </div>
                         </div>
                     {% elif desirelist.len >= 4 %}
-                        <div class="reticle four_photo fourth1" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
-                        </div>
-                        <div class="reticle four_photo fourth2" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img src="{{ desirelist.listphoto.1.0.url }}">
-                        </div>
-                        <div class="reticle four_photo fourth3" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img src="{{ desirelist.listphoto.2.0.url }}">
-                        </div>
-                        <div class="reticle four_photo fourth4" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img class="four" src="{{ desirelist.listphoto.3.0.url }}">
+                        <div class="reticle four_photo">
+                            <div class="fourth1" id="listphoto6§{{ desirelist.listphoto.0.1 }}">
+                                <img src="{{ desirelist.listphoto.0.0.url }}">
+                            </div>
+                            <div class="fourth2" id="listphoto7§{{ desirelist.listphoto.1.1 }}">
+                                <img src="{{ desirelist.listphoto.1.0.url }}">
+                            </div>
+                            <div class="fourth3" id="listphoto8§{{ desirelist.listphoto.2.1 }}">
+                                <img src="{{ desirelist.listphoto.2.0.url }}">
+                            </div>
+                            <div class="fourth4" id="listphoto9§{{ desirelist.listphoto.3.1 }}">
+                                <img src="{{ desirelist.listphoto.3.0.url }}">
+                            </div>
                         </div>
                     {% endif %}
                 </div>

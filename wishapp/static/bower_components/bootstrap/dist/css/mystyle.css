@@ -964,7 +964,8 @@ a.button.dsgnmoo:active {
 }
 
 .one_photo,
-.two_photo {
+.two_photo,
+.three_photo {
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -984,9 +985,9 @@ a.button.dsgnmoo:active {
     width: 122px;
 }
 
-.three_photo {
-    width: 79px;
-}
+/*.three_photo {*/
+    /*width: 79px;*/
+/*}*/
 
 .four_photo {
     width: 58px;
@@ -1010,11 +1011,10 @@ a.button.dsgnmoo:active {
 
 .thirds1,
 .thirds2,
-.thirds3,
-.fourth1,
-.fourth2,
-.fourth3,
-.fourth4 {
+.thirds3 {
+    position: relative;
+    float: left;
+    width: 79px;
     margin-left: 1px;
     margin-top: 10px;
 }

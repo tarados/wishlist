@@ -21,15 +21,15 @@
                             </div>
                         </div>
                     {% elif desirelist.len == 3 %}
-                        <div class="three_photo">
-                            <div class="reticle three_photo thirds1" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                                <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
+                        <div class="reticle three_photo">
+                            <div class="thirds1" id="listphoto3§{{ desirelist.listphoto.0.1 }}">
+                                <img src="{{ desirelist.listphoto.0.0.url }}">
                             </div>
-                            <div class="reticle three_photo thirds2" id="listphoto§{{ desirelist.listphoto.0.1 }}">
+                            <div class="thirds2" id="listphoto§{{ desirelist.listphoto.1.1 }}">
                                 <img src="{{ desirelist.listphoto.1.0.url }}">
                             </div>
-                            <div class="reticle three_photo thirds3" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                                <img class="third" src="{{ desirelist.listphoto.2.0.url }}">
+                            <div class="thirds3" id="listphoto§{{ desirelist.listphoto.2.1 }}">
+                                <img src="{{ desirelist.listphoto.2.0.url }}">
                             </div>
                         </div>
                     {% elif desirelist.len >= 4 %}

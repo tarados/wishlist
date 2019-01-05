@@ -12,21 +12,25 @@
                             <img src="{{ desirelist.listphoto.0.0.url }}" id="one">
                         </div>
                     {% elif desirelist.len == 2 %}
-                        <div class="reticle two_photo first" id="listphoto1§{{ desirelist.listphoto.0.1 }}">
-                            <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
-                        </div>
-                        <div class="reticle two_photo second" id="listphoto2§{{ desirelist.listphoto.1.1 }}">
-                            <img class="two" src="{{ desirelist.listphoto.1.0.url }}">
+                        <div class="reticle two_photo">
+                            <div class="first" id="listphoto1§{{ desirelist.listphoto.0.1 }}">
+                                <img src="{{ desirelist.listphoto.0.0.url }}">
+                            </div>
+                            <div class="second" id="listphoto2§{{ desirelist.listphoto.1.1 }}">
+                                <img src="{{ desirelist.listphoto.1.0.url }}">
+                            </div>
                         </div>
                     {% elif desirelist.len == 3 %}
-                        <div class="reticle three_photo thirds1" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
-                        </div>
-                        <div class="reticle three_photo thirds2" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img src="{{ desirelist.listphoto.1.0.url }}">
-                        </div>
-                        <div class="reticle three_photo thirds3" id="listphoto§{{ desirelist.listphoto.0.1 }}">
-                            <img class="third" src="{{ desirelist.listphoto.2.0.url }}">
+                        <div class="three_photo">
+                            <div class="reticle three_photo thirds1" id="listphoto§{{ desirelist.listphoto.0.1 }}">
+                                <img class="one" src="{{ desirelist.listphoto.0.0.url }}">
+                            </div>
+                            <div class="reticle three_photo thirds2" id="listphoto§{{ desirelist.listphoto.0.1 }}">
+                                <img src="{{ desirelist.listphoto.1.0.url }}">
+                            </div>
+                            <div class="reticle three_photo thirds3" id="listphoto§{{ desirelist.listphoto.0.1 }}">
+                                <img class="third" src="{{ desirelist.listphoto.2.0.url }}">
+                            </div>
                         </div>
                     {% elif desirelist.len >= 4 %}
                         <div class="reticle four_photo fourth1" id="listphoto§{{ desirelist.listphoto.0.1 }}">

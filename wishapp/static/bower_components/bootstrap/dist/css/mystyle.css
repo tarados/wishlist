@@ -399,8 +399,11 @@ ol li a {
     position: relative;
     width: 100%;
     top: 0;
+}
+
+.image_one_photo {
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 5px
 }
 
 .desire_top {
@@ -936,12 +939,12 @@ a.button.dsgnmoo:active {
     width: 97.5%;
 }
 
-.desirelist_block {
-    width: 245px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border: 1px solid grey;
-}
+/*.desirelist_block {*/
+/*width: 245px;*/
+/*border-top-right-radius: 5px;*/
+/*border-top-left-radius: 5px;*/
+/*border: 1px solid grey;*/
+/*}*/
 
 .sort-group-item:hover .list {
     opacity: 1;
@@ -951,8 +954,6 @@ a.button.dsgnmoo:active {
     /*width: 100%;*/
     min-height: 45px;
     background-color: white;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     position: relative;
     float: left;
     overflow: hidden;
@@ -962,7 +963,24 @@ a.button.dsgnmoo:active {
     width: 100%;
 }
 
+.one_photo,
 .two_photo {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.first {
+    position: relative;
+    float: left;
+    width: 122px;
+    border-top-left-radius: 5px;
+}
+
+.second {
+    position: relative;
+    float: right;
+    margin-left: 1px;
     width: 122px;
 }
 
@@ -975,23 +993,19 @@ a.button.dsgnmoo:active {
 }
 
 .one {
-    border-top-left-radius: 3px;
+    /*border-top-left-radius: 5px;*/
 }
 
 .two {
-    border-top-right-radius: 3px;
-}
-
-.second {
-    margin-left: 1px;
+    border-top-right-radius: 5px;
 }
 
 .third {
-    border-top-right-radius: 3px;
+    border-top-right-radius: 5px;
 }
 
 .four {
-    border-top-right-radius: 3px;
+    border-top-right-radius: 5px;
 }
 
 .thirds1,
@@ -1009,7 +1023,7 @@ a.button.dsgnmoo:active {
     float: right;
     background-color: red;
     color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     opacity: 0;
 }
 

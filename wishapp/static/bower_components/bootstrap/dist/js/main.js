@@ -390,15 +390,23 @@ $(function () {
         var height = 245 * k;
         $(this).attr('height', height);
     });
-    // $('.two_photo').each(function () {
-    //     var item = $(this);
-    //     var id = item.attr('id');
-    //     var listphoto = id.split("§")[1];
-    //     var k = listphoto.replace(',', '.');
-    //     var height = 122 * k;
-    //     // console.log(height);
-    //     $(this).attr('height', height);
-    // });
+    $('.two_photo').each(function () {
+        var list_k = [];
+        var item_1 = $(this).children('.first');
+        var item_2 = $(this).children('.second');
+        var id_1 = item_1.attr('id');
+        var id_2 = item_2.attr('id');
+        var listphoto_1 = id_1.split("§")[1];
+        var listphoto_2 = id_2.split("§")[1];
+        var k_first = listphoto_1.replace(',', '.');
+        var k_second = listphoto_2.replace(',', '.');
+        list_k.push(k_first);
+        list_k.push(k_second);
+        var k = list_k.sort()[1];
+        var height = 122 * k;
+        $(this).attr('height', height);
+        // console.log(listphoto);
+    });
     // $('.three_photo').each(function () {
     //     var item = $(this);
     //     var id = item.attr('id');
@@ -408,13 +416,14 @@ $(function () {
     //     // console.log(height);
     //     $(this).children().attr('height', height);
     // });
-   // $('.four_photo').each(function () {
-   //      var item = $(this);
-   //      var id = item.attr('id');
-   //      var listphoto = id.split("§")[1];
-   //      var k = listphoto.replace(',', '.');
-   //      var height = 58 * k;
-   //      console.log(height);
-   //      $(this).children().attr('height', height);
-   //  });
+    // $('.four_photo').each(function () {
+    //      var item = $(this);
+    //      var id = item.attr('id');
+    //      var listphoto = id.split("§")[1];
+    //      var k = listphoto.replace(',', '.');
+    //      var height = 58 * k;
+    //      console.log(height);
+    //      $(this).children().attr('height', height);
+    //  });
+
 });

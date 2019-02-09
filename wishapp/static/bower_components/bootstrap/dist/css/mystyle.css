@@ -6,7 +6,7 @@ h1, h2 {
 }
 
 .breadcrumb {
-    font-size: calc(0.4em + 0.5vw);
+    /*font-size: calc(0.4em + 0.5vw);*/
 }
 
 h3 {
@@ -105,6 +105,11 @@ div.edt {
 
 .up {
     margin-left: 20px;
+}
+
+.content-wrapper {
+    position: relative;
+    margin: auto;
 }
 
 #add_desire_block {
@@ -230,10 +235,12 @@ div.edt {
 
 .desire_title {
     width: 100%;
-    text-align: center;
+    text-align: left;
     overflow: auto;
     text-overflow: ellipsis;
     margin-bottom: 10px;
+    padding: 0 16px;
+    font-weight: bold;
 }
 
 .desire_date {
@@ -371,13 +378,14 @@ ol li a {
 
 /* ----masonry ---- *************************************************************************************************/
 .grid {
-    margin-left: 10px;
-    margin-right: auto;
+    /*margin: auto;*/
+    /*margin-left: 10px;*/
+    /*margin-right: auto;*/
 }
 
-.general {
-    width: 100%;
-}
+/*.general {*/
+    /*width: 100%;*/
+/*}*/
 
 .grid:after {
     content: '';
@@ -389,10 +397,11 @@ ol li a {
     width: 245px;
     /*height: 148px;*/
     text-align: center;
-    float: left;
+    /*float: left;*/
     background: #f8f8f8;
-    margin: 0 5px 10px 5px;
+    /*margin: 0 5px 10px 5px;*/
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .grid-item img {
@@ -504,11 +513,11 @@ ol li a {
     opacity: 0.7;
 }
 
-.desire_description p {
-    padding: 15px 15px 0 15px;
+.desire_description {
+    padding: 0 15px 15px 15px;
     text-align: left;
-    overflow: auto;
-    text-overflow: ellipsis;
+    /*overflow: auto;*/
+    /*text-overflow: ellipsis;*/
 }
 
 .desire_button_group {
@@ -638,7 +647,7 @@ a.navbar-brand {
 
 ul.nav.navbar-nav {
     float: right;
-    margin-right: 10%;
+    /*margin-right: 10%;*/
 }
 
 li.logout a {
@@ -921,6 +930,49 @@ a.button.dsgnmoo:active {
     color: #acb8bf;
 }
 
+.new-desire {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: #5cc15c;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.navbar-nav .new-desire {
+    float: left;
+}
+
+.collapse-only {
+    display: none;
+}
+
+.full-only {
+    display: block;
+}
+
+.logout-btn {
+    font-weight: bold;
+}
+
+.logout-btn > a {
+    color: brown;
+}
+
+@media screen and (max-width: 770px) {
+    .collapse-only {
+        display: block;
+    }
+    .full-only {
+        display: none;
+    }
+
+}
+
 .new_desire {
     position: absolute;
     height: 40px;
@@ -931,12 +983,11 @@ a.button.dsgnmoo:active {
     left: 40%;
     border: 0;
     border-radius: 3px;
-    background-color: #5cc15c;
 }
 
 .bread {
-    margin-left: 15px;
-    width: 97.5%;
+    /*margin-left: 15px;*/
+    /*width: 97.5%;*/
 }
 
 /*.desirelist_block {*/
@@ -1020,29 +1071,39 @@ a.button.dsgnmoo:active {
 }
 
 /**************************media***************************************************************************************/
+@media screen and (max-width: 350px) {
+    .new-desire {
+        float: left;
+        margin-left: 15px;
+    }
+    .navbar-brand {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .general {
         padding: 0;
         margin-left: 3px;
     }
 
-    .grid-item {
-        margin-left: 5px;
-        margin-right: 4px;
-    }
+    /*.grid-item {*/
+        /*margin-left: 5px;*/
+        /*margin-right: 4px;*/
+    /*}*/
 
-    .bread {
-        width: 1011px;
-        margin-left: 3px;
-    }
+    /*.bread {*/
+        /*width: 1011px;*/
+        /*margin-left: 3px;*/
+    /*}*/
 
     .sort-group {
         margin-left: 3px;
     }
 
-    .grid {
-        margin-left: 0;
-    }
+    /*.grid {*/
+        /*margin-left: 0;*/
+    /*}*/
 
     #simpleList {
         margin-left: 3px;
@@ -1077,14 +1138,14 @@ a.button.dsgnmoo:active {
         padding-left: 20px;
     }
 
-    .bread {
-        width: 98.5%;
-        margin-left: 3px;
-    }
+    /*.bread {*/
+        /*width: 98.5%;*/
+        /*margin-left: 3px;*/
+    /*}*/
 
-    .grid {
-        margin-left: 0;
-    }
+    /*.grid {*/
+        /*margin-left: 0;*/
+    /*}*/
 
     #simpleList {
         margin-left: 3px;
@@ -1198,10 +1259,10 @@ a.button.dsgnmoo:active {
         width: 45%;
     }
 
-    .bread {
-        width: 245px;
-        margin-left: 42px;
-    }
+    /*.bread {*/
+        /*width: 245px;*/
+        /*margin-left: 42px;*/
+    /*}*/
 }
 
 @media screen and (max-width: 420px) {
@@ -1214,9 +1275,9 @@ a.button.dsgnmoo:active {
         margin-left: 42px;
     }
 
-    .grid {
-        margin-left: 37px;
-    }
+    /*.grid {*/
+        /*margin-left: 37px;*/
+    /*}*/
 
     #simpleList {
         margin-left: 42px;
@@ -1323,18 +1384,18 @@ a.button.dsgnmoo:active {
         width: 45%;
     }
 
-    .bread {
-        width: 245px;
-        margin-left: 28px;
-    }
+    /*.bread {*/
+        /*width: 245px;*/
+        /*margin-left: 28px;*/
+    /*}*/
 
     .sort-group {
         margin-left: 27px;
     }
 
-    .grid {
-        margin-left: 23px;
-    }
+    /*.grid {*/
+        /*margin-left: 23px;*/
+    /*}*/
 
     #simpleList {
         margin-left: 28px;
@@ -1446,14 +1507,14 @@ a.button.dsgnmoo:active {
         width: 45%;
     }
 
-    .bread {
-        width: 245px;
-        margin-left: 30px;
-    }
+    /*.bread {*/
+        /*width: 245px;*/
+        /*margin-left: 30px;*/
+    /*}*/
 
-    .grid {
-        margin-left: 25px;
-    }
+    /*.grid {*/
+        /*margin-left: 25px;*/
+    /*}*/
 
     .sort-group {
         margin-left: 31px;
@@ -1555,19 +1616,19 @@ a.button.dsgnmoo:active {
 }
 
 @media screen and (max-width: 320px) {
-    .new_desire {
-        left: 34%;
-        width: 45%;
-    }
+    /*.new_desire {*/
+        /*left: 34%;*/
+        /*width: 45%;*/
+    /*}*/
 
     a.navbar-brand {
         padding-left: 15px;
     }
 
-    .bread {
-        width: 245px;
-        margin-left: 6px;
-    }
+    /*.bread {*/
+        /*width: 245px;*/
+        /*margin-left: 6px;*/
+    /*}*/
 
     .sort-group {
         margin-left: 7px;
@@ -1578,9 +1639,9 @@ a.button.dsgnmoo:active {
         left: 29px;
     }
 
-    .grid {
-        margin-left: 0;
-    }
+    /*.grid {*/
+        /*margin-left: 0;*/
+    /*}*/
 
     #simpleList {
         margin-left: 6px;

@@ -1,4 +1,5 @@
 $(function () {
+
     $('a.new_desirelist').click(function (event) {
         event.preventDefault();
         $('#overlay1').fadeIn(400,
@@ -288,12 +289,47 @@ $(function () {
         document.execCommand('copy');
         $('textArea').addClass('hidden');
     })
+
+
 // masonry*************************************************************************************
+
     var $grid = $('.grid').masonry({
         // disable initial layout
         initLayout: false,
+        gutter: 20
         //...
     });
+
+    function setContentWidth() {
+        console.log("setContentWidth");
+        var windowWidth = Math.min(document.documentElement.clientWidth, window.innerWidth);
+        var itemWidth = 245;
+        var colCount = Math.floor(windowWidth / itemWidth);
+        var contentWidth = 245;
+
+        console.log("contentWidth", windowWidth, colCount, document.documentElement.clientWidth);
+
+        while (colCount > 0) {
+            contentWidth = colCount * itemWidth + (colCount - 1) * 20;
+            if (contentWidth <= windowWidth) {
+                break;
+            } else {
+                colCount--;
+            }
+        }
+
+
+
+        var main = document.getElementById("main-container");//document.getElementsByClassName("grid")[0];
+        var grid = document.getElementsByClassName("grid")[0];
+        main.style.width = grid.style.width = contentWidth + "px";
+
+        $grid.masonry();
+    }
+
+    window.addEventListener("resize", setContentWidth);
+
+
 // bind event
     $grid.masonry('on', 'layoutComplete', function () {
         // consol/e.log('layout is complete');
@@ -301,8 +337,13 @@ $(function () {
 // trigger initial layout
     $grid.masonry();
 
+    setContentWidth();
+
+
+
+
 // modal for desire*********************************************************************************************************
-    $('button.new_desire').click(function (event) {
+    $('button.new-desire').click(function (event) {
         event.preventDefault();
         $('#overlay2').fadeIn(400,
             function () {
@@ -313,7 +354,7 @@ $(function () {
             });
     });
     /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
-    $('#modal_close2, #overlay2, .add_desire_form_button').click(function () {
+    $('#modal_close2, #overlay2').click(function () {
         $('#modal_form2')
             .animate({opacity: 0, top: '45%'}, 200,
                 function () {

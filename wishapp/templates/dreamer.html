@@ -20,13 +20,13 @@
                     {% endif %}
                 </div>
                 <div class="desire_top">
-                    <span class="desire_date">{{ desire.date|date }}</span>
+{#                    <span class="desire_date">{{ desire.date|naturalday }}</span>#}
                 </div>
                 <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                     <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"
                        {% else %}target="_blank"{% endif %}>{{ desire.title }}</a>
                 </div>
-                <div class="desire_description"><p>{{ desire.text|safe }}</p></div>
+                <div class="desire_description">{{ desire.text|safe }}</div>
                 <div class="desire_button"
                      id="owner-{{ is_owner }}-loggedin-{{ is_loggedin }}-choice-{{ is_choice }}-desire-{{ desire.id }}-state-{{ desire.desire_state }}">
                     {% if is_owner %}

@@ -58,7 +58,7 @@ def desirelist(request):
     # for desire_list in desire_list:
     #     print(desire_list)
     if desirelists.count() == 0:
-        d = Desirelist.objects.create(desirelist_name='"Первый"', desirelist_user_id=dreamer_id,
+        d = Desirelist.objects.create(desirelist_name='Первый', desirelist_user_id=dreamer_id,
                                       desirelist_substitute_id=substitute_id())
         d_sub = d.desirelist_substitute_id
         request.session['list_id'] = d_sub

@@ -493,5 +493,6 @@ $(function () {
         var height = 58 * list_k.sort()[3];
         $(this).children().attr('height', height);
     });
+    // $grid.masonry();
 
 });

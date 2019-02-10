@@ -533,6 +533,8 @@ ol li a {
     height: 40px;
     border-radius: 3px;
     border: 0;
+    background-color: #0ac10a;
+    color: white;
 }
 
 .asd {
@@ -922,12 +924,12 @@ a.button.dsgnmoo:active {
 }
 
 .selected {
-    background-color: yellow;
+    background-color: #0ac10a;
 }
 
 .selected span {
     font-size: 15px;
-    color: #acb8bf;
+    color: white;
 }
 
 .new-desire {

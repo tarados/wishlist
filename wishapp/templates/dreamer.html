@@ -16,11 +16,10 @@
             <div class="grid-item">
                 <div class="desire_image">
                     {% if desire.desire_photo %}
-                        <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}" class="image_one_photo"/>
+                        <img src="{{ desire.desire_photo.url }}" height="{{ desire.heigth_img }}"
+                             class="image_one_photo"/>
                     {% endif %}
-                </div>
-                <div class="desire_top">
-{#                    <span class="desire_date">{{ desire.date|naturalday }}</span>#}
+                <div class="overlay5"></div>
                 </div>
                 <div class="desire_title" id="loopcounter-{{ forloop.counter }}-desire-{{ desire.id }}">
                     <a href="{{ desire.link }}" {% if desire.link == "#" %}target="_self"
@@ -63,6 +62,9 @@
                             <button class="guest hidden" id="desireselect-{{ desire.id }}">Буду покупать</button>
                         </form>
                     {% endif %}
+                </div>
+                <div class="desire_top">
+                    <span class="desire_date">{{ desire.date|naturalday }}</span>
                 </div>
             </div>
         {% endfor %}

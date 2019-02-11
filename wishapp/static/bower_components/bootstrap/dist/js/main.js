@@ -494,9 +494,4 @@ $(function () {
         $(this).children().attr('height', height);
     });
     // $grid.masonry();
-    $('.desire_image').each(function () {
-        var img = $(this).children('img');
-        var overlay = $(this).children('.overlay5');
-        console.log(img.attr('height'));
-    })
 });

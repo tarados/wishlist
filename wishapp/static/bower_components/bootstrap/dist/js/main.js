@@ -319,7 +319,6 @@ $(function () {
         }
 
 
-
         var main = document.getElementById("main-container");//document.getElementsByClassName("grid")[0];
         var grid = document.getElementsByClassName("grid")[0];
         main.style.width = grid.style.width = contentWidth + "px";
@@ -332,14 +331,12 @@ $(function () {
 
 // bind event
     $grid.masonry('on', 'layoutComplete', function () {
-        // consol/e.log('layout is complete');
+        consol/e.log('layout is complete');
     });
 // trigger initial layout
     $grid.masonry();
 
     setContentWidth();
-
-
 
 
 // modal for desire*********************************************************************************************************
@@ -494,4 +491,5 @@ $(function () {
         $(this).children().attr('height', height);
     });
     // $grid.masonry();
+
 });

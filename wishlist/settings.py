@@ -140,3 +140,4 @@ STATIC_ROOT = env.get('STATIC_ROOT', '')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = env.get('MEDIA_ROOT', '')
+

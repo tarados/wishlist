@@ -331,7 +331,7 @@ $(function () {
 
 // bind event
     $grid.masonry('on', 'layoutComplete', function () {
-        consol/e.log('layout is complete');
+        console.log('layout is complete');
     });
 // trigger initial layout
     $grid.masonry();
@@ -491,5 +491,11 @@ $(function () {
         $(this).children().attr('height', height);
     });
     // $grid.masonry();
-
+    $('.desire_image').each(function () {
+        var img = $(this).children('img');
+        var height_img = img.attr('height').replace(',', '.');
+        var height = parseFloat(height_img);
+        var overlay = $(this).children('.overlay5');
+        overlay.css('height', height);
+    });
 });

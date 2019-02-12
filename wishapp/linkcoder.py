@@ -2,14 +2,18 @@ import re
 import random
 import string
 
-# a = 'https://megamag.online/catalog/gazonokosilki/gazonokosilka-rotornaya-bosch-arm-34-06008a6101/'
+# a = """https://megamag.online/catalog/gazonokosilki/gazonokosilka-rotornaya-bosch-arm-34-06008a6101/
+# sdkfhsdf sdg
+# sdfdsdg
+# tyyh"""
 
 def link_on(str):
     text = []
     href_list = []
     href_link = '#'
     href_img = '#'
-    str_desire = str.split(' ')
+    st = str.replace('\n', ' ')
+    str_desire = st.split(' ')
     for substr in str_desire:
         if re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#@\d+\w+_(),*]+', substr):
             href_list.append(re.search(r'[Hh-sS]\w+:[//.aA-zZ:\-?&=%#@\d+\w+_(),*]+', substr).group())

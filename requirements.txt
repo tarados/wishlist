@@ -4,4 +4,4 @@ envdir==0.7
 dj-database-url==0.4.2
 django-allauth==0.36.0
 Pillow
-requests==2.18.4
+requests==2.20.0
